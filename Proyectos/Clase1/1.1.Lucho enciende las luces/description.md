@@ -1,4 +1,4 @@
-#Proyecto 3.2.4. Lucho enciende las luces
+#Clase 1.1. Lucho enciende las luces
 
 El programa a realizar debe instruir a Lucho, nuestro robot de casa, para que encienda todas las luces que aparecen en el tablero, que están siempre en el mismo lugar. El tablero inicial es:
 
@@ -17,4 +17,4 @@ Lo importante es que pienses de entrada una estrategia de solución, dividiendo 
 
 [Enunciado en PDF][PDF]
 
-[PDF]: https://raw.githubusercontent.com/gobstones/proyectos-jr/master/Proyectos/Cap.3/3.2.4.Lucho%20enciende%20las%20luces/description.pdf "Enunciado de 'Lucho enciende las luces' en PDF"
+[PDF]: https://raw.githubusercontent.com/gobstones/programacionysudidactica2/master/Proyectos/Clase1/1.1.Lucho%20enciende%20las%20luces/description.pdf "Enunciado de 'Lucho enciende las luces' en PDF"
