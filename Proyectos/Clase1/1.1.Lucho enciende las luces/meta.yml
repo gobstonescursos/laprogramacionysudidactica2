@@ -5,20 +5,10 @@ attire:
   visible: true
 blocks:
   disabled:
-    - Poner
-    - Mover
-    - Sacar
-    - IrAlBorde
-    - Color
   visible:
-    - Poner
-    - Mover
-    - Sacar
-    - IrAlBorde
     - Procedimientos primitivos
     - Mis procedimientos
     - RepeticionSimple
-    - Color
     - Direccion
     - Numero
     - procedures_defnoreturnnoparams
