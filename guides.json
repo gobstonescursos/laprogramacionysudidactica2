@@ -1,28 +1,21 @@
 [
-  {
-    "name": "Repaso",
-    "repo": "gobstones/programacionysudidactica2",
-    "exercises": [
-      {
-        "id": "1.1",
-        "name": "Lucho enciende las luces",
-        "path": "Proyectos/Clase1/1.1.Lucho enciende las luces"
-      },
-      {
-        "id": "1.2",
-        "name": "Lucho enciende las luces extendido",
-        "path": "Proyectos/Clase1/1.2.Lucho enciende las luces extendido"
+  { "name": "Repaso", "repo": "gobstones/programacionysudidactica2"
+  , "exercises": 
+    [ { "id": "1.1", "name": "Lucho enciende las luces"
+      , "path": "Proyectos/Clase1/1.1.Lucho enciende las luces"
+      }
+    , { "id": "1.2", "name": "Lucho enciende las luces extendido"
+      , "path": "Proyectos/Clase1/1.2.Lucho enciende las luces extendido"
       }
     ]
   },
-  {
-    "name": "Expresiones y funciones simples",
-    "repo": "gobstones/programacionysudidactica2",
-    "exercises": [
-      {
-        "id": "2.3",
-        "name": "El rey, el caballo, ...",
-        "path": "Proyectos/Clase2/2.3.El rey, el caballo"
+  { "name": "Expresiones y funciones simples", "repo": "gobstones/programacionysudidactica2"
+  , "exercises":
+    [ { "id": "2.3", "name": "El rey, el caballo, ..."
+      , "path": "Proyectos/Clase2/2.3.El rey, el caballo"
+      }
+    , { "id": "2.4", "name": "Memotest"
+      , "path": "Proyectos/Clase2/2.4.Memotest"
       }
     ]
   }
