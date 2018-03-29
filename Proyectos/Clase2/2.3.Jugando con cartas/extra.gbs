@@ -89,7 +89,7 @@ function mazoEspañolTruco() {
     return(mazo)
 }
 
-procedure MostrarCarta(carta) {
+procedure MostrarCarta_(carta) {
   AuxPoner__Veces(auxColorValor(), valor(carta)) 
   AuxPoner__Veces(auxColorPalo(), auxCodigoPalo(palo(carta))) 
 }
