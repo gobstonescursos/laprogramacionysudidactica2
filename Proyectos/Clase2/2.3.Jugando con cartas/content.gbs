@@ -1,3 +1,14 @@
-program {
-    
+﻿program {
+  mazo := mazoEspañolTruco()
+  while (quedanCartas_(mazo)) {
+      carta := dameLaPrimeraCarta_(mazo)
+      mazo := sacarPrimeraCarta_(mazo)
+      MostrarCarta(carta)
+      PasarASiguienteCelda()
+  }
+}
+
+procedure PasarASiguienteCelda() {
+    if (puedeMover(Este)) { Mover(Este) }
+    else { IrAlBorde(Oeste) Mover(Norte) }
 }
