@@ -78,6 +78,7 @@ function mazoEspañolTruco() {
 //--------------------------------
 // Operaciones de mostrado de cartas
 //--------------------------------
+procedure IluminarCartaActual() { Poner(auxColorParaMarca()) }
 procedure DestaparCartaActual() { Sacar(auxColorParaElReverso()) }
 procedure TaparCartaActual()    { Poner(auxColorParaElReverso()) }
 procedure SacarCartaActual() {
