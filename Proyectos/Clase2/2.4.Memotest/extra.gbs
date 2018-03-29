@@ -108,13 +108,25 @@ function leerCarta() {
 
 procedure PasarASiguienteCartaHacia_(dir) { if (puedeMover(dir)) { Mover(dir) } }
 
+function hayCarta() { return (hayBolitas(auxColorParaElPalo()) && hayBolitas(auxColorParaElValor())) }     
+function hayCartaTapada()    { return (hayCarta() &&     hayBolitas(auxColorParaElReverso())) }
+function hayCartaDestapada() { return (hayCarta() && not hayBolitas(auxColorParaElReverso())) }
+
+function hayOtraCartaDestapada() {
+  Poner(auxColorParaMarca())
+  IrAlBorde(Sur) IrAlBorde(Oeste)
+  while (not auxTerminoElRecorrido() && not auxHayCartaDestapadaSinMarca()) { AuxPasarASiguienteCarta() }
+  ret := auxHayCartaDestapadaSinMarca()
+  AuxVolverA(auxColorParaMarca())
+  Sacar(auxColorParaMarca())
+  return (ret)
+}                                    
+                                    
 //--------------------------------
 // Operaciones auxliares
 //--------------------------------
-function auxHayCarta() { return (hayBolitas(auxColorParaElPalo()) 
-                              && hayBolitas(auxColorParaElValor())) }     
-function auxHayCartaTapada()    { return (auxHayCarta() &&     hayBolitas(auxColorParaElReverso())) }
-function auxHayCartaDestapada() { return (auxHayCarta() && not hayBolitas(auxColorParaElReverso())) }
+function auxHayCartaDestapadaSinMarca() { return (hayCartaDestapada() && not auxHayMarca()) }
+function auxHayMarca() { return (hayBolitas(auxColorParaMarca())) }
 
 function auxPaloParaElCódigo(código) {
   switch (código) to {
@@ -152,16 +164,6 @@ procedure AuxSacarTodas_(c) { repeat(nroBolitas(c)) { Sacar(c) } }
 //--------------------------------
 // Operaciones de recorrido
 //--------------------------------
-function auxHayOtraCartaDestapada() {
-  Poner(auxColorParaMarca())
-  IrAlBorde(Sur) IrAlBorde(Oeste)
-  while (not auxTerminoElRecorrido() && not auxHayCartaDestapadaSinMarca()) { AuxPasarASiguienteCarta() }
-  ret := auxHayCartaDestapadaSinMarca()
-  AuxVolverA(auxColorParaMarca())
-  Sacar(auxColorParaMarca())
-  return (ret)
-}                                    
-                                    
 procedure AuxPasarASiguienteCarta() {
     if (puedeMover(Este)) { Mover(Este) }
     elseif (puedeMover(Norte)) { IrAlBorde(Oeste) Mover(Norte) }
@@ -169,9 +171,6 @@ procedure AuxPasarASiguienteCarta() {
 }
 
 function auxTerminoElRecorrido() { return (not puedeMover(Este) && not puedeMover(Norte)) }
-function auxHayCartaDestapadaSinMarca() { return (auxHayCartaDestapada() && not auxHayMarca()) }
-function auxHayMarca() { return (hayBolitas(auxColorParaMarca())) }
-
 procedure AuxVolverA(color) {
   IrAlBorde(Sur) IrAlBorde(Oeste)
   while (not auxTerminoElRecorrido() && not auxHayMarca()) { AuxPasarASiguienteCarta() }
