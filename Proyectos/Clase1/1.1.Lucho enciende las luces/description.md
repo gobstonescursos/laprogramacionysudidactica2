@@ -17,4 +17,4 @@ Lo importante es que pienses de entrada una estrategia de solución, dividiendo 
 
 [Enunciado en PDF][PDF]
 
-[PDF]: https://raw.githubusercontent.com/gobstones/programacionysudidactica2/master/Proyectos/Clase1/1.1.Lucho%20enciende%20las%20luces/description.pdf "Enunciado de 'Lucho enciende las luces' en PDF"
+[PDF]: https://raw.githubusercontent.com/gobstones/programacionysudidactica2/master/Proyectos/Clase1/1.1.Lucho%20enciende%20las%20luces/resources/description.pdf "Enunciado de 'Lucho enciende las luces' en PDF"
