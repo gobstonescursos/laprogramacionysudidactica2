@@ -96,7 +96,7 @@ procedure MostrarCarta_(carta) {
 }
 
 //--------------------------------
-// Operaciones auxiliares
+// Operaciones auxliares
 //--------------------------------
 procedure PasarASiguienteCelda() {
     if (puedeMover(Este)) { Mover(Este) }

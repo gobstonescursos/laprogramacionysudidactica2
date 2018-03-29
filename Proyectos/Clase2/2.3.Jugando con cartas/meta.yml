@@ -20,9 +20,8 @@ blocks:
     - OperadorDeComparacion
     - OperadorDeNegacion
     - OperadorLogico
-    - DefinicionDeProcedimientoSimple
     - DefinicionDeProcedimientoParametrizado
-    - DefinicionDeFuncionSimple
+    - DefinicionDeFuncionSimpleParametrizada
 board:
   active: 1
   initial_board_source: selected
