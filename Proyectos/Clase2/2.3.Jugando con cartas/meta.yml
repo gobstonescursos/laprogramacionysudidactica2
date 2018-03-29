@@ -10,9 +10,11 @@ blocks:
     - IrAlBorde
     - Procedimientos primitivos
     - Mis procedimientos
-    - Asignacion
-    - AlternativaSimple
+    - RepeticionSimple
     - RepeticionCondicional
+    - AlternativaSimple
+    - AlternativaCompleta
+    - Asignacion
     - Mis funciones
     - Direccion
     - Numero
