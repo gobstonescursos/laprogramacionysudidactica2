@@ -81,8 +81,8 @@ function mazoEspañolTruco() {
 procedure DestaparCartaActual() { Sacar(auxColorParaElReverso()) }
 procedure TaparCartaActual()    { Poner(auxColorParaElReverso()) }
 procedure SacarCartaActual() {
-  if (not auxHayCarta())   { BOOM("No hay carta para sacar") }
-  if (auxHayCartaTapada()) { BOOM("No puedo sacar una carta tapada") }
+  if (not hayCarta())   { BOOM("No hay carta para sacar") }
+  if (hayCartaTapada()) { BOOM("No puedo sacar una carta tapada") }
   AuxSacarTodas()
 }
 
@@ -92,15 +92,15 @@ procedure BajarCartaTapada_(carta) {
 }
 
 procedure BajarCartaDestapada_(carta) {
-  if (auxHayCarta()) { BOOM("No puedo bajar una carta donde ya hay una") }
+  if (hayCarta()) { BOOM("No puedo bajar una carta donde ya hay una") }
   AuxSacarTodas()
   AuxPoner__Veces(auxColorParaElValor(), valor(carta)) 
   AuxPoner__Veces(auxColorParaElPalo(), auxCódigoParaElPalo(palo(carta))) 
 }
 
 function leerCarta() {
-  if (not auxHayCarta())   { BOOM("No hay una carta") }
-  if (auxHayCartaTapada()) { BOOM("La carta está tapada") }
+  if (not hayCarta())   { BOOM("No hay una carta") }
+  if (hayCartaTapada()) { BOOM("La carta está tapada") }
   return(Carta(valor <- nroBolitas(auxColorParaElValor())
               ,palo  <- auxPaloParaElCódigo(nroBolitas(auxColorParaElPalo()))
               ))
@@ -160,7 +160,6 @@ procedure AuxPoner__Veces(c,n) { repeat (n) { Poner(c) } }
 procedure AuxSacarTodas() { foreach c in [Azul..Rojo] { AuxSacarTodas_(c) } }
 procedure AuxSacarTodas_(c) { repeat(nroBolitas(c)) { Sacar(c) } }
 
-
 //--------------------------------
 // Operaciones de recorrido
 //--------------------------------
@@ -176,4 +175,4 @@ procedure AuxVolverA(color) {
   while (not auxTerminoElRecorrido() && not auxHayMarca()) { AuxPasarASiguienteCarta() }
   ret := auxHayCartaDestapadaSinMarca()
   Sacar(auxColorParaMarca())
-}                                    
+}
