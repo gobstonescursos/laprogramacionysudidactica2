@@ -3,7 +3,7 @@
   while (quedanCartas_(mazo)) {
       carta := dameLaPrimeraCarta_(mazo)
       mazo := sacarPrimeraCarta_(mazo)
-      MostrarCarta(carta)
+      MostrarCarta_(carta)
       PasarASiguienteCelda()
   }
 }
