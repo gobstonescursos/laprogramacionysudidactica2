@@ -78,7 +78,10 @@ function mazoEspañolTruco() {
 //--------------------------------
 // Operaciones de mostrado de cartas
 //--------------------------------
-procedure IluminarCartaActual() { if (hayCartaDestapada() && not auxHayMarca()) { Poner(auxColorParaMarca()) } }
+procedure IluminarCartaActual() { 
+  if (hayCartaDestapada() && not auxEstáIluminada())
+     { Poner(auxColorParaMarca()) } 
+}
 procedure DestaparCartaActual() { Sacar(auxColorParaElReverso()) }
 procedure TaparCartaActual()    { Poner(auxColorParaElReverso()) }
 procedure SacarCartaActual() {
@@ -114,12 +117,12 @@ function hayCartaTapada()    { return (hayCarta() &&     hayBolitas(auxColorPara
 function hayCartaDestapada() { return (hayCarta() && not hayBolitas(auxColorParaElReverso())) }
 
 function hayOtraCartaDestapada() {
-  Poner(auxColorParaMarca())
+  AuxPoner__Veces(auxColorParaMarca(),2)
   IrAlBorde(Sur) IrAlBorde(Oeste)
   while (not auxTerminoElRecorrido() && not auxHayCartaDestapadaSinMarca()) { AuxPasarASiguienteCarta() }
   ret := auxHayCartaDestapadaSinMarca()
-  AuxVolverA(auxColorParaMarca())
-  Sacar(auxColorParaMarca())
+  AuxVolverALaMarca()
+  AuxSacar__Veces(auxColorParaMarca(),2)
   return (ret)
 }                                    
                                     
@@ -127,7 +130,8 @@ function hayOtraCartaDestapada() {
 // Operaciones auxliares
 //--------------------------------
 function auxHayCartaDestapadaSinMarca() { return (hayCartaDestapada() && not auxHayMarca()) }
-function auxHayMarca() { return (hayBolitas(auxColorParaMarca())) }
+function auxEstáIluminada()             { return (nroBolitas(auxColorParaMarca())==1) }
+function auxHayMarca()                  { return (nroBolitas(auxColorParaMarca())>1) }
 
 function auxPaloParaElCódigo(código) {
   switch (código) to {
@@ -157,9 +161,10 @@ function auxColorParaElReverso() { return(Rojo)  }
 function auxColorParaMarca()     { return(Verde) }
 
 procedure AuxPoner__Veces(c,n) { repeat (n) { Poner(c) } }
+procedure AuxSacar__Veces(c,n) { repeat (n) { Sacar(c) } }
 
 procedure AuxSacarTodas() { foreach c in [Azul..Rojo] { AuxSacarTodas_(c) } }
-procedure AuxSacarTodas_(c) { repeat(nroBolitas(c)) { Sacar(c) } }
+procedure AuxSacarTodas_(c) { AuxSacar__Veces(c, nroBolitas(c)) }
 
 //--------------------------------
 // Operaciones de recorrido
@@ -171,7 +176,8 @@ procedure AuxPasarASiguienteCarta() {
 }
 
 function auxTerminoElRecorrido() { return (not puedeMover(Este) && not puedeMover(Norte)) }
-procedure AuxVolverA(color) {
+
+procedure AuxVolverALaMarca() {
   IrAlBorde(Sur) IrAlBorde(Oeste)
   while (not auxTerminoElRecorrido() && not auxHayMarca()) { AuxPasarASiguienteCarta() }
   ret := auxHayCartaDestapadaSinMarca()
