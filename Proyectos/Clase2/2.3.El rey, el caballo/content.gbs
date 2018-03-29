@@ -1,0 +1,62 @@
+﻿/*@BEGIN_REGION@FTsQyG+ScTBph2O(|029@*/
+function esFigura(carta) {
+  return (/*@BEGIN_REGION@vH]$*{CQzpHAalHnj6H3@*//*@BEGIN_REGION@,bU8C!ONN5t*cy=NhaFx@*/esRey(/*@BEGIN_REGION@5Wk2,v/huA5p]GDt}!aY@*/carta/*@END_REGION@*/)/*@END_REGION@*/ || (/*@BEGIN_REGION@6kY*;;RHyfDidE0:e|fv@*//*@BEGIN_REGION@$2a6:_KT}i?P(hAQl6zd@*/esCaballo(/*@BEGIN_REGION@x(IvY?bkEIWUyawBc;[5@*/carta/*@END_REGION@*/)/*@END_REGION@*/ || /*@BEGIN_REGION@]viz/!gRw4RSk!LDGc=O@*/esSota(/*@BEGIN_REGION@J2)P?az=PaNkGXd9zSlT@*/carta/*@END_REGION@*/)/*@END_REGION@*//*@END_REGION@*/)/*@END_REGION@*/)
+}
+/*@END_REGION@*/
+
+/*@BEGIN_REGION@gvw9CY-SA+,cTQXSi[D+@*/
+procedure MarcarLasFiguras() {
+  /*@BEGIN_REGION@7FbBm0ihxb3BaRGm%txq@*/
+  repeat(/*@BEGIN_REGION@1#s4(UK8CqdnBh1tK7SF@*/9/*@END_REGION@*/) {
+    /*@BEGIN_REGION@+cQJO,X{urha{0z7S$OU@*/
+    ProcesarUnaCarta()
+    /*@END_REGION@*/
+    /*@BEGIN_REGION@nZ_OUswH)-y3[Z}7TpUK@*/
+    PasarASiguienteCarta()
+    /*@END_REGION@*/
+  }
+  /*@END_REGION@*/
+}
+/*@END_REGION@*/
+
+/*@BEGIN_REGION@aw}(F9a;ARd;/BRQH^4/@*/
+procedure ProcesarUnaCarta() {
+  /*@BEGIN_REGION@(NJR7A}j~X:HV.B4ozy$@*/
+  RevelarCartaActual()
+  /*@END_REGION@*/
+  /*@BEGIN_REGION@zsu7wG`$b$YB!3++Yd!:@*/
+  if (/*@BEGIN_REGION@3y.PH?9rL/);RA#:1}z{@*/not(/*@BEGIN_REGION@?6=f=Ssx4h{x+O2[`?fS@*/esFigura(/*@BEGIN_REGION@ws)_ke2.3-Zn|8tggGuK@*/leerCarta()/*@END_REGION@*/)/*@END_REGION@*/)/*@END_REGION@*/) {
+    /*@BEGIN_REGION@8m:L9a|zIe%8UruEWPv_@*/
+    TaparCartaActual()
+    /*@END_REGION@*/
+  }
+  /*@END_REGION@*/
+}
+/*@END_REGION@*/
+
+/*@BEGIN_REGION@Jn2$Q,zaKnl$IK|3R$jj@*/
+function esRey(carta) {
+  return (/*@BEGIN_REGION@^=$8TTs0T9U#UNMhfW1$@*//*@BEGIN_REGION@vjusoh^$`)cH#rK,ptse@*/dameElValor_(/*@BEGIN_REGION@m:MNGPucTRBu6D=HyQL5@*/carta/*@END_REGION@*/)/*@END_REGION@*/ == /*@BEGIN_REGION@(PRLq/0h8Zg[5YJTaYCk@*/12/*@END_REGION@*//*@END_REGION@*/)
+}
+/*@END_REGION@*/
+
+/*@BEGIN_REGION@j$G2ymZ{d=~H0DfUM2QO@*/
+function esCaballo(carta) {
+  return (/*@BEGIN_REGION@=51pb{h%G,?-Vkrlv/fY@*//*@BEGIN_REGION@^!p[}c*l~c`^Rd1+N}-!@*/dameElValor_(/*@BEGIN_REGION@7(^%M!1)`O0Wh+f(Ama.@*/carta/*@END_REGION@*/)/*@END_REGION@*/ == /*@BEGIN_REGION@O7oQKT-XBBEW1gq~aun?@*/11/*@END_REGION@*//*@END_REGION@*/)
+}
+/*@END_REGION@*/
+
+/*@BEGIN_REGION@tw6bI(*O/Dnc4%Zhy/L$@*/
+function esSota(carta) {
+  return (/*@BEGIN_REGION@2;n#8yYM,kVL=+S#,SxP@*//*@BEGIN_REGION@5gqi0TTP8-f!#WQ(YxfF@*/dameElValor_(/*@BEGIN_REGION@:%!EVsk4`{*SuA%f?({2@*/carta/*@END_REGION@*/)/*@END_REGION@*/ == /*@BEGIN_REGION@rK(i#SW;DJLAgGmc[#5z@*/10/*@END_REGION@*//*@END_REGION@*/)
+}
+/*@END_REGION@*/
+
+
+/*@BEGIN_REGION@Dr)Yg5ub.,-,YMks`!8y@*/
+program {
+  /*@BEGIN_REGION@!F0Vz/,YU}`xp-)SbP8l@*/
+  MarcarLasFiguras()
+  /*@END_REGION@*/
+}
+/*@END_REGION@*/
