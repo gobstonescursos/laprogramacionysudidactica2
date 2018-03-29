@@ -1,242 +1,42 @@
 name: Cartas españolas de truco
 rules:
-  - image: Espadas-01.png
-    when:
-      black: 1
-      blue: 0
-      green: 0
-      red: 1
-  - image: Espadas-02.png
-    when:
-      black: 1
-      blue: 0
-      green: 0
-      red: 2
-  - image: Espadas-03.png
-    when:
-      black: 1
-      blue: 0
-      green: 0
-      red: 3
-  - image: Espadas-04.png
-    when:
-      black: 1
-      blue: 0
-      green: 0
-      red: 4
-  - image: Espadas-05.png
-    when:
-      black: 1
-      blue: 0
-      green: 0
-      red: 5
-  - image: Espadas-06.png
-    when:
-      black: 1
-      blue: 0
-      green: 0
-      red: 6
-  - image: Espadas-07.png
-    when:
-      black: 1
-      blue: 0
-      green: 0
-      red: 7
-  - image: Espadas-10.png
-    when:
-      black: 1
-      blue: 0
-      green: 0
-      red: 10
-  - image: Espadas-11.png
-    when:
-      black: 1
-      blue: 0
-      green: 0
-      red: 11
-  - image: Espadas-12.png
-    when:
-      black: 1
-      blue: 0
-      green: 0
-      red: 12
-  - image: Oros-01.png
-    when:
-      black: 2
-      blue: 0
-      green: 0
-      red: 1
-  - image: Oros-02.png
-    when:
-      black: 2
-      blue: 0
-      green: 0
-      red: 2
-  - image: Oros-03.png
-    when:
-      black: 2
-      blue: 0
-      green: 0
-      red: 3
-  - image: Oros-04.png
-    when:
-      black: 2
-      blue: 0
-      green: 0
-      red: 4
-  - image: Oros-05.png
-    when:
-      black: 2
-      blue: 0
-      green: 0
-      red: 5
-  - image: Oros-06.png
-    when:
-      black: 2
-      blue: 0
-      green: 0
-      red: 6
-  - image: Oros-07.png
-    when:
-      black: 2
-      blue: 0
-      green: 0
-      red: 7
-  - image: Oros-10.png
-    when:
-      black: 2
-      blue: 0
-      green: 0
-      red: 10
-  - image: Oros-11.png
-    when:
-      black: 2
-      blue: 0
-      green: 0
-      red: 11
-  - image: Oros-12.png
-    when:
-      black: 2
-      blue: 0
-      green: 0
-      red: 12
-  - image: Bastos-01.png
-    when:
-      black: 3
-      blue: 0
-      green: 0
-      red: 1
-  - image: Bastos-02.png
-    when:
-      black: 3
-      blue: 0
-      green: 0
-      red: 2
-  - image: Bastos-03.png
-    when:
-      black: 3
-      blue: 0
-      green: 0
-      red: 3
-  - image: Bastos-04.png
-    when:
-      black: 3
-      blue: 0
-      green: 0
-      red: 4
-  - image: Bastos-05.png
-    when:
-      black: 3
-      blue: 0
-      green: 0
-      red: 5
-  - image: Bastos-06.png
-    when:
-      black: 3
-      blue: 0
-      green: 0
-      red: 6
-  - image: Bastos-07.png
-    when:
-      black: 3
-      blue: 0
-      green: 0
-      red: 7
-  - image: Bastos-10.png
-    when:
-      black: 3
-      blue: 0
-      green: 0
-      red: 10
-  - image: Bastos-11.png
-    when:
-      black: 3
-      blue: 0
-      green: 0
-      red: 11
-  - image: Bastos-12.png
-    when:
-      black: 3
-      blue: 0
-      green: 0
-      red: 12
-  - image: Copas-01.png
-    when:
-      black: 4
-      blue: 0
-      green: 0
-      red: 1
-  - image: Copas-02.png
-    when:
-      black: 4
-      blue: 0
-      green: 0
-      red: 2
-  - image: Copas-03.png
-    when:
-      black: 4
-      blue: 0
-      green: 0
-      red: 3
-  - image: Copas-04.png
-    when:
-      black: 4
-      blue: 0
-      green: 0
-      red: 4
-  - image: Copas-05.png
-    when:
-      black: 4
-      blue: 0
-      green: 0
-      red: 5
-  - image: Copas-06.png
-    when:
-      black: 4
-      blue: 0
-      green: 0
-      red: 6
-  - image: Copas-07.png
-    when:
-      black: 4
-      blue: 0
-      green: 0
-      red: 7
-  - image: Copas-10.png
-    when:
-      black: 4
-      blue: 0
-      green: 0
-      red: 10
-  - image: Copas-11.png
-    when:
-      black: 4
-      blue: 0
-      green: 0
-      red: 11
-  - image: Copas-12.png
-    when:
-      black: 4
-      blue: 0
-      green: 0
-      red: 12
+  - { image: Espadas-01.png,  when: { black: 1, blue: 0, green: 0, red:  1 } } 
+  - { image: Espadas-02.png,  when: { black: 1, blue: 0, green: 0, red:  2 } } 
+  - { image: Espadas-03.png,  when: { black: 1, blue: 0, green: 0, red:  3 } } 
+  - { image: Espadas-04.png,  when: { black: 1, blue: 0, green: 0, red:  4 } } 
+  - { image: Espadas-05.png,  when: { black: 1, blue: 0, green: 0, red:  5 } } 
+  - { image: Espadas-06.png,  when: { black: 1, blue: 0, green: 0, red:  6 } } 
+  - { image: Espadas-07.png,  when: { black: 1, blue: 0, green: 0, red:  7 } } 
+  - { image: Espadas-10.png,  when: { black: 1, blue: 0, green: 0, red: 10 } } 
+  - { image: Espadas-11.png,  when: { black: 1, blue: 0, green: 0, red: 11 } } 
+  - { image: Espadas-12.png,  when: { black: 1, blue: 0, green: 0, red: 12 } } 
+  - { image: Oros-01.png,     when: { black: 2, blue: 0, green: 0, red:  1 } } 
+  - { image: Oros-02.png,     when: { black: 2, blue: 0, green: 0, red:  2 } } 
+  - { image: Oros-03.png,     when: { black: 2, blue: 0, green: 0, red:  3 } } 
+  - { image: Oros-04.png,     when: { black: 2, blue: 0, green: 0, red:  4 } } 
+  - { image: Oros-05.png,     when: { black: 2, blue: 0, green: 0, red:  5 } } 
+  - { image: Oros-06.png,     when: { black: 2, blue: 0, green: 0, red:  6 } } 
+  - { image: Oros-07.png,     when: { black: 2, blue: 0, green: 0, red:  7 } } 
+  - { image: Oros-10.png,     when: { black: 2, blue: 0, green: 0, red: 10 } } 
+  - { image: Oros-11.png,     when: { black: 2, blue: 0, green: 0, red: 11 } } 
+  - { image: Oros-12.png,     when: { black: 2, blue: 0, green: 0, red: 12 } } 
+  - { image: Bastos-01.png,   when: { black: 3, blue: 0, green: 0, red:  1 } } 
+  - { image: Bastos-02.png,   when: { black: 3, blue: 0, green: 0, red:  2 } } 
+  - { image: Bastos-03.png,   when: { black: 3, blue: 0, green: 0, red:  3 } } 
+  - { image: Bastos-04.png,   when: { black: 3, blue: 0, green: 0, red:  4 } } 
+  - { image: Bastos-05.png,   when: { black: 3, blue: 0, green: 0, red:  5 } } 
+  - { image: Bastos-06.png,   when: { black: 3, blue: 0, green: 0, red:  6 } } 
+  - { image: Bastos-07.png,   when: { black: 3, blue: 0, green: 0, red:  7 } } 
+  - { image: Bastos-10.png,   when: { black: 3, blue: 0, green: 0, red: 10 } } 
+  - { image: Bastos-11.png,   when: { black: 3, blue: 0, green: 0, red: 11 } } 
+  - { image: Bastos-12.png,   when: { black: 3, blue: 0, green: 0, red: 12 } } 
+  - { image: Copas-01.png,    when: { black: 4, blue: 0, green: 0, red:  1 } } 
+  - { image: Copas-02.png,    when: { black: 4, blue: 0, green: 0, red:  2 } } 
+  - { image: Copas-03.png,    when: { black: 4, blue: 0, green: 0, red:  3 } } 
+  - { image: Copas-04.png,    when: { black: 4, blue: 0, green: 0, red:  4 } } 
+  - { image: Copas-05.png,    when: { black: 4, blue: 0, green: 0, red:  5 } } 
+  - { image: Copas-06.png,    when: { black: 4, blue: 0, green: 0, red:  6 } } 
+  - { image: Copas-07.png,    when: { black: 4, blue: 0, green: 0, red:  7 } } 
+  - { image: Copas-10.png,    when: { black: 4, blue: 0, green: 0, red: 10 } } 
+  - { image: Copas-11.png,    when: { black: 4, blue: 0, green: 0, red: 11 } } 
+  - { image: Copas-12.png,    when: { black: 4, blue: 0, green: 0, red: 12 } } 
