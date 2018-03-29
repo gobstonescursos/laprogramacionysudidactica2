@@ -6,9 +6,12 @@ attire:
 blocks:
   disabled:
   visible:
+    - Mover
+    - IrAlBorde
     - Procedimientos primitivos
     - Mis procedimientos
     - Asignacion
+    - RepeticionCondicional
     - Mis funciones
     - Direccion
     - Numero
