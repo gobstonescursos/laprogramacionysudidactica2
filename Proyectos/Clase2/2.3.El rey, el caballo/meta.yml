@@ -6,8 +6,6 @@ attire:
 blocks:
   disabled:
   visible:
-    - Mover
-    - IrAlBorde
     - Procedimientos primitivos
     - Mis procedimientos
     - RepeticionSimple
