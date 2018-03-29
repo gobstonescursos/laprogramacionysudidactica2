@@ -1,0 +1,109 @@
+type Palo is variant {
+  case Comodín {}
+  case Espadas {}
+  case Oros    {}
+  case Bastos  {}
+  case Copas   {}
+}
+
+type Carta is record {
+  field palo
+  field valor  
+}
+
+//--------------------------------
+// Operaciones de palos
+//--------------------------------
+/*@ATTRIBUTE@block_name@Oros@*/
+function oros() { return(Oros) }
+
+/*@ATTRIBUTE@block_name@Espadas@*/
+function espadas() { return(Espadas) }
+
+/*@ATTRIBUTE@block_name@Copas@*/
+function copas() { return(Copas) }
+
+/*@ATTRIBUTE@block_name@Bastos@*/
+function bastos() { return(Bastos) }
+
+//--------------------------------
+// Operaciones de cartas
+//--------------------------------
+/*@ATTRIBUTE@block_name@dame la Carta _ de _@*/
+function carta__(valor,palo) { 
+    if (not (valor >= 1 && valor <= 12)) { BOOM("No existen cartas de ese valor") }
+    if (palo == Comodín) { BOOM("No podés usar esta operación para obtener el comodín") }
+    return(Carta(palo <- palo, valor <- valor)) 
+}
+
+/*@ATTRIBUTE@block_name@dame un comodín@*/
+function comodín() { 
+    return(Carta(palo <- Comodín, valor <- 0)) 
+}
+
+/*@ATTRIBUTE@block_name@es comodín _@*/
+function esComodín_(carta) { return(palo(carta)==Comodín) }
+
+/*@ATTRIBUTE@block_name@palo de _@*/
+function dameElPalo_(carta) { 
+  if (palo(carta) == Comodín) { BOOM("El comodín no tiene palo") }
+  return(palo(carta)) 
+}
+
+/*@ATTRIBUTE@block_name@valor de _@*/
+function dameElValor_(carta) { 
+  if (palo(carta) == Comodín) { BOOM("El comodín no tiene valor") }
+  return(valor(carta)) 
+}
+
+//--------------------------------
+// Operaciones de mazos
+//--------------------------------
+function dameLaPrimeraCarta_(mazo) { return(primero(mazo)) }
+function sacarPrimeraCarta_(mazo) { return(resto(mazo)) }
+
+/*@ATTRIBUTE@block_name@quedan cartas en _?@*/
+function quedanCartas_(mazo) { return(not(mazo==[])) }
+
+function mazoEspañolChinChon() {
+    mazo := []
+    foreach palo in [Espadas, Oros, Copas, Bastos] {
+        foreach valor in [1..12] {
+            mazo := mazo ++ [ carta__(valor,palo) ]
+        }
+    }
+    mazo := mazo ++ [ comodín(), comodín() ]
+    return(mazo)
+}
+
+function mazoEspañolTruco() {
+    mazo := []
+    foreach palo in [Espadas, Oros, Copas, Bastos] {
+        foreach valor in [1..7] {
+            mazo := mazo ++ [ carta__(valor,palo) ]
+        }
+        foreach valor in [10..12] {
+            mazo := mazo ++ [ carta__(valor,palo) ]
+        }
+    }
+    return(mazo)
+}
+
+procedure MostrarCarta(carta) {
+  AuxPoner__Veces(valor(carta), auxColorValor()) 
+  AuxPoner__Veces(auxCodigoPalo(palo(carta)), auxColorPalo()) 
+}
+
+function auxCodigoPalo(palo) { 
+  switch (palo) to {
+    Espadas -> { ret := 1 }
+    Oros    -> { ret := 2 }
+    Copas   -> { ret := 3 }
+    Bastos  -> { ret := 4 }
+    Comodín -> { ret := 5 }
+  }
+  return (ret)
+}
+function auxColorPalo()  { return(Negro) }
+function auxColorValor() { return(Rojo)  }
+
