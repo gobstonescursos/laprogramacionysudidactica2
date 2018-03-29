@@ -1,30 +1,16 @@
-type Palo is variant {
-  case Comodín {}
-  case Espadas {}
-  case Oros    {}
-  case Bastos  {}
-  case Copas   {}
-}
-
-type Carta is record {
-  field palo
-  field valor  
-}
+type Palo is variant { case Comodín {} case Espadas {} case Oros {} case Bastos {} case Copas {} }
+type Carta is record { field palo  field valor  }
 
 //--------------------------------
 // Operaciones de palos
 //--------------------------------
-/*@ATTRIBUTE@block_name@Oros@*/
-function oros() { return(Oros) }
+/*@ATTRIBUTE@block_name@Oros@*/function oros() { return(Oros) }
 
-/*@ATTRIBUTE@block_name@Espadas@*/
-function espadas() { return(Espadas) }
+/*@ATTRIBUTE@block_name@Espadas@*/function espadas() { return(Espadas) }
 
-/*@ATTRIBUTE@block_name@Copas@*/
-function copas() { return(Copas) }
+/*@ATTRIBUTE@block_name@Copas@*/function copas() { return(Copas) }
 
-/*@ATTRIBUTE@block_name@Bastos@*/
-function bastos() { return(Bastos) }
+/*@ATTRIBUTE@block_name@Bastos@*/function bastos() { return(Bastos) }
 
 //--------------------------------
 // Operaciones de cartas
@@ -92,41 +78,43 @@ function mazoEspañolTruco() {
 //--------------------------------
 // Operaciones de mostrado de cartas
 //--------------------------------
-procedure RevelarCartaActual() { Sacar(auxColorParaElReverso()) }
-procedure TaparCartaActual()   { Poner(auxColorParaElReverso()) }
-
-procedure BajarCartaTapada_(carta) {
-  TaparCartaActual()
-  BajarCartaDescubierta_(carta)
+procedure DestaparCartaActual() { Sacar(auxColorParaElReverso()) }
+procedure TaparCartaActual()    { Poner(auxColorParaElReverso()) }
+procedure SacarCartaActual() {
+  if (not auxHayCarta())   { BOOM("No hay carta para sacar") }
+  if (auxHayCartaTapada()) { BOOM("No puedo sacar una carta tapada") }
+  AuxSacarTodas()
 }
 
-procedure BajarCartaDescubierta_(carta) {
+procedure BajarCartaTapada_(carta) {
+  BajarCartaDestapada_(carta)
+  TaparCartaActual()
+}
+
+procedure BajarCartaDestapada_(carta) {
+  if (auxHayCarta()) { BOOM("No puedo bajar una carta donde ya hay una") }
   AuxSacarTodas()
   AuxPoner__Veces(auxColorParaElValor(), valor(carta)) 
   AuxPoner__Veces(auxColorParaElPalo(), auxCódigoParaElPalo(palo(carta))) 
 }
 
 function leerCarta() {
-  if (not auxHayCarta()) { BOOM("No hay una carta") }
+  if (not auxHayCarta())   { BOOM("No hay una carta") }
   if (auxHayCartaTapada()) { BOOM("La carta está tapada") }
   return(Carta(valor <- nroBolitas(auxColorParaElValor())
               ,palo  <- auxPaloParaElCódigo(nroBolitas(auxColorParaElPalo()))
               ))
 }         
 
-procedure PasarASiguienteCarta() {
-    if (puedeMover(Este)) { Mover(Este) }
-    elseif (puedeMover(Norte)) { IrAlBorde(Oeste) Mover(Norte) }
-    else { IrAlBorde(Oeste) IrAlBorde(Sur) }
-}
+procedure PasarASiguienteCartaHacia_(dir) { if (puedeMover(dir)) { Mover(dir) } }
 
 //--------------------------------
 // Operaciones auxliares
 //--------------------------------
 function auxHayCarta() { return (hayBolitas(auxColorParaElPalo()) 
                               && hayBolitas(auxColorParaElValor())) }     
-function auxHayCartaTapada() { return (auxHayCarta() 
-                                    && hayBolitas(auxColorParaElReverso())) }                              
+function auxHayCartaTapada()    { return (auxHayCarta() &&     hayBolitas(auxColorParaElReverso())) }
+function auxHayCartaDestapada() { return (auxHayCarta() && not hayBolitas(auxColorParaElReverso())) }
 
 function auxPaloParaElCódigo(código) {
   switch (código) to {
@@ -153,9 +141,40 @@ function auxCódigoParaElPalo(palo) {
 function auxColorParaElPalo()    { return(Negro) }
 function auxColorParaElValor()   { return(Azul)  }
 function auxColorParaElReverso() { return(Rojo)  }
+function auxColorParaMarca()     { return(Verde) }
 
 procedure AuxPoner__Veces(c,n) { repeat (n) { Poner(c) } }
 
 procedure AuxSacarTodas() { foreach c in [Azul..Rojo] { AuxSacarTodas_(c) } }
 procedure AuxSacarTodas_(c) { repeat(nroBolitas(c)) { Sacar(c) } }
 
+
+//--------------------------------
+// Operaciones de recorrido
+//--------------------------------
+function auxHayOtraCartaDestapada() {
+  Poner(auxColorParaMarca())
+  IrAlBorde(Sur) IrAlBordeOeste()
+  while (not auxTerminoElRecorrido() && not auxHayCartaDestapadaSinMarca()) { AuxPasarASiguienteCarta() }
+  ret := auxHayCartaDestapadaSinMarca()
+  AuxVolverA(auxColorParaMarca())
+  Sacar(auxColorParaMarca())
+  return (ret)
+}                                    
+                                    
+procedure AuxPasarASiguienteCarta() {
+    if (puedeMover(Este)) { Mover(Este) }
+    elseif (puedeMover(Norte)) { IrAlBorde(Oeste) Mover(Norte) }
+    else { IrAlBorde(Oeste) IrAlBorde(Sur) }
+}
+
+function auxTerminoElRecorrido() { return (not puedeMover(Este) && not puedeMover(Norte)) }
+function auxHayCartaDestapadaSinMarca() { return (auxHayCartaDestapada() && not auxHayMarca()) }
+function auxHayMarca() { return (hayBolitas(auxColorParaMarca())) }
+
+procedure AuxVolverA(color) {
+  IrAlBorde(Sur) IrAlBordeOeste()
+  while (no auxTerminoElRecorrido() && not auxHayMarca()) { AuxPasarASiguienteCarta() }
+  ret := auxHayCartaDestapadaSinMarca()
+  Sacar(auxColorParaMarca())
+}                                    

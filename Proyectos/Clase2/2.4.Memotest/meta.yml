@@ -24,6 +24,9 @@ blocks:
     - OperadorLogico
     - DefinicionDeProcedimientoParametrizado
     - DefinicionDeFuncionSimpleParametrizada
+    - DefinicionDeProgramaInteractivo
+    - DefinicionDeAsociacionDeTeclaEspecial
+    - DefinicionDeAsociacionDeTeclaNúmero
 board:
   active: 1
   initial_board_source: random
