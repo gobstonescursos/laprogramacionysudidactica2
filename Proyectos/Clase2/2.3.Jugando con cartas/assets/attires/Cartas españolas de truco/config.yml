@@ -1,6 +1,6 @@
 name: Cartas españolas de truco
 rules:
-  - { image: Reverso.png,     when: { black: *, blue: *, green: 0, red: 1 } } 
+  - { image: Reverso.png,     when: { black: '*', blue: '*', green: 0, red: 1 } } 
   - { image: Espadas-01.png,  when: { black:   1, blue:   1, green: 0, red: 0 } } 
   - { image: Espadas-02.png,  when: { black:   1, blue:   2, green: 0, red: 0 } } 
   - { image: Espadas-03.png,  when: { black:   1, blue:   3, green: 0, red: 0 } } 
