@@ -111,6 +111,11 @@ function leerCarta() {
 }         
 
 procedure PasarASiguienteCartaHacia_(dir) { if (puedeMover(dir)) { Mover(dir) } }
+procedure PasarASiguienteCarta() {
+    if (puedeMover(Este)) { Mover(Este) }
+    elseif (puedeMover(Norte)) { IrAlBorde(Oeste) Mover(Norte) }
+    else { IrAlBorde(Oeste) IrAlBorde(Sur) }
+}
 
 function hayCarta() { return (hayBolitas(auxColorParaElPalo()) && hayBolitas(auxColorParaElValor())) }     
 function hayCartaTapada()    { return (hayCarta() &&     hayBolitas(auxColorParaElReverso())) }
@@ -119,7 +124,7 @@ function hayCartaDestapada() { return (hayCarta() && not hayBolitas(auxColorPara
 function hayOtraCartaDestapada() {
   AuxPoner__Veces(auxColorParaMarca(),2)
   IrAlBorde(Sur) IrAlBorde(Oeste)
-  while (not auxTerminoElRecorrido() && not auxHayCartaDestapadaSinMarca()) { AuxPasarASiguienteCarta() }
+  while (not auxTerminoElRecorrido() && not auxHayCartaDestapadaSinMarca()) { PasarASiguienteCarta() }
   ret := auxHayCartaDestapadaSinMarca()
   AuxVolverALaMarca()
   AuxSacar__Veces(auxColorParaMarca(),2)
@@ -169,12 +174,6 @@ procedure AuxSacarTodas_(c) { AuxSacar__Veces(c, nroBolitas(c)) }
 //--------------------------------
 // Operaciones de recorrido
 //--------------------------------
-procedure AuxPasarASiguienteCarta() {
-    if (puedeMover(Este)) { Mover(Este) }
-    elseif (puedeMover(Norte)) { IrAlBorde(Oeste) Mover(Norte) }
-    else { IrAlBorde(Oeste) IrAlBorde(Sur) }
-}
-
 function auxTerminoElRecorrido() { return (not puedeMover(Este) && not puedeMover(Norte)) }
 
 procedure AuxVolverALaMarca() {
