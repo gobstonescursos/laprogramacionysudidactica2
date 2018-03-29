@@ -27,8 +27,8 @@ board:
   active: 1
   initial_board_source: selected
   user_permissions:
-    can_change_source: false
-    can_edit_board: false
+    can_change_source: true
+    can_edit_board: true
   visible_edition: true
 execution_speed:
   active: high
