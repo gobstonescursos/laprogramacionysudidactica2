@@ -1,0 +1,23 @@
+﻿program { RevelarLasFiguras() }
+
+procedure RevelarLasFiguras() {
+  repeat(9) {
+    ProcesarUnaCarta()
+    PasarASiguienteCarta()
+  }
+}
+
+procedure ProcesarUnaCarta() {
+  RevelarCartaActual()
+  if (not(esFigura(leerCarta()))) {
+    TaparCartaActual()
+  }
+}
+
+function esFigura(carta) { return (...) }
+
+function esRey(carta)     { return (...) }
+function esCaballo(carta) { return (...) }
+function esSota(carta)    { return (...) }
+
+
