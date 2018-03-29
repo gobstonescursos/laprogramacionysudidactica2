@@ -89,11 +89,35 @@ function mazoEspañolTruco() {
     return(mazo)
 }
 
-procedure MostrarCarta_(carta) {
-  AuxSacarTodas()
-  AuxPoner__Veces(auxColorValor(), valor(carta)) 
-  AuxPoner__Veces(auxColorPalo(), auxCodigoPalo(palo(carta))) 
+//--------------------------------
+// Operaciones de mostrado de cartas
+//--------------------------------
+procedure RevelarCartaActual() { Sacar(auxColorParaElReverso()) }
+procedure TaparCartaActual()   { Poner(auxColorParaElReverso()) }
+
+procedure BajarCartaTapada_(carta) {
+  TaparCartaActual()
+  BajarCartaDescubierta_(carta)
 }
+
+procedure BajarCartaDescubierta_(carta) {
+  AuxSacarTodas()
+  AuxPoner__Veces(auxColorParaElValor(), valor(carta)) 
+  AuxPoner__Veces(auxColorParaElPalo(), auxCódigoParaElPalo(palo(carta))) 
+}
+
+function leerCarta() {
+  if (not auxHayCarta()) { BOOM("No hay una carta") }
+  if (auxHayCartaTapada()) { BOOM("La carta está tapada") }
+  return(Carta(valor <- nroBolitas(auxColorParaElValor())
+              ,palo  <- auxPaloParaElCódigo(nroBolitas(auxColorParaElPalo()))
+              ))
+}         
+
+function auxHayCarta() { return (hayBolitas(auxColorParaElPalo()) 
+                              && hayBolitas(auxColorParaElValor())) }     
+function auxHayCartaTapada() { return (auxHayCarta() 
+                                    && hayBolitas(auxColorParaElReverso())) }                              
 
 //--------------------------------
 // Operaciones auxliares
@@ -104,7 +128,19 @@ procedure PasarASiguienteCelda() {
     else { IrAlBorde(Oeste) IrAlBorde(Sur) }
 }
 
-function auxCodigoPalo(palo) { 
+function auxPaloParaElCódigo(código) {
+  switch (palo) to {
+    1 -> { ret := Espadas }
+    2 -> { ret := Oros    }
+    3 -> { ret := Copas   }
+    4 -> { ret := Bastos  }
+    5 -> { ret := Comodín }
+    _ -> { BOOM("No es un código de palo válido") }
+  }
+  return (ret)
+}
+
+function auxCódigoParaElPalo(palo) { 
   switch (palo) to {
     Espadas -> { ret := 1 }
     Oros    -> { ret := 2 }
@@ -114,8 +150,9 @@ function auxCodigoPalo(palo) {
   }
   return (ret)
 }
-function auxColorPalo()  { return(Negro) }
-function auxColorValor() { return(Rojo)  }
+function auxColorParaElPalo()    { return(Negro) }
+function auxColorParaElValor()   { return(Azul)  }
+function auxColorParaElReverso() { return(Rojo)  }
 
 procedure AuxPoner__Veces(c,n) { repeat (n) { Poner(c) } }
 
