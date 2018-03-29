@@ -90,8 +90,18 @@ function mazoEspañolTruco() {
 }
 
 procedure MostrarCarta_(carta) {
+  AuxSacarTodas()
   AuxPoner__Veces(auxColorValor(), valor(carta)) 
   AuxPoner__Veces(auxColorPalo(), auxCodigoPalo(palo(carta))) 
+}
+
+//--------------------------------
+// Operaciones auxiliares
+//--------------------------------
+procedure PasarASiguienteCelda() {
+    if (puedeMover(Este)) { Mover(Este) }
+    elseif (puedeMover(Norte)) { IrAlBorde(Oeste) Mover(Norte) }
+    else { IrAlBorde(Oeste) IrAlBorde(Sur) }
 }
 
 function auxCodigoPalo(palo) { 
@@ -108,3 +118,7 @@ function auxColorPalo()  { return(Negro) }
 function auxColorValor() { return(Rojo)  }
 
 procedure AuxPoner__Veces(c,n) { repeat (n) { Poner(c) } }
+
+procedure AuxSacarTodas() { foreach c in [Azul..Rojo] { AuxSacarTodas_(c) } }
+procedure AuxSacarTodas_(c) { repeat(nroBolitas(c)) { Sacar(c) } }
+

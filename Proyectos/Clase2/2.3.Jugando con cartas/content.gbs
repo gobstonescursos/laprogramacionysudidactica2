@@ -8,7 +8,3 @@
   }
 }
 
-procedure PasarASiguienteCelda() {
-    if (puedeMover(Este)) { Mover(Este) }
-    else { IrAlBorde(Oeste) Mover(Norte) }
-}
