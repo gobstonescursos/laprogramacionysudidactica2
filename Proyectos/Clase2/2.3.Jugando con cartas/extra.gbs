@@ -129,7 +129,7 @@ procedure PasarASiguienteCelda() {
 }
 
 function auxPaloParaElCódigo(código) {
-  switch (palo) to {
+  switch (código) to {
     1 -> { ret := Espadas }
     2 -> { ret := Oros    }
     3 -> { ret := Copas   }
