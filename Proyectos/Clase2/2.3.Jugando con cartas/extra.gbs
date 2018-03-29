@@ -114,19 +114,19 @@ function leerCarta() {
               ))
 }         
 
-function auxHayCarta() { return (hayBolitas(auxColorParaElPalo()) 
-                              && hayBolitas(auxColorParaElValor())) }     
-function auxHayCartaTapada() { return (auxHayCarta() 
-                                    && hayBolitas(auxColorParaElReverso())) }                              
-
-//--------------------------------
-// Operaciones auxliares
-//--------------------------------
-procedure PasarASiguienteCelda() {
+procedure PasarASiguienteCarta() {
     if (puedeMover(Este)) { Mover(Este) }
     elseif (puedeMover(Norte)) { IrAlBorde(Oeste) Mover(Norte) }
     else { IrAlBorde(Oeste) IrAlBorde(Sur) }
 }
+
+//--------------------------------
+// Operaciones auxliares
+//--------------------------------
+function auxHayCarta() { return (hayBolitas(auxColorParaElPalo()) 
+                              && hayBolitas(auxColorParaElValor())) }     
+function auxHayCartaTapada() { return (auxHayCarta() 
+                                    && hayBolitas(auxColorParaElReverso())) }                              
 
 function auxPaloParaElCódigo(código) {
   switch (código) to {
