@@ -154,7 +154,7 @@ procedure AuxSacarTodas_(c) { repeat(nroBolitas(c)) { Sacar(c) } }
 //--------------------------------
 function auxHayOtraCartaDestapada() {
   Poner(auxColorParaMarca())
-  IrAlBorde(Sur) IrAlBordeOeste()
+  IrAlBorde(Sur) IrAlBorde(Oeste)
   while (not auxTerminoElRecorrido() && not auxHayCartaDestapadaSinMarca()) { AuxPasarASiguienteCarta() }
   ret := auxHayCartaDestapadaSinMarca()
   AuxVolverA(auxColorParaMarca())
@@ -173,8 +173,8 @@ function auxHayCartaDestapadaSinMarca() { return (auxHayCartaDestapada() && not 
 function auxHayMarca() { return (hayBolitas(auxColorParaMarca())) }
 
 procedure AuxVolverA(color) {
-  IrAlBorde(Sur) IrAlBordeOeste()
-  while (no auxTerminoElRecorrido() && not auxHayMarca()) { AuxPasarASiguienteCarta() }
+  IrAlBorde(Sur) IrAlBorde(Oeste)
+  while (not auxTerminoElRecorrido() && not auxHayMarca()) { AuxPasarASiguienteCarta() }
   ret := auxHayCartaDestapadaSinMarca()
   Sacar(auxColorParaMarca())
 }                                    
