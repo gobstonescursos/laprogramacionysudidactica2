@@ -1,0 +1,10 @@
+﻿program {
+  ...
+}
+
+
+procedure GenerarManoParaRetrucar() {
+  BajarCartaDestapada_(...)
+  PasarASiguienteCarta()
+  ...
+}

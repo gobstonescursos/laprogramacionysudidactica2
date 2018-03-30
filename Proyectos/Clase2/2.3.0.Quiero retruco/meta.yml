@@ -1,0 +1,27 @@
+attire:
+  active: Quiero retruco
+  user_permissions:
+    can_toggle_visibility: false
+  visible: true
+blocks:
+  disabled:
+  visible:
+    - Procedimientos primitivos
+    - Mis procedimientos
+    - Mis funciones
+    - DefinicionDeProcedimientoParametrizado
+    - DefinicionDeFuncionSimpleParametrizada
+board:
+  active: 1
+  initial_board_source: random
+  user_permissions:
+    can_change_source: false
+    can_edit_board: false
+  visible_edition: false
+execution_speed:
+  active: high
+  user_permissions:
+    can_change_speed: true
+library:
+  visible: false
+name: Quiero retruco

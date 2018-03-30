@@ -1,0 +1,11 @@
+﻿program {
+  GenerarManoParaRetrucar()
+}
+
+procedure GenerarManoParaRetrucar() {
+  BajarCartaDestapada_(dameCarta__(1, espadas()))
+  PasarASiguienteCarta()
+  BajarCartaDestapada_(dameCarta__(7, espadas()))
+  PasarASiguienteCarta()
+  BajarCartaDestapada_(dameCarta__(7, oros()))
+}
