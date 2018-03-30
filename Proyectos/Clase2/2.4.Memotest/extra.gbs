@@ -54,7 +54,7 @@ procedure EsperarUnRato() { Poner(auxTardarMucho()) Sacar(auxTardarMucho()) }
 function auxTardarMucho() { repeat (100000) { Poner(Rojo) } return(Rojo) }
 
 procedure IluminarCartaActual() { 
-  if (hayCartaDestapadaSinIluminar())
+  if (hayCartaDestapada() && not auxEstáIluminada())
      { Poner(auxColorParaMarca()) } 
 }
 procedure DestaparCartaActual() { 
