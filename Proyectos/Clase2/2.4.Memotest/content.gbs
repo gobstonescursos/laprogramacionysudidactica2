@@ -11,7 +11,9 @@ procedure ProcesarLaCartaActual() {
   if (hayOtraCartaDestapada())
     { if (lasCartasDestapadasSonIguales())
            { IluminarAmbasCartasDestapadas() } 
-      else { TaparAmbasCartasDestapadas()    }
+      else { EsperarUnRato()
+             TaparAmbasCartasDestapadas()    
+           }
     }
 }
 

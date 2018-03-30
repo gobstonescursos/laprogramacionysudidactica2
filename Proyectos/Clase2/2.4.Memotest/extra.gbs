@@ -50,6 +50,9 @@ function hayCartaIluminada() { return (hayCartaDestapada() && auxEstáIluminada(
 //--------------------------------
 // Operaciones de mostrado de cartas
 //--------------------------------
+procedure EsperarUnRato() { Poner(auxTardarMucho()) Sacar(auxTardarMucho()) }
+function auxTardarMucho() { repeat (1000000) { Poner(Rojo) } return(Rojo) }
+
 procedure IluminarCartaActual() { 
   if (hayCartaDestapada() && not auxEstáIluminada())
      { Poner(auxColorParaMarca()) } 
