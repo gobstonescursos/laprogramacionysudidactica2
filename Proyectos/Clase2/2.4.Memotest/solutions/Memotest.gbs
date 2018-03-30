@@ -7,7 +7,9 @@
 }
 
 function lasCartasSonIguales(primeraCartaAControlar, segundaCartaACotrolar) {
-  return (...)
+  return (valor(primeraCartaAControlar) == valor(segundaCartaACotrolar)
+       && palo(primeraCartaAControlar)  == palo(segundaCartaACotrolar)
+         )
 }
 
 function lasCartasDestapadasSonIguales() {
