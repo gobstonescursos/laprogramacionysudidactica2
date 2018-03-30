@@ -94,22 +94,21 @@ procedure PasarASiguienteCarta() {
 }
 
 function hayOtraCartaDestapada() {
-  AuxPoner__Veces(auxColorParaMarca(),2)
+  AuxMarcar()
   IrAlBorde(Sur) IrAlBorde(Oeste)
-  while (not auxTerminoElRecorrido() && not auxHayCartaDestapadaSinMarca()) { PasarASiguienteCarta() }
-  ret := auxHayCartaDestapadaSinMarca()
+  while (not auxTerminoElRecorrido() && not auxHayCartaDestapadaSinIluminarYSinMarca()) 
+     { PasarASiguienteCarta() }
+  ret := auxHayCartaDestapadaSinIluminarYSinMarca()
   AuxVolverALaMarca()
-  AuxSacar__Veces(auxColorParaMarca(),2)
+  AuxDesmarcar()
   return (ret)
 }                                    
                                     
 //--------------------------------
 // Operaciones auxliares
 //--------------------------------
-function auxHayCartaDestapadaSinMarca() { return (hayCartaDestapada() && not auxHayMarca()) }
 function auxHayReverso()                { return (hayBolitas(auxColorParaElReverso())) }
 function auxEstáIluminada()             { return (nroBolitas(auxColorParaMarca())==1) }
-function auxHayMarca()                  { return (nroBolitas(auxColorParaMarca())>1) }
 
 function auxPaloParaElCódigo(código) {
   switch (código) to {
@@ -147,6 +146,13 @@ procedure AuxSacarTodas_(c) { AuxSacar__Veces(c, nroBolitas(c)) }
 //--------------------------------
 // Operaciones de recorrido
 //--------------------------------
+function auxHayMarca() { return (nroBolitas(auxColorParaMarca())>1) }
+function auxHayCartaDestapadaSinIluminarYSinMarca() 
+  { return (hayCartaDestapadaSinIluminar() && not auxHayMarca()) }
+
+procedure AuxMarcar()    { AuxPoner__Veces(auxColorParaMarca(),2) }
+procedure AuxDesmarcar() { AuxSacar__Veces(auxColorParaMarca(),2) }
+
 function auxTerminoElRecorrido() { return (not puedeMover(Este) && not puedeMover(Norte)) }
 
 procedure AuxVolverALaMarca() {
