@@ -1,23 +1,57 @@
-﻿program { RevelarLasFiguras() }
+﻿interactive program {
+  K_ARROW_LEFT  -> { PasarASiguienteCartaHacia_(Oeste) }
+  K_ARROW_RIGHT -> { PasarASiguienteCartaHacia_(Este)  }
+  K_ARROW_UP    -> { PasarASiguienteCartaHacia_(Norte) }
+  K_ARROW_DOWN  -> { PasarASiguienteCartaHacia_(Sur)   }
+  K_ENTER       -> { ProcesarLaCartaActual()  }
+}
 
-procedure RevelarLasFiguras() {
-  repeat(9) {
-    ProcesarUnaCarta()
-    PasarASiguienteCarta()
+procedure ProcesarLaCartaActual() {
+  GirarLaCartaActualSiSePuede()
+  if (hayOtraCartaDestapada() 
+   && lasCartasDestapadasSonIguales()) 
+       { IluminarAmbasCartasDestapadas() } 
+  else { TaparAmbasCartasDestapadas()    }
+}
+
+procedure GirarLaCartaActualSiSePuede() {
+  if (hayCartaTapada()) 
+       { DestaparCartaActual() } 
+  else { 
+    if (hayCartaDestapadaSinIluminar()) 
+       { TaparCartaActual() }
   }
 }
 
-procedure ProcesarUnaCarta() {
-  RevelarCartaActual()
-  if (not(esFigura(leerCarta()))) {
-    TaparCartaActual()
-  }
+function hayCartaDestapadaSinIluminar() { return(hayCartaDestapada() && not hayCartaIluminada()) }
+
+procedure IluminarAmbasCartasDestapadas() {
+  IluminarCartaActual()
+  IrALaCartaOtraCartaDestapada()
+  IluminarCartaActual()
 }
 
-function esFigura(carta) { return (...) }
+procedure TaparAmbasCartasDestapadas() {
+  TaparCartaActual()
+  IrALaCartaOtraCartaDestapada()
+  TaparCartaActual()
+}
 
-function esRey(carta)     { return (...) }
-function esCaballo(carta) { return (...) }
-function esSota(carta)    { return (...) }
+procedure IrALaCartaOtraCartaDestapada() {
+  PasarASiguienteCarta()
+  while (not (hayCartaDestapadaSinIluminar()) { PasarASiguienteCarta() }
+}
 
+function lasCartasDestapadasSonIguales() {
+  primeraCarta := leerCarta()
+  IrALaCartaOtraCartaDestapada()
+  segundaCarta := leerCarta()
+  return (lasCartasSonIguales(primeraCarta, segundaCarta))
+}
+
+function lasCartasSonIguales(primeraCartaAControlar, segundaCartaACotrolar) {
+  return (valor(primeraCartaAControlar) == valor(segundaCartaACotrolar)
+       && palo(primeraCartaAControlar)  == palo(segundaCartaACotrolar)
+         )
+}
 

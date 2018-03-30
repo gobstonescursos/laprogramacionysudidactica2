@@ -42,6 +42,11 @@ function dameElValor_(carta) {
   return(valor(carta)) 
 }
 
+function hayCarta() { return (hayBolitas(auxColorParaElPalo()) && hayBolitas(auxColorParaElValor())) }     
+function hayCartaTapada()    { return (hayCarta() &&     auxHayReverso()) }
+function hayCartaDestapada() { return (hayCarta() && not auxHayReverso()) }
+function hayCartaIluminada() { return (hayCarta() && not auxHayReverso() && auxEstáIluminada())  }
+
 //--------------------------------
 // Operaciones de mazos
 //--------------------------------
@@ -82,12 +87,16 @@ procedure IluminarCartaActual() {
   if (hayCartaDestapada() && not auxEstáIluminada())
      { Poner(auxColorParaMarca()) } 
 }
-procedure DestaparCartaActual() { Sacar(auxColorParaElReverso()) }
-procedure TaparCartaActual()    { Poner(auxColorParaElReverso()) }
-procedure SacarCartaActual() {
-  if (not hayCarta())   { BOOM("No hay carta para sacar") }
-  if (hayCartaTapada()) { BOOM("No puedo sacar una carta tapada") }
-  AuxSacarTodas()
+procedure DestaparCartaActual() { 
+  if (not hayCarta())       { BOOM("No hay carta para destapar") }
+  if (not hayCartaTapada()) { BOOM("No hay una carta tapada") }
+  Sacar(auxColorParaElReverso()) 
+}
+procedure TaparCartaActual()    { 
+  if (not hayCarta())          { BOOM("No hay carta para tapar") }
+  if (not hayCartaDestapada()) { BOOM("No hay una carta destapada") }
+  if (hayCartaIluminada())     { BOOM("No puedo tapar una carta iluminada") }
+  Poner(auxColorParaElReverso()) 
 }
 
 procedure BajarCartaTapada_(carta) {
@@ -117,10 +126,6 @@ procedure PasarASiguienteCarta() {
     else { IrAlBorde(Oeste) IrAlBorde(Sur) }
 }
 
-function hayCarta() { return (hayBolitas(auxColorParaElPalo()) && hayBolitas(auxColorParaElValor())) }     
-function hayCartaTapada()    { return (hayCarta() &&     hayBolitas(auxColorParaElReverso())) }
-function hayCartaDestapada() { return (hayCarta() && not hayBolitas(auxColorParaElReverso())) }
-
 function hayOtraCartaDestapada() {
   AuxPoner__Veces(auxColorParaMarca(),2)
   IrAlBorde(Sur) IrAlBorde(Oeste)
@@ -135,6 +140,7 @@ function hayOtraCartaDestapada() {
 // Operaciones auxliares
 //--------------------------------
 function auxHayCartaDestapadaSinMarca() { return (hayCartaDestapada() && not auxHayMarca()) }
+function auxHayReverso()                { return (hayBolitas(auxColorParaElReverso())) }
 function auxEstáIluminada()             { return (nroBolitas(auxColorParaMarca())==1) }
 function auxHayMarca()                  { return (nroBolitas(auxColorParaMarca())>1) }
 
@@ -179,6 +185,6 @@ function auxTerminoElRecorrido() { return (not puedeMover(Este) && not puedeMove
 procedure AuxVolverALaMarca() {
   IrAlBorde(Sur) IrAlBorde(Oeste)
   while (not auxTerminoElRecorrido() && not auxHayMarca()) { AuxPasarASiguienteCarta() }
-  ret := auxHayCartaDestapadaSinMarca()
+  ret := auxHayMarca()
   Sacar(auxColorParaMarca())
 }
