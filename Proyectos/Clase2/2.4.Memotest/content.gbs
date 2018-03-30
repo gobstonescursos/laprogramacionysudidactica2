@@ -7,9 +7,7 @@
 }
 
 procedure MoverseHacia(dir) {
-    if (hayCartaDestapadaSinIluminar() 
-     && hayOtraCartaDestapadaSinIluminar()) 
-       { TaparAmbasCartasDestapadas() }
+    if (hayDosCartasDestapadas()) { TaparAmbasCartasDestapadas() }
     PasarASiguienteCartaHacia_(dir)
 }
 
@@ -18,27 +16,34 @@ procedure ProcesarLaCartaActual() {
   IluminarLasCartasDestapasSiCorresponde()
 }
 
+function hayDosCartasDestapadas() {
+  return (hayCartaDestapadaSinIluminar() 
+       && hayOtraCartaDestapadaSinIluminar())
+}
+
 procedure IluminarLasCartasDestapasSiCorresponde() {
-  if (hayCartaDestapadaSinIluminar() 
-   && hayOtraCartaDestapadaSinIluminar() 
-   && lasCartasDestapadasSonIguales())
+  if (hayDosCartasDestapadas() && lasCartasDestapadasSonIguales())
     { IluminarAmbasCartasDestapadas() } 
 }
 
 procedure DestaparLaCartaActualSiSePuede() { if (hayCartaTapada()) { DestaparCartaActual() } }
 
 procedure IluminarAmbasCartasDestapadas() {
+  // Primero la lejana, para que la última en procesar sea la inicial
   IrALaCartaOtraCartaDestapada()
   IluminarCartaActual()
   IrALaCartaOtraCartaDestapada()
   IluminarCartaActual()
+  // Termina posicionado sobre la carta inicial
 }
 
 procedure TaparAmbasCartasDestapadas() {
+  // Primero la lejana, para que la última en procesar sea la inicial
   IrALaCartaOtraCartaDestapada()
   TaparCartaActual()
   IrALaCartaOtraCartaDestapada()
   TaparCartaActual()
+  // Termina posicionado sobre la carta inicial
 }
 
 procedure IrALaCartaOtraCartaDestapada() {
