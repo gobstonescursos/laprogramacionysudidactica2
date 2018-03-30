@@ -35,6 +35,8 @@ procedure IrALaCartaOtraCartaDestapada() {
   while (not hayCartaDestapadaSinIluminar()) { PasarASiguienteCarta() }
 }
 
+function hayCartaDestapadaSinIluminar() { return(hayCartaDestapada() && not hayCartaIluminada()) }
+
 function lasCartasDestapadasSonIguales() {
   primeraCarta := leerCarta()
   IrALaCartaOtraCartaDestapada()
@@ -104,7 +106,7 @@ procedure EsperarUnRato() { Poner(auxTardarMucho()) Sacar(auxTardarMucho()) }
 function auxTardarMucho() { repeat (100000) { Poner(Rojo) } return(Rojo) }
 
 procedure IluminarCartaActual() { 
-  if (hayCartaDestapada() && not auxEstáIluminada())
+  if (hayCartaDestapadaSinIluminar())
      { Poner(auxColorParaMarca()) } 
 }
 procedure DestaparCartaActual() { 
