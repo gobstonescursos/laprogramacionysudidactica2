@@ -43,42 +43,9 @@ function dameElValor_(carta) {
 }
 
 function hayCarta() { return (hayBolitas(auxColorParaElPalo()) && hayBolitas(auxColorParaElValor())) }     
-function hayCartaTapada()    { return (hayCarta() &&     auxHayReverso()) }
-function hayCartaDestapada() { return (hayCarta() && not auxHayReverso()) }
-function hayCartaIluminada() { return (hayCarta() && not auxHayReverso() && auxEstáIluminada())  }
-
-//--------------------------------
-// Operaciones de mazos
-//--------------------------------
-function dameLaPrimeraCarta_(mazo) { return(primero(mazo)) }
-function sacarPrimeraCarta_(mazo) { return(resto(mazo)) }
-
-/*@ATTRIBUTE@block_name@quedan cartas en _?@*/
-function quedanCartas_(mazo) { return(not(mazo==[])) }
-
-function mazoEspañolChinChon() {
-    mazo := []
-    foreach palo in [Espadas, Oros, Copas, Bastos] {
-        foreach valor in [1..12] {
-            mazo := mazo ++ [ carta__(valor,palo) ]
-        }
-    }
-    mazo := mazo ++ [ comodín(), comodín() ]
-    return(mazo)
-}
-
-function mazoEspañolTruco() {
-    mazo := []
-    foreach palo in [Espadas, Oros, Copas, Bastos] {
-        foreach valor in [1..7] {
-            mazo := mazo ++ [ carta__(valor,palo) ]
-        }
-        foreach valor in [10..12] {
-            mazo := mazo ++ [ carta__(valor,palo) ]
-        }
-    }
-    return(mazo)
-}
+function hayCartaTapada()    { return (hayCarta()          &&     auxHayReverso()) }
+function hayCartaDestapada() { return (hayCarta()          && not auxHayReverso()) }
+function hayCartaIluminada() { return (hayCartaDestapada() && auxEstáIluminada())  }
 
 //--------------------------------
 // Operaciones de mostrado de cartas
@@ -185,6 +152,39 @@ function auxTerminoElRecorrido() { return (not puedeMover(Este) && not puedeMove
 procedure AuxVolverALaMarca() {
   IrAlBorde(Sur) IrAlBorde(Oeste)
   while (not auxTerminoElRecorrido() && not auxHayMarca()) { PasarASiguienteCarta() }
-  ret := auxHayMarca()
-  Sacar(auxColorParaMarca())
 }
+
+/*
+//--------------------------------
+// Operaciones de mazos
+//--------------------------------
+function dameLaPrimeraCarta_(mazo) { return(primero(mazo)) }
+function sacarPrimeraCarta_(mazo) { return(resto(mazo)) }
+
+/*@ATTRIBUTE@block_name@quedan cartas en _?@*/
+function quedanCartas_(mazo) { return(not(mazo==[])) }
+
+function mazoEspañolChinChon() {
+    mazo := []
+    foreach palo in [Espadas, Oros, Copas, Bastos] {
+        foreach valor in [1..12] {
+            mazo := mazo ++ [ carta__(valor,palo) ]
+        }
+    }
+    mazo := mazo ++ [ comodín(), comodín() ]
+    return(mazo)
+}
+
+function mazoEspañolTruco() {
+    mazo := []
+    foreach palo in [Espadas, Oros, Copas, Bastos] {
+        foreach valor in [1..7] {
+            mazo := mazo ++ [ carta__(valor,palo) ]
+        }
+        foreach valor in [10..12] {
+            mazo := mazo ++ [ carta__(valor,palo) ]
+        }
+    }
+    return(mazo)
+}
+*/
