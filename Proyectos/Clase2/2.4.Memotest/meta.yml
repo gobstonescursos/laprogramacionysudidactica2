@@ -6,7 +6,7 @@ attire:
 blocks:
   disabled:
   visible:
-    - AuxiliaresDocentes
+    - Completar
     - Procedimientos primitivos
     - Mis procedimientos
     - RepeticionSimple
