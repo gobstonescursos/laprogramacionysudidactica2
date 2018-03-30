@@ -7,17 +7,17 @@ type Carta is record { field palo  field valor  }
 //--------------------------------
 // Operaciones de palos (interfaz)
 //--------------------------------
-/*@ATTRIBUTE@block_name@Oros@*/   function oros()    { return(Oros)    }
-/*@ATTRIBUTE@block_name@Espadas@*/function espadas() { return(Espadas) }
-/*@ATTRIBUTE@block_name@Copas@*/  function copas()   { return(Copas)   }
-/*@ATTRIBUTE@block_name@Bastos@*/ function bastos()  { return(Bastos)  }
+// /*@ATTRIBUTE@block_name@Oros@*/   function oros()    { return(Oros)    }
+// /*@ATTRIBUTE@block_name@Espadas@*/function espadas() { return(Espadas) }
+// /*@ATTRIBUTE@block_name@Copas@*/  function copas()   { return(Copas)   }
+// /*@ATTRIBUTE@block_name@Bastos@*/ function bastos()  { return(Bastos)  }
 
 //--------------------------------
 // Operaciones de cartas (interfaz)
 //--------------------------------
-/*@ATTRIBUTE@block_name@dame la Carta _ de _@*/ function dameCarta__(v,p) { return(auxCarta(v, p))    }
-/*@ATTRIBUTE@block_name@dame un comodín@*/      function dameComodín()    { return(auxComodín())      }
-/*@ATTRIBUTE@block_name@es comodín _@*/         function esComodín_(c)    { return(auxEsComodín(c))   }
+// /*@ATTRIBUTE@block_name@dame la Carta _ de _@*/ function dameCarta__(v,p) { return(auxCarta(v, p))    }
+// /*@ATTRIBUTE@block_name@dame un comodín@*/      function dameComodín()    { return(auxComodín())      }
+// /*@ATTRIBUTE@block_name@es comodín _@*/         function esComodín_(c)    { return(auxEsComodín(c))   }
 /*@ATTRIBUTE@block_name@palo de la _@*/         function dameElPalo_(c)   { return(auxDameElPalo(c))  }
 /*@ATTRIBUTE@block_name@valor de la _@*/        function dameElValor_(c)  { return(auxDameElValor(c)) }
 
@@ -34,8 +34,8 @@ procedure TaparCartaActual()              { AuxTaparCartaActual()             }
 procedure DestaparCartaActual()           { AuxDestaparCartaActual()          }
 procedure IluminarCartaActual()           { AuxIluminarCartaActual()          }
 
-procedure BajarCartaTapada_(carta)        { AuxBajarCartaTapada(carta)        }
-procedure BajarCartaDestapada_(carta)     { AuxBajarCartaDestapada(carta)     }
+// procedure BajarCartaTapada_(carta)        { AuxBajarCartaTapada(carta)        }
+// procedure BajarCartaDestapada_(carta)     { AuxBajarCartaDestapada(carta)     }
 
 procedure PasarASiguienteCartaHacia_(dir) { AuxPasarASiguienteCartaHacia(dir) }
 procedure PasarASiguienteCarta()          { AuxPasarASiguienteCarta()         }
