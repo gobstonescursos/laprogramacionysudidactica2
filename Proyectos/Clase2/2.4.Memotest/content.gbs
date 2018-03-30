@@ -39,7 +39,7 @@ procedure TaparAmbasCartasDestapadas() {
 
 procedure IrALaCartaOtraCartaDestapada() {
   PasarASiguienteCarta()
-  while (not (hayCartaDestapadaSinIluminar()) { PasarASiguienteCarta() }
+  while (not hayCartaDestapadaSinIluminar()) { PasarASiguienteCarta() }
 }
 
 function lasCartasDestapadasSonIguales() {

@@ -184,7 +184,7 @@ function auxTerminoElRecorrido() { return (not puedeMover(Este) && not puedeMove
 
 procedure AuxVolverALaMarca() {
   IrAlBorde(Sur) IrAlBorde(Oeste)
-  while (not auxTerminoElRecorrido() && not auxHayMarca()) { AuxPasarASiguienteCarta() }
+  while (not auxTerminoElRecorrido() && not auxHayMarca()) { PasarASiguienteCarta() }
   ret := auxHayMarca()
   Sacar(auxColorParaMarca())
 }
