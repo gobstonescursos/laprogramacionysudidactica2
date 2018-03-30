@@ -7,17 +7,25 @@
 }
 
 procedure MoverseHacia(dir) {
-    if (hayCartaDestapadaSinIluminar() && hayOtraCartaDestapada()) { TaparAmbasCartasDestapadas() }
+    if (hayCartaDestapadaSinIluminar() 
+     && hayOtraCartaDestapadaSinIluminar()) 
+       { TaparAmbasCartasDestapadas() }
     PasarASiguienteCartaHacia_(dir)
 }
 
 procedure ProcesarLaCartaActual() {
-  GirarLaCartaActualSiSePuede()
-  if (hayOtraCartaDestapada() && lasCartasDestapadasSonIguales())
+  DestaparLaCartaActualSiSePuede()
+  IluminarLasCartasDestapasSiCorresponde()
+}
+
+procedure IluminarLasCartasDestapasSiCorresponde() {
+  if (hayCartaDestapadaSinIluminar() 
+   && hayOtraCartaDestapadaSinIluminar() 
+   && lasCartasDestapadasSonIguales())
     { IluminarAmbasCartasDestapadas() } 
 }
 
-procedure GirarLaCartaActualSiSePuede() { if (hayCartaTapada()) { DestaparCartaActual() } }
+procedure DestaparLaCartaActualSiSePuede() { if (hayCartaTapada()) { DestaparCartaActual() } }
 
 procedure IluminarAmbasCartasDestapadas() {
   IrALaCartaOtraCartaDestapada()
@@ -37,8 +45,6 @@ procedure IrALaCartaOtraCartaDestapada() {
   PasarASiguienteCarta()
   while (not hayCartaDestapadaSinIluminar()) { PasarASiguienteCarta() }
 }
-
-function hayCartaDestapadaSinIluminar() { return(hayCartaDestapada() && not hayCartaIluminada()) }
 
 function lasCartasDestapadasSonIguales() {
   primeraCarta := leerCarta()

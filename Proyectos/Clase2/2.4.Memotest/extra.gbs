@@ -43,9 +43,10 @@ function dameElValor_(carta) {
 }
 
 function hayCarta() { return (hayBolitas(auxColorParaElPalo()) && hayBolitas(auxColorParaElValor())) }     
-function hayCartaTapada()    { return (hayCarta()          &&     auxHayReverso()) }
-function hayCartaDestapada() { return (hayCarta()          && not auxHayReverso()) }
-function hayCartaIluminada() { return (hayCartaDestapada() && auxEstáIluminada())  }
+function hayCartaTapada()    { return (hayCarta() &&     auxHayReverso())    }
+function hayCartaDestapada() { return (hayCarta() && not auxHayReverso())    }
+function hayCartaDestapadaSinIluminar() { return (hayCartaDestapada() && not auxEstáIluminada()) }
+function auxHayCartaIluminada()         { return (hayCartaDestapada() &&     auxEstáIluminada()) }
 
 //--------------------------------
 // Operaciones de mostrado de cartas
@@ -54,7 +55,7 @@ procedure EsperarUnRato() { Poner(auxTardarMucho()) Sacar(auxTardarMucho()) }
 function auxTardarMucho() { repeat (100000) { Poner(Rojo) } return(Rojo) }
 
 procedure IluminarCartaActual() { 
-  if (hayCartaDestapada() && not auxEstáIluminada())
+  if (hayCartaDestapadaSinIluminar())
      { Poner(auxColorParaMarca()) } 
 }
 procedure DestaparCartaActual() { 
@@ -65,7 +66,7 @@ procedure DestaparCartaActual() {
 procedure TaparCartaActual()    { 
   if (not hayCarta())          { BOOM("No hay carta para tapar") }
   if (not hayCartaDestapada()) { BOOM("No hay una carta destapada") }
-  if (hayCartaIluminada())     { BOOM("No puedo tapar una carta iluminada") }
+  if (auxHayCartaIluminada())  { BOOM("No puedo tapar una carta iluminada") }
   Poner(auxColorParaElReverso()) 
 }
 
@@ -96,7 +97,7 @@ procedure PasarASiguienteCarta() {
     else { IrAlBorde(Oeste) IrAlBorde(Sur) }
 }
 
-function hayOtraCartaDestapada() {
+function hayOtraCartaDestapadaSinIluminar() {
   AuxMarcar()
   IrAlBorde(Sur) IrAlBorde(Oeste)
   while (not auxTerminoElRecorrido() && not auxHayCartaDestapadaSinIluminarYSinMarca()) 
