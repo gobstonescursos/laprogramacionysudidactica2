@@ -12,8 +12,6 @@ blocks:
     - Mis funciones
     - DefinicionDeProcedimientoParametrizado
     - DefinicionDeFuncionSimpleParametrizada
-    - ExpresionCompletar
-    - ComandoCompletar
 board:
   active: 1
   initial_board_source: random
