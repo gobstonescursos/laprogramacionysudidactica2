@@ -1,30 +1,33 @@
 ﻿interactive program {
-  K_ARROW_LEFT  -> { PasarASiguienteCartaHacia_(Oeste) }
-  K_ARROW_RIGHT -> { PasarASiguienteCartaHacia_(Este)  }
-  K_ARROW_UP    -> { PasarASiguienteCartaHacia_(Norte) }
-  K_ARROW_DOWN  -> { PasarASiguienteCartaHacia_(Sur)   }
-  K_ENTER       -> { ProcesarLaCartaActual()  }
+  K_ARROW_LEFT  -> { MoverseHacia(Oeste)     }
+  K_ARROW_RIGHT -> { MoverseHacia(Este)      }
+  K_ARROW_UP    -> { MoverseHacia(Norte)     }
+  K_ARROW_DOWN  -> { MoverseHacia(Sur)       }
+  K_ENTER       -> { ProcesarLaCartaActual() }
+}
+
+procedure MoverseHacia(dir) {
+    if (hayCartaDestapadaSinIluminar() && hayOtraCartaDestapada()) { TaparAmbasCartasDestapadas() }
+    PasarASiguienteCartaHacia_(dir)
 }
 
 procedure ProcesarLaCartaActual() {
   GirarLaCartaActualSiSePuede()
-  EsperarUnRato()
-  if (hayOtraCartaDestapada())
-    { if (lasCartasDestapadasSonIguales())
-           { IluminarAmbasCartasDestapadas() } 
-      else { TaparAmbasCartasDestapadas()    }
-    }
+  if (hayOtraCartaDestapada() && lasCartasDestapadasSonIguales())
+    { IluminarAmbasCartasDestapadas() } 
 }
 
 procedure GirarLaCartaActualSiSePuede() { if (hayCartaTapada()) { DestaparCartaActual() } }
 
 procedure IluminarAmbasCartasDestapadas() {
+  IrALaCartaOtraCartaDestapada()
   IluminarCartaActual()
   IrALaCartaOtraCartaDestapada()
   IluminarCartaActual()
 }
 
 procedure TaparAmbasCartasDestapadas() {
+  IrALaCartaOtraCartaDestapada()
   TaparCartaActual()
   IrALaCartaOtraCartaDestapada()
   TaparCartaActual()
