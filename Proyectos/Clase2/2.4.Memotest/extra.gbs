@@ -21,7 +21,6 @@ type Carta is record { field palo  field valor  }
 /*@ATTRIBUTE@block_name@palo de la _@*/         function dameElPalo_(c)   { return(auxDameElPalo(c))  }
 /*@ATTRIBUTE@block_name@valor de la _@*/        function dameElValor_(c)  { return(auxDameElValor(c)) }
 
-function esComodín_(c)                      { return(auxEsComodín(c))                   }
 function hayCartaTapada()                   { return(auxHayCartaTapada())               }
 function hayCartaDestapadaSinIluminar()     { return(auxHayCartaDestapadaSinIluminar()) }
 function hayOtraCartaDestapadaSinIluminar() { return(auxHayOtraCartaDestapadaSinIluminar()) }
@@ -129,7 +128,7 @@ procedure AuxDestaparCartaActual() {
   if (not auxHayCartaTapada()) { BOOM("No hay una carta tapada") }
   Sacar(auxColorParaElReverso()) 
 }
-procedure TaparCartaActual()    { 
+procedure AuxTaparCartaActual()    { 
   /* PRECONDICIÓN:
       - hay una carta destapada y no iluminada en la celda actual
   */
@@ -249,14 +248,14 @@ function auxMazoEspañolChinChon() {
     mazo := []
     foreach palo in [Espadas, Oros, Copas, Bastos]
       { mazo := mazo ++ auxCartasEspañolasChinChonDe(palo) }
-    mazo := mazo ++ [ comodín(), comodín() ]
+    mazo := mazo ++ [ auxComodín(), auxComodín() ]
     return(mazo)
 }
 
 function auxCartasEspañolasChinChonDe(palo) {
     cartasDelPalo := []
     foreach valor in [1..12] 
-      { cartasDelPalo := cartasDelPalo ++ [ carta__(valor,palo) ] }
+      { cartasDelPalo := cartasDelPalo ++ [ auxCarta(valor,palo) ] }
     return(cartasDelPalo)
 }
 
@@ -270,8 +269,8 @@ function auxMazoEspañolTruco() {
 function auxCartasEspañolasTrucoDe(palo) {
     cartasDelPalo := []
     foreach valor in [1..7]   
-      { cartasDelPalo := cartasDelPalo ++ [ carta__(valor,palo) ] }
+      { cartasDelPalo := cartasDelPalo ++ [ auxCarta(valor,palo) ] }
     foreach valor in [10..12] 
-      { cartasDelPalo := cartasDelPalo ++ [ carta__(valor,palo) ] }
+      { cartasDelPalo := cartasDelPalo ++ [ auxCarta(valor,palo) ] }
     return(cartasDelPalo)
 }
