@@ -6,7 +6,6 @@ attire:
 blocks:
   disabled:
   visible:
-    - ExpresionCompletar
     - Procedimientos primitivos
     - Mis procedimientos
     - RepeticionSimple
