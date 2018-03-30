@@ -8,12 +8,11 @@
 
 procedure ProcesarLaCartaActual() {
   GirarLaCartaActualSiSePuede()
+  EsperarUnRato()
   if (hayOtraCartaDestapada())
     { if (lasCartasDestapadasSonIguales())
            { IluminarAmbasCartasDestapadas() } 
-      else { EsperarUnRato()
-             TaparAmbasCartasDestapadas()    
-           }
+      else { TaparAmbasCartasDestapadas()    }
     }
 }
 
