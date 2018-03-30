@@ -1,6 +1,6 @@
-﻿program { RevelarLasFiguras() }
+﻿program { DestaparLasFiguras() }
 
-procedure RevelarLasFiguras() {
+procedure DestaparLasFiguras() {
   repeat(9) {
     ProcesarUnaCarta()
     PasarASiguienteCarta()
@@ -8,7 +8,7 @@ procedure RevelarLasFiguras() {
 }
 
 procedure ProcesarUnaCarta() {
-  RevelarCartaActual()
+  DestaparCartaActual()
   if (not(esFigura(leerCarta()))) {
     TaparCartaActual()
   }
