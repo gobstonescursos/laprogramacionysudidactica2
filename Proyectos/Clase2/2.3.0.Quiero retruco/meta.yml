@@ -8,6 +8,7 @@ blocks:
   visible:
     - Procedimientos primitivos
     - Mis procedimientos
+    - Numero
     - Mis funciones
     - DefinicionDeProcedimientoParametrizado
     - DefinicionDeFuncionSimpleParametrizada
