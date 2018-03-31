@@ -1,0 +1,42 @@
+program { PrenderLucesDelSalón() }
+
+procedure PrenderLucesDelSalón() {
+  PrenderLucesDeParedSuperiorHaciaElEste()
+  PrenderLucesDeParedDerechaHaciaElSur()
+  PrenderLucesDeParedInferiorHaciaElOeste()
+  PrenderLucesDeParedIzquierdaHaciaElNorte()
+}
+
+procedure EncenderLuzSiCorresponde() { if (hayLuzApagada()) { EncenderLuz() } }
+
+procedure PrenderLucesDeParedSuperiorHaciaElEste() {
+  repeat(6) {
+    MoverALuchoAl_(Este)
+    EncenderLuzSiCorresponde()
+  }
+  MoverALuchoAl_(Este)
+}
+
+procedure PrenderLucesDeParedDerechaHaciaElSur() {
+  repeat(6) {
+    MoverALuchoAl_(Sur)
+    EncenderLuzSiCorresponde()
+  }
+  MoverALuchoAl_(Sur)
+}
+
+procedure PrenderLucesDeParedInferiorHaciaElOeste() {
+  repeat(6) {
+    MoverALuchoAl_(Oeste)
+    EncenderLuzSiCorresponde()
+  }
+  MoverALuchoAl_(Oeste)
+}
+
+procedure PrenderLucesDeParedIzquierdaHaciaElNorte() {
+  repeat(6) {
+    MoverALuchoAl_(Norte)
+    EncenderLuzSiCorresponde()
+  }
+  MoverALuchoAl_(Norte)
+}
