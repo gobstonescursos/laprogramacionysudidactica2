@@ -1,0 +1,31 @@
+//--------------------------
+// Operaciones de interfaz
+//--------------------------
+/*@ATTRIBUTE@block_name@Encender luz@*/       procedure EncenderLuz()       { AuxEncenderLuz()      }
+/*@ATTRIBUTE@block_name@Mover a Lucho al _@*/ procedure MoverALuchoAl_(dir) { AuxMoverALuchoAl(dir) } 
+
+/*@ATTRIBUTE@block_name@hay luz apagada en este lugar?@*/ 
+function hayLuzApagada() { return(auxHayLuzApagada()) }
+
+//--------------------------
+// Operaciones auxiliares
+//--------------------------
+procedure AuxEncenderLuz() {
+  // PRECONDICIÓN: está Lucho y hay una luz apagada
+  if (not auxEstáLucho())     { BOOM("No está Lucho en este lugar para prender la luz") }
+  if (auxHayLuzPrendida())    { BOOM("La luz ya está encendida") }
+  if (not auxHayLuzApagada()) { BOOM("No hay luz en esta celda") }
+  Poner(Azul)
+}
+
+procedure AuxMoverALuchoAl(dir) { 
+   if (not auxEstáLucho()) { BOOM("No está Lucho en este lugar") }
+   Sacar(Negro) Mover(dir) 
+   if (auxSeCayóLucho())   { BOOM("Lucho se cayó") }
+   Poner(Negro) 
+}
+
+function auxHayLuzApagada()  { return(nroBolitas(Azul) ==1) }
+function auxHayLuzPrendida() { return(nroBolitas(Azul) ==2) }
+function auxEstáLucho()      { return(nroBolitas(Negro)==1) }
+function auxSeCayóLucho()    { return(nroBolitas(Rojo) ==1) }

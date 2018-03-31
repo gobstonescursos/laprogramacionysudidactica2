@@ -1,0 +1,18 @@
+program { PrenderLucesDelSalón() }
+
+procedure PrenderLucesDelSalón() {
+  PrenderLucesDeParedHaciaEl(Este)
+  PrenderLucesDeParedHaciaEl(Sur)
+  PrenderLucesDeParedHaciaEl(Oeste)
+  PrenderLucesDeParedHaciaEl(Norte)
+}
+
+procedure EncenderLuzSiCorresponde() { if (hayLuzApagada()) { EncenderLuz() } }
+
+procedure PrenderLucesDeParedHaciaEl(direcciónAMoverse) {
+  repeat(6) {
+    MoverALuchoAl_(direcciónAMoverse)
+    EncenderLuzSiCorresponde()
+  }
+  MoverALuchoAl_(direcciónAMoverse)
+}
