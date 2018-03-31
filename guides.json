@@ -10,6 +10,9 @@
     , { "id": "1.3", "name": "Lucho cuadrado"
       , "path": "Proyectos/Clase1/1.3.Lucho cuadrado"
       }
+    , { "id": "1.4", "name": "Lucho cuadrado parametrizado"
+      , "path": "Proyectos/Clase1/1.4.Lucho cuadrado parametrizado"
+      }
     ]
   },
   { "name": "Expresiones y funciones simples", "repo": "gobstones/programacionysudidactica2"
