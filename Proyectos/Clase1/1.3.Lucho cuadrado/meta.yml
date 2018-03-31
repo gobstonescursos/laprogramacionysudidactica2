@@ -15,7 +15,7 @@ blocks:
     - Direccion
     - Numero
     - OperadorDeNegacion
-    - DefinicionDeProcedimiento
+    - DefinicionDeProcedimientoSimple
 board:
   active: 1
   initial_board_source: random
