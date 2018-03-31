@@ -7,13 +7,13 @@ Una vez más debemos ayudar a Lucho a prender todas las luces. Pero ahora hay do
  <gs-board attire="Lucho cuadrado">
       GBB/1.0
       size 4 3
-      cell 1 2 Azul 0 Negro 1 Rojo 4 Verde 0
-      cell 3 2 Azul 1 Negro 0 Rojo 5 Verde 1
-      cell 3 1 Azul 1 Negro 0 Rojo 0 Verde 0
-      cell 3 0 Azul 0 Negro 1 Rojo 0 Verde 0
+      cell 1 2 Azul 0 Negro 1 Rojo 0 Verde 0
+      cell 3 2 Azul 1 Negro 0 Rojo 0 Verde 0
+      cell 3 1 Azul 2 Negro 0 Rojo 0 Verde 0
+      cell 3 0 Azul 0 Negro 0 Rojo 1 Verde 0
       cell 2 2 Azul 0 Negro 0 Rojo 1 Verde 0
-      cell 2 0 Azul 0 Negro 0 Rojo 0 Verde 1
-      cell 2 1 Azul 0 Negro 6 Rojo 0 Verde 0
+      cell 2 0 Azul 0 Negro 0 Rojo 0 Verde 0
+      cell 2 1 Azul 0 Negro 0 Rojo 0 Verde 0
       head 1 2
 </gs-board>
 </center>
