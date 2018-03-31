@@ -4,6 +4,9 @@
 /*@ATTRIBUTE@block_name@Encender luz@*/       procedure EncenderLuz()       { AuxEncenderLuz()      }
 /*@ATTRIBUTE@block_name@Mover a Lucho al _@*/ procedure MoverALuchoAl_(dir) { AuxMoverALuchoAl(dir) } 
 
+/*@ATTRIBUTE@block_name@hay luz apagada en este lugar?@*/ 
+function hayLuzApagada() { return(auxHayLuzApagada()) }
+
 //--------------------------
 // Operaciones auxiliares
 //--------------------------
