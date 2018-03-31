@@ -15,7 +15,7 @@ procedure AuxEncenderLuz() {
   Poner(Azul)
 }
 
-procedure AuxMoverALuchoAl_(dir) { 
+procedure AuxMoverALuchoAl(dir) { 
    if (not auxEstáLucho()) { BOOM("No está Lucho en este lugar") }
    Sacar(Negro) Mover(dir) 
    if (auxSeCayóLucho())   { BOOM("Lucho se cayó") }
