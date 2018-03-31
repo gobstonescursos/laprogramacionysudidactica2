@@ -4,7 +4,7 @@ Una vez más debemos ayudar a Lucho a prender todas las luces. Pero ahora hay do
 
 <center>
 ![Dos posibles escenarios iniciales]()
- <gs-board>
+ <gs-board attire="Lucho cuadrado">
       GBB/1.0
       size 4 3
       cell 1 2 Azul 0 Negro 1 Rojo 4 Verde 0
