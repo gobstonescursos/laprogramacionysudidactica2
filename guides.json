@@ -33,6 +33,9 @@
     [ { "id": "1", "name": "Poniendo orden"
       , "path": "Proyectos/Pool/1.Poniendo orden"
       }
+    , { "id": "2", "name": "Otra forma de ordenar"
+      , "path": "Proyectos/Pool/2.Otra forma de ordenar"
+      }
     ]
   }  
 ]
