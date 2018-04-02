@@ -27,6 +27,12 @@
       , "path": "Proyectos/Clase2/2.4.Memotest"
       }
     ]
-  }
-  
+  },
+  { "name": "Pool de ideas", "repo": "gobstones/programacionysudidactica2"
+  , "exercises":
+    [ { "id": "1", "name": "Poniendo orden"
+      , "path": "Proyectos/Pool/1.Poniendo orden"
+      }
+    ]
+  }  
 ]
