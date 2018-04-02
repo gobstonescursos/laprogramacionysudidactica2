@@ -1,0 +1,12 @@
+program {
+   OrdenarCartas()
+}
+
+procedure OrdenarCartas() {
+   while (quedanCartasSinOrdenar()) {
+       IrALaCartaMásChicaSinOrdenar()
+       carta := leerCarta(); SacarCartaActual()
+       IrAPróximaPosiciónParaBajarCarta()
+       BajarCartaDestapada_(carta)
+   }
+}
