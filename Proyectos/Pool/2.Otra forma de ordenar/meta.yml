@@ -1,0 +1,29 @@
+attire:
+  active: Cartas españolas de truco
+  user_permissions:
+    can_toggle_visibility: false
+  visible: true
+blocks:
+  disabled:
+  visible:
+    - Procedimientos primitivos
+    - Mis procedimientos
+    - RepeticionCondicional
+    - Asignacion
+    - Mis funciones
+    - OperadorDeNegacion
+    - DefinicionDeProcedimientoParametrizado
+board:
+  active: 1
+  initial_board_source: random
+  user_permissions:
+    can_change_source: false
+    can_edit_board: false
+  visible_edition: false
+execution_speed:
+  active: high
+  user_permissions:
+    can_change_speed: true
+library:
+  visible: false
+name: Otra forma de ordenar
