@@ -176,8 +176,8 @@ function auxPaloParaElCódigo(código) {
   switch (código) to {
     1 -> { valorDeRetorno := Espadas }
     2 -> { valorDeRetorno := Oros    }
-    3 -> { valorDeRetorno := Copas   }
-    4 -> { valorDeRetorno := Bastos  }
+    3 -> { valorDeRetorno := Bastos  }
+    4 -> { valorDeRetorno := Copas   }
     5 -> { valorDeRetorno := Comodín }
     _ -> { BOOM("No es un código de palo válido") }
   }
@@ -188,8 +188,8 @@ function auxCódigoParaElPalo(palo) {
   switch (palo) to {
     Espadas -> { valorDeRetorno := 1 }
     Oros    -> { valorDeRetorno := 2 }
-    Copas   -> { valorDeRetorno := 3 }
-    Bastos  -> { valorDeRetorno := 4 }
+    Bastos  -> { valorDeRetorno := 3 }
+    Copas   -> { valorDeRetorno := 4 }
     Comodín -> { valorDeRetorno := 5 }
   }
   return(valorDeRetorno)
