@@ -1,0 +1,23 @@
+GBB/1.0
+size 20 3
+cell 0 2 Azul 2 Negro 3
+cell 1 2 Azul 11 Negro 1
+cell 2 2 Azul 12 Negro 4
+cell 3 2 Azul 4 Negro 4
+cell 4 2 Azul 6 Negro 3
+cell 5 2 Azul 10 Negro 2
+cell 6 2 Azul 1 Negro 2
+cell 7 2 Azul 3 Negro 3
+cell 8 2 Azul 5 Negro 4
+cell 9 2 Azul 5 Negro 2
+cell 10 2 Azul 5 Negro 1
+cell 11 2 Azul 4 Negro 2
+cell 12 2 Azul 10 Negro 3
+cell 13 2 Azul 12 Negro 1
+cell 14 2 Azul 12 Negro 3
+cell 15 2 Azul 11 Negro 4
+cell 16 2 Azul 6 Negro 4
+cell 17 2 Azul 6 Negro 1
+cell 18 2 Azul 1 Negro 4
+cell 19 2 Azul 2 Negro 1
+head 0 0

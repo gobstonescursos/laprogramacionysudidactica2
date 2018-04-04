@@ -1,0 +1,20 @@
+program {
+   OrdenarCartas()
+}
+
+procedure OrdenarCartas() {
+   mazoAOrdenar := leerDatosDeEntrada()
+   mazoOrdenado := ordenar(mazoAOrdenar)
+   RetornarComoSalida_(mazoOrdenado)
+}
+
+function ordenar(mazo) {
+   mazoAOrdenar := mazo
+   mazoOrdenado := mazoVacío()
+   while (quedanCartasEn_(mazoAOrdenar)) {
+       carta := laCartaMásChicaDe(mazoAOrdenar)
+	   mazoAOrdenar := sacarLaCartaMásChicaDe(mazoAOrdenar)
+       mazoOrdenado := agregarAlMazo__(mazoOrdenado, carta)
+   }
+   return(mazoOrdenado)
+}
