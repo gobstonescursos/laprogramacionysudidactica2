@@ -14,11 +14,8 @@ blocks:
     - AlternativaCompleta
     - Asignacion
     - Mis funciones
-    - Direccion
     - Numero
-    - OperadorNumerico
     - OperadorDeComparacion
-    - OperadorDeNegacion
     - OperadorLogico
     - DefinicionDeProcedimientoParametrizado
     - DefinicionDeFuncionSimpleParametrizada
@@ -30,10 +27,10 @@ blocks:
   primitiveFunctions: |
     <category name="Armado de cartas">
       <block type="leerCarta" ></block>
+    </category>
     <category name="Mirar las cartas">
       <block type="dameElPalo_"></block>
       <block type="dameElValor_"></block>
-    </category>
     </category>
 board:
   active: 1
