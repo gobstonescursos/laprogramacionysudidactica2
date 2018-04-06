@@ -1,16 +1,16 @@
-﻿program { DestaparLasFiguras() }
+program { DarVueltaLasFiguras() }
 
-procedure DestaparLasFiguras() {
+procedure DarVueltaLasFiguras() {
   repeat(9) {
     ProcesarUnaCarta()
-    PasarASiguienteCarta()
+    PasarASiguientePosición()
   }
 }
 
 procedure ProcesarUnaCarta() {
-  DestaparCartaActual()
+  DarVueltaLaCartaActual()
   if (not(esFigura(leerCarta()))) {
-    TaparCartaActual()
+    DarVueltaLaCartaActual()
   }
 }
 

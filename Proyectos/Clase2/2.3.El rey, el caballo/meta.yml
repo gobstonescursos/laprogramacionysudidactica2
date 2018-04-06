@@ -22,6 +22,19 @@ blocks:
     - OperadorLogico
     - DefinicionDeProcedimientoParametrizado
     - DefinicionDeFuncionSimpleParametrizada
+  primitiveProcedures: |
+    <category name="Operaciones de cartas">
+      <block type="DarVueltaLaCartaActual"></block>
+      <block type="PasarALaSiguientePosición"></block>
+    </category>
+  primitiveFunctions: |
+    <category name="Armado de cartas">
+      <block type="leerCarta" ></block>
+    <category name="Mirar las cartas">
+      <block type="dameElPalo_"></block>
+      <block type="dameElValor_"></block>
+    </category>
+    </category>
 board:
   active: 1
   initial_board_source: random
