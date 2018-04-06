@@ -12,6 +12,20 @@ blocks:
     - Mis funciones
     - DefinicionDeProcedimientoParametrizado
     - DefinicionDeFuncionSimpleParametrizada
+  primitiveProcedures: |
+    <category name="Operaciones de cartas">
+      <block type="PonerCarta_"></block>
+    </category>
+  # primitiveFunctions: |
+    # <category name="Palos de cartas">
+      # <block type="espadas"></block>
+      # <block type="oros"></block>
+      # <block type="bastos"></block>
+      # <block type="copas"></block>
+    # </category>
+    # <category name="Armado de cartas">
+      # <block type="dameCarta__" ></block>
+    # </category>
 board:
   active: 1
   initial_board_source: random
