@@ -1,0 +1,47 @@
+//--------------------------------
+// Operaciones para insertionSort (interfaz)
+//--------------------------------
+function  quedanCartasSinOrdenar()            { return(aux_quedanCartasSinOrdenar())     }
+procedure IrALaPróximaCartaSinOrdenar()       { AuxIrALaPróximaCartaSinOrdenarSiExiste() }
+procedure IrAlLugarDondeDeberíaPoner_(carta)  { AuxIrAlLugarDondeDeberíaIr(carta)        }
+procedure HacerLugarParaUnaCartaSiHaceFalta() { AuxHacerLugarParaUnaCartaSiHaceFalta()   }
+
+//--------------------------------
+// Auxiliares para insertionSort
+//--------------------------------
+function aux_quedanCartasSinOrdenar() {
+    AuxIrALaPróximaCartaSinOrdenarSiExiste()
+    return(aux_hayCartaDestapada())
+}
+
+procedure AuxIrALaPróximaCartaSinOrdenarSiExiste() {
+    IrAlBorde(Norte) IrAlBorde(Oeste)
+    while (puedeMover(Este) && not aux_hayCartaDestapada()) { Mover(Este) }
+}
+
+procedure AuxIrAlLugarDondeDeberíaIr(carta) {
+   IrAlBorde(Sur) IrAlBorde(Oeste)
+   while (puedeMover(Este) && aux_esMásChicaQueEsta(carta))
+	 { Mover(Este) }
+}
+
+function aux_esMásChicaQueEsta(carta) {
+    return (aux_hayCartaDestapada() && (aux_esMenorCarta(aux_leerCarta(), carta)))
+}
+
+procedure AuxHacerLugarParaUnaCartaSiHaceFalta() {
+    // PRECONDICIÓN: hay al menos un lugar libre en la fila superior
+	if (aux_hayCartaDestapada()) {
+      carta1 := aux_leerCarta(); SacarCartaActual()
+	  Mover(Este)
+	  while (aux_hayCartaDestapada()) {
+  	    carta2 := aux_leerCarta(); SacarCartaActual()
+	    AuxPonerCartaDestapada(carta1)
+	    carta1 := carta2
+	    if (not puedeMover(Este)) { BOOM("¡No había lugar!") }
+	    Mover(Este)
+	  }
+	  AuxPonerCartaDestapada(carta1)
+	  while (aux_hayCartaDestapada()) { Mover(Oeste) }
+	}
+}

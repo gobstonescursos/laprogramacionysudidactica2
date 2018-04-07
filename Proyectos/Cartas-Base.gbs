@@ -8,10 +8,10 @@ type Carta is record  { field palo   field valor  }
 //--------------------------------
 // Operaciones de palos (interfaz)
 //--------------------------------
-/*@ATTRIBUTE@block_name@Oros@*/   function oros()    { return(Oros)    }
 /*@ATTRIBUTE@block_name@Espadas@*/function espadas() { return(Espadas) }
-/*@ATTRIBUTE@block_name@Copas@*/  function copas()   { return(Copas)   }
+/*@ATTRIBUTE@block_name@Oros@*/   function oros()    { return(Oros)    }
 /*@ATTRIBUTE@block_name@Bastos@*/ function bastos()  { return(Bastos)  }
+/*@ATTRIBUTE@block_name@Copas@*/  function copas()   { return(Copas)   }
 
 /*@ATTRIBUTE@block_name@_ es menor palo que _@*/
 function esMenorPalo__(palo1, palo2) { return(aux_esMenorPalo(palo1, palo2)) }
@@ -165,6 +165,11 @@ function aux_laCartaEstáIluminadaConBoom() {
    if (not aux_hayCarta())      { BOOM("No hay una carta que pueda estar iluminada")    }
    if (aux_laCartaEstáTapada()) { BOOM("Las cartas tapadas no pueden estar iluminadas") }
    return(aux_laCartaEstáIluminada()) 
+}
+
+function aux_hayCartaDestapada() { 
+   return (aux_hayCarta()           
+        && not aux_laCartaEstáTapada())
 }
 
 function aux_hayCartaDestapadaSinIluminar() { 

@@ -385,10 +385,10 @@ function aux_leerMazo() {
 
 procedure AuxSacarMazo() {
    while (puedeMover(Este) && aux_hayCartaDestapada()) {
-     AuxSacarCarta()
+     AuxSacarCartaActual()
 	 Mover(Este)
    }
-   if (aux_hayCartaDestapada()) { AuxSacarCarta() }
+   if (aux_hayCartaDestapada()) { AuxSacarCartaActual() }
 }
 
 procedure AuxMostrarMazo(mazo) {

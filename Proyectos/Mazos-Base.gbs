@@ -1,0 +1,94 @@
+/////////////////////////////////////////////////////////////////////
+// PRESUPONE LA EXISTENCIA EN EL MISMO PROGRAMA DE Cartas-Base.gbs
+/////////////////////////////////////////////////////////////////////
+
+//--------------------------------
+// Operaciones de mazos (interfaz)
+//--------------------------------
+function dameLaPrimeraCartaDe_(mazo)   { return(aux_dameLaPrimeraCarta(mazo))  }
+function sacarLaPrimeraCartaDe_(mazo)  { return(aux_sacarLaPrimeraCarta(mazo)) }
+
+/*@ATTRIBUTE@block_name@quedan cartas en _?@*/ 
+function quedanCartas_(m) { return(aux_quedanCartas(m)) }
+
+function mazoEspañolChinChon() { return(aux_mazoEspañolChinChon()) }
+function mazoEspañolTruco()    { return(aux_mazoEspañolTruco())    }
+
+function  leerMazo()         { return (aux_leerMazo()) }
+procedure MostrarMazo_(mazo) { AuxMostrarMazo(mazo)    }
+
+//--------------------------------
+//--------------------------------
+// AUXILIARES
+//--------------------------------
+//--------------------------------
+
+//--------------------------------
+// Operaciones de mazos
+//--------------------------------
+function aux_quedanCartas(mazo)       { return(not(mazo==[])) }
+
+// PRECONDICIÓN: quedan cartas en el mazo
+function aux_dameLaPrimeraCarta(mazo)  { return(primero(mazo)) }
+function aux_sacarLaPrimeraCarta(mazo) { return(resto(mazo))   }
+
+function aux_mazoEspañolChinChon() {
+    mazo := []
+    foreach palo in [ Espadas, Oros, Copas, Bastos ]
+      { mazo := mazo ++ aux_cartasEspañolasChinChonDe(palo) }
+    mazo := mazo ++ [ aux_comodín(), aux_comodín() ]
+    return(mazo)
+}
+
+function aux_cartasEspañolasChinChonDe(palo) {
+    cartasDelPalo := []
+    foreach valor in [1..12] 
+      { cartasDelPalo := cartasDelPalo ++ [ aux_carta(valor,palo) ] }
+    return(cartasDelPalo)
+}
+
+function aux_mazoEspañolTruco() {
+    mazo := []
+    foreach palo in [Espadas, Oros, Copas, Bastos] 
+      { mazo := mazo ++ aux_cartasEspañolasTrucoDe(palo) }
+    return(mazo)
+}
+
+function aux_cartasEspañolasTrucoDe(palo) {
+    cartasDelPalo := []
+    foreach valor in [1..7]   
+      { cartasDelPalo := cartasDelPalo ++ [ aux_carta(valor,palo) ] }
+    foreach valor in [10..12] 
+      { cartasDelPalo := cartasDelPalo ++ [ aux_carta(valor,palo) ] }
+    return(cartasDelPalo)
+}
+
+function aux_leerMazo() {
+   mazo := []
+   while (puedeMover(Este) && aux_hayCartaDestapada()) {
+     mazo := mazo ++ [ aux_leerCarta() ]
+	 Mover(Este)
+   }
+   if (aux_hayCartaDestapada()) { mazo := mazo ++ [ aux_leerCarta() ] }
+   return(mazo)
+}
+
+procedure AuxSacarMazo() {
+   while (puedeMover(Este) && aux_hayCartaDestapada()) {
+     AuxSacarCartaActual()
+	 Mover(Este)
+   }
+   if (aux_hayCartaDestapada()) { AuxSacarCartaActual() }
+}
+
+procedure AuxMostrarMazo(mazo) {
+   // PROPÓSITO: muestra la parte del mazo que pueda entre la celda actual y el borde del tablero, de a una carta por celda
+   // PRECONDICIÓN: las celdas donde vayan a ir cartas deben estar vacías
+   faltanMostrar := mazo
+   while (puedeMover(Este) && aux_quedanCartas(faltanMostrar)) {
+     AuxPonerCartaDestapada(primero(faltanMostrar))
+	 Mover(Este)
+     faltanMostrar := resto(faltanMostrar)
+   }
+   if (aux_quedanCartas(faltanMostrar)) { AuxPonerCartaDestapada(primero(faltanMostrar)) }
+}
