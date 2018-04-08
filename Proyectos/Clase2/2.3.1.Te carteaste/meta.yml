@@ -1,0 +1,42 @@
+attire:
+  active: Cartas españolas de truco
+  user_permissions:
+    can_toggle_visibility: false
+  visible: true
+blocks:
+  disabled:
+  visible:
+    - Procedimientos primitivos
+    - Mis procedimientos
+    - Numero
+    - Mis funciones
+    - DefinicionDeProcedimientoParametrizado
+    - DefinicionDeFuncionSimpleParametrizada
+  primitiveProcedures: |
+    <category name="Operaciones de cartas">
+      <block type="PonerCarta_"></block>
+    </category>
+  primitiveFunctions: |
+    <category name="Palos de cartas">
+      <block type="espadas"></block>
+      <block type="oros"></block>
+      <block type="bastos"></block>
+      <block type="copas"></block>
+    </category>
+    <category name="Armado de cartas">
+      <block type="dameCarta__" ></block>
+    </category>
+board:
+  active: 1
+  initial_board_source: random
+  user_permissions:
+    can_change_source: false
+    can_edit_board: false
+  visible_edition: false
+execution_speed:
+  active: high
+  user_permissions:
+    can_change_speed: true
+library:
+  visible: false
+name: Te carteaste
