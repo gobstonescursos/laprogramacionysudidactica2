@@ -19,17 +19,10 @@ type Carta is record  { field palo   field valor  }
 //--------------------------------
 // Operaciones de cartas (interfaz)
 //--------------------------------
-// /*@ATTRIBUTE@block_name@carta _ de _@*/ 
-// function dameCarta__(v,p) { return(aux_carta(v, p))    }
-
-// /*@ATTRIBUTE@block_name@comodín@*/      
-// function dameComodín()    { return(aux_comodín())      }
-
-// /*@ATTRIBUTE@block_name@es comodín _@*/         
-// function esComodín_(c)    { return(aux_esComodín(c))   }
-
-/*@ATTRIBUTE@block_name@palo de la _@*/         
-function dameElPalo_(c)   { return(aux_dameElPalo(c))  }
+// /*@ATTRIBUTE@block_name@carta _ de _@*/ function dameCarta__(v,p) { return(aux_carta(v, p))    }
+// /*@ATTRIBUTE@block_name@comodín@*/      function dameComodín()    { return(aux_comodín())      }
+// /*@ATTRIBUTE@block_name@es comodín _@*/ function esComodín_(c)    { return(aux_esComodín(c))   }
+/*@ATTRIBUTE@block_name@palo de la _@*/ function dameElPalo_(c)   { return(aux_dameElPalo(c))  }
 
 /*@ATTRIBUTE@block_name@número de la _@*/        
 function dameElValor_(c)  { return(aux_dameElValor(c)) }
@@ -42,6 +35,7 @@ function dameElValor_(c)  { return(aux_dameElValor(c)) }
 //--------------------------------
 // function hayCarta()          { return(aux_hayCarta())                 }
 // function laCartaEstáTapada() { return(aux_laCartaEstáTapadaConBoom()) }
+// function hayCartaTapada()    { return(aux_hayCarta() && aux_laCartaEstáTapada()) }
 // ---
 // Específicas para Memotest
 // ---
@@ -57,7 +51,7 @@ function  leerCarta()                        { return(aux_leerCarta())          
 // procedure PonerCarta_(carta)                 { AuxPonerCartaDestapada(carta)        }
 // procedure SacarCarta()                       { AuxSacarCartaActual()                }
 procedure DarVueltaLaCartaActual()           { AuxGirarCartaActual()                }
-// procedure IluminarCarta()                    { AuxIluminarCartaActual()             }
+// procedure IluminarLaCartaActual()            { AuxIluminarCartaActual()             }
 
 // procedure PonerCartaTapada_(carta)           { AuxPonerCartaTapada(carta)           }
 // procedure PonerCartaDestapada_(carta)        { AuxPonerCartaDestapada(carta)        }
