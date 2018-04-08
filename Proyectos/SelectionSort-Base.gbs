@@ -26,7 +26,7 @@ procedure IrAlLugarDelResultado() { IrAlBorde(Norte) IrAlBorde(Oeste) }
 // En el tablero
 //--------------------------------
 procedure AuxIrAlInicioDeLaEntrada() { IrAlBorde(Norte) IrAlBorde(Oeste) }
-procedure AuxIrAlInicioDeLaSalida()  { IrAlBorde(Norte) IrAlBorde(Oeste) }
+procedure AuxIrAlInicioDeLaSalida()  { IrAlBorde(Sur)   IrAlBorde(Oeste) }
 
 function aux_quedanCartasSinOrdenar() {
     AuxIrALaPrimeraCartaNoLeídaSiExiste()
@@ -41,7 +41,7 @@ procedure AuxIrALaPrimeraCartaNoLeídaSiExiste() {
 procedure AuxIrALaCartaMásChicaSinOrdenar() {
     // PRECONDICIÓN: hay al menos una carta en la fila inferior
     cartaMásChica := aux_leerLaCartaMásChicaSinOrdenar()
-    AuxIrAlInicioDeLaEntrada()
+    AuxIrALaPrimeraCartaNoLeídaSiExiste()
     while (puedeMover(Este) 
         && not aux_laCartaActualEsIgualA(cartaMásChica)) 
       { Mover(Este) }
