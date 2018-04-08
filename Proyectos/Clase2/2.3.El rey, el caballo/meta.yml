@@ -45,7 +45,7 @@ execution_speed:
     can_change_speed: true
 source:
   visible: true
-  percentage: 0.8232750732064422
+  percentage: 0.85
 library:
   visible: false
 name: El rey, el caballo, ...
