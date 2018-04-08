@@ -1,23 +1,25 @@
 GBB/1.0
 size 20 3
-cell 0 0 Azul 11 Negro 1
-cell 1 0 Azul 5 Negro 1
-cell 2 0 Azul 7 Negro 3
-cell 3 0 Azul 10 Negro 4
-cell 4 0 Azul 5 Negro 2
-cell 5 0 Azul 7 Negro 2
-cell 6 0 Azul 4 Negro 3
-cell 7 0 Azul 12 Negro 1
-cell 8 0 Azul 7 Negro 2
-cell 9 0 Azul 4 Negro 4
-cell 10 0 Azul 10 Negro 3
-cell 11 0 Azul 2 Negro 2
-cell 12 0 Azul 4 Negro 2
-cell 13 0 Azul 11 Negro 3
-cell 14 0 Azul 3 Negro 2
-cell 15 0 Azul 1 Negro 1
-cell 16 0 Azul 1 Negro 3
-cell 17 0 Azul 3 Negro 4
-cell 18 0 Azul 6 Negro 4
-cell 19 0 Azul 2 Negro 4
+cell 9 1 Rojo 10
+cell 10 1 Rojo 20
+cell 0 2 Azul 11 Negro 1
+cell 1 2 Azul 5 Negro 1
+cell 2 2 Azul 7 Negro 3
+cell 3 2 Azul 10 Negro 4
+cell 4 2 Azul 5 Negro 2
+cell 5 2 Azul 7 Negro 2
+cell 6 2 Azul 4 Negro 3
+cell 7 2 Azul 12 Negro 1
+cell 8 2 Azul 7 Negro 2
+cell 9 2 Azul 4 Negro 4
+cell 10 2 Azul 10 Negro 3
+cell 11 2 Azul 2 Negro 2
+cell 12 2 Azul 4 Negro 2
+cell 13 2 Azul 11 Negro 3
+cell 14 2 Azul 3 Negro 2
+cell 15 2 Azul 1 Negro 1
+cell 16 2 Azul 1 Negro 3
+cell 17 2 Azul 3 Negro 4
+cell 18 2 Azul 6 Negro 4
+cell 19 2 Azul 2 Negro 4
 head 0 0
