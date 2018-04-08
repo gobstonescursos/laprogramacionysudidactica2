@@ -12,4 +12,4 @@ La idea de esta actividad es que armes una mano de truco con la que se pueda can
 
 [Enunciado en PDF][PDF]
 
-[PDF]: https://raw.githubusercontent.com/gobstones/programacionysudidactica2/master/Proyectos/Clase2/2.4.Memotest/resources/description.pdf "Enunciado de 'Memotest' en PDF"
+[PDF]: https://raw.githubusercontent.com/gobstones/programacionysudidactica2/master/Proyectos/Clase2/2.3.0.Quiero%20retruco/resources/description.pdf "Enunciado de 'Quiero retruco' en PDF"

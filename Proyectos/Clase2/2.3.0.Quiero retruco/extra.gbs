@@ -33,6 +33,7 @@ type Carta is record  { field palo   field valor  }
 //--------------------------------
 // function hayCarta()          { return(aux_hayCarta())                 }
 // function laCartaEstáTapada() { return(aux_laCartaEstáTapadaConBoom()) }
+// function hayCartaTapada()    { return(aux_hayCarta() && aux_laCartaEstáTapada()) }
 
 // ---
 // Específicas para Memotest
