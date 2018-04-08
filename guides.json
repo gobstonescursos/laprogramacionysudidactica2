@@ -20,10 +20,13 @@
     [ { "id": "2.3", "name": "Quiero retruco"
       , "path": "Proyectos/Clase2/2.3.0.Quiero retruco"
       }
-    , { "id": "2.4", "name": "El rey, el caballo, ..."
+    , { "id": "2.4", "name": "Te carteaste"
+      , "path": "Proyectos/Clase2/2.3.1.Te carteaste"
+      }
+    , { "id": "2.5", "name": "El rey, el caballo, ..."
       , "path": "Proyectos/Clase2/2.3.El rey, el caballo"
       }
-    , { "id": "2.5", "name": "Memotest"
+    , { "id": "2.6", "name": "Memotest"
       , "path": "Proyectos/Clase2/2.4.Memotest"
       }
     ]
