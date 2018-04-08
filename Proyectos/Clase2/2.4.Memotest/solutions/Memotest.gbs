@@ -1,4 +1,4 @@
-﻿interactive program {
+interactive program {
   K_ARROW_LEFT  -> { MoverseHacia(Oeste)     }
   K_ARROW_RIGHT -> { MoverseHacia(Este)      }
   K_ARROW_UP    -> { MoverseHacia(Norte)     }
@@ -26,7 +26,7 @@ function hayDosCartasDestapadas() {
 
 procedure MoverseHacia(dir) {
     if (hayDosCartasDestapadas()) { TaparAmbasCartasDestapadas() }
-    PasarASiguienteCartaHacia_(dir)
+    PasarASiguientePosiciónHacia_(dir)
 }
 
 procedure ProcesarLaCartaActual() {
@@ -39,28 +39,28 @@ procedure IluminarLasCartasDestapasSiCorresponde() {
     { IluminarAmbasCartasDestapadas() } 
 }
 
-procedure DestaparLaCartaActualSiSePuede() { if (hayCartaTapada()) { DestaparCartaActual() } }
+procedure DestaparLaCartaActualSiSePuede() { if (hayCartaTapada()) { DarVueltaLaCartaActual() } }
 
 procedure IluminarAmbasCartasDestapadas() {
   // Primero la lejana, para que la última en procesar sea la inicial
   IrALaCartaOtraCartaDestapada()
-  IluminarCartaActual()
+  IluminarLaCartaActual()
   IrALaCartaOtraCartaDestapada()
-  IluminarCartaActual()
+  IluminarLaCartaActual()
   // Termina posicionado sobre la carta inicial
 }
 
 procedure TaparAmbasCartasDestapadas() {
   // Primero la lejana, para que la última en procesar sea la inicial
   IrALaCartaOtraCartaDestapada()
-  TaparCartaActual()
+  DarVueltaLaCartaActual()
   IrALaCartaOtraCartaDestapada()
-  TaparCartaActual()
+  DarVueltaLaCartaActual()
   // Termina posicionado sobre la carta inicial
 }
 
 procedure IrALaCartaOtraCartaDestapada() {
-  PasarASiguienteCarta()
-  while (not hayCartaDestapadaSinIluminar()) { PasarASiguienteCarta() }
+  PasarASiguientePosición()
+  while (not hayCartaDestapadaSinIluminar()) { PasarASiguientePosición() }
 }
 
