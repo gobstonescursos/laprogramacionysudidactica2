@@ -13,7 +13,7 @@ blocks:
     - DefinicionDeProcedimientoParametrizado
     - DefinicionDeFuncionSimpleParametrizada
   primitiveProcedures: |
-    <category name="Operaciones de cartas">
+    <category name="Procedimientos con cartas">
       <block type="PonerCarta_"></block>
     </category>
   primitiveFunctions: |
