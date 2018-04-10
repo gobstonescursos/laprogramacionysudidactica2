@@ -8,6 +8,6 @@ procedure OrdenarCartas() {
        carta := leerCarta(); SacarCartaActual()
        IrAlLugarDondeDeberíaIr_(carta)
 	   HacerLugarParaUnaCartaSiHaceFalta()
-       BajarCartaDestapada_(carta)
+       PonerCarta_(carta)
    }
 }
