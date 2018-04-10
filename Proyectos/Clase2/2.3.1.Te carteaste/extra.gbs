@@ -8,6 +8,7 @@ type Carta is record  { field palo   field valor  }
 //--------------------------------
 // Operaciones de palos (interfaz)
 //--------------------------------
+///*@ATTRIBUTE@tooltip@Denota el palo de espadas de un mazo de cartas españolas*/
 /*@ATTRIBUTE@block_name@Espadas@*/function espadas() { return(Espadas) }
 /*@ATTRIBUTE@block_name@Oros@*/   function oros()    { return(Oros)    }
 /*@ATTRIBUTE@block_name@Bastos@*/ function bastos()  { return(Bastos)  }
