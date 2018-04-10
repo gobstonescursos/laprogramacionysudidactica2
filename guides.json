@@ -1,5 +1,5 @@
 [
-  { "name": "Repaso", "repo": "gobstones/programacionysudidactica2"
+  { "name": "Repaso", "repo": "gobstones/laprogramacionysudidactica2"
   , "exercises": 
     [ { "id": "1.1", "name": "Lucho enciende las luces"
       , "path": "Proyectos/Clase1/1.1.Lucho enciende las luces"
@@ -15,7 +15,7 @@
       }
     ]
   },
-  { "name": "Expresiones y funciones simples", "repo": "gobstones/programacionysudidactica2"
+  { "name": "Expresiones y funciones simples", "repo": "gobstones/laprogramacionysudidactica2"
   , "exercises":
     [ { "id": "2.3", "name": "Quiero retruco"
       , "path": "Proyectos/Clase2/2.3.0.Quiero retruco"
@@ -31,7 +31,7 @@
       }
     ]
   },
-  { "name": "Pool de ideas", "repo": "gobstones/programacionysudidactica2"
+  { "name": "Pool de ideas", "repo": "gobstones/laprogramacionysudidactica2"
   , "exercises":
     [ { "id": "1", "name": "Poniendo orden"
       , "path": "Proyectos/Pool/1.Poniendo orden"
