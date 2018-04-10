@@ -12,4 +12,4 @@
 
 [Enunciado en PDF][PDF]
 
-[PDF]: https://raw.githubusercontent.com/gobstones/programacionysudidactica2/master/Proyectos/Pool/1.Base/resources/description.pdf "Enunciado de 'Nombre' en PDF"
+[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/Pool/1.Base/resources/description.pdf "Enunciado de 'Nombre' en PDF"
