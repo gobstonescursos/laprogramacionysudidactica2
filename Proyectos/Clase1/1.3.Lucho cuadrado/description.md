@@ -16,4 +16,4 @@ Al expresar las subtareas con procedimientos, vas a encontrar que necesitás 4 p
 
 [Enunciado en PDF][PDF]
 
-[PDF]: https://raw.githubusercontent.com/gobstones/programacionysudidactica2/master/Proyectos/Clase1/1.3.Lucho%20cuadrado/resources/description.pdf "Enunciado de 'Lucho cuadrado' en PDF"
+[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/Clase1/1.3.Lucho%20cuadrado/resources/description.pdf "Enunciado de 'Lucho cuadrado' en PDF"
