@@ -65,11 +65,14 @@ procedure SacarCarta()                       { AuxSacarCartaActual()            
 //--------------------------------
 // Operaciones de mazos (interfaz)
 //--------------------------------
-// function dameLaPrimeraCartaDe_(mazo)   { return(aux_dameLaPrimeraCarta(mazo))  }
-// function sacarLaPrimeraCartaDe_(mazo)  { return(aux_sacarLaPrimeraCarta(mazo)) }
+// function mazoVacío()                   { return([])                            }
+// function agregarAlMazo__(mazo, carta)  { return(aux_agregarAlMazo(mazo, carta) }
 
 // /*@ATTRIBUTE@block_name@quedan cartas en _?@*/ 
 // function quedanCartas_(m) { return(aux_quedanCartas(m)) }
+
+// function dameLaPrimeraCartaDe_(mazo)   { return(aux_dameLaPrimeraCarta(mazo))  }
+// function sacarLaPrimeraCartaDe_(mazo)  { return(aux_sacarLaPrimeraCarta(mazo)) }
 
 // function mazoEspañolChinChon() { return(aux_mazoEspañolChinChon()) }
 // function mazoEspañolTruco()    { return(aux_mazoEspañolTruco())    }
@@ -346,11 +349,13 @@ procedure AuxSacarTodas_(c) { AuxSacar__Veces(c, nroBolitas(c)) }
 //--------------------------------
 // Operaciones de mazos
 //--------------------------------
-function aux_quedanCartas(mazo)       { return(not(mazo==[])) }
+function aux_agregarAlMazo(mazo, carta) { return(mazo ++ [ carta ]) }
+
+function aux_quedanCartas(mazo)         { return(not(mazo==[])) }
 
 // PRECONDICIÓN: quedan cartas en el mazo
-function aux_dameLaPrimeraCarta(mazo)  { return(primero(mazo)) }
-function aux_sacarLaPrimeraCarta(mazo) { return(resto(mazo))   }
+function aux_dameLaPrimeraCarta(mazo)   { return(primero(mazo)) }
+function aux_sacarLaPrimeraCarta(mazo)  { return(resto(mazo))   }
 
 function aux_mazoEspañolChinChon() {
     mazo := []
