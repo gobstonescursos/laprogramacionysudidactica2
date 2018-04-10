@@ -15,10 +15,11 @@ function quedanCartasEn_(mazo)         { return(aux_quedanCartasEn(mazo))       
 function laCartaMásChicaDe_(mazo)      { return(aux_laCartaMásChicaDe(mazo))      }
 function sacarLaCartaMásChicaDe_(mazo) { return(aux_sacarLaCartaMásChicaDe(mazo)) }
 
-function  leerDatosDeEntrada()      { return(aux_leerMazo()) }
-procedure RetornarComoSalida_(mazo) { AuxMostrarMazo(mazo) }
+function  leerDatosDeEntrada()      { AuxIrAlInicioDeLaEntrada() return(aux_leerMazo()) }
+procedure SacarDatosDeEntrada()     { AuxIrAlInicioDeLaEntrada() AuxSacarMazo()         }
+procedure RetornarComoSalida_(mazo) { AuxIrAlInicioDeLaSalida()  AuxMostrarMazo(mazo)   }
 
-procedure IrAlLugarDelResultado() { IrAlBorde(Norte) IrAlBorde(Oeste) }
+procedure IrAlLugarDelResultado()   { AuxIrAlInicioDeLaSalida()                         }
 
 //--------------------------------
 // Auxiliares para selectionSort

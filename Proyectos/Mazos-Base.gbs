@@ -18,6 +18,7 @@ function mazoEspañolChinChon() { return(aux_mazoEspañolChinChon()) }
 function mazoEspañolTruco()    { return(aux_mazoEspañolTruco())    }
 
 function  leerMazo()         { return (aux_leerMazo()) }
+function  SacarMazo()        { AuxSacarMazo()          }
 procedure MostrarMazo_(mazo) { AuxMostrarMazo(mazo)    }
 
 //--------------------------------
