@@ -1,3 +1,7 @@
+/////////////////////////////////////////////////////////////////////
+// PRESUPONE LA EXISTENCIA EN EL MISMO PROGRAMA DE Cartas-Base.gbs y Mazos-Base.gbs
+/////////////////////////////////////////////////////////////////////
+
 //--------------------------------
 // Operaciones para insertionSort (interfaz)
 //--------------------------------
