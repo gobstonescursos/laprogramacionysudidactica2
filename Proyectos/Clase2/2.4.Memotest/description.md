@@ -12,4 +12,4 @@ En esta actividad ya viene (casi) construido un programa para jugar al Memotest.
 
 [Enunciado en PDF][PDF]
 
-[PDF]: https://raw.githubusercontent.com/gobstones/programacionysudidactica2/master/Proyectos/Clase2/2.4.Memotest/resources/description.pdf "Enunciado de 'Memotest' en PDF"
+[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/Clase2/2.4.Memotest/resources/description.pdf "Enunciado de 'Memotest' en PDF"
