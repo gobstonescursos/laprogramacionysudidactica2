@@ -12,8 +12,8 @@ function ordenar(mazo) {
    mazoAOrdenar := mazo
    mazoOrdenado := mazoVacío()
    while (quedanCartasEn_(mazoAOrdenar)) {
-       carta := laCartaMásChicaDe(mazoAOrdenar)
-	   mazoAOrdenar := sacarLaCartaMásChicaDe(mazoAOrdenar)
+       carta := laCartaMásChicaDe_(mazoAOrdenar)
+	   mazoAOrdenar := sacarLaCartaMásChicaDe_(mazoAOrdenar)
        mazoOrdenado := agregarAlMazo__(mazoOrdenado, carta)
    }
    return(mazoOrdenado)
