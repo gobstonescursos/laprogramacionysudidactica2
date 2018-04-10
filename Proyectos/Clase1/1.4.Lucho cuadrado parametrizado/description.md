@@ -14,4 +14,4 @@ Esta actividad es muy similar a la anterior, y de hecho se puede resolver con el
 
 [Enunciado en PDF][PDF]
 
-[PDF]: https://raw.githubusercontent.com/gobstones/programacionysudidactica2/master/Proyectos/Clase1/1.4.Lucho%20cuadrado%20parametrizado/resources/description.pdf "Enunciado de 'Lucho cuadrado parametrizado' en PDF"
+[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/Clase1/1.4.Lucho%20cuadrado%20parametrizado/resources/description.pdf "Enunciado de 'Lucho cuadrado parametrizado' en PDF"
