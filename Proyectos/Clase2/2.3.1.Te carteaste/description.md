@@ -14,4 +14,4 @@ Por ejemplo, una que tenga tres veces el ancho de espadas. El escenario final de
 
 [Enunciado en PDF][PDF]
 
-[PDF]: https://raw.githubusercontent.com/gobstones/programacionysudidactica2/master/Proyectos/Clase2/2.3.1.Te%20carteaste/resources/description.pdf "Enunciado de 'Te carteaste' en PDF"
+[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/Clase2/2.3.1.Te%20carteaste/resources/description.pdf "Enunciado de 'Te carteaste' en PDF"
