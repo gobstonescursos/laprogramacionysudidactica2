@@ -13,4 +13,4 @@ En esta actividad, una vez más, el propósito es ordenar las cartas que aparece
 
 [Enunciado en PDF][PDF]
 
-[PDF]: https://raw.githubusercontent.com/gobstones/programacionysudidactica2/master/Proyectos/Pool/2.Otra%20forma%20de%20ordenar/resources/description.pdf "Enunciado de 'Otra forma de ordenar' en PDF"
+[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/Pool/2.Otra%20forma%20de%20ordenar/resources/description.pdf "Enunciado de 'Otra forma de ordenar' en PDF"
