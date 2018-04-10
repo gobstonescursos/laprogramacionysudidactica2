@@ -68,7 +68,7 @@ procedure SacarCarta()                       { AuxSacarCartaActual()            
 // function dameLaPrimeraCartaDe_(mazo)   { return(aux_dameLaPrimeraCarta(mazo))  }
 // function sacarLaPrimeraCartaDe_(mazo)  { return(aux_sacarLaPrimeraCarta(mazo)) }
 
-/*@ATTRIBUTE@block_name@quedan cartas en _?@*/ 
+// /*@ATTRIBUTE@block_name@quedan cartas en _?@*/ 
 // function quedanCartas_(m) { return(aux_quedanCartas(m)) }
 
 // function mazoEspañolChinChon() { return(aux_mazoEspañolChinChon()) }
