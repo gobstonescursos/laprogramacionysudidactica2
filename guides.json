@@ -1,5 +1,5 @@
 [
-  { "name": "Repaso", "repo": "gobstones/laprogramacionysudidactica2"
+  { "name": "Repaso curso anterior", "repo": "gobstones/laprogramacionysudidactica2"
   , "exercises": 
     [ { "id": "1.1", "name": "Lucho enciende las luces"
       , "path": "Proyectos/Clase1/1.1.Lucho enciende las luces"
