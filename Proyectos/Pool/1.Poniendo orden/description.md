@@ -13,4 +13,4 @@ En esta actividad el propósito es ordenar las cartas que aparecen en la fila in
 
 [Enunciado en PDF][PDF]
 
-[PDF]: https://raw.githubusercontent.com/gobstones/programacionysudidactica2/master/Proyectos/Pool/1.Poniendo%20orden/resources/description.pdf "Enunciado de 'Poniendo orden' en PDF"
+[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/Pool/1.Poniendo%20orden/resources/description.pdf "Enunciado de 'Poniendo orden' en PDF"
