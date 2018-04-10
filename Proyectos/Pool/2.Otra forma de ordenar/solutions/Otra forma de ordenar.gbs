@@ -5,7 +5,7 @@ program {
 procedure OrdenarCartas() {
    while (quedanCartasSinOrdenar()) {
        IrALaPróximaCartaSinOrdenar()
-       carta := leerCarta(); SacarCartaActual()
+       carta := leerCarta(); SacarCarta()
        IrAlLugarDondeDeberíaPoner_(carta)
 	   HacerLugarParaUnaCartaSiHaceFalta()
        PonerCarta_(carta)

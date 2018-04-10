@@ -9,38 +9,38 @@ type Carta is record  { field palo   field valor  }
 // Operaciones de palos (interfaz)
 //--------------------------------
 ///*@ATTRIBUTE@tooltip@Denota el palo de espadas de un mazo de cartas españolas*/
-/*@ATTRIBUTE@block_name@Espadas@*/function espadas() { return(Espadas) }
-/*@ATTRIBUTE@block_name@Oros@*/   function oros()    { return(Oros)    }
-/*@ATTRIBUTE@block_name@Bastos@*/ function bastos()  { return(Bastos)  }
-/*@ATTRIBUTE@block_name@Copas@*/  function copas()   { return(Copas)   }
+// /*@ATTRIBUTE@block_name@Espadas@*/function espadas() { return(Espadas) }
+// /*@ATTRIBUTE@block_name@Oros@*/   function oros()    { return(Oros)    }
+// /*@ATTRIBUTE@block_name@Bastos@*/ function bastos()  { return(Bastos)  }
+// /*@ATTRIBUTE@block_name@Copas@*/  function copas()   { return(Copas)   }
 
-/*@ATTRIBUTE@block_name@_ es menor palo que _@*/
-function esMenorPalo__(palo1, palo2) { return(aux_esMenorPalo(palo1, palo2)) }
+// /*@ATTRIBUTE@block_name@_ es menor palo que _@*/
+// function esMenorPalo__(palo1, palo2) { return(aux_esMenorPalo(palo1, palo2)) }
 
 //--------------------------------
 // Operaciones de cartas (interfaz)
 //--------------------------------
-/*@ATTRIBUTE@block_name@carta _ de _@*/   function dameCarta__(v,p) { return(aux_carta(v, p))    }
-/*@ATTRIBUTE@block_name@comodín@*/        function dameComodín()    { return(aux_comodín())      }
-/*@ATTRIBUTE@block_name@es comodín _@*/   function esComodín_(c)    { return(aux_esComodín(c))   }
-/*@ATTRIBUTE@block_name@palo de la _@*/   function dameElPalo_(c)   { return(aux_dameElPalo(c))  }
-/*@ATTRIBUTE@block_name@número de la _@*/ function dameElValor_(c)  { return(aux_dameElValor(c)) }
+// /*@ATTRIBUTE@block_name@carta _ de _@*/   function dameCarta__(v,p) { return(aux_carta(v, p))    }
+// /*@ATTRIBUTE@block_name@comodín@*/        function dameComodín()    { return(aux_comodín())      }
+// /*@ATTRIBUTE@block_name@es comodín _@*/   function esComodín_(c)    { return(aux_esComodín(c))   }
+// /*@ATTRIBUTE@block_name@palo de la _@*/   function dameElPalo_(c)   { return(aux_dameElPalo(c))  }
+// /*@ATTRIBUTE@block_name@número de la _@*/ function dameElValor_(c)  { return(aux_dameElValor(c)) }
 
-/*@ATTRIBUTE@block_name@_ es menor carta que _@*/
-function esMenorCarta__(carta1, carta2) { return(aux_esMenorCarta(carta1, carta2)) }
+// /*@ATTRIBUTE@block_name@_ es menor carta que _@*/
+// function esMenorCarta__(carta1, carta2) { return(aux_esMenorCarta(carta1, carta2)) }
 
 //--------------------------------
 // Operaciones de sensado de cartas (interfaz)
 //--------------------------------
-function hayCarta()          { return(aux_hayCarta())                 }
-function laCartaEstáTapada() { return(aux_laCartaEstáTapadaConBoom()) }
-function hayCartaTapada()    { return(aux_hayCarta() && aux_laCartaEstáTapada()) }
+// function hayCarta()          { return(aux_hayCarta())                 }
+// function laCartaEstáTapada() { return(aux_laCartaEstáTapadaConBoom()) }
+// function hayCartaTapada()    { return(aux_hayCarta() && aux_laCartaEstáTapada()) }
 // ---
 // Específicas para Memotest
 // ---
-function laCartaEstáIluminada()             { return(aux_laCartaEstáIluminadaConBoom())      }
-function hayCartaDestapadaSinIluminar()     { return(aux_hayCartaDestapadaSinIluminar())     }
-function hayOtraCartaDestapadaSinIluminar() { return(aux_hayOtraCartaDestapadaSinIluminar()) }
+// function laCartaEstáIluminada()             { return(aux_laCartaEstáIluminadaConBoom())      }
+// function hayCartaDestapadaSinIluminar()     { return(aux_hayCartaDestapadaSinIluminar())     }
+// function hayOtraCartaDestapadaSinIluminar() { return(aux_hayOtraCartaDestapadaSinIluminar()) }
 
 //--------------------------------
 // Operaciones de mostrado de cartas (interfaz)
@@ -49,14 +49,14 @@ function  leerCarta()                        { return(aux_leerCarta())          
 
 procedure PonerCarta_(carta)                 { AuxPonerCartaDestapada(carta)        }
 procedure SacarCarta()                       { AuxSacarCartaActual()                }
-procedure DarVueltaLaCartaActual()           { AuxGirarCartaActual()                }
-procedure IluminarLaCartaActual()            { AuxIluminarCartaActual()             }
+// procedure DarVueltaLaCartaActual()           { AuxGirarCartaActual()                }
+// procedure IluminarLaCartaActual()            { AuxIluminarCartaActual()             }
 
-procedure PonerCartaTapada_(carta)           { AuxPonerCartaTapada(carta)           }
-procedure PonerCartaDestapada_(carta)        { AuxPonerCartaDestapada(carta)        }
+// procedure PonerCartaTapada_(carta)           { AuxPonerCartaTapada(carta)           }
+// procedure PonerCartaDestapada_(carta)        { AuxPonerCartaDestapada(carta)        }
 
-procedure PasarASiguientePosiciónHacia_(dir) { AuxPasarASiguientePosiciónHacia(dir) }
-procedure PasarASiguientePosición()          { AuxPasarASiguientePosición()         }
+// procedure PasarASiguientePosiciónHacia_(dir) { AuxPasarASiguientePosiciónHacia(dir) }
+// procedure PasarASiguientePosición()          { AuxPasarASiguientePosición()         }
 
 /////////////////////////////////////////////////////////////////////
 // PRESUPONE LA EXISTENCIA EN EL MISMO PROGRAMA DE Cartas-Base.gbs
@@ -65,17 +65,17 @@ procedure PasarASiguientePosición()          { AuxPasarASiguientePosición()   
 //--------------------------------
 // Operaciones de mazos (interfaz)
 //--------------------------------
-function dameLaPrimeraCartaDe_(mazo)   { return(aux_dameLaPrimeraCarta(mazo))  }
-function sacarLaPrimeraCartaDe_(mazo)  { return(aux_sacarLaPrimeraCarta(mazo)) }
+// function dameLaPrimeraCartaDe_(mazo)   { return(aux_dameLaPrimeraCarta(mazo))  }
+// function sacarLaPrimeraCartaDe_(mazo)  { return(aux_sacarLaPrimeraCarta(mazo)) }
 
 /*@ATTRIBUTE@block_name@quedan cartas en _?@*/ 
-function quedanCartas_(m) { return(aux_quedanCartas(m)) }
+// function quedanCartas_(m) { return(aux_quedanCartas(m)) }
 
-function mazoEspañolChinChon() { return(aux_mazoEspañolChinChon()) }
-function mazoEspañolTruco()    { return(aux_mazoEspañolTruco())    }
+// function mazoEspañolChinChon() { return(aux_mazoEspañolChinChon()) }
+// function mazoEspañolTruco()    { return(aux_mazoEspañolTruco())    }
 
-function  leerMazo()         { return (aux_leerMazo()) }
-procedure MostrarMazo_(mazo) { AuxMostrarMazo(mazo)    }
+// function  leerMazo()         { return (aux_leerMazo()) }
+// procedure MostrarMazo_(mazo) { AuxMostrarMazo(mazo)    }
 
 /////////////////////////////////////////////////////////////////////
 // PRESUPONE LA EXISTENCIA EN EL MISMO PROGRAMA DE Cartas-Base.gbs y Mazos-Base.gbs
