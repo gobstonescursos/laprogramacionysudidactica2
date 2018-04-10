@@ -36,10 +36,10 @@ function aux_esMásChicaQueEsta(carta) {
 procedure AuxHacerLugarParaUnaCartaSiHaceFalta() {
     // PRECONDICIÓN: hay al menos un lugar libre en la fila superior
 	if (aux_hayCartaDestapada()) {
-      carta1 := aux_leerCarta(); SacarCartaActual()
+      carta1 := aux_leerCarta(); SacarCarta()
 	  Mover(Este)
 	  while (aux_hayCartaDestapada()) {
-  	    carta2 := aux_leerCarta(); SacarCartaActual()
+  	    carta2 := aux_leerCarta(); SacarCarta()
 	    AuxPonerCartaDestapada(carta1)
 	    carta1 := carta2
 	    if (not puedeMover(Este)) { BOOM("¡No había lugar!") }
