@@ -14,4 +14,4 @@ Completá el programa para que al terminar solo las figuras estén descubiertas,
 
 [Enunciado en PDF][PDF]
 
-[PDF]: https://raw.githubusercontent.com/gobstones/programacionysudidactica2/master/Proyectos/Clase2/2.3.El%20rey%2C%20el%20caballo/resources/description.pdf "Enunciado de 'El rey, el caballo, ...' en PDF"
+[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/Clase2/2.3.El%20rey%2C%20el%20caballo/resources/description.pdf "Enunciado de 'El rey, el caballo, ...' en PDF"
