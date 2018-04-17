@@ -9,6 +9,13 @@ type Carta is record  { field palo   field valor  }
 // Operaciones de palos (interfaz)
 //--------------------------------
 ///*@ATTRIBUTE@tooltip@Denota el palo de espadas de un mazo de cartas españolas*/
+// /*@ATTRIBUTE@block_name@Espadas@*/function espadas() { return(Espadas) }
+// /*@ATTRIBUTE@block_name@Oros@*/   function oros()    { return(Oros)    }
+// /*@ATTRIBUTE@block_name@Bastos@*/ function bastos()  { return(Bastos)  }
+// /*@ATTRIBUTE@block_name@Copas@*/  function copas()   { return(Copas)   }
+// 
+// /*@ATTRIBUTE@block_name@_ es menor palo que _@*/
+// function esMenorPalo__(palo1, palo2) { return(aux_esMenorPalo(palo1, palo2)) }
 //
 //--------------------------------
 // Operaciones de cartas (interfaz)
@@ -59,7 +66,7 @@ type Carta is record  { field palo   field valor  }
 // Operaciones de mazos (interfaz)
 //--------------------------------
 function mazoVacío()                   { return([])                             }
-// PRUEBA: /*@ATTRIBUTE@block_method@_.agregar la carta _ al final@*/
+/// PRUEBA: /*@ATTRIBUTE@block_method@_.agregar la carta _ al final@*/
 /*@ATTRIBUTE@block_name@agregar al mazo _ la carta _ al final@*/ 
 function agregarAlMazo__(mazo, carta)  { return(aux_agregarAlMazo(mazo, carta)) }
 
