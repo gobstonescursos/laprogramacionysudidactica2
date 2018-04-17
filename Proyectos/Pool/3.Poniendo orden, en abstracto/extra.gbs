@@ -9,7 +9,7 @@ type Carta is record  { field palo   field valor  }
 // Operaciones de palos (interfaz)
 //--------------------------------
 ///*@ATTRIBUTE@tooltip@Denota el palo de espadas de un mazo de cartas españolas*/
-// v
+//
 //--------------------------------
 // Operaciones de cartas (interfaz)
 //--------------------------------
@@ -62,10 +62,10 @@ function mazoVacío()                   { return([])                            
 function agregarAlMazo__(mazo, carta)  { return(aux_agregarAlMazo(mazo, carta)) }
 
 /*@ATTRIBUTE@block_name@quedan cartas en _?@*/ 
-function quedanCartas_(m) { return(aux_quedanCartas(m)) }
+function quedanCartasEn_(m) { return(aux_quedanCartas(m)) }
 
-function dameLaPrimeraCartaDe_(mazo)   { return(aux_dameLaPrimeraCarta(mazo))  }
-function sacarLaPrimeraCartaDe_(mazo)  { return(aux_sacarLaPrimeraCarta(mazo)) }
+// function dameLaPrimeraCartaDe_(mazo)   { return(aux_dameLaPrimeraCarta(mazo))  }
+// function sacarLaPrimeraCartaDe_(mazo)  { return(aux_sacarLaPrimeraCarta(mazo)) }
 
 // function mazoEspañolChinChon() { return(aux_mazoEspañolChinChon()) }
 // function mazoEspañolTruco()    { return(aux_mazoEspañolTruco())    }
@@ -86,7 +86,6 @@ function sacarLaPrimeraCartaDe_(mazo)  { return(aux_sacarLaPrimeraCarta(mazo)) }
 // procedure IrALaPróximaPosiciónParaBajarCarta() { AuxIrAPróximaPosiciónParaBajarCarta() }
 
 // Funcional
-function quedanCartasEn_(mazo)         { return(aux_quedanCartasEn(mazo))         }
 function laCartaMásChicaDe_(mazo)      { return(aux_laCartaMásChicaDe(mazo))      }
 function sacarLaCartaMásChicaDe_(mazo) { return(aux_sacarLaCartaMásChicaDe(mazo)) }
 
@@ -94,7 +93,7 @@ function  leerDatosDeEntrada()      { AuxIrAlInicioDeLaEntrada() return(aux_leer
 procedure SacarDatosDeEntrada()     { AuxIrAlInicioDeLaEntrada() AuxSacarMazo()         }
 procedure RetornarComoSalida_(mazo) { AuxIrAlInicioDeLaSalida()  AuxMostrarMazo(mazo)   }
 
-procedure IrAlLugarDelResultado()   { AuxIrAlInicioDeLaSalida()                         }
+// procedure IrAlLugarDelResultado()   { AuxIrAlInicioDeLaSalida()                         }
 
 //--------------------------------
 //--------------------------------

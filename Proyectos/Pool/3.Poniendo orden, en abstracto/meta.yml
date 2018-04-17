@@ -13,6 +13,24 @@ blocks:
     - Mis funciones
     - OperadorDeNegacion
     - DefinicionDeProcedimientoParametrizado
+  primitiveProcedures: |
+    <category name="Lectura y mostrado de mazos">
+      <block type="RetornarComoSalida_"></block>
+      <block type="SacarDatosDeEntrada"></block>
+    </category>
+  primitiveFunctions: |
+    <category name="Lectura y mostrado de mazos">
+      <block type="leerDatosDeEntrada"></block>
+    </category>
+    <category name="Manipulación de mazos">
+      <block type="mazoVacío"></block>
+      <block type="agregarAlMazo__"></block>
+      <block type="quedanCartasEn_"></block>
+    </category>
+    <category name="Acceso a mazos">
+      <block type="laCartaMásChicaDe_" ></block>
+      <block type="sacarLaCartaMásChicaDe_" ></block>
+    </category>
 board:
   active: 1
   initial_board_source: random
