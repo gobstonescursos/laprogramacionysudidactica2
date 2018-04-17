@@ -12,7 +12,7 @@ blocks:
     - Asignacion
     - Mis funciones
     - OperadorDeNegacion
-    - DefinicionDeProcedimientoParametrizado
+    - DefinicionDeFuncionParametrizada
   primitiveProcedures: |
     <category name="Lectura y mostrado de mazos">
       <block type="RetornarComoSalida_"></block>
