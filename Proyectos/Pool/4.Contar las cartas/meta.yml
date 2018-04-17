@@ -12,6 +12,7 @@ blocks:
     - Asignacion
     - Numero
     - Mis funciones
+    - OperadorNumerico
     - OperadorDeNegacion
     - DefinicionDeProcedimientoParametrizado
     - DefinicionDeFuncionParametrizada
