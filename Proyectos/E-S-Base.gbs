@@ -1,0 +1,22 @@
+/////////////////////////////////////////////////////////////////////
+// PRESUPONE LA EXISTENCIA EN EL MISMO PROGRAMA DE Cartas-Base.gbs y Mazos-Base.gbs
+/////////////////////////////////////////////////////////////////////
+
+//--------------------------------
+// Operaciones para selectionSort en datos (interfaz)
+//--------------------------------
+function  leerDatosDeEntrada()      { AuxIrAlInicioDeLaEntrada() return(aux_leerMazo())    }
+procedure SacarDatosDeEntrada()     { AuxIrAlInicioDeLaEntrada() AuxSacarMazo()            }
+procedure RetornarComoSalida_(mazo) { AuxIrAlInicioDeLaSalida()  AuxMostrarMazo(mazo)      }
+procedure InformarComoSalida_(n)    { AuxIrAlInicioDeLaSalida()  AuxPoner__Veces(Rojo,n)   }
+
+procedure IrAlLugarDelResultado()   { AuxIrAlInicioDeLaSalida()                            }
+
+//--------------------------------
+// Auxiliares para entrada/salida
+//--------------------------------
+// En el tablero
+//--------------------------------
+procedure AuxIrAlInicioDeLaEntrada() { IrAlBorde(Norte) IrAlBorde(Oeste) }
+procedure AuxIrAlInicioDeLaSalida()  { IrAlBorde(Sur)   IrAlBorde(Oeste) }
+

@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////
-// PRESUPONE LA EXISTENCIA EN EL MISMO PROGRAMA DE Cartas-Base.gbs y Mazos-Base.gbs
+// PRESUPONE LA EXISTENCIA EN EL MISMO PROGRAMA DE Cartas-Base.gbs, Mazos-Base.gbs y E-S-Base.gbs
 /////////////////////////////////////////////////////////////////////
 
 //--------------------------------
@@ -15,20 +15,11 @@ function quedanCartasEn_(mazo)         { return(aux_quedanCartasEn(mazo))       
 /// PRUEBA: /*@ATTRIBUTE@block_method@_.sacar la carta más chica@*/function laCartaMásChicaDe_(mazo)      { return(aux_laCartaMásChicaDe(mazo))      }
 function sacarLaCartaMásChicaDe_(mazo) { return(aux_sacarLaCartaMásChicaDe(mazo)) }
 
-function  leerDatosDeEntrada()      { AuxIrAlInicioDeLaEntrada() return(aux_leerMazo()) }
-procedure SacarDatosDeEntrada()     { AuxIrAlInicioDeLaEntrada() AuxSacarMazo()         }
-procedure RetornarComoSalida_(mazo) { AuxIrAlInicioDeLaSalida()  AuxMostrarMazo(mazo)   }
-
-procedure IrAlLugarDelResultado()   { AuxIrAlInicioDeLaSalida()                         }
-
 //--------------------------------
 // Auxiliares para selectionSort
 //--------------------------------
 // En el tablero
 //--------------------------------
-procedure AuxIrAlInicioDeLaEntrada() { IrAlBorde(Norte) IrAlBorde(Oeste) }
-procedure AuxIrAlInicioDeLaSalida()  { IrAlBorde(Sur)   IrAlBorde(Oeste) }
-
 function aux_quedanCartasSinOrdenar() {
     AuxIrALaPrimeraCartaNoLeídaSiExiste()
     return (aux_hayCartaDestapada())
