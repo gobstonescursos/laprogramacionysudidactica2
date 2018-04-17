@@ -39,6 +39,9 @@
     , { "id": "2", "name": "Otra forma de ordenar"
       , "path": "Proyectos/Pool/2.Otra forma de ordenar"
       }
+    , { "id": "3", "name": "Poniendo orden, en abstracto"
+      , "path": "Proyectos/Pool/3.Poniendo orden, en abstracto"
+      }
     ]
   }  
 ]
