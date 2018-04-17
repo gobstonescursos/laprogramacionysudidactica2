@@ -42,6 +42,9 @@
     , { "id": "3", "name": "Poniendo orden, en abstracto"
       , "path": "Proyectos/Pool/3.Poniendo orden, en abstracto"
       }
+    , { "id": "4", "name": "Contar las cartas"
+      , "path": "Proyectos/Pool/4.Contar las cartas"
+      }
     ]
   }  
 ]
