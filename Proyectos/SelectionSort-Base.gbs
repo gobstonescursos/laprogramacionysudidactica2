@@ -12,7 +12,7 @@ procedure IrALaPróximaPosiciónParaBajarCarta() { AuxIrAPróximaPosiciónParaBa
 
 // Funcional
 function quedanCartasEn_(mazo)         { return(aux_quedanCartasEn(mazo))         }
-function laCartaMásChicaDe_(mazo)      { return(aux_laCartaMásChicaDe(mazo))      }
+/// PRUEBA: /*@ATTRIBUTE@block_method@_.sacar la carta más chica@*/function laCartaMásChicaDe_(mazo)      { return(aux_laCartaMásChicaDe(mazo))      }
 function sacarLaCartaMásChicaDe_(mazo) { return(aux_sacarLaCartaMásChicaDe(mazo)) }
 
 function  leerDatosDeEntrada()      { AuxIrAlInicioDeLaEntrada() return(aux_leerMazo()) }
