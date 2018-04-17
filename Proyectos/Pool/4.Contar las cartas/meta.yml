@@ -10,13 +10,14 @@ blocks:
     - Mis procedimientos
     - RepeticionCondicional
     - Asignacion
+    - Numero
     - Mis funciones
     - OperadorDeNegacion
     - DefinicionDeProcedimientoParametrizado
     - DefinicionDeFuncionParametrizada
   primitiveProcedures: |
     <category name="Lectura y mostrado de mazos">
-      <block type="RetornarComoSalida_"></block>
+      <block type="InformarComoSalida_"></block>
       <block type="SacarDatosDeEntrada"></block>
     </category>
   primitiveFunctions: |
