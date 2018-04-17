@@ -59,6 +59,7 @@ type Carta is record  { field palo   field valor  }
 // Operaciones de mazos (interfaz)
 //--------------------------------
 function mazoVacío()                   { return([])                             }
+/*@ATTRIBUTE@block_name@agregar _ al mazo _@*/ 
 function agregarAlMazo__(mazo, carta)  { return(aux_agregarAlMazo(mazo, carta)) }
 
 /*@ATTRIBUTE@block_name@quedan cartas en _?@*/ 
