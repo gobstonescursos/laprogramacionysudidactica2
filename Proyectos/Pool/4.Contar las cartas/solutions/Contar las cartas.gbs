@@ -5,10 +5,9 @@ program {
 procedure ContarLasCartas() {
    IrAlInicioDeLaEntrada()
    IniciarLaCuenta()
-   while (hayCarta()) {
+   while (hayCartaTapada()) {
 	   DarVueltaLaCartaActual()
        IncrementarLaCuentaEnUno()
-	   IluminarLaCartaActual()
 	   PasarASiguientePosiciónEnLínea()
    }
    CompletarLaCuenta()
