@@ -1,3 +1,8 @@
+procedure IrAlInicioDeLaEntrada()    { AuxIrAlInicioDeLaEntrada()    }
+procedure IniciarLaCuenta()          { AuxIniciarLaCuenta()          }
+procedure IncrementarLaCuentaEnUno() { AuxIncrementarLaCuentaEnUno() }
+procedure CompletarLaCuenta()        { AuxIrAlInicioDeLaSalida()     }
+
 //--------------------------------
 // Definiciones de tipos
 //--------------------------------
@@ -32,7 +37,7 @@ type Carta is record  { field palo   field valor  }
 //--------------------------------
 // Operaciones de sensado de cartas (interfaz)
 //--------------------------------
-// function hayCarta()          { return(aux_hayCarta())                 }
+function hayCarta()          { return(aux_hayCarta())                 }
 // function laCartaEstáTapada() { return(aux_laCartaEstáTapadaConBoom()) }
 // function hayCartaTapada()    { return(aux_hayCarta() && aux_laCartaEstáTapada()) }
 // ---
@@ -45,56 +50,19 @@ type Carta is record  { field palo   field valor  }
 //--------------------------------
 // Operaciones de mostrado de cartas (interfaz)
 //--------------------------------
-// function  leerCarta()                        { return(aux_leerCarta())              }
+// function  leerCarta()                        { return(aux_leerCarta())               }
 
-// procedure PonerCarta_(carta)                 { AuxPonerCartaDestapada(carta)        }
-// procedure SacarCarta()                       { AuxSacarCartaActual()                }
-// procedure DarVueltaLaCartaActual()           { AuxGirarCartaActual()                }
-// procedure IluminarLaCartaActual()            { AuxIluminarCartaActual()             }
+// procedure PonerCarta_(carta)                 { AuxPonerCartaDestapada(carta)         }
+// procedure SacarCarta()                       { AuxSacarCartaActual()                 }
+procedure DarVueltaLaCartaActual()           { AuxGirarCartaActual()                 }
+procedure IluminarLaCartaActual()            { AuxIluminarCartaActual()              }
 
-// procedure PonerCartaTapada_(carta)           { AuxPonerCartaTapada(carta)           }
-// procedure PonerCartaDestapada_(carta)        { AuxPonerCartaDestapada(carta)        }
+// procedure PonerCartaTapada_(carta)           { AuxPonerCartaTapada(carta)            }
+// procedure PonerCartaDestapada_(carta)        { AuxPonerCartaDestapada(carta)         }
 
-// procedure PasarASiguientePosiciónHacia_(dir) { AuxPasarASiguientePosiciónHacia(dir) }
-// procedure PasarASiguientePosición()          { AuxPasarASiguientePosición()         }
-
-/////////////////////////////////////////////////////////////////////
-// PRESUPONE LA EXISTENCIA EN EL MISMO PROGRAMA DE Cartas-Base.gbs
-/////////////////////////////////////////////////////////////////////
-
-//--------------------------------
-// Operaciones de mazos (interfaz)
-//--------------------------------
-function mazoVacío()                   { return([])                             }
-/// PRUEBA: /*@ATTRIBUTE@block_method@_.agregar la carta _ al final@*/
-/*@ATTRIBUTE@block_name@agregar al mazo _ la carta _ al final@*/ 
-function agregarAlMazo__(mazo, carta)  { return(aux_agregarAlMazo(mazo, carta)) }
-
-/*@ATTRIBUTE@block_name@quedan cartas en _?@*/ 
-function quedanCartasEn_(m) { return(aux_quedanCartas(m)) }
-
-function dameLaPrimeraCartaDe_(mazo)   { return(aux_dameLaPrimeraCarta(mazo))  }
-function sacarLaPrimeraCartaDe_(mazo)  { return(aux_sacarLaPrimeraCarta(mazo)) }
-
-// function mazoEspañolChinChon() { return(aux_mazoEspañolChinChon()) }
-// function mazoEspañolTruco()    { return(aux_mazoEspañolTruco())    }
-
-// function  leerMazo()         { return (aux_leerMazo()) }
-// procedure MostrarMazo_(mazo) { AuxMostrarMazo(mazo)    }
-
-/////////////////////////////////////////////////////////////////////
-// PRESUPONE LA EXISTENCIA EN EL MISMO PROGRAMA DE Cartas-Base.gbs y Mazos-Base.gbs
-/////////////////////////////////////////////////////////////////////
-
-//--------------------------------
-// Operaciones para entrada/salida de datos (interfaz)
-//--------------------------------
-function  leerDatosDeEntrada()      { AuxIrAlInicioDeLaEntrada() return(aux_leerMazo())    }
-procedure SacarDatosDeEntrada()     { AuxIrAlInicioDeLaEntrada() AuxSacarMazo()            }
-// procedure RetornarComoSalida_(mazo) { AuxIrAlInicioDeLaSalida()  AuxMostrarMazo(mazo)      }
-procedure InformarComoSalida_(n)    { AuxIrAlInicioDeLaSalida()  AuxPoner__Veces(Rojo,n)   }
-
-// procedure IrAlLugarDelResultado()   { AuxIrAlInicioDeLaSalida()                         }
+// procedure PasarASiguientePosiciónHacia_(dir) { AuxPasarASiguientePosiciónHacia(dir)  }
+// procedure PasarASiguientePosición()          { AuxPasarASiguientePosición()          }
+procedure PasarASiguientePosiciónEnLínea()      { AuxPasarASiguientePosiciónHacia(Este) }
 
 //--------------------------------
 //--------------------------------
@@ -339,94 +307,23 @@ procedure AuxSacar__Veces(c,n) { repeat (n) { Sacar(c) } }
 procedure AuxSacarTodas()   { foreach c in [Azul..Rojo] { AuxSacarTodas_(c) } }
 procedure AuxSacarTodas_(c) { AuxSacar__Veces(c, nroBolitas(c)) }
 
-/////////////////////////////////////////////////////////////////////
-// PRESUPONE LA EXISTENCIA EN EL MISMO PROGRAMA DE Cartas-Base.gbs
-/////////////////////////////////////////////////////////////////////
-
 //--------------------------------
+// Auxiliares para entrada/salida
 //--------------------------------
-// AUXILIARES
-//--------------------------------
-//--------------------------------
-
-//--------------------------------
-// Operaciones de mazos
-//--------------------------------
-function aux_agregarAlMazo(mazo, carta) { return(mazo ++ [ carta ]) }
-
-function aux_quedanCartas(mazo)         { return(not(mazo==[])) }
-
-// PRECONDICIÓN: quedan cartas en el mazo
-function aux_dameLaPrimeraCarta(mazo)   { return(primero(mazo)) }
-function aux_sacarLaPrimeraCarta(mazo)  { return(resto(mazo))   }
-
-function aux_mazoEspañolChinChon() {
-    mazo := []
-    foreach palo in [ Espadas, Oros, Copas, Bastos ]
-      { mazo := mazo ++ aux_cartasEspañolasChinChonDe(palo) }
-    mazo := mazo ++ [ aux_comodín(), aux_comodín() ]
-    return(mazo)
-}
-
-function aux_cartasEspañolasChinChonDe(palo) {
-    cartasDelPalo := []
-    foreach valor in [1..12] 
-      { cartasDelPalo := cartasDelPalo ++ [ aux_carta(valor,palo) ] }
-    return(cartasDelPalo)
-}
-
-function aux_mazoEspañolTruco() {
-    mazo := []
-    foreach palo in [Espadas, Oros, Copas, Bastos] 
-      { mazo := mazo ++ aux_cartasEspañolasTrucoDe(palo) }
-    return(mazo)
-}
-
-function aux_cartasEspañolasTrucoDe(palo) {
-    cartasDelPalo := []
-    foreach valor in [1..7]   
-      { cartasDelPalo := cartasDelPalo ++ [ aux_carta(valor,palo) ] }
-    foreach valor in [10..12] 
-      { cartasDelPalo := cartasDelPalo ++ [ aux_carta(valor,palo) ] }
-    return(cartasDelPalo)
-}
-
-function aux_leerMazo() {
-   mazo := []
-   while (puedeMover(Este) && aux_hayCartaDestapada()) {
-     mazo := mazo ++ [ aux_leerCarta() ]
-	 Mover(Este)
-   }
-   if (aux_hayCartaDestapada()) { mazo := mazo ++ [ aux_leerCarta() ] }
-   return(mazo)
-}
-
-procedure AuxSacarMazo() {
-   while (puedeMover(Este) && aux_hayCartaDestapada()) {
-     AuxSacarCartaActual()
-	 Mover(Este)
-   }
-   if (aux_hayCartaDestapada()) { AuxSacarCartaActual() }
-}
-
-procedure AuxMostrarMazo(mazo) {
-   // PROPÓSITO: muestra la parte del mazo que pueda entre la celda actual y el borde del tablero, de a una carta por celda
-   // PRECONDICIÓN: las celdas donde vayan a ir cartas deben estar vacías
-   faltanMostrar := mazo
-   while (puedeMover(Este) && aux_quedanCartas(faltanMostrar)) {
-     AuxPonerCartaDestapada(primero(faltanMostrar))
-	 Mover(Este)
-     faltanMostrar := resto(faltanMostrar)
-   }
-   if (aux_quedanCartas(faltanMostrar)) { AuxPonerCartaDestapada(primero(faltanMostrar)) }
-}
-
-/////////////////////////////////////////////////////////////////////
-// PRESUPONE LA EXISTENCIA EN EL MISMO PROGRAMA DE Cartas-Base.gbs y Mazos-Base.gbs
-/////////////////////////////////////////////////////////////////////
-
-//--------------------------------
-// Auxiliares para entrada/salida de datos
+// En el tablero
 //--------------------------------
 procedure AuxIrAlInicioDeLaEntrada() { IrAlBorde(Norte) IrAlBorde(Oeste) }
 procedure AuxIrAlInicioDeLaSalida()  { IrAlBorde(Sur)   IrAlBorde(Oeste) }
+
+procedure AuxIniciarLaCuenta() {
+  AuxSacarTodas()
+  AuxIncrementarEnUnoLaCuenta()
+}
+
+procedure AuxIncrementarLaCuentaEnUno() {
+  AuxMarcar()
+  AuxIrAlInicioDeLaSalida()
+  Poner(Rojo)  
+  AuxVolverALaMarca()
+  AuxDesmarcar()
+}
