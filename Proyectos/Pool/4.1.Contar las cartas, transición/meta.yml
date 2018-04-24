@@ -1,0 +1,47 @@
+attire:
+  active: Cartas españolas de truco
+  user_permissions:
+    can_toggle_visibility: false
+  visible: true
+blocks:
+  disabled:
+  visible:
+    - Procedimientos primitivos
+    - Mis procedimientos
+    - RepeticionCondicional
+    - Asignacion
+    - Numero
+    - Mis funciones
+    - OperadorNumerico
+    - OperadorDeNegacion
+    - DefinicionDeProcedimientoParametrizado
+    - DefinicionDeFuncionParametrizada
+  primitiveProcedures: |
+    <category name="Operaciones sobre el mazo">
+      <block type="IrAlInicioDeLaEntrada"></block>
+      <block type="DarVueltaLaCartaActual"></block>
+      <block type="PasarASiguientePosiciónEnLínea"></block>
+    </category>
+    <category name="Operaciones sobre el contador">
+      <block type="IniciarLaCuenta"></block>
+      <block type="IncrementarLaCuentaEnUno"></block>
+      <block type="CompletarLaCuenta"></block>
+    </category>
+  primitiveFunctions: |
+    <category name="Sensores sobre el mazo">
+      <block type="hayCartaTapada"></block>
+    </category>
+board:
+  active: 1
+  initial_board_source: random
+  user_permissions:
+    can_change_source: false
+    can_edit_board: false
+  visible_edition: false
+execution_speed:
+  active: high
+  user_permissions:
+    can_change_speed: true
+library:
+  visible: false
+name: Contar las cartas, transición

@@ -19,7 +19,7 @@ blocks:
   primitiveProcedures: |
     <category name="Operaciones sobre el mazo">
       <block type="IrAlInicioDeLaEntrada"></block>
-      <block type="DarVueltaLaCartaActual"></block>
+      <block type="SacarCarta"></block>
       <block type="PasarASiguientePosiciónEnLínea"></block>
     </category>
     <category name="Operaciones sobre el contador">
@@ -29,7 +29,7 @@ blocks:
     </category>
   primitiveFunctions: |
     <category name="Sensores sobre el mazo">
-      <block type="hayCartaTapada"></block>
+      <block type="hayCarta"></block>
     </category>
 board:
   active: 1

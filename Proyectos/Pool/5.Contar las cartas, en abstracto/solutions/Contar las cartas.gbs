@@ -1,0 +1,18 @@
+program {
+   ContarLasCartas()
+}
+
+procedure ContarLasCartas() {
+   mazoAContar := leerDatosDeEntrada()
+   InformarComoSalida_(contarLasCartas(mazoAContar))
+}
+
+function contarLasCartas(mazo) {
+   mazoAProcesar := mazo
+   cantidadVista := 0
+   while (quedanCartasEn_(mazoAProcesar)) {
+	   mazoAProcesar := sacarLaPrimeraCartaDe_(mazoAProcesar)
+       cantidadVista := cantidadVista + 1
+   }
+   return(cantidadVista)
+}

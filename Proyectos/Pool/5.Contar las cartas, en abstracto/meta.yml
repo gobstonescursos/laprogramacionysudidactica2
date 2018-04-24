@@ -1,0 +1,50 @@
+attire:
+  active: Cartas españolas de truco
+  user_permissions:
+    can_toggle_visibility: false
+  visible: true
+blocks:
+  disabled:
+  visible:
+    - Procedimientos primitivos
+    - Mis procedimientos
+    - RepeticionCondicional
+    - Asignacion
+    - Numero
+    - Mis funciones
+    - OperadorNumerico
+    - OperadorDeNegacion
+    - DefinicionDeProcedimientoParametrizado
+    - DefinicionDeFuncionParametrizada
+  primitiveProcedures: |
+    <category name="Lectura y mostrado de mazos">
+      <block type="InformarComoSalida_"></block>
+      <block type="SacarDatosDeEntrada"></block>
+    </category>
+  primitiveFunctions: |
+    <category name="Lectura y mostrado de mazos">
+      <block type="leerDatosDeEntrada"></block>
+    </category>
+    <category name="Manipulación de mazos">
+      <block type="mazoVacío"></block>
+      <block type="agregarAlMazo__"></block>
+      <block type="quedanCartasEn_"></block>
+    </category>
+    <category name="Acceso a mazos">
+      <block type="dameLaPrimeraCartaDe_" ></block>
+      <block type="sacarLaPrimeraCartaDe_" ></block>
+    </category>
+board:
+  active: 1
+  initial_board_source: random
+  user_permissions:
+    can_change_source: false
+    can_edit_board: false
+  visible_edition: false
+execution_speed:
+  active: high
+  user_permissions:
+    can_change_speed: true
+library:
+  visible: false
+name: Contar las cartas, en abstracto
