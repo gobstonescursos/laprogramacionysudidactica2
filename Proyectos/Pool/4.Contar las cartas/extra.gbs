@@ -316,8 +316,12 @@ procedure AuxIrAlInicioDeLaEntrada() { IrAlBorde(Norte) IrAlBorde(Oeste) }
 procedure AuxIrAlInicioDeLaSalida()  { IrAlBorde(Sur)   IrAlBorde(Oeste) }
 
 procedure AuxIniciarLaCuenta() {
+  AuxMarcar()
+  AuxIrAlInicioDeLaSalida()
   AuxSacarTodas()
-  AuxIncrementarLaCuentaEnUno()
+  Poner(Rojo)  
+  AuxVolverALaMarca()
+  AuxDesmarcar()
 }
 
 procedure AuxIncrementarLaCuentaEnUno() {
