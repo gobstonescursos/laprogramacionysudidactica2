@@ -16,24 +16,6 @@ blocks:
     - OperadorDeNegacion
     - DefinicionDeProcedimientoParametrizado
     - DefinicionDeFuncionParametrizada
-  primitiveProcedures: |
-    <category name="Lectura y mostrado de mazos">
-      <block type="InformarComoSalida_"></block>
-      <block type="SacarDatosDeEntrada"></block>
-    </category>
-  primitiveFunctions: |
-    <category name="Lectura y mostrado de mazos">
-      <block type="leerDatosDeEntrada"></block>
-    </category>
-    <category name="Manipulación de mazos">
-      <block type="mazoVacío"></block>
-      <block type="agregarAlMazo__"></block>
-      <block type="quedanCartasEn_"></block>
-    </category>
-    <category name="Acceso a mazos">
-      <block type="dameLaPrimeraCartaDe_" ></block>
-      <block type="sacarLaPrimeraCartaDe_" ></block>
-    </category>
 board:
   active: 1
   initial_board_source: random
