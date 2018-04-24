@@ -16,6 +16,21 @@ blocks:
     - OperadorDeNegacion
     - DefinicionDeProcedimientoParametrizado
     - DefinicionDeFuncionParametrizada
+  primitiveProcedures: |
+    <category name="Operaciones sobre el mazo">
+      <block type="IrAlInicioDeLaEntrada"></block>
+      <block type="DarVueltaLaCartaActual"></block>
+      <block type="PasarASiguientePosiciónEnLínea"></block>
+    </category>
+    <category name="Operaciones sobre el contador">
+      <block type="IniciarLaCuenta"></block>
+      <block type="IncrementarLaCuentaEnUno"></block>
+      <block type="CompletarLaCuenta"></block>
+    </category>
+  primitiveFunctions: |
+    <category name="Sensores sobre el mazo">
+      <block type="hayCartaTapada"></block>
+    </category>
 board:
   active: 1
   initial_board_source: random
