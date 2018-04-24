@@ -8,8 +8,8 @@ procedure ContarLasCartas() {
    while (hayCarta()) {
 	   DarVueltaLaCartaActual()
        IncrementarLaCuentaEnUno()
-	   IluminarCartaActual()
-	   PasarALaSiguientePosiciónEnLínea()m
+	   IluminarLaCartaActual()
+	   PasarASiguientePosiciónEnLínea()
    }
    CompletarLaCuenta()
 }

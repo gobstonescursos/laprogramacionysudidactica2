@@ -317,7 +317,7 @@ procedure AuxIrAlInicioDeLaSalida()  { IrAlBorde(Sur)   IrAlBorde(Oeste) }
 
 procedure AuxIniciarLaCuenta() {
   AuxSacarTodas()
-  AuxIncrementarEnUnoLaCuenta()
+  AuxIncrementarLaCuentaEnUno()
 }
 
 procedure AuxIncrementarLaCuentaEnUno() {
