@@ -43,7 +43,13 @@
       , "path": "Proyectos/Pool/3.Poniendo orden, en abstracto"
       }
     , { "id": "4", "name": "Contar las cartas"
-      , "path": "Proyectos/Pool/4.Contar las cartas"
+      , "path": "Proyectos/Pool/4.0.Contar las cartas"
+      }
+    , { "id": "5", "name": "Contar las cartas (transición)"
+      , "path": "Proyectos/Pool/4.1.Contar las cartas, transición"
+      }
+    , { "id": "6", "name": "Contar las cartas en abstracto"
+      , "path": "Proyectos/Pool/5.Contar las cartas, en abstracto"
       }
     ]
   }  
