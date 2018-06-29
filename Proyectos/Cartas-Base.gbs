@@ -1,4 +1,8 @@
 //--------------------------------
+// REQUIERE Gobstones-Base.gbs
+//--------------------------------
+
+//--------------------------------
 // Definiciones de tipos
 //--------------------------------
 type Palo  is variant { case Comodín {} 
@@ -8,6 +12,11 @@ type Carta is record  { field palo   field valor  }
 //--------------------------------
 // Operaciones de palos (interfaz)
 //--------------------------------
+///*@ATTRIBUTE@tooltip@Denota el palo de una carta de un mazo de cartas españolas*/
+///*@ATTRIBUTE@block_name@_@*/
+///*@ATTRIBUTE@block_dropdown@[("Espadas", 'Espadas'), ("Oros", 'Oros'), ("Bastos", 'Bastos'), ("Copas", 'Copas')]@*/
+//function palo_(palo) { return (palo) }
+
 ///*@ATTRIBUTE@tooltip@Denota el palo de espadas de un mazo de cartas españolas*/
 /*@ATTRIBUTE@block_name@Espadas@*/function espadas() { return(Espadas) }
 /*@ATTRIBUTE@block_name@Oros@*/   function oros()    { return(Oros)    }
@@ -20,7 +29,7 @@ function esMenorPalo__(palo1, palo2) { return(aux_esMenorPalo(palo1, palo2)) }
 //--------------------------------
 // Operaciones de cartas (interfaz)
 //--------------------------------
-/*@ATTRIBUTE@block_name@carta _ de _@*/   function dameCarta__(v,p) { return(aux_carta(v, p))    }
+/*@ATTRIBUTE@block_name@carta _ de _@*/   function dameCarta__(v,p) { return(aux_armarCarta(v, p))    }
 /*@ATTRIBUTE@block_name@comodín@*/        function dameComodín()    { return(aux_comodín())      }
 /*@ATTRIBUTE@block_name@es comodín _@*/   function esComodín_(c)    { return(aux_esComodín(c))   }
 /*@ATTRIBUTE@block_name@palo de la _@*/   function dameElPalo_(c)   { return(aux_dameElPalo(c))  }
@@ -58,11 +67,20 @@ procedure PonerCartaDestapada_(carta)        { AuxPonerCartaDestapada(carta)    
 procedure PasarASiguientePosiciónHacia_(dir) { AuxPasarASiguientePosiciónHacia(dir) }
 procedure PasarASiguientePosición()          { AuxPasarASiguientePosición()         }
 
+
+
+
+
+
+
 //--------------------------------
 //--------------------------------
 // AUXILIARES
 //--------------------------------
 //--------------------------------
+
+
+
 
 //--------------------------------
 // Operaciones auxiliares de palos
@@ -72,9 +90,7 @@ function aux_esMenorPalo(palo1, palo2) {
 }
 
 function aux_paloParaElCódigo(código) {
-  /* PRECONDICIÓN:
-      - el código es válido, o sea, corresponde a un palo (está entre 1 y 5)
-  */
+  // PRECONDICIÓN: el código es válido, o sea, corresponde a un palo (está entre 1 y 5)
   switch (código) to {
     1 -> { valorDeRetorno := Espadas }
     2 -> { valorDeRetorno := Oros    }
@@ -101,16 +117,12 @@ function aux_códigoParaElPalo(palo) {
 // Operaciones auxiliares de cartas
 //--------------------------------
 function aux_comodín()        { return(Carta(palo <- Comodín, valor <- 0)) }
-
 function aux_esComodín(carta) { return(palo(carta)==Comodín) }
-
-function aux_carta(valor,palo) {
-  /* PRECONDICIÓN:
-      - valor y palo corresponden a los de una carta válida
-  */
-    if (not (valor >= 1 && valor <= 12)) { BOOM("No existen cartas de ese valor") }
-    if (palo == Comodín)                 { BOOM("No podés usar esta operación para obtener el comodín") }
-    return(Carta(palo <- palo, valor <- valor)) 
+function aux_armarCarta(valor,palo) {
+  // PRECONDICIÓN: valor y palo corresponden a los de una carta válida
+  if (not (valor >= 1 && valor <= 12)) { BOOM("No existen cartas de ese valor") }
+  if (palo == Comodín)                 { BOOM("No podés usar esta operación para obtener el comodín") }
+  return(Carta(palo <- palo, valor <- valor)) 
 }
 
 function aux_esMenorCarta(carta1, carta2) {
@@ -119,26 +131,19 @@ function aux_esMenorCarta(carta1, carta2) {
 }
                                     
 function aux_dameElPalo(carta) { 
-  /* PRECONDICIÓN:
-      - la carta no es el comodín
-  */
+  // PRECONDICIÓN: la carta no es el comodín
   if (aux_esComodín(carta)) { BOOM("El comodín no tiene palo") }
   return(palo(carta)) 
 }
 
 function aux_dameElValor(carta) { 
-  /* PRECONDICIÓN:
-      - la carta no es el comodín
-  */
+  // PRECONDICIÓN: la carta no es el comodín
   if (aux_esComodín(carta)) { BOOM("El comodín no tiene valor") }
   return(valor(carta)) 
 }
 
-function aux_hayCarta() { 
-  return (hayBolitas(aux_colorParaElPalo()) 
-       && hayBolitas(aux_colorParaElValor())) 
-}
-                               
+function aux_hayCarta() { return (aux_esTipoCarta() && aux_esDatoCarta()) }
+
 function aux_laCartaEstáTapada() { 
    // PRECONDICIÓN: hay una carta
    return (aux_hayReverso())
@@ -149,64 +154,28 @@ function aux_laCartaEstáTapadaConBoom() {
    return(aux_laCartaEstáTapada())    
 }
 
-function aux_laCartaEstáIluminada() {
-   // PRECONDICIÓN: hay una carta y no está tapada
-   return (aux_hayIluminación())
-}
-
-function aux_laCartaEstáIluminadaConBoom() { 
-   if (not aux_hayCarta())      { BOOM("No hay una carta que pueda estar iluminada")    }
-   if (aux_laCartaEstáTapada()) { BOOM("Las cartas tapadas no pueden estar iluminadas") }
-   return(aux_laCartaEstáIluminada()) 
-}
-
 function aux_hayCartaDestapada() { 
    return (aux_hayCarta()           
         && not aux_laCartaEstáTapada())
 }
 
-function aux_hayCartaDestapadaSinIluminar() { 
-   return (aux_hayCarta()           
-        && not aux_laCartaEstáTapada()
-		&& not aux_laCartaEstáIluminada())
-}
-
-function aux_hayOtraCartaDestapadaSinIluminar() {
-  /* PRECONDICIÓN:
-      - no hay ninguna celda marcada
-  */
-  AuxMarcar()
-  IrAlBorde(Sur) IrAlBorde(Oeste)
-  while (not aux_terminoElRecorrido() && not aux_hayCartaDestapadaSinIluminarYSinMarca()) 
-     { AuxPasarASiguientePosición() }
-  valorDeRetorno := aux_hayCartaDestapadaSinIluminarYSinMarca()
-  AuxVolverALaMarca()
-  AuxDesmarcar()
-  return(valorDeRetorno)
-}                                    
-
 //--------------------------------
-// Operaciones de mostrado de cartas
+// Operaciones de E/S de cartas
 //--------------------------------
 function aux_leerCarta() {
-  /* PRECONDICIÓN:
-      - hay una carta destapada en la celda actual
-  */
+  // PRECONDICIÓN: hay una carta destapada en la celda actual
   if (not aux_hayCarta())      { BOOM("No hay una carta que pueda leer") }
   if (aux_laCartaEstáTapada()) { BOOM("No puedo leer una carta tapada")  }
-  return(Carta(valor <- nroBolitas(aux_colorParaElValor())
-              ,palo  <- aux_paloParaElCódigo(nroBolitas(aux_colorParaElPalo()))
-              ))
+  (valor, códigoPalo) := aux_analizarDatoCarta()
+  return(Carta(valor <- valor, palo  <- códigoPalo))
 }         
 
 procedure AuxSacarCartaActual() {
-  /* PRECONDICIÓN:
-      - hay una carta destapada en la celda actual
-  */
+  // PRECONDICIÓN: hay una carta destapada en la celda actual
   if (not aux_hayCarta())       { BOOM("No hay una carta que pueda sacar") }
   if (aux_laCartaEstáTapada())  { BOOM("No puedo sacar una carta tapada")  }
-  AuxSacarTodas_(aux_colorParaElPalo())
-  AuxSacarTodas_(aux_colorParaElValor())
+  AuxSacarTodas_(aux_colorParaElTipo())
+  AuxSacarTodas_(aux_colorParaElDato())
   AuxSacarTodas_(aux_colorParaMarca())
 }
 
@@ -248,56 +217,63 @@ procedure AuxPonerCartaDestapada(carta) {
   // PRECONDICIÓN: no hay una carta en la celda actual
   if (aux_hayCarta()) { BOOM("No puedo bajar una carta donde ya hay una") }
   AuxSacarTodas()
-  AuxPoner__Veces(aux_colorParaElValor(), valor(carta)) 
-  AuxPoner__Veces(aux_colorParaElPalo(), aux_códigoParaElPalo(palo(carta))) 
-}
-
-procedure AuxPasarASiguientePosiciónHacia(dir) { if (puedeMover(dir)) { Mover(dir) } }
-procedure AuxPasarASiguientePosición() {
-    if (puedeMover(Este))      { Mover(Este)                     }
-    elseif (puedeMover(Norte)) { IrAlBorde(Oeste) Mover(Norte)   }
-    else                       { IrAlBorde(Oeste) IrAlBorde(Sur) }
+  AuxPoner__Veces(aux_colorParaElTipo(), aux_códigoTipoCarta()) 
+  AuxPoner__Veces(aux_colorParaElDato(), aux_códigoParaElDatoCarta(carta)) 
 }
 
 //--------------------------------
 // Otras operaciones auxliares
 //--------------------------------
-function aux_hayReverso()         { return (hayBolitas(aux_colorParaElReverso())) }
-function aux_hayIluminación()     { return (nroBolitas(aux_colorParaMarca())==1) }
+function aux_hayReverso()        { return (hayBolitas(aux_colorParaElReverso())) }
+function aux_hayIluminación()    { return (nroBolitas(aux_colorParaMarca())==1) }
 
-function aux_colorParaElPalo()    { return(Negro) }
-function aux_colorParaElValor()   { return(Azul)  }
-function aux_colorParaElReverso() { return(Rojo)  }
-function aux_colorParaMarca()     { return(Verde) }
+function aux_esTipoCarta()       {  return (nroBolitas(aux_colorParaElTipo()) == aux_códigoTipoCarta()) }
 
-//--------------------------------
-// Operaciones de recorrido
-//--------------------------------
-function aux_hayMarca() { return (nroBolitas(aux_colorParaMarca())>1) }
+function aux_códigoTipoCarta()            { return(3)                              }
+function aux_códigoParaElDatoCarta(carta) { return(palo(carta)*100 + valor(carta)) }
+function aux_analizarDatoCarta() {
+  dato       := nroBolitas(aux_colorParaElDato())
+  return (dato mod 100, dato div 100)
+}
+ 
+function aux_esDatoCarta() {
+  (valor, códigoPalo) := aux_analizarDatoCarta()
+  return (valor <= 12 && códigoPalo >= 1 && códigoPalo <= 5)
+}
+
+
+// ---
+// Específicas para Memotest
+// ---
+function aux_laCartaEstáIluminada() {
+   // PRECONDICIÓN: hay una carta y no está tapada
+   return (aux_hayIluminación())
+}
+
+function aux_laCartaEstáIluminadaConBoom() { 
+   if (not aux_hayCarta())      { BOOM("No hay una carta que pueda estar iluminada")    }
+   if (aux_laCartaEstáTapada()) { BOOM("Las cartas tapadas no pueden estar iluminadas") }
+   return(aux_laCartaEstáIluminada()) 
+}
+
+function aux_hayCartaDestapadaSinIluminar() { 
+   return (aux_hayCarta()           
+        && not aux_laCartaEstáTapada()
+		&& not aux_laCartaEstáIluminada())
+}
+
+function aux_hayOtraCartaDestapadaSinIluminar() {
+  // PRECONDICIÓN: no hay ninguna celda marcada
+  AuxMarcar()
+  IrAlBorde(Sur) IrAlBorde(Oeste)
+  while (not aux_terminoElRecorrido() && not aux_hayCartaDestapadaSinIluminarYSinMarca()) 
+     { AuxPasarASiguientePosición() }
+  valorDeRetorno := aux_hayCartaDestapadaSinIluminarYSinMarca()
+  AuxVolverALaMarca()
+  AuxDesmarcar()
+  return(valorDeRetorno)
+}                                    
+
 function aux_hayCartaDestapadaSinIluminarYSinMarca() { 
     return (aux_hayCartaDestapadaSinIluminar() && not aux_hayMarca()) 
 }
-
-procedure AuxMarcar()    { AuxPoner__Veces(aux_colorParaMarca(),2) }
-procedure AuxDesmarcar() { 
-  // PRECONDICIÓN: hay una marca en el lugar (o sea, aux_hayMarca() es verdadero)
-  AuxSacar__Veces(aux_colorParaMarca(),2) 
-}
-
-function aux_terminoElRecorrido() { return (not puedeMover(Este) && not puedeMover(Norte)) }
-
-procedure AuxVolverALaMarca() {
-  // PRECONDICIÓN: hay una marca en el tablero
-  IrAlBorde(Sur) IrAlBorde(Oeste)
-  while (not aux_terminoElRecorrido() && not aux_hayMarca()) { AuxPasarASiguientePosición() }
-}
-
-//--------------------------------
-// Operaciones auxliares de Gobstones
-//--------------------------------
-procedure AuxPoner__Veces(c,n) { repeat (n) { Poner(c) } }
-procedure AuxSacar__Veces(c,n) { repeat (n) { Sacar(c) } }
-
-procedure AuxSacarTodas()   { foreach c in [Azul..Rojo] { AuxSacarTodas_(c) } }
-procedure AuxSacarTodas_(c) { AuxSacar__Veces(c, nroBolitas(c)) }
-
