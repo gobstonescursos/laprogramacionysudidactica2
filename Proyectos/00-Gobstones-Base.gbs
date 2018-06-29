@@ -1,7 +1,18 @@
+//--------------------------------
+// Interfaz
+//--------------------------------
 /*@ATTRIBUTE@block_name@Poner _, _ veces@*/ procedure Poner__Veces(c,n) { return(AuxPoner__Veces(c,n)) }
 /*@ATTRIBUTE@block_name@Sacar _, _ veces@*/ procedure Sacar__Veces(c,n) { return(AuxSacar__Veces(c,n)) }
 procedure SacarTodas()   { AuxSacarTodas() }
 procedere SacarTodas_(c) { AuxSacarTodas_(c) }
+
+
+
+//--------------------------------
+//--------------------------------
+// AUXILIARES
+//--------------------------------
+//--------------------------------
 
 //--------------------------------
 // Operaciones auxliares de Gobstones
