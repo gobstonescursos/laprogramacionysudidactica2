@@ -32,8 +32,10 @@ blocks:
         <block type="leerLetra"></block>
         <block type="PonerLetra_"></block>
         <block type="SacarLetraActual"></block>
-        <block type="esMenorLetra__"></block>
         <block type="hayLetra"></block>
+        <block type="esMenorLetra__"></block>
+        <block type="letraSiguiente_"></block>
+        <block type="letraPrevia_"></block>
     </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">  </category>
     <category name="Definiciones">

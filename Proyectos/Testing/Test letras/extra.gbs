@@ -25,7 +25,7 @@ procedure AuxPoner__Veces(c,n) { repeat (n) { Poner(c) } }
 procedure AuxSacar__Veces(c,n) { repeat (n) { Sacar(c) } }
 procedure AuxMover__Veces(d,n) { repeat (n) { Mover(d) } }
 
-procedure AuxSacarTodas()   { foreach c in [Azul..Rojo] { AuxSacarTodas_(c) } }
+procedure AuxSacarTodas()   { foreach c in [minColor()..maxColor()] { AuxSacarTodas_(c) } }
 procedure AuxSacarTodas_(c) { AuxSacar__Veces(c, nroBolitas(c)) }
 
 //--------------------------------
@@ -98,20 +98,19 @@ type Letra is variant {
 
 ///*@ATTRIBUTE@tooltip@Denota una letra*/
 ///*@ATTRIBUTE@block_name@_@*/
-///*@ATTRIBUTE@block_dropdown@[(" ", 'Espacio'), ("A", 'A'), ("B", 'B'), ("C", 'C'), ("D", 'D')
-                                               , ("E", 'E'), ("F", 'F'), ("G", 'G'), ("H", 'H')
-                                               , ("I", 'I'), ("J", 'J'), ("K", 'K'), ("L", 'L')
-                                               , ("M", 'M'), ("N", 'N'), ("Ñ", 'Ñ'), ("O", 'O')
-                                               , ("P", 'P'), ("Q", 'Q'), ("R", 'R'), ("S", 'S')
-                                               , ("T", 'T'), ("U", 'U'), ("V", 'V'), ("W", 'W')
-                                               , ("X", 'X'), ("Y", 'Y'), ("Z", 'Z')
-                              ]@*/
+///*@ATTRIBUTE@block_dropdown@[(" ", 'Espacio'), ("A", 'A'), ("B", 'B'), ("C", 'C'), ("D", 'D'), ("E", 'E'), ("F", 'F'), ("G", 'G'), ("H", 'H'), ("I", 'I'), ("J", 'J'), ("K", 'K'), ("L", 'L'), ("M", 'M'), ("N", 'N'), ("Ñ", 'Ñ'), ("O", 'O'), ("P", 'P'), ("Q", 'Q'), ("R", 'R'), ("S", 'S'), ("T", 'T'), ("U", 'U'), ("V", 'V'), ("W", 'W'), ("X", 'X'), ("Y", 'Y'), ("Z", 'Z')]@*/
 //function letra_(letra) { return(letra) }
 
 function letra_(códigoDeLetra) { return(aux_letraParaElCódigo(códigoDeLetra)) }
 
 /*@ATTRIBUTE@block_name@_ está antes que _@*/
 function esMenorLetra__(letra1, letra2) { return(aux_esMenorLetra(letra1, letra2)) }
+
+/*@ATTRIBUTE@block_name@letra siguiente a _@*/
+function letraSiguiente_(letra) { return(aux_letraSiguiente(letra)) }
+
+/*@ATTRIBUTE@block_name@letra previa a _@*/
+function letraPrevia_(letra) { return(aux_letraPrevia(letra)) }
 
 function hayLetra() { return(aux_hayLetra()) }
 
@@ -130,6 +129,20 @@ procedure SacarLetraActual() { AuxSacarLetraActual()   }
 //--------------------------------
 function aux_esMenorLetra(letra1, letra2) {
     return (aux_códigoParaLaLetra(letra1) < aux_códigoParaLaLetra(letra2))
+}
+
+function aux_letraSiguiente(letra) {
+   return (choose 
+            Espacio when (letra == Z)
+            aux_letraParaElCódigo(aux_códigoParaLaLetra(letra)+1) otherwise
+          )
+}
+
+function aux_letraPrevia(letra) {
+   return (choose 
+            Z when (letra == Espacio)
+            aux_letraParaElCódigo(aux_códigoParaLaLetra(letra)-1) otherwise
+          )
 }
 
 //--------------------------------

@@ -1,4 +1,6 @@
-program {
+program { TestsDeLetras() }
+
+procedure TestsDeLetras() {
   TestLetraYPonerLetra()
   TestSacarLetra()
   TestHayLetraPorVerdadero()
@@ -7,6 +9,9 @@ program {
   PasarASiguientePosición()
   TestLeerLetra()
   TestEstáAntesQue()
+  TestSiguienteYPrevioEnMedio()
+  TestSiguienteYPrevioEnBordeSuperior()
+  TestSiguienteYPrevioEnBordeInferior()
 }
 
 procedure TestLetraYPonerLetra() {
@@ -68,3 +73,32 @@ procedure Assert(condiciónAVerificar) {
   }
 }
 
+procedure TestSiguienteYPrevioEnMedio() {
+  PasarASiguientePosición()
+  PonerLetra_(letra_(15))
+  letra := leerLetra()
+  PasarASiguientePosición()
+  PonerLetra_(letraSiguiente_(letra))
+  PasarASiguientePosición()
+  PonerLetra_(letraPrevia_(letra))
+}
+
+procedure TestSiguienteYPrevioEnBordeInferior() {
+  PasarASiguientePosición()
+  PonerLetra_(letra_(10))
+  letra := leerLetra()
+  PasarASiguientePosición()
+  PonerLetra_(letraSiguiente_(letra))
+  PasarASiguientePosición()
+  PonerLetra_(letraPrevia_(letra))
+}
+
+procedure TestSiguienteYPrevioEnBordeSuperior() {
+  PasarASiguientePosición()
+  PonerLetra_(letra_(37))
+  letra := leerLetra()
+  PasarASiguientePosición()
+  PonerLetra_(letraSiguiente_(letra))
+  PasarASiguientePosición()
+  PonerLetra_(letraPrevia_(letra))
+}
