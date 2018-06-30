@@ -25,7 +25,7 @@ procedure AuxPoner__Veces(c,n) { repeat (n) { Poner(c) } }
 procedure AuxSacar__Veces(c,n) { repeat (n) { Sacar(c) } }
 procedure AuxMover__Veces(d,n) { repeat (n) { Mover(d) } }
 
-procedure AuxSacarTodas()   { foreach c in [Azul..Rojo] { AuxSacarTodas_(c) } }
+procedure AuxSacarTodas()   { foreach c in [minColor()..maxColor()] { AuxSacarTodas_(c) } }
 procedure AuxSacarTodas_(c) { AuxSacar__Veces(c, nroBolitas(c)) }
 
 //--------------------------------
