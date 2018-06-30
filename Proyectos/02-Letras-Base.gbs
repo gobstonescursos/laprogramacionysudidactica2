@@ -40,6 +40,12 @@ function letra_(códigoDeLetra) { return(aux_letraParaElCódigo(códigoDeLetra))
 /*@ATTRIBUTE@block_name@_ está antes que _@*/
 function esMenorLetra__(letra1, letra2) { return(aux_esMenorLetra(letra1, letra2)) }
 
+/*@ATTRIBUTE@block_name@letra siguiente a _@*/
+function letraSiguiente_(letra) { return(aux_letraSiguiente(letra)) }
+
+/*@ATTRIBUTE@block_name@letra previa a _@*/
+function letraPrevia_(letra) { return(aux_letraPrevia(letra)) }
+
 function hayLetra() { return(aux_hayLetra()) }
 
 function  leerLetra()        { return(aux_leerLetra()) }
@@ -57,6 +63,20 @@ procedure SacarLetraActual() { AuxSacarLetraActual()   }
 //--------------------------------
 function aux_esMenorLetra(letra1, letra2) {
     return (aux_códigoParaLaLetra(letra1) < aux_códigoParaLaLetra(letra2))
+}
+
+function aux_letraSiguiente(letra) {
+   return (choose 
+            Espacio when (letra == Z)
+            aux_letraParaElCódigo(aux_códigoParaLaLetra(letra)+1) otherwise
+          )
+}
+
+function aux_letraPrevia(letra) {
+   return (choose 
+            Z when (letra == Espacio)
+            aux_letraParaElCódigo(aux_códigoParaLaLetra(letra)-1) otherwise
+          )
 }
 
 //--------------------------------
