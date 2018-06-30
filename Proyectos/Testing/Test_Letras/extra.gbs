@@ -98,7 +98,14 @@ type Letra is variant {
 
 ///*@ATTRIBUTE@tooltip@Denota una letra*/
 ///*@ATTRIBUTE@block_name@_@*/
-///*@ATTRIBUTE@block_dropdown@[(" ", 'Espacio'), ("A", 'A'), ("B", 'B'), ("C", 'C'), ("D", 'D'), ("E", 'E'), ("F", 'F'), ("G", 'G'), ("H", 'H'), ("I", 'I'), ("J", 'J'), ("K", 'K'), ("L", 'L'), ("M", 'M'), ("N", 'N'), ("Ñ", 'Ñ'), ("O", 'O'), ("P", 'P'), ("Q", 'Q'), ("R", 'R'), ("S", 'S'), ("T", 'T'), ("U", 'U'), ("V", 'V'), ("W", 'W'), ("X", 'X'), ("Y", 'Y'), ("Z", 'Z')]@*/
+///*@ATTRIBUTE@block_dropdown@[(" ", 'Espacio'), ("A", 'A'), ("B", 'B'), ("C", 'C'), ("D", 'D')
+                                               , ("E", 'E'), ("F", 'F'), ("G", 'G'), ("H", 'H')
+                                               , ("I", 'I'), ("J", 'J'), ("K", 'K'), ("L", 'L')
+                                               , ("M", 'M'), ("N", 'N'), ("Ñ", 'Ñ'), ("O", 'O')
+                                               , ("P", 'P'), ("Q", 'Q'), ("R", 'R'), ("S", 'S')
+                                               , ("T", 'T'), ("U", 'U'), ("V", 'V'), ("W", 'W')
+                                               , ("X", 'X'), ("Y", 'Y'), ("Z", 'Z')
+                              ]@*/
 //function letra_(letra) { return(letra) }
 
 function letra_(códigoDeLetra) { return(aux_letraParaElCódigo(códigoDeLetra)) }
@@ -147,7 +154,7 @@ procedure AuxPonerLetra(letra) {
 procedure AuxSacarLetraActual() {
   // PRECONDICIÓN: hay una letra en la celda actual
   if (not(aux_hayLetra())) { BOOM("No hay una letra que sacar") }
-  AuxSacarTodas()
+  AuxSacarRepresentaciónDeLetra()
 }
 
 
@@ -236,3 +243,7 @@ procedure AuxPonerRepresentaciónDeLetra(letra) {
   AuxPoner__Veces(aux_colorParaElDato(), aux_códigoParaLaLetra(letra))
 }
 
+procedure AuxSacarRepresentaciónDeLetra() {
+  // PRECONDICIÓN: hay una letra en la celda actual
+  AuxSacarTodas()
+}
