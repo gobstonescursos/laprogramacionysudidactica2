@@ -33,6 +33,12 @@ function letra_(códigoDeLetra) { return(aux_letraParaElCódigo(códigoDeLetra))
 /*@ATTRIBUTE@block_name@_ está antes que _@*/
 function esMenorLetra__(letra1, letra2) { return(aux_esMenorLetra(letra1, letra2)) }
 
+/*@ATTRIBUTE@block_name@la letra más chica@*/
+function minLetra() { return(aux_minLetra()) }
+
+/*@ATTRIBUTE@block_name@la letra más grande@*/
+function maxLetra() { return(aux_maxLetra()) }
+
 /*@ATTRIBUTE@block_name@letra siguiente a _@*/
 function letraSiguiente_(letra) { return(aux_letraSiguiente(letra)) }
 
@@ -58,16 +64,19 @@ function aux_esMenorLetra(letra1, letra2) {
     return (aux_códigoParaLaLetra(letra1) < aux_códigoParaLaLetra(letra2))
 }
 
+function aux_minLetra() { return (aux_letraParaElCódigo(aux_minCódigoDeLetra()) }
+function aux_maxLetra() { return (aux_letraParaElCódigo(aux_maxCódigoDeLetra())) }
+
 function aux_letraSiguiente(letra) {
    return (choose 
-            Espacio when (letra == Z)
+            aux_minLetra() when (letra == Z)
             aux_letraParaElCódigo(aux_códigoParaLaLetra(letra)+1) otherwise
           )
 }
 
 function aux_letraPrevia(letra) {
    return (choose 
-            Z when (letra == Espacio)
+            aux_maxLetra() when (letra == aux_minLetra())
             aux_letraParaElCódigo(aux_códigoParaLaLetra(letra)-1) otherwise
           )
 }
@@ -107,8 +116,11 @@ function aux_códigoParaElDatoLetra(letra) { return(aux_códigoParaLaLetra(letra
 function aux_hayTipoLetra()      { return (aux_esTipoLetra(aux_leerTipo())) }
 function aux_hayDatoLetra()      { return (aux_esDatoLetra(aux_leerDato())) }
 
-function aux_esTipoLetra(código) { return (código == aux_códigoParaElTipoLetra()) }
-function aux_esDatoLetra(dato)   { return (dato >= 10 && dato <= 37)              }
+function aux_esTipoLetra(código) { return (código == aux_códigoParaElTipoLetra())                            }
+function aux_esDatoLetra(dato)   { return (dato >= aux_minCódigoDeLetra() && dato <= aux_maxCódigoDeLetra()) }
+
+function aux_minCódigoDeLetra() { return(10) }
+function aux_maxCódigoDeLetra() { return(37) }
 
 function aux_códigoParaLaLetra(letra) {
   return (choose
