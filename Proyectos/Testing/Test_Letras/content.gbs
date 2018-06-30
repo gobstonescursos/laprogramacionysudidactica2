@@ -1,0 +1,70 @@
+program {
+  TestLetraYPonerLetra()
+  TestSacarLetra()
+  TestHayLetraPorVerdadero()
+  PasarASiguientePosición()
+  TestHayLetraPorFalso()
+  PasarASiguientePosición()
+  TestLeerLetra()
+  TestEstáAntesQue()
+}
+
+procedure TestLetraYPonerLetra() {
+  código := 10
+  while (not (código > 37)) {
+    PonerLetra_(letra_(código))
+    PasarASiguientePosición()
+    código := código + 1
+  }
+}
+
+procedure TestSacarLetra() {
+  repeat(28) {
+    SacarLetraActual()
+    PasarASiguientePosición()
+  }
+}
+
+procedure TestHayLetraPorVerdadero() {
+  PonerLetra_(letra_(11))
+  Assert(hayLetra())
+}
+
+procedure TestHayLetraPorFalso() {
+  SacarTodas()
+  Assert(hayLetra())
+}
+
+procedure TestLeerLetra() {
+  PonerLetra_(letra_(12))
+  letra := leerLetra()
+  PasarASiguientePosición()
+  PonerLetra_(letra)
+}
+
+procedure TestEstáAntesQue() {
+  letra1 := leerLetra()
+  PasarASiguientePosición()
+  PonerLetra_(letra_(13))
+  letra2 := leerLetra()
+  Assert(esMenorLetra__(letra1, letra2))
+  PasarASiguientePosición()
+  PonerLetra_(letra1)
+  Assert(esMenorLetra__(letra2, letra1))
+  PasarASiguientePosición()
+  PonerLetra_(letra1)
+  Assert(esMenorLetra__(letra1, letra1))
+}
+
+procedure Assert(condiciónAVerificar) {
+  if (condiciónAVerificar) {
+    Mover__Veces(Norte, 1)
+    Poner__Veces(Verde, 1)
+    Mover__Veces(Sur, 1)
+  } else {
+    Mover__Veces(Norte, 1)
+    Poner__Veces(Rojo, 1)
+    Mover__Veces(Sur, 1)
+  }
+}
+

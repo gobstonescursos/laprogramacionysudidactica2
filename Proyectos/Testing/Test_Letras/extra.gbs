@@ -1,0 +1,238 @@
+//--------------------------------
+// INTERFAZ de 00.Gobstones-Base.gbs
+//--------------------------------
+/*@ATTRIBUTE@block_name@Poner _, _ veces@*/ procedure Poner__Veces(c,n) { AuxPoner__Veces(c,n) }
+/*@ATTRIBUTE@block_name@Sacar _, _ veces@*/ procedure Sacar__Veces(c,n) { AuxSacar__Veces(c,n) }
+/*@ATTRIBUTE@block_name@Mover _, _ veces@*/ procedure Mover__Veces(d,n) { AuxMover__Veces(d,n) }
+procedure SacarTodas()   { AuxSacarTodas() }
+procedure SacarTodas_(c) { AuxSacarTodas_(c) }
+
+procedure PasarASiguientePosiciónHacia_(dir) { AuxPasarASiguientePosiciónHacia(dir) }
+procedure PasarASiguientePosición()          { AuxPasarASiguientePosición()         }
+
+
+
+//--------------------------------
+//--------------------------------
+// AUXILIARES de 00.Gobstones-Base.gbs
+//--------------------------------
+//--------------------------------
+
+//--------------------------------
+// Operaciones auxiliares de Gobstones
+//--------------------------------
+procedure AuxPoner__Veces(c,n) { repeat (n) { Poner(c) } }
+procedure AuxSacar__Veces(c,n) { repeat (n) { Sacar(c) } }
+procedure AuxMover__Veces(d,n) { repeat (n) { Mover(d) } }
+
+procedure AuxSacarTodas()   { foreach c in [Azul..Rojo] { AuxSacarTodas_(c) } }
+procedure AuxSacarTodas_(c) { AuxSacar__Veces(c, nroBolitas(c)) }
+
+//--------------------------------
+// Operaciones auxiliares de codificiación
+//--------------------------------
+function aux_colorParaElDato()     { return(Negro) }
+function aux_colorParaElTipo()     { return(Azul)  }
+function aux_colorParaElAtributo() { return(Rojo)  }
+function aux_colorParaLaMarca()    { return(Verde) }
+
+function aux_leerTipo()     { return(nroBolitas(aux_colorParaElTipo()))     }
+function aux_leerDato()     { return(nroBolitas(aux_colorParaElDato()))     }
+function aux_leerAtributo() { return(nroBolitas(aux_colorParaElAtributo())) }
+function aux_leerMarca()    { return(nroBolitas(aux_colorParaLaMarca()))    }
+
+//--------------------------------
+// Operaciones de movimiento
+//--------------------------------
+procedure AuxPasarASiguientePosiciónHacia(dir) { if (puedeMover(dir)) { Mover(dir) } }
+procedure AuxPasarASiguientePosición() {
+    if     (puedeMover(Este))  { Mover(Este)                     }
+    elseif (puedeMover(Norte)) { IrAlBorde(Oeste) Mover(Norte)   }
+    else                       { IrAlBorde(Oeste) IrAlBorde(Sur) }
+}
+
+//--------------------------------
+// Operaciones de recorrido
+//--------------------------------
+// La marca son 100 bolitas del aux_colorParaMarca, pero puede haber otras marcas antes
+function aux_hayMarca()  { return (nroBolitas(aux_colorParaLaMarca())>100) }
+procedure AuxMarcar()    { AuxPoner__Veces(aux_colorParaLaMarca(),100) }
+procedure AuxDesmarcar() { 
+  // PRECONDICIÓN: hay una marca en el lugar (o sea, aux_hayMarca() es verdadero)
+  AuxSacar__Veces(aux_colorParaLaMarca(),100) 
+}
+
+function aux_terminoElRecorrido() { return (not puedeMover(Este) && not puedeMover(Norte)) }
+
+procedure AuxVolverALaMarca() {
+  // PRECONDICIÓN: hay una marca en el tablero
+  IrAlBorde(Sur) IrAlBorde(Oeste)
+  while (not aux_terminoElRecorrido() && not aux_hayMarca()) { AuxPasarASiguientePosición() }
+}
+
+
+//--------------------------------
+// REQUIERE 00-Gobstones-Base.gbs
+//--------------------------------
+//--------------------------------
+// INTERFAZ de 02-Letras-Base.gbs
+//--------------------------------
+
+//--------------------------------
+// Definiciones de tipos
+//--------------------------------
+type Letra is variant { 
+   case Espacio {} 
+   case A {}    case B {}    case C {}    case D {} 
+   case E {}    case F {}    case G {}    case H {} 
+   case I {}    case J {}    case K {}    case L {} 
+   case M {}    case N {}    case Ñ {}    case O {} 
+   case P {}    case Q {}    case R {}    case S {} 
+   case T {}    case U {}    case V {}    case W {} 
+   case X {}    case Y {}    case Z {} 
+}
+
+//--------------------------------
+// Operaciones de letras (interfaz)
+//--------------------------------
+
+///*@ATTRIBUTE@tooltip@Denota una letra*/
+///*@ATTRIBUTE@block_name@_@*/
+///*@ATTRIBUTE@block_dropdown@[(" ", 'Espacio'), ("A", 'A'), ("B", 'B'), ("C", 'C'), ("D", 'D'), ("E", 'E'), ("F", 'F'), ("G", 'G'), ("H", 'H'), ("I", 'I'), ("J", 'J'), ("K", 'K'), ("L", 'L'), ("M", 'M'), ("N", 'N'), ("Ñ", 'Ñ'), ("O", 'O'), ("P", 'P'), ("Q", 'Q'), ("R", 'R'), ("S", 'S'), ("T", 'T'), ("U", 'U'), ("V", 'V'), ("W", 'W'), ("X", 'X'), ("Y", 'Y'), ("Z", 'Z')]@*/
+//function letra_(letra) { return(letra) }
+
+function letra_(códigoDeLetra) { return(aux_letraParaElCódigo(códigoDeLetra)) }
+
+/*@ATTRIBUTE@block_name@_ está antes que _@*/
+function esMenorLetra__(letra1, letra2) { return(aux_esMenorLetra(letra1, letra2)) }
+
+function hayLetra() { return(aux_hayLetra()) }
+
+function  leerLetra()        { return(aux_leerLetra()) }
+procedure PonerLetra_(letra) { AuxPonerLetra(letra)    }
+procedure SacarLetraActual() { AuxSacarLetraActual()   }
+
+//--------------------------------
+//--------------------------------
+// AUXILIARES de 02-Letras-Base.gbs
+//--------------------------------
+//--------------------------------
+
+//--------------------------------
+// Auxiliares para acceso a letras
+//--------------------------------
+function aux_esMenorLetra(letra1, letra2) {
+    return (aux_códigoParaLaLetra(letra1) < aux_códigoParaLaLetra(letra2))
+}
+
+//--------------------------------
+// Auxiliares para sensar letras en el tablero
+//--------------------------------
+function aux_hayLetra() { return (aux_hayTipoLetra() && aux_hayDatoLetra()) }
+
+//--------------------------------
+// Operaciones de E/S de letras
+//--------------------------------
+function aux_leerLetra() {
+  // PRECONDICIÓN: hay una letra en la celda actual
+  if (not aux_hayLetra())      { BOOM("No hay una letra que pueda leer") }
+  return(aux_letraParaElCódigo(aux_leerDato()))
+}         
+
+procedure AuxPonerLetra(letra) {
+  AuxSacarTodas()
+  AuxPonerRepresentaciónDeLetra(letra)
+}
+
+procedure AuxSacarLetraActual() {
+  // PRECONDICIÓN: hay una letra en la celda actual
+  if (not(aux_hayLetra())) { BOOM("No hay una letra que sacar") }
+  AuxSacarTodas()
+}
+
+
+//--------------------------------
+// Operaciones auxiliares de codificación
+//--------------------------------
+function aux_códigoParaElTipoLetra()      { return(2)                            }
+function aux_códigoParaElDatoLetra(letra) { return(aux_códigoParaLaLetra(letra)) }
+
+function aux_hayTipoLetra()      { return (aux_esTipoLetra(aux_leerTipo())) }
+function aux_hayDatoLetra()      { return (aux_esDatoLetra(aux_leerDato())) }
+
+function aux_esTipoLetra(código) { return (código == aux_códigoParaElTipoLetra()) }
+function aux_esDatoLetra(dato)   { return (dato >= 10 && dato <= 37)              }
+
+function aux_códigoParaLaLetra(letra) {
+  return (choose
+    10 when (letra == Espacio)
+    11 when (letra == A)
+    12 when (letra == B)
+    13 when (letra == C)
+    14 when (letra == D)
+    15 when (letra == E)
+    16 when (letra == F)
+    17 when (letra == G)
+    18 when (letra == H)
+    19 when (letra == I)
+    20 when (letra == J)
+    21 when (letra == K)
+    22 when (letra == L)
+    23 when (letra == M)
+    24 when (letra == N)
+    25 when (letra == Ñ)
+    26 when (letra == O)
+    27 when (letra == P)
+    28 when (letra == Q)
+    29 when (letra == R)
+    30 when (letra == S)
+    31 when (letra == T)
+    32 when (letra == U)
+    33 when (letra == V)
+    34 when (letra == W)
+    35 when (letra == X)
+    36 when (letra == Y)
+    37 when (letra == Z)
+    boom("Al extender las letras, deberías extender también las funciones de codificación") otherwise
+    )
+}
+
+function aux_letraParaElCódigo(códigoDeLetra) {
+  return (choose
+    Espacio when (códigoDeLetra == 10)
+    A       when (códigoDeLetra == 11)
+    B       when (códigoDeLetra == 12)
+    C       when (códigoDeLetra == 13)
+    D       when (códigoDeLetra == 14)
+    E       when (códigoDeLetra == 15)
+    F       when (códigoDeLetra == 16)
+    G       when (códigoDeLetra == 17)
+    H       when (códigoDeLetra == 18)
+    I       when (códigoDeLetra == 19)
+    J       when (códigoDeLetra == 20)
+    K       when (códigoDeLetra == 21)
+    L       when (códigoDeLetra == 22)
+    M       when (códigoDeLetra == 23)
+    N       when (códigoDeLetra == 24)
+    Ñ       when (códigoDeLetra == 25)
+    O       when (códigoDeLetra == 26)
+    P       when (códigoDeLetra == 27)
+    Q       when (códigoDeLetra == 28)
+    R       when (códigoDeLetra == 29)
+    S       when (códigoDeLetra == 30)
+    T       when (códigoDeLetra == 31)
+    U       when (códigoDeLetra == 32)
+    V       when (códigoDeLetra == 33)
+    W       when (códigoDeLetra == 34)
+    X       when (códigoDeLetra == 35)
+    Y       when (códigoDeLetra == 36)
+    Z       when (códigoDeLetra == 37)
+    boom("No es un código de letra") otherwise
+    )
+}
+
+procedure AuxPonerRepresentaciónDeLetra(letra) {
+  AuxPoner__Veces(aux_colorParaElTipo(), aux_códigoParaElTipoLetra())
+  AuxPoner__Veces(aux_colorParaElDato(), aux_códigoParaLaLetra(letra))
+}
+
