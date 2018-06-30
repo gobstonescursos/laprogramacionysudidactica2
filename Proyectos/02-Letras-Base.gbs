@@ -81,7 +81,7 @@ procedure AuxPonerLetra(letra) {
 procedure AuxSacarLetraActual() {
   // PRECONDICIÓN: hay una letra en la celda actual
   if (not(aux_hayLetra())) { BOOM("No hay una letra que sacar") }
-  AuxSacarTodas()
+  AuxSacarRepresentaciónDeLetra()
 }
 
 
@@ -170,3 +170,7 @@ procedure AuxPonerRepresentaciónDeLetra(letra) {
   AuxPoner__Veces(aux_colorParaElDato(), aux_códigoParaLaLetra(letra))
 }
 
+procedure AuxSacarRepresentaciónDeLetra() {
+  // PRECONDICIÓN: hay una letra en la celda actual
+  AuxSacarTodas()
+}
