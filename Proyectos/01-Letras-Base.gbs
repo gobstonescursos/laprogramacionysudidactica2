@@ -1,8 +1,11 @@
 //--------------------------------
 // REQUIERE 00-Gobstones-Base.gbs
 //--------------------------------
+
+//--------------------------------
 //--------------------------------
 // INTERFAZ de 01-Letras-Base.gbs
+//--------------------------------
 //--------------------------------
 
 //--------------------------------
@@ -54,7 +57,9 @@ function  leerLetra()        { return(aux_leerLetra()) }
 procedure PonerLetra_(letra) { AuxPonerLetra(letra)    }
 procedure SacarLetraActual() { AuxSacarLetraActual()   }
 //--------------------------------
+//--------------------------------
 // FIN INTERFAZ de 01-Letras-Base.gbs
+//--------------------------------
 //--------------------------------
 
 //--------------------------------
@@ -205,7 +210,6 @@ procedure AuxSacarRepresentaciónDeLetra() {
   // PRECONDICIÓN: hay una letra en la celda actual
   AuxSacarTodas()
 }
-
 //--------------------------------
 //--------------------------------
 // AUXILIARES de 01-Letras-Base.gbs
