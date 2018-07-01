@@ -9,8 +9,9 @@ procedure SacarTodas_(c) { AuxSacarTodas_(c) }
 
 procedure PasarASiguientePosiciónHacia_(dir) { AuxPasarASiguientePosiciónHacia(dir) }
 procedure PasarASiguientePosición()          { AuxPasarASiguientePosición()         }
-
-
+//--------------------------------
+// FIN INTERFAZ de 00.Gobstones-Base.gbs
+//--------------------------------
 
 //--------------------------------
 //--------------------------------
@@ -69,3 +70,9 @@ procedure AuxVolverALaMarca() {
   IrAlBorde(Sur) IrAlBorde(Oeste)
   while (not aux_terminoElRecorrido() && not aux_hayMarca()) { AuxPasarASiguientePosición() }
 }
+
+//--------------------------------
+//--------------------------------
+// FIN AUXILIARES de 00.Gobstones-Base.gbs
+//--------------------------------
+//--------------------------------
