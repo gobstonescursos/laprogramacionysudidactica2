@@ -34,6 +34,8 @@ blocks:
         <block type="SacarLetraActual"></block>
         <block type="hayLetra"></block>
         <block type="esMenorLetra__"></block>
+        <block type="minLetra"></block>
+        <block type="maxLetra"></block>
         <block type="letraSiguiente_"></block>
         <block type="letraPrevia_"></block>
     </category>
