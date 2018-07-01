@@ -1,5 +1,7 @@
 //--------------------------------
+//--------------------------------
 // INTERFAZ de 00.Gobstones-Base.gbs
+//--------------------------------
 //--------------------------------
 /*@ATTRIBUTE@block_name@Poner _, _ veces@*/ procedure Poner__Veces(c,n) { AuxPoner__Veces(c,n) }
 /*@ATTRIBUTE@block_name@Sacar _, _ veces@*/ procedure Sacar__Veces(c,n) { AuxSacar__Veces(c,n) }
@@ -10,7 +12,9 @@ procedure SacarTodas_(c) { AuxSacarTodas_(c) }
 procedure PasarASiguientePosiciónHacia_(dir) { AuxPasarASiguientePosiciónHacia(dir) }
 procedure PasarASiguientePosición()          { AuxPasarASiguientePosición()         }
 //--------------------------------
+//--------------------------------
 // FIN INTERFAZ de 00.Gobstones-Base.gbs
+//--------------------------------
 //--------------------------------
 
 //--------------------------------
@@ -70,7 +74,6 @@ procedure AuxVolverALaMarca() {
   IrAlBorde(Sur) IrAlBorde(Oeste)
   while (not aux_terminoElRecorrido() && not aux_hayMarca()) { AuxPasarASiguientePosición() }
 }
-
 //--------------------------------
 //--------------------------------
 // FIN AUXILIARES de 00.Gobstones-Base.gbs
