@@ -2,7 +2,7 @@
 // REQUIERE 00-Gobstones-Base.gbs
 //--------------------------------
 //--------------------------------
-// INTERFAZ de 02-Letras-Base.gbs
+// INTERFAZ de 01-Letras-Base.gbs
 //--------------------------------
 
 //--------------------------------
@@ -10,17 +10,13 @@
 //--------------------------------
 type Letra is variant { 
    case Espacio {} 
-   case A {}    case B {}    case C {}    case D {} 
-   case E {}    case F {}    case G {}    case H {} 
-   case I {}    case J {}    case K {}    case L {} 
-   case M {}    case N {}    case Ñ {}    case O {} 
-   case P {}    case Q {}    case R {}    case S {} 
-   case T {}    case U {}    case V {}    case W {} 
-   case X {}    case Y {}    case Z {} 
+   case A {}    case B {}    case C {}    case D {}    case E {}    case F {}    case G {}    case H {}    case I {}    
+   case J {}    case K {}    case L {}    case M {}    case N {}    case Ñ {}    case O {}    case P {}    case Q {}
+   case R {}    case S {}    case T {}    case U {}    case V {}    case W {}    case X {}    case Y {}    case Z {} 
 }
 
 //--------------------------------
-// Operaciones de letras (interfaz)
+// Operaciones de creación de letras (interfaz)
 //--------------------------------
 
 ///*@ATTRIBUTE@tooltip@Denota una letra*/
@@ -29,6 +25,10 @@ type Letra is variant {
 //function letra_(letra) { return(letra) }
 
 function letra_(códigoDeLetra) { return(aux_letraParaElCódigo(códigoDeLetra)) }
+
+//--------------------------------
+// Operaciones de acceso a letras (interfaz)
+//--------------------------------
 
 /*@ATTRIBUTE@block_name@_ está antes que _@*/
 function esMenorLetra__(letra1, letra2) { return(aux_esMenorLetra(letra1, letra2)) }
@@ -45,15 +45,21 @@ function letraSiguiente_(letra) { return(aux_letraSiguiente(letra)) }
 /*@ATTRIBUTE@block_name@letra previa a _@*/
 function letraPrevia_(letra) { return(aux_letraPrevia(letra)) }
 
+//--------------------------------
+// Operaciones de E/S de letras (interfaz)
+//--------------------------------
 function hayLetra() { return(aux_hayLetra()) }
 
 function  leerLetra()        { return(aux_leerLetra()) }
 procedure PonerLetra_(letra) { AuxPonerLetra(letra)    }
 procedure SacarLetraActual() { AuxSacarLetraActual()   }
+//--------------------------------
+// FIN INTERFAZ de 01-Letras-Base.gbs
+//--------------------------------
 
 //--------------------------------
 //--------------------------------
-// AUXILIARES de 02-Letras-Base.gbs
+// AUXILIARES de 01-Letras-Base.gbs
 //--------------------------------
 //--------------------------------
 
@@ -199,3 +205,9 @@ procedure AuxSacarRepresentaciónDeLetra() {
   // PRECONDICIÓN: hay una letra en la celda actual
   AuxSacarTodas()
 }
+
+//--------------------------------
+//--------------------------------
+// AUXILIARES de 01-Letras-Base.gbs
+//--------------------------------
+//--------------------------------
