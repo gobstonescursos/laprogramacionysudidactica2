@@ -1,0 +1,144 @@
+//--------------------------------
+// REQUIERE 00-Gobstones-Base.gbs
+//--------------------------------
+
+//--------------------------------
+//--------------------------------
+// INTERFAZ de 03-01-PalosBarajaEspañola-Base.gbs
+//--------------------------------
+//--------------------------------
+
+//--------------------------------
+// Definiciones de tipos
+//--------------------------------
+type Palo  is variant { case Espadas {} case Oros {} case Bastos {} case Copas {} }
+
+//--------------------------------
+// Operaciones de creación de palos (interfaz)
+//--------------------------------
+///*@ATTRIBUTE@tooltip@Denota el palo de una carta de un mazo de cartas españolas*/
+///*@ATTRIBUTE@block_name@_@*/
+///*@ATTRIBUTE@block_dropdown@[("Espadas", 'Espadas'), ("Oros", 'Oros'), ("Bastos", 'Bastos'), ("Copas", 'Copas')]@*/
+//function palo_(palo) { return (palo) }
+
+///*@ATTRIBUTE@tooltip@Denota el palo de espadas de un mazo de cartas españolas*/
+/*@ATTRIBUTE@block_name@Espadas@*/function espadas() { return(Espadas) }
+/*@ATTRIBUTE@block_name@Oros@*/   function oros()    { return(Oros)    }
+/*@ATTRIBUTE@block_name@Bastos@*/ function bastos()  { return(Bastos)  }
+/*@ATTRIBUTE@block_name@Copas@*/  function copas()   { return(Copas)   }
+
+//--------------------------------
+// Operaciones de acceso a palos (interfaz)
+//--------------------------------
+/*@ATTRIBUTE@block_name@_ es menor palo que _@*/
+function esMenorPalo__(palo1, palo2) { return(aux_esMenorPalo(palo1, palo2)) }
+
+/*@ATTRIBUTE@block_name@el palo más chico@*/
+function minPalo() { return(aux_minPalo()) }
+
+/*@ATTRIBUTE@block_name@el palo más grande@*/
+function maxPalo() { return(aux_maxPalo()) }
+
+/*@ATTRIBUTE@block_name@palo siguiente a _@*/
+function paloSiguiente_(palo) { return(aux_paloSiguiente(palo)) }
+
+/*@ATTRIBUTE@block_name@carta previa a _@*/
+function paloPrevio_(palo) { return(aux_paloPrevio(palo)) }
+
+//--------------------------------
+// Operaciones de sensado de letras en el tablero (interfaz)
+//--------------------------------
+// NO HAY OPERACIONES DE SENSADO de palos INDIVIDUALES
+// Los palos son parte del tipo carta
+
+//--------------------------------
+// Operaciones de E/S de palos (interfaz)
+//--------------------------------
+// NO HAY OPERACIONES DE E/S de palos INDIVIDUALES
+// Los palos son parte del tipo carta
+
+//--------------------------------
+//--------------------------------
+// FIN INTERFAZ de 03-01-PalosBarajaEspañola-Base.gbs
+//--------------------------------
+//--------------------------------
+
+
+//--------------------------------
+//--------------------------------
+// AUXILIARES de 03-01-PalosBarajaEspañola-Base.gbs
+//--------------------------------
+//--------------------------------
+
+//--------------------------------
+// Auxiliares para acceso a palos
+//--------------------------------
+function aux_esMenorPalo(palo1, palo2) { return (aux_códigoParaElPalo(palo1) < aux_códigoParaElPalo(palo2))}
+
+function aux_minPalo() { return (aux_paloParaElCódigo(aux_minCódigoDePalo())) }
+function aux_maxPalo() { return (aux_paloParaElCódigo(aux_maxCódigoDePalo())) }
+
+function aux_paloSiguiente(palo) {
+   return (choose 
+            aux_minPalo()                                      when (palo == aux_maxPalo())
+            aux_paloParaElCódigo(aux_códigoParaElPalo(palo)+1) otherwise
+          )
+}
+
+function aux_paloPrevio(palo) {
+   return (choose 
+            aux_maxPalo()                                      when (palo == aux_minPalo())
+            aux_paloParaElCódigo(aux_códigoParaElPalo(palo)-1) otherwise
+          )
+}
+
+//--------------------------------
+// Auxiliares para sensar letras en el tablero
+//--------------------------------
+// NO HAY OPERACIONES DE SENSADO de palos INDIVIDUALES
+// Los palos son parte del tipo carta
+
+//--------------------------------
+// Operaciones de E/S de letras
+//--------------------------------
+// NO HAY OPERACIONES DE SENSADO de palos INDIVIDUALES
+// Los palos son parte del tipo carta
+
+//--------------------------------
+// Operaciones auxiliares de codificación
+//--------------------------------
+function aux_minCódigoDePalo() { return (1) }
+function aux_maxCódigoDePalo() { return (4) }
+
+function aux_códigoParaElPalo(palo) { 
+  return (choose 
+     1 when (palo == Bastos )
+     2 when (palo == Copas  )
+     3 when (palo == Espadas)
+     4 when (palo == Oros   )
+     boom("Al extender los palos, deberías extender también las funciones de codificación") otherwise
+  )
+}
+
+function aux_paloParaElCódigo(código) {
+  // PRECONDICIÓN: el código es válido, o sea, corresponde a un palo (está entre aux_minCódigoDePalo() y aux_maxCódigoDePalo())
+  return (choose
+     Bastos  when (código == 1)
+     Copas   when (código == 2)
+     Espadas when (código == 3)
+     Oros    when (código == 4)
+     boom("No es un código de palo válido") otherwise
+  )
+}
+
+//--------------------------------
+// Operaciones auxiliares de codificación para el tablero
+//--------------------------------
+// LOS PALOS NO SE REPRESENTAN EN EL TABLERO
+
+//--------------------------------
+//--------------------------------
+// FIN AUXILIARES de 03-01-PalosBarajaEspañola-Base.gbs
+//--------------------------------
+//--------------------------------
+

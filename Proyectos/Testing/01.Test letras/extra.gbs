@@ -103,7 +103,6 @@ type Letra is variant {
 //--------------------------------
 // Operaciones de creación de letras (interfaz)
 //--------------------------------
-
 ///*@ATTRIBUTE@tooltip@Denota una letra*/
 ///*@ATTRIBUTE@block_name@_@*/
 ///*@ATTRIBUTE@block_dropdown@[(" ", 'Espacio'), ("A", 'A'), ("B", 'B'), ("C", 'C'), ("D", 'D'), ("E", 'E'), ("F", 'F'), ("G", 'G'), ("H", 'H'), ("I", 'I'), ("J", 'J'), ("K", 'K'), ("L", 'L'), ("M", 'M'), ("N", 'N'), ("Ñ", 'Ñ'), ("O", 'O'), ("P", 'P'), ("Q", 'Q'), ("R", 'R'), ("S", 'S'), ("T", 'T'), ("U", 'U'), ("V", 'V'), ("W", 'W'), ("X", 'X'), ("Y", 'Y'), ("Z", 'Z')]@*/
@@ -114,7 +113,6 @@ function letra_(códigoDeLetra) { return(aux_letraParaElCódigo(códigoDeLetra))
 //--------------------------------
 // Operaciones de acceso a letras (interfaz)
 //--------------------------------
-
 /*@ATTRIBUTE@block_name@_ está antes que _@*/
 function esMenorLetra__(letra1, letra2) { return(aux_esMenorLetra(letra1, letra2)) }
 
@@ -131,10 +129,13 @@ function letraSiguiente_(letra) { return(aux_letraSiguiente(letra)) }
 function letraPrevia_(letra) { return(aux_letraPrevia(letra)) }
 
 //--------------------------------
+// Operaciones de sensado de letras en el tablero (interfaz)
+//--------------------------------
+function hayLetra()          { return(aux_hayLetra()) }
+
+//--------------------------------
 // Operaciones de E/S de letras (interfaz)
 //--------------------------------
-function hayLetra() { return(aux_hayLetra()) }
-
 function  leerLetra()        { return(aux_leerLetra()) }
 procedure PonerLetra_(letra) { AuxPonerLetra(letra)    }
 procedure SacarLetraActual() { AuxSacarLetraActual()   }
@@ -143,6 +144,8 @@ procedure SacarLetraActual() { AuxSacarLetraActual()   }
 // FIN INTERFAZ de 01-Letras-Base.gbs
 //--------------------------------
 //--------------------------------
+
+
 
 //--------------------------------
 //--------------------------------
@@ -162,14 +165,14 @@ function aux_maxLetra() { return (aux_letraParaElCódigo(aux_maxCódigoDeLetra()
 
 function aux_letraSiguiente(letra) {
    return (choose 
-            aux_minLetra() when (letra == Z)
+            aux_minLetra()                                        when (letra == aux_maxLetra())
             aux_letraParaElCódigo(aux_códigoParaLaLetra(letra)+1) otherwise
           )
 }
 
 function aux_letraPrevia(letra) {
    return (choose 
-            aux_maxLetra() when (letra == aux_minLetra())
+            aux_maxLetra()                                        when (letra == aux_minLetra())
             aux_letraParaElCódigo(aux_códigoParaLaLetra(letra)-1) otherwise
           )
 }
@@ -178,6 +181,9 @@ function aux_letraPrevia(letra) {
 // Auxiliares para sensar letras en el tablero
 //--------------------------------
 function aux_hayLetra() { return (aux_hayTipoLetra() && aux_hayDatoLetra()) }
+
+function aux_hayTipoLetra()      { return (aux_esTipoLetra(aux_leerTipo())) }
+function aux_hayDatoLetra()      { return (aux_esDatoLetra(aux_leerDato())) }
 
 //--------------------------------
 // Operaciones de E/S de letras
@@ -199,19 +205,9 @@ procedure AuxSacarLetraActual() {
   AuxSacarRepresentaciónDeLetra()
 }
 
-
 //--------------------------------
 // Operaciones auxiliares de codificación
 //--------------------------------
-function aux_códigoParaElTipoLetra()      { return(2)                            }
-function aux_códigoParaElDatoLetra(letra) { return(aux_códigoParaLaLetra(letra)) }
-
-function aux_hayTipoLetra()      { return (aux_esTipoLetra(aux_leerTipo())) }
-function aux_hayDatoLetra()      { return (aux_esDatoLetra(aux_leerDato())) }
-
-function aux_esTipoLetra(código) { return (código == aux_códigoParaElTipoLetra())                            }
-function aux_esDatoLetra(dato)   { return (dato >= aux_minCódigoDeLetra() && dato <= aux_maxCódigoDeLetra()) }
-
 function aux_minCódigoDeLetra() { return(10) }
 function aux_maxCódigoDeLetra() { return(37) }
 
@@ -250,6 +246,7 @@ function aux_códigoParaLaLetra(letra) {
 }
 
 function aux_letraParaElCódigo(códigoDeLetra) {
+  // PRECONDICIÓN: el código es válido, o sea, corresponde a una letra (está entre aux_minCódigoDeLetra() y aux_maxCódigoDeLetra())
   return (choose
     Espacio when (códigoDeLetra == 10)
     A       when (códigoDeLetra == 11)
@@ -279,9 +276,18 @@ function aux_letraParaElCódigo(códigoDeLetra) {
     X       when (códigoDeLetra == 35)
     Y       when (códigoDeLetra == 36)
     Z       when (códigoDeLetra == 37)
-    boom("No es un código de letra") otherwise
+    boom("No es un código de letra válido") otherwise
     )
 }
+
+//--------------------------------
+// Operaciones auxiliares de codificación para el tablero
+//--------------------------------
+function aux_códigoParaElTipoLetra()      { return(2)                            }
+function aux_códigoParaElDatoLetra(letra) { return(aux_códigoParaLaLetra(letra)) }
+
+function aux_esTipoLetra(código) { return (código == aux_códigoParaElTipoLetra())                            }
+function aux_esDatoLetra(dato)   { return (dato >= aux_minCódigoDeLetra() && dato <= aux_maxCódigoDeLetra()) }
 
 procedure AuxPonerRepresentaciónDeLetra(letra) {
   AuxPoner__Veces(aux_colorParaElTipo(), aux_códigoParaElTipoLetra())
