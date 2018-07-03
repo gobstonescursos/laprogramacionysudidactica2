@@ -1,0 +1,158 @@
+//--------------------------------
+// REQUIERE 00-Gobstones-Base.gbs
+//--------------------------------
+
+//--------------------------------
+//--------------------------------
+// INTERFAZ de 03-01-PalosDeCartaEspañola-Base.gbs
+//--------------------------------
+//--------------------------------
+
+//--------------------------------
+// Definiciones de tipos
+//--------------------------------
+type PaloDeCartaEspañola  is variant { case Espadas {} case Oros {} case Bastos {} case Copas {} }
+
+//--------------------------------
+// Operaciones de creación de palos de carta española (interfaz)
+//--------------------------------
+///*@ATTRIBUTE@tooltip@Denota el palo de una carta de un mazo de cartas españolas*/
+///*@ATTRIBUTE@block_name@_@*/
+///*@ATTRIBUTE@block_dropdown@[("Espadas", 'Espadas'), ("Oros", 'Oros'), ("Bastos", 'Bastos'), ("Copas", 'Copas')]@*/
+//function palo_(palo) { return (palo) }
+
+///*@ATTRIBUTE@tooltip@Denota el palo de espadas de un mazo de cartas españolas*/
+/*@ATTRIBUTE@block_name@Espadas@*/function espadas() { return(Espadas) }
+/*@ATTRIBUTE@block_name@Oros@*/   function oros()    { return(Oros)    }
+/*@ATTRIBUTE@block_name@Bastos@*/ function bastos()  { return(Bastos)  }
+/*@ATTRIBUTE@block_name@Copas@*/  function copas()   { return(Copas)   }
+
+//--------------------------------
+// Operaciones de acceso a palos (interfaz)
+//--------------------------------
+/*@ATTRIBUTE@block_name@_ es menor palo que _@*/
+function esMenorPalo__(palo1, palo2) { return(aux_esMenorPaloDeCartaEspañola(palo1, palo2)) }
+
+/*@ATTRIBUTE@block_name@el palo más chico@*/
+function minPalo() { return(aux_minPaloDeCartaEspañola()) }
+
+/*@ATTRIBUTE@block_name@el palo más grande@*/
+function maxPalo() { return(aux_maxPaloDeCartaEspañola()) }
+
+/*@ATTRIBUTE@block_name@palo siguiente a _@*/
+function paloSiguiente_(palo) { return(aux_paloDeCartaEspañolaSiguiente(palo)) }
+
+/*@ATTRIBUTE@block_name@carta previa a _@*/
+function paloPrevio_(palo) { return(aux_paloDeCartaEspañolaPrevio(palo)) }
+
+//--------------------------------
+// Operaciones de sensado de letras en el tablero (interfaz)
+//--------------------------------
+// NO HAY OPERACIONES DE SENSADO de palos de carta española INDIVIDUALES
+// Los palos de carta española son parte del tipo carta española
+
+//--------------------------------
+// Operaciones de E/S de palos (interfaz)
+//--------------------------------
+// NO HAY OPERACIONES DE E/S de palos de carta española INDIVIDUALES
+// Los palos de carta española son parte del tipo carta española
+
+//--------------------------------
+//--------------------------------
+// FIN INTERFAZ de 03-01-PalosDeCartaEspañola-Base.gbs
+//--------------------------------
+//--------------------------------
+
+
+//--------------------------------
+//--------------------------------
+// AUXILIARES de 03-01-PalosDeCartaEspañola-Base.gbs
+//--------------------------------
+//--------------------------------
+
+//--------------------------------
+// Auxiliares para construir letras
+//--------------------------------
+// NO HAY OPERACIONES ESPECÍFICAS DE CONSTRUCCIÓN de palos de carta española
+// Se proveen con los constructores del tipo o con la codificación
+
+//--------------------------------
+// Auxiliares para acceso a palos
+//--------------------------------
+function aux_esMenorPaloDeCartaEspañola(palo1, palo2) { return (aux_códigoParaElPaloDeCartaEspañola(palo1) < aux_códigoParaElPaloDeCartaEspañola(palo2))}
+
+function aux_minPaloDeCartaEspañola() { return (aux_paloDeCartaEspañolaParaElCódigo(aux_minCódigoParaElPaloDeCartaEspañola())) }
+function aux_maxPaloDeCartaEspañola() { return (aux_paloDeCartaEspañolaParaElCódigo(aux_maxCódigoParaElPaloDeCartaEspañola())) }
+
+function aux_paloDeCartaEspañolaSiguiente(palo) {
+   return (choose 
+            aux_minPaloDeCartaEspañola()                   when (palo == aux_maxPaloDeCartaEspañola())
+            aux_paloDeCartaEspañolaParaElCódigo(
+              aux_códigoParaElPaloDeCartaEspañola(palo)+1) otherwise
+          )
+}
+
+function aux_paloDeCartaEspañolaPrevio(palo) {
+   return (choose 
+            aux_maxPaloDeCartaEspañola()                   when (palo == aux_minPaloDeCartaEspañola())
+            aux_paloDeCartaEspañolaParaElCódigo(
+              aux_códigoParaElPaloDeCartaEspañola(palo)-1) otherwise
+          )
+}
+
+//--------------------------------
+// Auxiliares para sensar palos de carta española en el tablero
+//--------------------------------
+// NO HAY OPERACIONES DE SENSADO de palosDeCartaEspañola INDIVIDUALES
+// Los palosDeCartaEspañola son parte del tipo cartaEspañola
+
+//--------------------------------
+// Operaciones de E/S de palos de carta española
+//--------------------------------
+// NO HAY OPERACIONES DE SENSADO de palos de carta española INDIVIDUALES
+// Los palos de carta española son parte del tipo carta española
+
+//--------------------------------
+// Operaciones auxiliares de codificación
+//--------------------------------
+function aux_minCódigoParaElPaloDeCartaEspañola() { return (1) }
+function aux_maxCódigoParaElPaloDeCartaEspañola() { return (4) }
+
+aux_esCódigoParaElPaloDeCartaEspañola(códigoPalo) {   
+  return (códigoPalo >= aux_minCódigoParaElPaloDeCartaEspañola() && códigoPalo <= aux_maxCódigoParaElPaloDeCartaEspañola())
+}
+
+function aux_códigoParaElPaloDeCartaEspañola(palo) { 
+  return (choose 
+     1 when (palo == Bastos )
+     2 when (palo == Copas  )
+     3 when (palo == Espadas)
+     4 when (palo == Oros   )
+     boom("Al extender los palos de carta española, deberías extender también las funciones de codificación") otherwise
+  )
+}
+
+function aux_paloDeCartaEspañolaParaElCódigo(código) {
+  // PRECONDICIÓN: el código es válido, o sea, corresponde a un palo de carta española
+  //              (está entre aux_minCódigoParaElPaloDeCartaEspañola() y aux_maxCódigoParaElPaloDeCartaEspañola())
+  if (not aux_esCódigoParaElPaloDeCartaEspañola(códigoPalo)) { BOOM("No es un código de palo de carta española válido") }
+  return (choose
+     Bastos  when (código == 1)
+     Copas   when (código == 2)
+     Espadas when (código == 3)
+     Oros    when (código == 4)
+     boom("¡NO DEBERÍA SUCEDER! Revisar esCódigoParaElPaloDeCartaEspañola.") otherwise
+  )
+}
+
+//--------------------------------
+// Operaciones auxiliares de codificación para el tablero
+//--------------------------------
+// LOS PALOS DE CARTA ESPAÑOLA NO SE REPRESENTAN EN EL TABLERO
+
+//--------------------------------
+//--------------------------------
+// FIN AUXILIARES de 03-01-PalosDeCartaEspañola-Base.gbs
+//--------------------------------
+//--------------------------------
+
