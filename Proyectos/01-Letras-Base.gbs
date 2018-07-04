@@ -1,85 +1,81 @@
-//--------------------------------
-// REQUIERE 00-Gobstones-Base.gbs
-//--------------------------------
+/*==================================================================================================*/
+/*--------------------------------- REQUIERE 00-Gobstones-Base.gbs ---------------------------------*/
+/*==================================================================================================*/
 
-//--------------------------------
-//--------------------------------
-// INTERFAZ de 01-Letras-Base.gbs
-//--------------------------------
-//--------------------------------
+/*==================================================================================================*/
+/*--------------------------------- INTERFAZ de 01-Letras-Base.gbs ----------------------------------/
+/----- Autor: Pablo E. "Fidel" Martínez López -------------------------------------------------------/
+/----- EMail: fidel@unq.edu.ar                -------------------------------------------------------/
+/----- Fecha creación: 2018.06                -------------------------------------------------------/
+/----- Fecha última modificación: 2018.06     -------------------------------------------------------/
+/----- Licencia: GNU General Public License, v2                                             ---------/
+/----- Sitio Oficial de la licencia: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html  --------*/
+/*==================================================================================================*/
 
-//--------------------------------
-// Definiciones de tipos
-//--------------------------------
+//---------------------------------------------------------------------------------------------------/
+/*-------------------------------------- Definiciones de tipos --------------------------------------/
+/---------------------------------------------------------------------------------------------------*/
 type Letra is variant { 
    case Espacio {} 
    case A {}    case B {}    case C {}    case D {}    case E {}    case F {}    case G {}    case H {}    case I {}    
    case J {}    case K {}    case L {}    case M {}    case N {}    case Ñ {}    case O {}    case P {}    case Q {}
-   case R {}    case S {}    case T {}    case U {}    case V {}    case W {}    case X {}    case Y {}    case Z {} 
+   case R {}    case S {}    case T {}    case U {}    case V {}    case W {}    case X {}    case Y {}    case Z {}
 }
 
-//--------------------------------
-// Operaciones de creación de letras (interfaz)
-//--------------------------------
-///*@ATTRIBUTE@tooltip@Denota una letra*/
-///*@ATTRIBUTE@block_name@_@*/
-///*@ATTRIBUTE@block_dropdown@[(" ", 'Espacio'), ("A", 'A'), ("B", 'B'), ("C", 'C'), ("D", 'D'), ("E", 'E'), ("F", 'F'), ("G", 'G'), ("H", 'H'), ("I", 'I'), ("J", 'J'), ("K", 'K'), ("L", 'L'), ("M", 'M'), ("N", 'N'), ("Ñ", 'Ñ'), ("O", 'O'), ("P", 'P'), ("Q", 'Q'), ("R", 'R'), ("S", 'S'), ("T", 'T'), ("U", 'U'), ("V", 'V'), ("W", 'W'), ("X", 'X'), ("Y", 'Y'), ("Z", 'Z')]@*/
-//function letra_(letra) { return(letra) }
+//---------------------------------------------------------------------------------------------------/
+/*------------------------------ Operaciones de creación de letras (interfaz) -----------------------/
+/---------------------------------------------------------------------------------------------------*/
+{-
+/*@ATTRIBUTE@tooltip@Denota una letra*/
+/*@ATTRIBUTE@block_name@_@*/
+/*@ATTRIBUTE@block_dropdown@[(" ", 'Espacio'), ("A", 'A'), ("B", 'B'), ("C", 'C'), ("D", 'D'), ("E", 'E'), ("F", 'F'), ("G", 'G'), ("H", 'H'), ("I", 'I'), ("J", 'J'), ("K", 'K'), ("L", 'L'), ("M", 'M'), ("N", 'N'), ("Ñ", 'Ñ'), ("O", 'O'), ("P", 'P'), ("Q", 'Q'), ("R", 'R'), ("S", 'S'), ("T", 'T'), ("U", 'U'), ("V", 'V'), ("W", 'W'), ("X", 'X'), ("Y", 'Y'), ("Z", 'Z')]@*/
+function letra_(letra) { return(letra) }
+-}
 
 function letra_(códigoLetra) { return(aux_letraParaElCódigo(códigoLetra)) }
 
-//--------------------------------
-// Operaciones de acceso a letras (interfaz)
-//--------------------------------
+//---------------------------------------------------------------------------------------------------/
+/*------------------------------- Operaciones de acceso a letras (interfaz) -------------------------/
+/---------------------------------------------------------------------------------------------------*/
 /*@ATTRIBUTE@block_name@_ está antes que _@*/
 function esMenorLetra__(letra1, letra2) { return(aux_esMenorLetra(letra1, letra2)) }
 
-/*@ATTRIBUTE@block_name@la letra más chica@*/
-function minLetra() { return(aux_minLetra()) }
+/*@ATTRIBUTE@block_name@la letra más chica@*/  function minLetra()             { return(aux_minLetra()) }
+/*@ATTRIBUTE@block_name@la letra más grande@*/ function maxLetra()             { return(aux_maxLetra()) }
+/*@ATTRIBUTE@block_name@letra siguiente a _@*/ function letraSiguiente_(letra) { return(aux_letraSiguiente(letra)) }
+/*@ATTRIBUTE@block_name@letra previa a _@*/    function letraPrevia_(letra)    { return(aux_letraPrevia(letra)) }
 
-/*@ATTRIBUTE@block_name@la letra más grande@*/
-function maxLetra() { return(aux_maxLetra()) }
+//---------------------------------------------------------------------------------------------------/
+/*------------------- Operaciones de sensado de letras en el tablero (interfaz) ---------------------/
+/---------------------------------------------------------------------------------------------------*/
+function hayLetra() { return(aux_hayLetra()) }
 
-/*@ATTRIBUTE@block_name@letra siguiente a _@*/
-function letraSiguiente_(letra) { return(aux_letraSiguiente(letra)) }
-
-/*@ATTRIBUTE@block_name@letra previa a _@*/
-function letraPrevia_(letra) { return(aux_letraPrevia(letra)) }
-
-//--------------------------------
-// Operaciones de sensado de letras en el tablero (interfaz)
-//--------------------------------
-function hayLetra()          { return(aux_hayLetra()) }
-
-//--------------------------------
-// Operaciones de E/S de letras (interfaz)
-//--------------------------------
+//---------------------------------------------------------------------------------------------------/
+/*---------------------------- Operaciones de E/S de letras (interfaz) ------------------------------/
+/---------------------------------------------------------------------------------------------------*/
 function  leerLetra()        { return(aux_leerLetra()) }
 procedure PonerLetra_(letra) { AuxPonerLetra(letra)    }
 procedure SacarLetraActual() { AuxSacarLetraActual()   }
-//--------------------------------
-//--------------------------------
-// FIN INTERFAZ de 01-Letras-Base.gbs
-//--------------------------------
-//--------------------------------
+
+/*==================================================================================================*/
+/*------------------------------- FIN INTERFAZ de 01-Letras-Base.gbs -------------------------------*/
+/*==================================================================================================*/
 
 
+/*==================================================================================================*/
+/*-------------------------------- AUXILIARES de 01-Letras-Base.gbs --------------------------------*/
+/*==================================================================================================*/
 
-//--------------------------------
-//--------------------------------
-// AUXILIARES de 01-Letras-Base.gbs
-//--------------------------------
-//--------------------------------
+//---------------------------------------------------------------------------------------------------/
+/*------------------------------ Auxiliares para construir letras ----------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+/* NO HAY OPERACIONES ESPECÍFICAS DE CONSTRUCCIÓN de Letras
+   Se proveen con los constructores del tipo 
+ */
 
-//--------------------------------
-// Auxiliares para construir letras
-//--------------------------------
-// NO HAY OPERACIONES ESPECÍFICAS DE CONSTRUCCIÓN de Letras
-// Se proveen con los constructores del tipo
-
-//--------------------------------
-// Auxiliares para acceso a letras
-//--------------------------------
+//---------------------------------------------------------------------------------------------------/
+/*------------------------------- Auxiliares para acceso a letras -----------------------------------/
+/---------------------------------------------------------------------------------------------------*/
 function aux_esMenorLetra(letra1, letra2) {
     return (aux_códigoParaLaLetra(letra1) < aux_códigoParaLaLetra(letra2))
 }
@@ -101,20 +97,20 @@ function aux_letraPrevia(letra) {
           )
 }
 
-//--------------------------------
-// Auxiliares para sensar letras en el tablero
-//--------------------------------
+//---------------------------------------------------------------------------------------------------/
+/*---------------------------- Auxiliares para sensar letras en el tablero --------------------------/
+/---------------------------------------------------------------------------------------------------*/
 function aux_hayLetra() { return (aux_hayTipoLetra() && aux_hayDatoLetra()) }
 
 function aux_hayTipoLetra()      { return (aux_esTipoLetra(aux_leerTipo())) }
 function aux_hayDatoLetra()      { return (aux_esDatoLetra(aux_leerDato())) }
 
-//--------------------------------
-// Operaciones de E/S de letras
-//--------------------------------
+//---------------------------------------------------------------------------------------------------/
+/*-------------------------------- Operaciones de E/S de letras -------------------------------------/
+/---------------------------------------------------------------------------------------------------*/
 function aux_leerLetra() {
   // PRECONDICIÓN: hay una letra en la celda actual
-  if (not aux_hayLetra())      { BOOM("No hay una letra que pueda leer") }
+  if (not (aux_hayLetra()))      { BOOM("No hay una letra que pueda leer") }
   return(aux_letraParaElCódigo(aux_leerDato()))
 }         
 
@@ -129,14 +125,15 @@ procedure AuxSacarLetraActual() {
   AuxSacarRepresentaciónParaLaLetra()
 }
 
-//--------------------------------
-// Operaciones auxiliares de codificación
-//--------------------------------
+//---------------------------------------------------------------------------------------------------/
+/*---------------------------- Operaciones auxiliares de codificación -------------------------------/
+/---------------------------------------------------------------------------------------------------*/
 function aux_minCódigoParaLaLetra() { return(10) }
 function aux_maxCódigoParaLaLetra() { return(37) }
 
 function aux_esCódigoParaLaLetra(códigoLetra) {
-  return (códigoLetra >= aux_minCódigoParaLaLetra() && códigoLetra <= aux_maxCódigoParaLaLetra())
+  return (códigoLetra >= aux_minCódigoParaLaLetra() 
+       && códigoLetra <= aux_maxCódigoParaLaLetra())
 }
 
 function aux_códigoParaLaLetra(letra) {
@@ -211,9 +208,9 @@ return (choose
     )
 }
 
-//--------------------------------
-// Operaciones auxiliares de codificación para el tablero
-//--------------------------------
+//---------------------------------------------------------------------------------------------------/
+/*----------------------- Operaciones auxiliares de codificación para el tablero --------------------/
+/---------------------------------------------------------------------------------------------------*/
 function aux_códigoParaElTipoLetra()      { return(2)                            }
 function aux_códigoParaElDatoLetra(letra) { return(aux_códigoParaLaLetra(letra)) }
 
@@ -229,8 +226,6 @@ procedure AuxSacarRepresentaciónParaLaLetra() {
   // PRECONDICIÓN: hay una letra en la celda actual
   AuxSacarTodas()
 }
-//--------------------------------
-//--------------------------------
-// AUXILIARES de 01-Letras-Base.gbs
-//--------------------------------
-//--------------------------------
+/*==================================================================================================*/
+/*-------------------------------- AUXILIARES de 01-Letras-Base.gbs --------------------------------*/
+/*==================================================================================================*/
