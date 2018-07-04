@@ -1,8 +1,12 @@
-//--------------------------------
-//--------------------------------
-// INTERFAZ de 00.Gobstones-Base.gbs
-//--------------------------------
-//--------------------------------
+/*==================================================================================================*/
+/*------------------------------- INTERFAZ de 00.Gobstones-Base.gbs ---------------------------------/
+/----- Autor: Pablo E. "Fidel" Martínez López -------------------------------------------------------/
+/----- EMail: fidel@unq.edu.ar                -------------------------------------------------------/
+/----- Fecha creación: 2018.06                -------------------------------------------------------/
+/----- Fecha última modificación: 2018.06     -------------------------------------------------------/
+/----- Licencia: GNU General Public License, v2                                             ---------/
+/----- Sitio Oficial de la licencia: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html  --------*/
+/*==================================================================================================*/
 /*@ATTRIBUTE@block_name@Poner _, _ veces@*/ procedure Poner__Veces(c,n) { AuxPoner__Veces(c,n) }
 /*@ATTRIBUTE@block_name@Sacar _, _ veces@*/ procedure Sacar__Veces(c,n) { AuxSacar__Veces(c,n) }
 /*@ATTRIBUTE@block_name@Mover _, _ veces@*/ procedure Mover__Veces(d,n) { AuxMover__Veces(d,n) }
@@ -11,21 +15,17 @@ procedure SacarTodas_(c) { AuxSacarTodas_(c) }
 
 procedure PasarASiguientePosiciónHacia_(dir) { AuxPasarASiguientePosiciónHacia(dir) }
 procedure PasarASiguientePosición()          { AuxPasarASiguientePosición()         }
-//--------------------------------
-//--------------------------------
-// FIN INTERFAZ de 00.Gobstones-Base.gbs
-//--------------------------------
-//--------------------------------
+/*==================================================================================================*/
+/*----------------------------- FIN INTERFAZ de 00.Gobstones-Base.gbs ------------------------------*/
+/*==================================================================================================*/
 
-//--------------------------------
-//--------------------------------
-// AUXILIARES de 00.Gobstones-Base.gbs
-//--------------------------------
-//--------------------------------
+/*==================================================================================================*/
+/*------------------------------ AUXILIARES de 00-Gobstones-Base.gbs -------------------------------*/
+/*==================================================================================================*/
 
-//--------------------------------
-// Operaciones auxiliares de Gobstones
-//--------------------------------
+//---------------------------------------------------------------------------------------------------/
+/*----------------------------- Operaciones auxiliares de Gobstones ---------------------------------/
+/---------------------------------------------------------------------------------------------------*/
 procedure AuxPoner__Veces(c,n) { repeat (n) { Poner(c) } }
 procedure AuxSacar__Veces(c,n) { repeat (n) { Sacar(c) } }
 procedure AuxMover__Veces(d,n) { repeat (n) { Mover(d) } }
@@ -33,9 +33,9 @@ procedure AuxMover__Veces(d,n) { repeat (n) { Mover(d) } }
 procedure AuxSacarTodas()   { foreach c in [minColor()..maxColor()] { AuxSacarTodas_(c) } }
 procedure AuxSacarTodas_(c) { AuxSacar__Veces(c, nroBolitas(c)) }
 
-//--------------------------------
-// Operaciones auxiliares de codificiación
-//--------------------------------
+//---------------------------------------------------------------------------------------------------/
+/*---------------------------- Operaciones auxiliares de codificación -------------------------------/
+/---------------------------------------------------------------------------------------------------*/
 function aux_colorParaElDato()     { return(Negro) }
 function aux_colorParaElTipo()     { return(Azul)  }
 function aux_colorParaElAtributo() { return(Rojo)  }
@@ -46,9 +46,9 @@ function aux_leerDato()     { return(nroBolitas(aux_colorParaElDato()))     }
 function aux_leerAtributo() { return(nroBolitas(aux_colorParaElAtributo())) }
 function aux_leerMarca()    { return(nroBolitas(aux_colorParaLaMarca()))    }
 
-//--------------------------------
-// Operaciones de movimiento
-//--------------------------------
+//---------------------------------------------------------------------------------------------------/
+/*--------------------------------- Operaciones de movimiento ---------------------------------------/
+/---------------------------------------------------------------------------------------------------*/
 procedure AuxPasarASiguientePosiciónHacia(dir) { if (puedeMover(dir)) { Mover(dir) } }
 procedure AuxPasarASiguientePosición() {
     if     (puedeMover(Este))  { Mover(Este)                     }
@@ -56,9 +56,9 @@ procedure AuxPasarASiguientePosición() {
     else                       { IrAlBorde(Oeste) IrAlBorde(Sur) }
 }
 
-//--------------------------------
-// Operaciones de recorrido
-//--------------------------------
+//---------------------------------------------------------------------------------------------------/
+/*---------------------------------- Operaciones de recorrido ---------------------------------------/
+/---------------------------------------------------------------------------------------------------*/
 // La marca son 100 bolitas del aux_colorParaMarca, pero puede haber otras marcas antes
 function aux_hayMarca()  { return (nroBolitas(aux_colorParaLaMarca())>100) }
 procedure AuxMarcar()    { AuxPoner__Veces(aux_colorParaLaMarca(),100) }
@@ -74,8 +74,6 @@ procedure AuxVolverALaMarca() {
   IrAlBorde(Sur) IrAlBorde(Oeste)
   while (not aux_terminoElRecorrido() && not aux_hayMarca()) { AuxPasarASiguientePosición() }
 }
-//--------------------------------
-//--------------------------------
-// FIN AUXILIARES de 00.Gobstones-Base.gbs
-//--------------------------------
-//--------------------------------
+/*==================================================================================================*/
+/*---------------------------- FIN AUXILIARES de 00-Gobstones-Base.gbs -----------------------------*/
+/*==================================================================================================*/
