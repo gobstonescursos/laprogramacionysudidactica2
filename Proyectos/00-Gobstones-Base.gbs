@@ -10,10 +10,10 @@
 /*@ATTRIBUTE@block_name@Poner _, _ veces@*/ procedure Poner__Veces(c,n) { AuxPoner__Veces(c,n) }
 /*@ATTRIBUTE@block_name@Sacar _, _ veces@*/ procedure Sacar__Veces(c,n) { AuxSacar__Veces(c,n) }
 /*@ATTRIBUTE@block_name@Mover _, _ veces@*/ procedure Mover__Veces(d,n) { AuxMover__Veces(d,n) }
-procedure SacarTodas()   { AuxSacarTodas() }
+procedure SacarTodas()   { AuxSacarTodas()   }
 procedure SacarTodas_(c) { AuxSacarTodas_(c) }
 
-procedure IrAlOrigen()   { IrAlBorde(Sur) IrAlBorde(Oeste) }
+procedure IrAlOrigen()   { AuxIrAlOrigen()   }
 
 procedure PasarASiguientePosiciónHacia_(dir) { AuxPasarASiguientePosiciónHacia(dir) }
 procedure PasarASiguientePosición()          { AuxPasarASiguientePosición()         }
@@ -34,6 +34,8 @@ procedure AuxMover__Veces(d,n) { repeat (n) { Mover(d) } }
 
 procedure AuxSacarTodas()   { foreach c in [minColor()..maxColor()] { AuxSacarTodas_(c) } }
 procedure AuxSacarTodas_(c) { AuxSacar__Veces(c, nroBolitas(c)) }
+
+procedure AuxIrAlOrigen()   { IrAlBorde(Sur) IrAlBorde(Oeste) }
 
 //---------------------------------------------------------------------------------------------------/
 /*---------------------------- Operaciones auxiliares de codificación -------------------------------/
@@ -62,20 +64,21 @@ procedure AuxPasarASiguientePosición() {
 /*---------------------------------- Operaciones de recorrido ---------------------------------------/
 /---------------------------------------------------------------------------------------------------*/
 // La marca son 100 bolitas del aux_colorParaMarca, pero puede haber otras marcas antes
-function aux_hayMarca()  { return (nroBolitas(aux_colorParaLaMarca())>100) }
-procedure AuxMarcar()    { AuxPoner__Veces(aux_colorParaLaMarca(),100) }
+function  aux_códigoDeLaMarca() { return(100) }
+function  aux_hayMarca() { return (nroBolitas(aux_colorParaLaMarca())>aux_códigoDeLaMarca()) }
+procedure AuxMarcar()    { AuxPoner__Veces(aux_colorParaLaMarca(),aux_códigoDeLaMarca())     }
 procedure AuxDesmarcar() { 
   // PRECONDICIÓN: hay una marca en el lugar (o sea, aux_hayMarca() es verdadero)
-  AuxSacar__Veces(aux_colorParaLaMarca(),100) 
+  AuxSacar__Veces(aux_colorParaLaMarca(),aux_códigoDeLaMarca()) 
 }
-
-function aux_terminoElRecorrido() { return (not puedeMover(Este) && not puedeMover(Norte)) }
 
 procedure AuxVolverALaMarca() {
   // PRECONDICIÓN: hay una marca en el tablero
-  IrAlBorde(Sur) IrAlBorde(Oeste)
+  AuxIrAlOrigen()
   while (not aux_terminoElRecorrido() && not aux_hayMarca()) { AuxPasarASiguientePosición() }
 }
+
+function aux_terminoElRecorrido() { return (not puedeMover(Este) && not puedeMover(Norte)) }
 /*==================================================================================================*/
 /*---------------------------- FIN AUXILIARES de 00-Gobstones-Base.gbs -----------------------------*/
 /*==================================================================================================*/
