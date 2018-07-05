@@ -37,13 +37,11 @@ function letra_(códigoLetra) { return(aux_letraParaElCódigo(códigoLetra)) }
 //---------------------------------------------------------------------------------------------------/
 /*------------------------------- Operaciones de acceso a letras (interfaz) -------------------------/
 /---------------------------------------------------------------------------------------------------*/
-/*@ATTRIBUTE@block_name@_ está antes que _@*/
-function esMenorLetra__(letra1, letra2) { return(aux_esMenorLetra(letra1, letra2)) }
-
-/*@ATTRIBUTE@block_name@la letra más chica@*/  function minLetra()             { return(aux_minLetra()) }
-/*@ATTRIBUTE@block_name@la letra más grande@*/ function maxLetra()             { return(aux_maxLetra()) }
+/*@ATTRIBUTE@block_name@_ está antes que _@*/  function esMenorLetra__(letra1, letra2) { return(aux_esMenorLetra(letra1, letra2)) }
+/*@ATTRIBUTE@block_name@la letra más chica@*/  function minLetra()             { return(aux_minLetra())            }
+/*@ATTRIBUTE@block_name@la letra más grande@*/ function maxLetra()             { return(aux_maxLetra())            }
 /*@ATTRIBUTE@block_name@letra siguiente a _@*/ function letraSiguiente_(letra) { return(aux_letraSiguiente(letra)) }
-/*@ATTRIBUTE@block_name@letra previa a _@*/    function letraPrevia_(letra)    { return(aux_letraPrevia(letra)) }
+/*@ATTRIBUTE@block_name@letra previa a _@*/    function letraPrevia_(letra)    { return(aux_letraPrevia(letra))    }
 
 //---------------------------------------------------------------------------------------------------/
 /*------------------- Operaciones de sensado de letras en el tablero (interfaz) ---------------------/
@@ -100,10 +98,13 @@ function aux_letraPrevia(letra) {
 //---------------------------------------------------------------------------------------------------/
 /*---------------------------- Auxiliares para sensar letras en el tablero --------------------------/
 /---------------------------------------------------------------------------------------------------*/
-function aux_hayLetra() { return (aux_hayTipoLetra() && aux_hayDatoLetra()) }
+function aux_hayLetra() { 
+  return (aux_hayTipoLetra() 
+       && aux_hayDatoLetra()) 
+}
 
-function aux_hayTipoLetra()      { return (aux_esTipoLetra(aux_leerTipo())) }
-function aux_hayDatoLetra()      { return (aux_esDatoLetra(aux_leerDato())) }
+function aux_hayTipoLetra() { return (aux_esTipoLetra(aux_leerTipo())) }
+function aux_hayDatoLetra() { return (aux_esDatoLetra(aux_leerDato())) }
 
 //---------------------------------------------------------------------------------------------------/
 /*-------------------------------- Operaciones de E/S de letras -------------------------------------/
