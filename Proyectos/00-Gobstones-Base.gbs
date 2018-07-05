@@ -13,6 +13,8 @@
 procedure SacarTodas()   { AuxSacarTodas() }
 procedure SacarTodas_(c) { AuxSacarTodas_(c) }
 
+procedure IrAlOrigen()   { IrAlBorde(Sur) IrAlBorde(Oeste) }
+
 procedure PasarASiguientePosiciónHacia_(dir) { AuxPasarASiguientePosiciónHacia(dir) }
 procedure PasarASiguientePosición()          { AuxPasarASiguientePosición()         }
 /*==================================================================================================*/
