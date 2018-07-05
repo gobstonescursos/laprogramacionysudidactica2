@@ -36,20 +36,11 @@ type PaloDeCartaEspañola  is variant { case Espadas {} case Oros {} case Bastos
 //---------------------------------------------------------------------------------------------------/
 /*------------------------------- Operaciones de acceso a palos (interfaz) --------------------------/
 /---------------------------------------------------------------------------------------------------*/
-/*@ATTRIBUTE@block_name@_ es menor palo que _@*/
-function esMenorPalo__(palo1, palo2) { return(aux_esMenorPaloDeCartaEspañola(palo1, palo2)) }
-
-/*@ATTRIBUTE@block_name@el palo más chico@*/
-function minPalo() { return(aux_minPaloDeCartaEspañola()) }
-
-/*@ATTRIBUTE@block_name@el palo más grande@*/
-function maxPalo() { return(aux_maxPaloDeCartaEspañola()) }
-
-/*@ATTRIBUTE@block_name@palo siguiente a _@*/
-function paloSiguiente_(palo) { return(aux_paloDeCartaEspañolaSiguiente(palo)) }
-
-/*@ATTRIBUTE@block_name@carta previa a _@*/
-function paloPrevio_(palo) { return(aux_paloDeCartaEspañolaPrevio(palo)) }
+/*@ATTRIBUTE@block_name@_ es menor palo que _@*/ function esMenorPalo__(palo1, palo2) { return(aux_esMenorPaloDeCartaEspañola(palo1, palo2)) }
+/*@ATTRIBUTE@block_name@el palo más chico@*/     function minPalo()            { return(aux_minPaloDeCartaEspañola())           }
+/*@ATTRIBUTE@block_name@el palo más grande@*/    function maxPalo()            { return(aux_maxPaloDeCartaEspañola())           }
+/*@ATTRIBUTE@block_name@palo siguiente a _@*/    function paloSiguiente_(palo) { return(aux_paloDeCartaEspañolaSiguiente(palo)) }
+/*@ATTRIBUTE@block_name@carta previa a _@*/      function paloPrevio_(palo)    { return(aux_paloDeCartaEspañolaPrevio(palo))    }
 
 //---------------------------------------------------------------------------------------------------/
 /*------------------- Operaciones de sensado de palos en el tablero (interfaz) ----------------------/
@@ -114,7 +105,7 @@ function aux_paloDeCartaEspañolaPrevio(palo) {
  */
 
 //---------------------------------------------------------------------------------------------------/
-/*-------------------------------- Operaciones de E/S de palos --------------------------------------/
+/*----------------------- Operaciones de E/S de palos de carta española -----------------------------/
 /---------------------------------------------------------------------------------------------------*/
 /* NO HAY OPERACIONES DE SENSADO de palos de carta española INDIVIDUALES
    Los palos de carta española son parte del tipo carta española
