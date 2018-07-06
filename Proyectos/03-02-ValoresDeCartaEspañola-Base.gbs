@@ -78,7 +78,7 @@
 // ¡¡¡¡LOS VALORES SON DIRECTAMENTE SU CÓDIGO!!!! Por eso no están las funciones de decodificación
 
 // ESPECÍFICAS
-function aux_esValorDeCartaEspañola(valor)  { return (aux_esCódigoParaElValorDeCartaEspañola(códigoValor)) }
+function aux_esValorDeCartaEspañola(valor)  { return (aux_esCódigoParaElValorDeCartaEspañola(valor)) }
 
 // ESTÁNDAR
 function aux_esMenorValorDeCartaEspañola(valor1, valor2) { return (valor1 < valor2) }

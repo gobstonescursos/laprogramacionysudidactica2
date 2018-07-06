@@ -119,15 +119,15 @@ function aux_códigoParaElPaloDeCartaEspañola(palo) {
   )
 }
 
-function aux_paloDeCartaEspañolaParaElCódigo(código) {
+function aux_paloDeCartaEspañolaParaElCódigo(códigoPalo) {
   // PRECONDICIÓN: el código es válido, o sea, corresponde a un palo de carta española
   //              (está entre aux_minCódigoParaElPaloDeCartaEspañola() y aux_maxCódigoParaElPaloDeCartaEspañola())
   if (not aux_esCódigoParaElPaloDeCartaEspañola(códigoPalo)) { BOOM("No es un código de palo de carta española válido") }
   return (choose
-     Bastos  when (código == 1)
-     Copas   when (código == 2)
-     Espadas when (código == 3)
-     Oros    when (código == 4)
+     Bastos  when (códigoPalo == 1)
+     Copas   when (códigoPalo == 2)
+     Espadas when (códigoPalo == 3)
+     Oros    when (códigoPalo == 4)
      boom("¡NO DEBERÍA SUCEDER! Revisar esCódigoParaElPaloDeCartaEspañola.") otherwise
   )
 }
