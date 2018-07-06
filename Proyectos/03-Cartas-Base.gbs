@@ -96,7 +96,7 @@ function aux_armarCartaEspañola(valor,palo) {
 }
 
 //---------------------------------------------------------------------------------------------------/
-/*0------------------------ Auxiliares para acceso a cartas españolas -------------------------------/
+/*------------------------- Auxiliares para acceso a cartas españolas -------------------------------/
 /---------------------------------------------------------------------------------------------------*/
 // BÁSICAS
 function aux_esComodín(carta) { return(carta==aux_armarComodín()) }
