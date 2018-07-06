@@ -81,8 +81,8 @@ function aux_esMayorPaloDeCartaEspañola(palo1, palo2) { return (aux_códigoPara
 function aux_minPaloDeCartaEspañola() { return (aux_paloDeCartaEspañolaParaElCódigo(aux_minCódigoParaElPaloDeCartaEspañola())) }
 function aux_maxPaloDeCartaEspañola() { return (aux_paloDeCartaEspañolaParaElCódigo(aux_maxCódigoParaElPaloDeCartaEspañola())) }
 
-function aux_paloDeCartaEspañolaSiguiente(palo) { return (aux_paloDeCartaEspañolaParaElCódigo(aux_códigoParaElPaloDeCartaEspañolaSiguiente(palo)) }
-function aux_paloDeCartaEspañolaPrevio(palo)    { return (aux_paloDeCartaEspañolaParaElCódigo(aux_códigoParaElPaloDeCartaEspañolaPrevio(palo))    }
+function aux_paloDeCartaEspañolaSiguiente(palo) { return (aux_paloDeCartaEspañolaParaElCódigo(aux_códigoParaElPaloDeCartaEspañolaSiguiente(palo))) }
+function aux_paloDeCartaEspañolaPrevio(palo)    { return (aux_paloDeCartaEspañolaParaElCódigo(aux_códigoParaElPaloDeCartaEspañolaPrevio(palo)))    }
 
 //---------------------------------------------------------------------------------------------------/
 /*------------------- Auxiliares para sensar palos de carta española en el tablero ------------------/
