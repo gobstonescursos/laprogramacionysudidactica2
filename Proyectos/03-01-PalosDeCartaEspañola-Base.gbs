@@ -76,26 +76,13 @@ type PaloDeCartaEspañola  is variant { case Espadas {} case Oros {} case Bastos
 /*------------------------------- Auxiliares para acceso a palos ------------------------------------/
 /---------------------------------------------------------------------------------------------------*/
 function aux_esMenorPaloDeCartaEspañola(palo1, palo2) 
-  { return (aux_códigoParaElPaloDeCartaEspañola(palo1) < aux_códigoParaElPaloDeCartaEspañola(palo2))}
+  { return (aux_códigoParaElPaloDeCartaEspañola(palo1) < aux_códigoParaElPaloDeCartaEspañola(palo2)) }
 
 function aux_minPaloDeCartaEspañola() { return (aux_paloDeCartaEspañolaParaElCódigo(aux_minCódigoParaElPaloDeCartaEspañola())) }
 function aux_maxPaloDeCartaEspañola() { return (aux_paloDeCartaEspañolaParaElCódigo(aux_maxCódigoParaElPaloDeCartaEspañola())) }
 
-function aux_paloDeCartaEspañolaSiguiente(palo) {
-   return (choose 
-            aux_minPaloDeCartaEspañola()                   when (palo == aux_maxPaloDeCartaEspañola())
-            aux_paloDeCartaEspañolaParaElCódigo(
-              aux_códigoParaElPaloDeCartaEspañola(palo)+1) otherwise
-          )
-}
-
-function aux_paloDeCartaEspañolaPrevio(palo) {
-   return (choose 
-            aux_maxPaloDeCartaEspañola()                   when (palo == aux_minPaloDeCartaEspañola())
-            aux_paloDeCartaEspañolaParaElCódigo(
-              aux_códigoParaElPaloDeCartaEspañola(palo)-1) otherwise
-          )
-}
+function aux_paloDeCartaEspañolaSiguiente(palo) { return (aux_paloDeCartaEspañolaParaElCódigo(aux_códigoParaElPaloDeCartaEspañolaSiguiente(palo)) }
+function aux_paloDeCartaEspañolaPrevio(palo)    { return (aux_paloDeCartaEspañolaParaElCódigo(aux_códigoParaElPaloDeCartaEspañolaPrevio(palo))    }
 
 //---------------------------------------------------------------------------------------------------/
 /*------------------- Auxiliares para sensar palos de carta española en el tablero ------------------/
@@ -143,6 +130,22 @@ function aux_paloDeCartaEspañolaParaElCódigo(código) {
      Oros    when (código == 4)
      boom("¡NO DEBERÍA SUCEDER! Revisar esCódigoParaElPaloDeCartaEspañola.") otherwise
   )
+}
+
+function aux_códigoParaElPaloDeCartaEspañolaSiguiente(palo) {
+  códigoPalo := aux_códigoParaElPaloDeCartaEspañola(palo)
+  return (choose 
+           aux_minCódigoParaElPaloDeCartaEspañola()  when (códigoPalo == aux_maxCódigoParaElPaloDeCartaEspañola())
+           códigoPalo+1                              otherwise
+         )
+}
+
+function aux_códigoParaElPaloDeCartaEspañolaPrevio(palo) {
+  códigoPalo := aux_códigoParaElPaloDeCartaEspañola(palo)
+  return (choose 
+           aux_maxCódigoParaElPaloDeCartaEspañola()  when (códigoPalo == aux_minCódigoParaElPaloDeCartaEspañola())
+           códigoPalo-1                              otherwise
+         )
 }
 
 //---------------------------------------------------------------------------------------------------/
