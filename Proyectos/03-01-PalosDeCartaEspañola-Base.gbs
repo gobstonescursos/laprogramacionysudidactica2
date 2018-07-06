@@ -75,8 +75,8 @@ type PaloDeCartaEspañola  is variant { case Espadas {} case Oros {} case Bastos
 //---------------------------------------------------------------------------------------------------/
 /*------------------------------- Auxiliares para acceso a palos ------------------------------------/
 /---------------------------------------------------------------------------------------------------*/
-function aux_esMenorPaloDeCartaEspañola(palo1, palo2) 
-  { return (aux_códigoParaElPaloDeCartaEspañola(palo1) < aux_códigoParaElPaloDeCartaEspañola(palo2)) }
+function aux_esMenorPaloDeCartaEspañola(palo1, palo2) { return (aux_códigoParaElPaloDeCartaEspañola(palo1) < aux_códigoParaElPaloDeCartaEspañola(palo2)) }
+function aux_esMayorPaloDeCartaEspañola(palo1, palo2) { return (aux_códigoParaElPaloDeCartaEspañola(palo1) > aux_códigoParaElPaloDeCartaEspañola(palo2)) }
 
 function aux_minPaloDeCartaEspañola() { return (aux_paloDeCartaEspañolaParaElCódigo(aux_minCódigoParaElPaloDeCartaEspañola())) }
 function aux_maxPaloDeCartaEspañola() { return (aux_paloDeCartaEspañolaParaElCódigo(aux_maxCódigoParaElPaloDeCartaEspañola())) }
