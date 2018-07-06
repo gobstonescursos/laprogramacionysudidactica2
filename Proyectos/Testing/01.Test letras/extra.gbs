@@ -38,11 +38,12 @@ function letra_(códigoLetra) { return(aux_letraParaElCódigo(códigoLetra)) }
 //---------------------------------------------------------------------------------------------------/
 /*------------------------------- Operaciones de acceso a letras (interfaz) -------------------------/
 /---------------------------------------------------------------------------------------------------*/
-/*@ATTRIBUTE@block_name@_ está antes que _@*/  function esMenorLetra__(letra1, letra2) { return(aux_esMenorLetra(letra1, letra2)) }
-/*@ATTRIBUTE@block_name@la letra más chica@*/  function minLetra()             { return(aux_minLetra())            }
-/*@ATTRIBUTE@block_name@la letra más grande@*/ function maxLetra()             { return(aux_maxLetra())            }
-/*@ATTRIBUTE@block_name@letra siguiente a _@*/ function letraSiguiente_(letra) { return(aux_letraSiguiente(letra)) }
-/*@ATTRIBUTE@block_name@letra previa a _@*/    function letraPrevia_(letra)    { return(aux_letraPrevia(letra))    }
+/*@ATTRIBUTE@block_name@_ está antes que _@*/   function esMenorLetra__(letra1, letra2) { return(aux_esMenorLetra(letra1, letra2)) }
+/*@ATTRIBUTE@block_name@_ está después que _@*/ function esMayorLetra__(letra1, letra2) { return(aux_esMayorLetra(letra1, letra2)) }
+/*@ATTRIBUTE@block_name@la letra más chica@*/   function minLetra()             { return(aux_minLetra())            }
+/*@ATTRIBUTE@block_name@la letra más grande@*/  function maxLetra()             { return(aux_maxLetra())            }
+/*@ATTRIBUTE@block_name@letra siguiente a _@*/  function letraSiguiente_(letra) { return(aux_letraSiguiente(letra)) }
+/*@ATTRIBUTE@block_name@letra previa a _@*/     function letraPrevia_(letra)    { return(aux_letraPrevia(letra))    }
 
 //---------------------------------------------------------------------------------------------------/
 /*------------------- Operaciones de sensado de letras en el tablero (interfaz) ---------------------/
@@ -81,8 +82,8 @@ function aux_esMayorLetra(letra1, letra2) { return (aux_códigoParaLaLetra(letra
 function aux_minLetra() { return (aux_letraParaElCódigo(aux_minCódigoParaLaLetra())) }
 function aux_maxLetra() { return (aux_letraParaElCódigo(aux_maxCódigoParaLaLetra())) }
 
-function aux_letraSiguiente(letra) { return (aux_letraParaElCódigo(aux_códigoParaLaLetraSiguiente(letra)) }
-function aux_letraPrevia(letra)    { return (aux_letraParaElCódigo(aux_códigoParaLaLetraPrevia(letra))    }
+function aux_letraSiguiente(letra) { return (aux_letraParaElCódigo(aux_códigoParaLaLetraSiguiente(letra))) }
+function aux_letraPrevia(letra)    { return (aux_letraParaElCódigo(aux_códigoParaLaLetraPrevia(letra)))    }
 
 //---------------------------------------------------------------------------------------------------/
 /*---------------------------- Auxiliares para sensar letras en el tablero --------------------------/
@@ -206,6 +207,7 @@ function aux_códigoParaLaLetraSiguiente(letra) {
 }
 
 function aux_códigoParaLaLetraPrevia(letra) {
+  códigoLetra := aux_códigoParaLaLetra(letra)
   return (choose 
            aux_maxCódigoParaLaLetra()  when (códigoLetra == aux_minCódigoParaLaLetra())
            códigoLetra-1               otherwise

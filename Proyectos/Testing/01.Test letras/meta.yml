@@ -12,6 +12,8 @@ blocks:
         <block type="SacarTodas"></block>
         <block type="SacarTodas_"></block>
         <block type="PasarASiguientePosición"></block>
+        <block type="IrAlOrigen"></block>
+        <block type="BOOM"></block>
         <block type="IrAlBorde"></block>
         <block type="RepeticionSimple"></block>
         <block type="AlternativaCompleta"></block>
@@ -36,6 +38,7 @@ blocks:
         <block type="SacarLetraActual"></block>
         <block type="hayLetra"></block>
         <block type="esMenorLetra__"></block>
+        <block type="esMayorLetra__"></block>
         <block type="minLetra"></block>
         <block type="maxLetra"></block>
         <block type="letraSiguiente_"></block>
