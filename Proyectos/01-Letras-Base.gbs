@@ -80,8 +80,8 @@ function aux_esMayorLetra(letra1, letra2) { return (aux_códigoParaLaLetra(letra
 function aux_minLetra() { return (aux_letraParaElCódigo(aux_minCódigoParaLaLetra())) }
 function aux_maxLetra() { return (aux_letraParaElCódigo(aux_maxCódigoParaLaLetra())) }
 
-function aux_letraSiguiente(letra) { return (aux_letraParaElCódigo(aux_códigoParaLaLetraSiguiente(letra)) }
-function aux_letraPrevia(letra)    { return (aux_letraParaElCódigo(aux_códigoParaLaLetraPrevia(letra))    }
+function aux_letraSiguiente(letra) { return (aux_letraParaElCódigo(aux_códigoParaLaLetraSiguiente(letra))) }
+function aux_letraPrevia(letra)    { return (aux_letraParaElCódigo(aux_códigoParaLaLetraPrevia(letra)))    }
 
 //---------------------------------------------------------------------------------------------------/
 /*---------------------------- Auxiliares para sensar letras en el tablero --------------------------/
@@ -205,6 +205,7 @@ function aux_códigoParaLaLetraSiguiente(letra) {
 }
 
 function aux_códigoParaLaLetraPrevia(letra) {
+  códigoLetra := aux_códigoParaLaLetra(letra)
   return (choose 
            aux_maxCódigoParaLaLetra()  when (códigoLetra == aux_minCódigoParaLaLetra())
            códigoLetra-1               otherwise
