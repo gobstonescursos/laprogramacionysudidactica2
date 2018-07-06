@@ -74,9 +74,8 @@ procedure SacarLetraActual() { AuxSacarLetraActual()   }
 //---------------------------------------------------------------------------------------------------/
 /*------------------------------- Auxiliares para acceso a letras -----------------------------------/
 /---------------------------------------------------------------------------------------------------*/
-function aux_esMenorLetra(letra1, letra2) {
-    return (aux_códigoParaLaLetra(letra1) < aux_códigoParaLaLetra(letra2))
-}
+function aux_esMenorLetra(letra1, letra2) { return (aux_códigoParaLaLetra(letra1) < aux_códigoParaLaLetra(letra2)) }
+function aux_esMayorLetra(letra1, letra2) { return (aux_códigoParaLaLetra(letra1) > aux_códigoParaLaLetra(letra2)) }
 
 function aux_minLetra() { return (aux_letraParaElCódigo(aux_minCódigoParaLaLetra())) }
 function aux_maxLetra() { return (aux_letraParaElCódigo(aux_maxCódigoParaLaLetra())) }
