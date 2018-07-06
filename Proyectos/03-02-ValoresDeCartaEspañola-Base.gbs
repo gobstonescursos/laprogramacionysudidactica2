@@ -82,6 +82,7 @@ function aux_esValorDeCartaEspañola(valor)  { return (aux_esCódigoParaElValorD
 
 // ESTÁNDAR
 function aux_esMenorValorDeCartaEspañola(valor1, valor2) { return (valor1 < valor2) }
+function aux_esMayorValorDeCartaEspañola(valor1, valor2) { return (valor1 > valor2) }
   
 function aux_minValorDeCartaEspañola() { return (aux_minCódigoParaElValorDeCartaEspañola()) }
 function aux_maxValorDeCartaEspañola() { return (aux_maxCódigoParaElValorDeCartaEspañola()) }
