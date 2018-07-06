@@ -91,7 +91,7 @@ procedure IluminarLaCartaActual()     { AuxIluminarLaCartaEspañolaActual()    }
 function aux_armarComodín() { return(Comodín) }
 function aux_armarCartaEspañola(valor,palo) {
   // PRECONDICIÓN: valor y palo corresponden a los de una carta válida
-  if (not aux_esValorVálidoDeCartaEspañola()) { BOOM("No existen cartas de ese valor") }
+  if (not aux_esValorDeCartaEspañola(valor)) { BOOM("No existen cartas de ese valor") }
   return(Carta(valor <- valor, palo <- palo)) 
 }
 
@@ -119,13 +119,13 @@ function aux_esMenorCartaEspañola(carta1, carta2) {
            /* si la carta1 no es comodín, la carta2 debe serlo, y entonces carta1 es menor,
             y si la carta1 es comodín, la carta1 NO puede ser menor que la carta2 (a lo sumo es igual)
            */
-           not aux_esComodín(carta1)                                     when (aux_esComodín(carta1) 
-                                                                            || aux_esComodín(carta2))
-           (aux_esMenorPaloDeCartaEspañola(aux_dameElPalo(carta1)
-                                          ,aux_dameElPalo(carta2))) 
-           || (aux_dameElPalo(carta1) == aux_dameElPalo(carta2) 
-            && aux_esMenorValorDeCartaEspañola(aux_dameElValor(carta1)
-                                              ,aux_dameElValor(carta2))  otherwise
+           not aux_esComodín(carta1)                                   when (aux_esComodín(carta1) 
+                                                                          || aux_esComodín(carta2))
+           aux_esMenorPaloDeCartaEspañola(aux_dameElPalo(carta1)
+                                          ,aux_dameElPalo(carta2)) 
+        || (aux_dameElPalo(carta1) == aux_dameElPalo(carta2) 
+         && aux_esMenorValorDeCartaEspañola(aux_dameElValor(carta1)
+                                           ,aux_dameElValor(carta2)))  otherwise
   )
 }
          
@@ -134,13 +134,13 @@ function aux_esMayorCartaEspañola(carta1, carta2) {
            /* si la carta2 no es comodín, la carta1 debe serlo, y entonces carta1 es mayor
             y si la carta2 es comodín, la carta1 NO puede ser mayor que la carta2 (a lo sumo es igual)
            */
-           not aux_esComodín(carta2)                                     when (aux_esComodín(carta1) 
-                                                                            || aux_esComodín(carta2))
-           (aux_esMayorPaloDeCartaEspañola(aux_dameElPalo(carta1)
-                                          ,aux_dameElPalo(carta2))) 
-           || (aux_dameElPalo(carta1) == aux_dameElPalo(carta2) 
-            && aux_esMenorValorDeCartaEspañola(aux_dameElValor(carta1)
-                                              ,aux_dameElValor(carta2))  otherwise
+           not aux_esComodín(carta1)                                   when (aux_esComodín(carta1) 
+                                                                          || aux_esComodín(carta2))
+           aux_esMenorPaloDeCartaEspañola(aux_dameElPalo(carta1)
+                                         ,aux_dameElPalo(carta2)) 
+        || (aux_dameElPalo(carta1) == aux_dameElPalo(carta2) 
+         && aux_esMenorValorDeCartaEspañola(aux_dameElValor(carta1)
+                                           ,aux_dameElValor(carta2)))  otherwise
   )
 }
          
@@ -275,9 +275,9 @@ function aux_producirDatoCarta(códigoValor, códigoPalo) {
   /* PRECONDICIÓN: códigoValor es un código de carta española válido, 
                  y códigoPalo es un código de palo de carta española válido
   */
- if (not (aux_sonValorYPaloDeCartaEspañola(códigoValor, códigoPalo)) { BOOM("El código del valor o del palo no es válido") }
+ if (not (aux_sonValorYPaloDeCartaEspañola(códigoValor, códigoPalo))) { BOOM("El código del valor o del palo no es válido") }
  return (choose
-            100*códigoPalo                when (códigoPalo == aux_esCódigoParaElComodín())
+            100*códigoPalo                when (aux_esCódigoParaElComodín(códigoPalo))
             100*códigoPalo + códigoValor  otherwise
          )
 }
@@ -306,14 +306,15 @@ function aux_códigoParaLaCartaEspañola(carta) {
         ) 
 }
 
-function aux_cartaParaElCódigo(códigoCarta) {
+function aux_cartaEspañolaParaElCódigo(códigoCarta) {
   // PRECONDICIÓN: el códigoDatoCarta corresponde a los de una carta válida
-  if (not aux_esCódigoParaLaCartaEspañola()) { BOOM("No es un código de carta válido") }
+  if (not aux_esCódigoParaLaCartaEspañola(códigoCarta)) { BOOM("No es un código de carta válido") }
   let (códigoValor, códigoPalo) := aux_analizarDatoCarta(códigoCarta)
   return(choose
-           aux_comodín()                                                    when (aux_esCódigoParaElComodín(códigoPalo))
-           aux_armarCarta(aux_valorDeCartaEspañolaParaElCódigo(códigoValor)
-                         ,aux_paloDeCartaEspañolaParaElCódigo(códigoPalo))  otherwise
+           aux_armarComodín()                                    when (aux_esCódigoParaElComodín(códigoPalo))
+           aux_armarCartaEspañola(
+               aux_valorDeCartaEspañolaParaElCódigo(códigoValor)
+              ,aux_paloDeCartaEspañolaParaElCódigo(códigoPalo))  otherwise
   )
 }
 
@@ -324,18 +325,18 @@ function aux_códigoParaLaCartaEspañolaPrevia(carta)    { return (aux_códigoPa
 /*----------------- Operaciones auxiliares de codificación para el tablero --------------------------/
 /---------------------------------------------------------------------------------------------------*/
 function aux_códigoParaElTipoCartaEspañola()      { return(3)                                    }
-function aux_códigoParaElDatoCartaEspañola(carta) { return(aux_codigoParaLaCartaEspañola(carta)) }
+function aux_códigoParaElDatoCartaEspañola(carta) { return(aux_códigoParaLaCartaEspañola(carta)) }
 
 function aux_esTipoCartaEspañola(código) { return (código == aux_códigoParaElTipoCartaEspañola()) }
 function aux_esDatoCartaEspañola(dato)   { return (aux_esCódigoParaLaCartaEspañola(dato)) }
 
-procedure AuxPonerRepresentaciónParaLaCarta(carta) {
+procedure AuxPonerRepresentaciónParaLaCartaEspañola(carta) {
   // PRECONDICIÓN: la celda está vacía
-  AuxPoner__Veces(aux_colorParaElTipo(), aux_códigoParaElTipoCarta()) 
-  AuxPoner__Veces(aux_colorParaElDato(), aux_códigoParaElDatoCarta(carta)) 
+  AuxPoner__Veces(aux_colorParaElTipo(), aux_códigoParaElTipoCartaEspañola()) 
+  AuxPoner__Veces(aux_colorParaElDato(), aux_códigoParaElDatoCartaEspañola(carta)) 
 }
 
-procedure AuxSacarRepresentaciónParaLaCarta() { 
+procedure AuxSacarRepresentaciónParaLaCartaEspañola() { 
    // PRECONDICIÓN: hay una representación de cartas
    AuxSacarTodas() 
 }
