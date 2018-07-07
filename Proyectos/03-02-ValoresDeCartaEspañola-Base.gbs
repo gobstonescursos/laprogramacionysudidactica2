@@ -37,6 +37,7 @@
 /*------------------------------ Operaciones de acceso a valores (interfaz) -------------------------/
 /---------------------------------------------------------------------------------------------------*/
 /*@ATTRIBUTE@block_name@_ es menor valor que _@*/ function esMenorValor__(valor1, valor2) { return(aux_esMenorValorDeCartaEspañola(valor1, valor2)) }
+/*@ATTRIBUTE@block_name@_ es mayor valor que _@*/ function esMayorValor__(valor1, valor2) { return(aux_esMayorValorDeCartaEspañola(valor1, valor2)) }
 /*@ATTRIBUTE@block_name@el valor más chico@*/     function minValor()            { return(aux_minValorDeCartaEspañola())            }
 /*@ATTRIBUTE@block_name@el valor más grande@*/    function maxValor()            { return(aux_maxValorDeCartaEspañola())            }
 /*@ATTRIBUTE@block_name@valor siguiente a _@*/    function valorSiguiente_(palo) { return(aux_valorDeCartaEspañolaSiguiente(valor)) }

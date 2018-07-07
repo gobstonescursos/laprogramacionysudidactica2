@@ -37,6 +37,7 @@ type PaloDeCartaEspañola  is variant { case Espadas {} case Oros {} case Bastos
 /*------------------------------- Operaciones de acceso a palos (interfaz) --------------------------/
 /---------------------------------------------------------------------------------------------------*/
 /*@ATTRIBUTE@block_name@_ es menor palo que _@*/ function esMenorPalo__(palo1, palo2) { return(aux_esMenorPaloDeCartaEspañola(palo1, palo2)) }
+/*@ATTRIBUTE@block_name@_ es mayor palo que _@*/ function esMayorPalo__(palo1, palo2) { return(aux_esMayorPaloDeCartaEspañola(palo1, palo2)) }
 /*@ATTRIBUTE@block_name@el palo más chico@*/     function minPalo()            { return(aux_minPaloDeCartaEspañola())           }
 /*@ATTRIBUTE@block_name@el palo más grande@*/    function maxPalo()            { return(aux_maxPaloDeCartaEspañola())           }
 /*@ATTRIBUTE@block_name@palo siguiente a _@*/    function paloSiguiente_(palo) { return(aux_paloDeCartaEspañolaSiguiente(palo)) }

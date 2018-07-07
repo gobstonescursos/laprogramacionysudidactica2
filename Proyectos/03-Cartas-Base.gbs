@@ -41,6 +41,7 @@ type CartaEspañola is variant {
 /*@ATTRIBUTE@block_name@número de la _@*/         function dameElValor_(c)        { return(aux_dameElValor(c)) }
 
 /*@ATTRIBUTE@block_name@_ es menor carta que _@*/ function esMenorCarta__(carta1, carta2) { return(aux_esMenorCartaEspañola(carta1, carta2)) }
+/*@ATTRIBUTE@block_name@_ es mayor carta que _@*/ function esMayorCarta__(carta1, carta2) { return(aux_esMayorCartaEspañola(carta1, carta2)) }
 /*@ATTRIBUTE@block_name@el palo más chico@*/      function minCarta()             { return(aux_minCartaEspañola()) }
 /*@ATTRIBUTE@block_name@el palo más grande@*/     function maxCarta()             { return(aux_maxCartaEspañola()) }
 /*@ATTRIBUTE@block_name@carta siguiente a _@*/    function cartaSiguiente_(carta) { return(aux_cartaEspañolaSiguiente(carta)) }
@@ -136,10 +137,10 @@ function aux_esMayorCartaEspañola(carta1, carta2) {
            */
            not aux_esComodín(carta1)                                   when (aux_esComodín(carta1) 
                                                                           || aux_esComodín(carta2))
-           aux_esMenorPaloDeCartaEspañola(aux_dameElPalo(carta1)
+           aux_esMayorPaloDeCartaEspañola(aux_dameElPalo(carta1)
                                          ,aux_dameElPalo(carta2)) 
         || (aux_dameElPalo(carta1) == aux_dameElPalo(carta2) 
-         && aux_esMenorValorDeCartaEspañola(aux_dameElValor(carta1)
+         && aux_esMayorValorDeCartaEspañola(aux_dameElValor(carta1)
                                            ,aux_dameElValor(carta2)))  otherwise
   )
 }
