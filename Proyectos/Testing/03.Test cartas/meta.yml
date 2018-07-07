@@ -37,6 +37,7 @@ blocks:
         <block type="bastos"></block>
         <block type="copas"></block>
         <block type="esMenorPalo__"></block>
+        <block type="esMayorPalo__"></block>
         <block type="minPalo"></block>
         <block type="maxPalo"></block>
         <block type="paloSiguiente_"></block>
@@ -47,6 +48,8 @@ blocks:
         <block type="dameCarta__"></block>
         <block type="dameElPalo_"></block>
         <block type="dameElValor_"></block>
+        <block type="esMenorCarta__"></block>
+        <block type="esMayorCarta__"></block>
         <block type="minCarta"></block>
         <block type="maxCarta"></block>
         <block type="cartaSiguiente_"></block>
@@ -57,6 +60,19 @@ blocks:
         <block type="PonerCarta_"></block>
         <block type="SacarCartaActual"></block>
         <block type="DarVueltaLaCartaActual"></block>
+    </category>
+    <category name="Operaciones de Letras">
+        <block type="letra_"></block>
+        <block type="leerLetra"></block>
+        <block type="PonerLetra_"></block>
+        <block type="SacarLetraActual"></block>
+        <block type="hayLetra"></block>
+        <block type="esMenorLetra__"></block>
+        <block type="esMayorLetra__"></block>
+        <block type="minLetra"></block>
+        <block type="maxLetra"></block>
+        <block type="letraSiguiente_"></block>
+        <block type="letraPrevia_"></block>
     </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">  </category>
     <category name="Definiciones">
@@ -80,4 +96,4 @@ library:
 name: Test cartas
 source:
   visible: true
-  percentage: 0.95
+  percentage: 0.90
