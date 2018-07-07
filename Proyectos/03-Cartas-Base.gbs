@@ -260,14 +260,12 @@ procedure AuxDestaparLaCartaEspañolaActual() {
 /*--------------------------- Operaciones auxiliares de codificación --------------------------------/
 /---------------------------------------------------------------------------------------------------*/
 // ESPECÍFICAS
-function aux_esCódigoParaElComodín(códigoComodín) { return (código == aux_códigoParaElComodín()) }
+function aux_esCódigoParaElComodín(códigoComodín) { return (códigoComodín == aux_códigoParaElComodín()) }
 function aux_códigoParaElComodín() { return (aux_maxCódigoParaElPaloDeCartaEspañola()+1) }
 // LA CODIFICACIÓN DE CARTAS ESTÁ TODA JUNTA EN las funciones que siguen y en aux_códigoParaLaCartaEspañola
 // El comodín va después del último palo
 
 function aux_analizarDatoCarta(códigoCartaEspañola) {
-  // PRECONDICIÓN: códigoCartaEspañola es un código de carta española válido
-  if (not aux_esCódigoParaLaCartaEspañola(códigoCartaEspañola)) { BOOM("No es un código de carta española válido") }
   return (códigoCartaEspañola mod 100, códigoCartaEspañola div 100)
 }
 
@@ -300,9 +298,9 @@ function aux_esCódigoParaLaCartaEspañola(códigoCartaEspañola) {
 
 function aux_códigoParaLaCartaEspañola(carta) { 
   return(choose
-           aux_producirDatoCarta(0, aux_códigoParaElComodín())                when (aux_esComodín(carta))
-           aux_producirDatoCarta(aux_códigoParaElValorDeCartaEspañola(carta)
-                                ,aux_códigoParaElPaloDeCartaEspañola(carta))  otherwise
+           aux_producirDatoCarta(0, aux_códigoParaElComodín())                      when (aux_esComodín(carta))
+           aux_producirDatoCarta(aux_códigoParaElValorDeCartaEspañola(valor(carta))
+                                ,aux_códigoParaElPaloDeCartaEspañola(palo(carta)))  otherwise
         ) 
 }
 
