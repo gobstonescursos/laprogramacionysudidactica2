@@ -12,10 +12,10 @@ blocks:
         <block type="Mover__Veces"></block>
         <block type="SacarTodas"></block>
         <block type="SacarTodas_"></block>
-        <block type="PasarASiguientePosición"></block>
-        <block type="IrAlOrigen"></block>
-        <block type="BOOM"></block>
         <block type="IrAlBorde"></block>
+        <block type="IrAlOrigen"></block>
+        <block type="PasarASiguientePosición"></block>
+        <block type="BOOM"></block>
       </category>
       <category name="Combinaciones">
         <block type="RepeticionSimple"></block>
@@ -30,6 +30,7 @@ blocks:
         <block type="ColorSelector"></block>
         <block type="DireccionSelector"></block>
         <block type="nroBolitas"></block>
+        <block type="puedeMover"></block>
       </category>
       <category name="Operadores">
         <block type="OperadorNumerico"></block>
