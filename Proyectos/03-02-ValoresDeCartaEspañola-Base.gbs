@@ -46,10 +46,12 @@
 /---------------------------------------------------------------------------------------------------*/
 /*@ATTRIBUTE@block_name@_ es menor valor que _@*/ function esMenorValor__(valor1, valor2) { return(aux_esMenorValorDeCartaEspañola(valor1, valor2)) }
 /*@ATTRIBUTE@block_name@_ es mayor valor que _@*/ function esMayorValor__(valor1, valor2) { return(aux_esMayorValorDeCartaEspañola(valor1, valor2)) }
-/*@ATTRIBUTE@block_name@el valor más chico@*/     function minValor()            { return(aux_minValorDeCartaEspañola())            }
-/*@ATTRIBUTE@block_name@el valor más grande@*/    function maxValor()            { return(aux_maxValorDeCartaEspañola())            }
-/*@ATTRIBUTE@block_name@valor siguiente a _@*/    function valorSiguiente_(palo) { return(aux_valorDeCartaEspañolaSiguiente(valor)) }
-/*@ATTRIBUTE@block_name@valor previa a _@*/       function valorPrevio_(palo)    { return(aux_valorDeCartaEspañolaPrevio(valor))    }
+/*@ATTRIBUTE@block_name@el valor más chico@*/     function minValor()             { return(aux_minValorDeCartaEspañola())                }
+/*@ATTRIBUTE@block_name@el valor más grande@*/    function maxValor()             { return(aux_maxValorDeCartaEspañola())                }
+///*@ATTRIBUTE@block_name@valor siguiente a _@*/    function valorSiguiente_(valor) { return(aux_valorDeCartaEspañolaDe50Siguiente(valor)) }
+///*@ATTRIBUTE@block_name@valor previo a _@*/       function valorPrevio_(valor)    { return(aux_valorDeCartaEspañolaDe50Previo(valor))    }
+/*@ATTRIBUTE@block_name@valor siguiente a _@*/    function valorSiguiente_(valor) { return(aux_valorDeCartaEspañolaDe40Siguiente(valor)) }
+/*@ATTRIBUTE@block_name@valor previo a _@*/       function valorPrevio_(valor)    { return(aux_valorDeCartaEspañolaDe40Previo(valor))    }
 
 //---------------------------------------------------------------------------------------------------/
 /*------------------ Operaciones de sensado de valores en el tablero (interfaz) ---------------------/
@@ -96,8 +98,12 @@ function aux_esMayorValorDeCartaEspañola(valor1, valor2) { return (valor1 > val
 function aux_minValorDeCartaEspañola() { return (aux_minCódigoParaElValorDeCartaEspañola()) }
 function aux_maxValorDeCartaEspañola() { return (aux_maxCódigoParaElValorDeCartaEspañola()) }
 
-function aux_valorDeCartaEspañolaSiguiente(valor) { return (aux_códigoParaElValorDeCartaEspañolaSiguiente(valor)) }
-function aux_valorDeCartaEspañolaPrevio(valor)    { return (aux_códigoParaElValorDeCartaEspañolaPrevio(valor))    }
+function aux_valorDeCartaEspañolaSiguiente(valor) { return (aux_códigoParaElValorDeCartaEspañolaDe40Siguiente(valor)) }
+function aux_valorDeCartaEspañolaPrevio(valor)    { return (aux_códigoParaElValorDeCartaEspañolaDe40Previo(valor))    }
+//function aux_valorDeCartaEspañolaDe50Siguiente(valor) { return (aux_códigoParaElValorDeCartaEspañolaDe50Siguiente(valor)) }
+//function aux_valorDeCartaEspañolaDe50Previo(valor)    { return (aux_códigoParaElValorDeCartaEspañolaDe50Previo(valor))    }
+function aux_valorDeCartaEspañolaDe40Siguiente(valor) { return (aux_códigoParaElValorDeCartaEspañolaDe40Siguiente(valor)) }
+function aux_valorDeCartaEspañolaDe40Previo(valor)    { return (aux_códigoParaElValorDeCartaEspañolaDe40Previo(valor))    }
 
 //---------------------------------------------------------------------------------------------------/
 /*------------------ Auxiliares para sensar valores de carta española en el tablero -----------------/
@@ -134,20 +140,35 @@ function aux_valorDeCartaEspañolaParaElCódigo(códigoValor) {
   return (códigoValor) 
 }
 
-function aux_códigoParaElValorDeCartaEspañolaSiguiente(valor) {
+function aux_códigoParaElValorDeCartaEspañolaDe50Siguiente(valor) {
   return (choose 
            aux_minCódigoParaElValorDeCartaEspañola()  when (valor == aux_maxCódigoParaElValorDeCartaEspañola())
            valor+1                                    otherwise
          )
 }
 
-function aux_códigoParaElValorDeCartaEspañolaPrevio(valor) {
+function aux_códigoParaElValorDeCartaEspañolaDe50Previo(valor) {
   return (choose 
            aux_maxCódigoParaElValorDeCartaEspañola()  when (valor == aux_minCódigoParaElValorDeCartaEspañola())
            valor-1                                    otherwise
          )
 }
 
+function aux_códigoParaElValorDeCartaEspañolaDe40Siguiente(valor) {
+  return (choose 
+           aux_minCódigoParaElValorDeCartaEspañola()  when (valor == aux_maxCódigoParaElValorDeCartaEspañola())
+           10                                         when (valor == 7)
+           valor+1                                    otherwise
+         )
+}
+
+function aux_códigoParaElValorDeCartaEspañolaDe40Previo(valor) {
+  return (choose 
+           aux_maxCódigoParaElValorDeCartaEspañola()  when (valor == aux_minCódigoParaElValorDeCartaEspañola())
+           7                                          when (valor == 10)
+           valor-1                                    otherwise
+         )
+}
 
 //---------------------------------------------------------------------------------------------------/
 /*----------------------- Operaciones auxiliares de codificación para el tablero --------------------/
