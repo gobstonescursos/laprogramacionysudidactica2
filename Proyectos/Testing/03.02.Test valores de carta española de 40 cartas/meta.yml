@@ -92,7 +92,7 @@ execution_speed:
     can_change_speed: true
 library:
   visible: false
-name: Test valores de carta española
+name: Test valores de carta española de 40 cartas
 source:
   visible: true
   percentage: 0.90
