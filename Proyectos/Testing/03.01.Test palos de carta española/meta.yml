@@ -79,7 +79,7 @@ execution_speed:
     can_change_speed: true
 library:
   visible: false
-name: Test palos
+name: Test palos de carta española
 source:
   visible: true
   percentage: 0.90
