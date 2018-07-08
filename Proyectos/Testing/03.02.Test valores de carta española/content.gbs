@@ -1,0 +1,188 @@
+interactive program {
+  K_ARROW_RIGHT -> {
+    indice := nroBolitas(Rojo) + 1
+    LimpiarTablero()
+    TestsDeValoresDeCartaEspañola(indice)
+    IrAlOrigen()
+    Poner__Veces(Rojo, 1)
+  }
+}
+
+procedure TestsDeValoresDeCartaEspañola(códigoDeTest) {
+  if (códigoDeTest == 1) {
+    TestValoresDeCartaEspañola()
+  } elseif (códigoDeTest == 2) {
+    TestEsMenorValor(copas())
+  } elseif (códigoDeTest == 3) {
+    TestEsMayorValor(espadas())
+  } elseif (códigoDeTest == 4) {
+    TestSiguienteYPrevio()
+  } elseif (códigoDeTest == 5) {
+    TestMinValorYMaxValor()
+  } else {
+    BOOM("Pasó todos los tests")
+  }
+}
+
+procedure TestValoresDeCartaEspañola() {
+  UsarLosPrimeros5Valores()
+  PasarASiguientePosición()
+  UsarLosSiguientes5Valores()
+  Assert(0 == 0)
+}
+
+procedure UsarLosPrimeros5Valores() {
+  PonerCarta_(dameCarta__(armarValorAs(), bastos()))
+  PasarASiguientePosición()
+  PonerCarta_(dameCarta__(armarValor_(2), bastos()))
+  PasarASiguientePosición()
+  PonerCarta_(dameCarta__(armarValor_(3), bastos()))
+  PasarASiguientePosición()
+  PonerCarta_(dameCarta__(armarValor_(4), bastos()))
+  PasarASiguientePosición()
+  PonerCarta_(dameCarta__(armarValor_(5), bastos()))
+}
+
+procedure UsarLosSiguientes5Valores() {
+  PonerCarta_(dameCarta__(armarValor_(6), bastos()))
+  PasarASiguientePosición()
+  PonerCarta_(dameCarta__(armarValor_(7), bastos()))
+  PasarASiguientePosición()
+  PonerCarta_(dameCarta__(armarValorSota(), bastos()))
+  PasarASiguientePosición()
+  PonerCarta_(dameCarta__(armarValorCaballo(), bastos()))
+  PasarASiguientePosición()
+  PonerCarta_(dameCarta__(armarValorRey(), bastos()))
+}
+
+procedure TestEsMenorValor(palo) {
+  PonerCarta_(dameCarta__(armarValorAs(), palo))
+  Assert(not(esMenorValor__(armarValorAs(), armarValorAs())))
+  Testear2ValoresPorMenor(armarValorAs(), armarValor_(2), palo)
+  Testear2ValoresPorMenor(armarValorAs(), armarValorSota(), palo)
+  Testear2ValoresPorMenor(armarValorAs(), armarValorRey(), palo)
+  PasarASiguientePosición()
+  PonerCarta_(dameCarta__(armarValor_(5), palo))
+  Assert(not(esMenorValor__(armarValor_(5), armarValor_(5))))
+  Testear2ValoresPorMenor(armarValor_(5), armarValor_(7), palo)
+  Testear2ValoresPorMenor(armarValor_(5), armarValorCaballo(), palo)
+  Testear2ValoresPorMenor(armarValor_(5), armarValorRey(), palo)
+  PasarASiguientePosición()
+  PonerCarta_(dameCarta__(armarValorSota(), palo))
+  Assert(not(esMenorValor__(armarValorSota(), armarValorSota())))
+  Testear2ValoresPorMenor(armarValorSota(), armarValorCaballo(), palo)
+  Testear2ValoresPorMenor(armarValorSota(), armarValorRey(), palo)
+  PasarASiguientePosición()
+  PonerCarta_(dameCarta__(armarValorCaballo(), palo))
+  Assert(not(esMenorValor__(armarValorCaballo(), armarValorCaballo())))
+  Testear2ValoresPorMenor(armarValorCaballo(), armarValorRey(), palo)
+  PasarASiguientePosición()
+  PonerCarta_(dameCarta__(armarValorRey(), palo))
+  Assert(not(esMenorValor__(armarValorRey(), armarValorRey())))
+}
+
+procedure Testear2ValoresPorMenor(valor1, valor2, palo) {
+  PasarASiguientePosición()
+  PonerCarta_(dameCarta__(valor2, palo))
+  Assert(esMenorValor__(valor1, valor2))
+  Assert(not(esMenorValor__(valor2, valor1)))
+}
+
+procedure TestEsMayorValor(palo) {
+  PonerCarta_(dameCarta__(armarValorAs(), palo))
+  Assert(not(esMayorValor__(armarValorAs(), armarValorAs())))
+  Testear2ValoresPorMayor(armarValorAs(), armarValor_(2), palo)
+  Testear2ValoresPorMayor(armarValorAs(), armarValorSota(), palo)
+  Testear2ValoresPorMayor(armarValorAs(), armarValorRey(), palo)
+  PasarASiguientePosición()
+  PonerCarta_(dameCarta__(armarValor_(5), palo))
+  Assert(not(esMayorValor__(armarValor_(5), armarValor_(5))))
+  Testear2ValoresPorMayor(armarValor_(5), armarValor_(7), palo)
+  Testear2ValoresPorMayor(armarValor_(5), armarValorCaballo(), palo)
+  Testear2ValoresPorMayor(armarValor_(5), armarValorRey(), palo)
+  PasarASiguientePosición()
+  PonerCarta_(dameCarta__(armarValorSota(), palo))
+  Assert(not(esMayorValor__(armarValorSota(), armarValorSota())))
+  Testear2ValoresPorMayor(armarValorSota(), armarValorCaballo(), palo)
+  Testear2ValoresPorMayor(armarValorSota(), armarValorRey(), palo)
+  PasarASiguientePosición()
+  PonerCarta_(dameCarta__(armarValorCaballo(), palo))
+  Assert(not(esMayorValor__(armarValorCaballo(), armarValorCaballo())))
+  Testear2ValoresPorMayor(armarValorCaballo(), armarValorRey(), palo)
+  PasarASiguientePosición()
+  PonerCarta_(dameCarta__(armarValorRey(), palo))
+  Assert(not(esMayorValor__(armarValorRey(), armarValorRey())))
+}
+
+procedure Testear2ValoresPorMayor(valor1, valor2, palo) {
+  PasarASiguientePosición()
+  PonerCarta_(dameCarta__(valor2, palo))
+  Assert(not(esMayorValor__(valor1, valor2)))
+  Assert(esMayorValor__(valor2, valor1))
+}
+
+procedure TestSiguienteYPrevio() {
+  TestSiguienteYPrevioEnMedio()
+  TestSiguienteYPrevioEnCasoDeBordeInterno1()
+  TestSiguienteYPrevioEnCasoDeBordeInterno2()
+  TestSiguienteYPrevioEnBordeInferior()
+  TestSiguienteYPrevioEnBordeSuperior()
+}
+
+procedure TestSiguienteYPrevioEnMedio() {
+  HacerTestDeSiguienteYPrevio(armarValor_(4), armarValor_(5), armarValor_(3))
+}
+
+procedure TestSiguienteYPrevioEnBordeInferior() {
+  PasarASiguientePosición()
+  HacerTestDeSiguienteYPrevio(armarValorAs(), armarValor_(2), armarValorRey())
+}
+
+procedure TestSiguienteYPrevioEnBordeSuperior() {
+  PasarASiguientePosición()
+  HacerTestDeSiguienteYPrevio(armarValorRey(), armarValorAs(), armarValorCaballo())
+}
+
+procedure HacerTestDeSiguienteYPrevio(valor, valorSiguiente, valorPrevio) {
+  PonerCarta_(dameCarta__(valor, oros()))
+  PasarASiguientePosición()
+  PonerCarta_(dameCarta__(valorSiguiente_(valor), oros()))
+  Assert(valorSiguiente_(valor) == valorSiguiente)
+  PasarASiguientePosición()
+  PonerCarta_(dameCarta__(valorPrevio_(valor), oros()))
+  Assert(valorPrevio_(valor) == valorPrevio)
+}
+
+procedure TestMinValorYMaxValor() {
+  PonerCarta_(dameCarta__(minValor(), bastos()))
+  Assert(minValor() == armarValorAs())
+  PasarASiguientePosición()
+  PonerCarta_(dameCarta__(maxValor(), bastos()))
+  Assert(maxValor() == armarValorRey())
+}
+
+procedure TestSiguienteYPrevioEnCasoDeBordeInterno1() {
+  HacerTestDeSiguienteYPrevio(armarValor_(7), armarValorSota(), armarValor_(6))
+}
+
+procedure TestSiguienteYPrevioEnCasoDeBordeInterno2() {
+  HacerTestDeSiguienteYPrevio(armarValorSota(), armarValorCaballo(), armarValor_(7))
+}
+
+procedure Assert(condiciónAVerificar) {
+  PasarASiguientePosición()
+  if (condiciónAVerificar) {
+    Poner__Veces(Verde, 1)
+  } else {
+    Poner__Veces(Rojo, 1)
+  }
+}
+
+procedure LimpiarTablero() {
+  PasarASiguientePosición()
+  repeat(41) {
+    SacarTodas()
+    PasarASiguientePosición()
+  }
+  PasarASiguientePosición()
+}
