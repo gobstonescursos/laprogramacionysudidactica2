@@ -32,15 +32,14 @@
 //function valorCartaEspañolaDe40_(valor) { return (valor) }
 -}
 
-/*@ATTRIBUTE@block_name@As@*/       function dameElValorAs()     { return(1) }
-/*@ATTRIBUTE@block_name@valor _@*/  function dameElValor_(valor) { 
+/*@ATTRIBUTE@block_name@As@*/       function armarValorAs()     { return(1) }
+/*@ATTRIBUTE@block_name@valor _@*/  function armarValor_(valor) { 
   if (valor < 2 || valor > 7) { BOOM("No es un valor válido de una carta española de 40 cartas")}
   return(valor) 
 }
-/*@ATTRIBUTE@block_name@Sota@*/     function dameElValorSota()    { return(10) }
-/*@ATTRIBUTE@block_name@Caballo@*/  function dameElValorCaballo() { return(11) }
-/*@ATTRIBUTE@block_name@Rey@*/      function dameElValorRey()     { return(12) }
-
+/*@ATTRIBUTE@block_name@Sota@*/     function armarValorSota()    { return(10) }
+/*@ATTRIBUTE@block_name@Caballo@*/  function armarValorCaballo() { return(11) }
+/*@ATTRIBUTE@block_name@Rey@*/      function armarValorRey()     { return(12) }
 
 //---------------------------------------------------------------------------------------------------/
 /*------------------------------ Operaciones de acceso a valores (interfaz) -------------------------/
