@@ -15,7 +15,7 @@
 //---------------------------------------------------------------------------------------------------/
 /*-------------------------------------- Definiciones de tipos --------------------------------------/
 /---------------------------------------------------------------------------------------------------*/
-type PaloDeCartaEspañola  is variant { case Espadas {} case Oros {} case Bastos {} case Copas {} }
+type PaloDeCartaEspañola  is variant { case Bastos {} case Copas {} case Espadas {} case Oros {} }
 
 //---------------------------------------------------------------------------------------------------/
 /*------------------------------ Operaciones de creación de palos (interfaz) ------------------------/
@@ -23,15 +23,15 @@ type PaloDeCartaEspañola  is variant { case Espadas {} case Oros {} case Bastos
 {-
 ///*@ATTRIBUTE@tooltip@Denota el palo de una carta de un mazo de cartas españolas*/
 ///*@ATTRIBUTE@block_name@_@*/
-///*@ATTRIBUTE@block_dropdown@[("Espadas", 'Espadas'), ("Oros", 'Oros'), ("Bastos", 'Bastos'), ("Copas", 'Copas')]@*/
+///*@ATTRIBUTE@block_dropdown@[("Bastos", 'Bastos'), ("Copas", 'Copas'), ("Espadas", 'Espadas'), ("Oros", 'Oros')]@*/
 //function palo_(palo) { return (palo) }
 -}
 
 ///*@ATTRIBUTE@tooltip@Denota el palo de espadas de un mazo de cartas españolas*/
-/*@ATTRIBUTE@block_name@Espadas@*/function espadas() { return(Espadas) }
-/*@ATTRIBUTE@block_name@Oros@*/   function oros()    { return(Oros)    }
 /*@ATTRIBUTE@block_name@Bastos@*/ function bastos()  { return(Bastos)  }
 /*@ATTRIBUTE@block_name@Copas@*/  function copas()   { return(Copas)   }
+/*@ATTRIBUTE@block_name@Espadas@*/function espadas() { return(Espadas) }
+/*@ATTRIBUTE@block_name@Oros@*/   function oros()    { return(Oros)    }
 
 //---------------------------------------------------------------------------------------------------/
 /*------------------------------- Operaciones de acceso a palos (interfaz) --------------------------/
