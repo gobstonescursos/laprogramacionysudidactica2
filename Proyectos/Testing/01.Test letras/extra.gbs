@@ -1,14 +1,14 @@
 /*==================================================================================================*/
-/*---- PROVEE ---------------------------------------------------------------------------------------/
-/*---------------------------- INTERFAZ de 03-CartasEspañolas-Base.gbs ------------------------------/
+/*---- PROVEE --------------------------------------------------------------------------------------*/
+/*---------------------------- INTERFAZ de 03-CartasEspañolas-Base.gbs -----------------------------*/
 /*---------------------------------- (ver  19 líneas más adelante) ---------------------------------*/
-/*------------------------- INTERFAZ de 03-01-PalosDeCartaEspañola-Base.gbs -------------------------/
+/*------------------------- INTERFAZ de 03-01-PalosDeCartaEspañola-Base.gbs ------------------------*/
 /*---------------------------------- (ver 582 líneas más adelante) ---------------------------------*/
-/*------------------------ INTERFAZ de 03-02-ValoresDeCartaEspañola-Base.gbs ------------------------/
+/*------------------------ INTERFAZ de 03-02-ValoresDeCartaEspañola-Base.gbs -----------------------*/
 /*---------------------------------- (ver 419 líneas más adelante) ---------------------------------*/
-/*--------------------------------- INTERFAZ de 01-Letras-Base.gbs ----------------------------------/
+/*--------------------------------- INTERFAZ de 01-Letras-Base.gbs ---------------------------------*/
 /*---------------------------------- (ver 827 líneas más adelante) ---------------------------------*/
-/*------------------------------- INTERFAZ de 00.Gobstones-Base.gbs ---------------------------------/
+/*------------------------------- INTERFAZ de 00.Gobstones-Base.gbs --------------------------------*/
 /*---------------------------------- (ver 733 líneas más adelante) ---------------------------------*/
 /*==================================================================================================*/
 
@@ -454,14 +454,14 @@ procedure AuxIluminarLaCartaEspañolaActual() {
 //function valorCartaEspañolaDe40_(valor) { return (valor) }
 -}
 
-/*@ATTRIBUTE@block_name@As@*/       function dameElValorAs()     { return(1) }
-/*@ATTRIBUTE@block_name@valor _@*/  function dameElValor_(valor) { 
+/*@ATTRIBUTE@block_name@As@*/       function armarValorAs()     { return(1) }
+/*@ATTRIBUTE@block_name@valor _@*/  function armarValor_(valor) { 
   if (valor < 2 || valor > 7) { BOOM("No es un valor válido de una carta española de 40 cartas")}
   return(valor) 
 }
-/*@ATTRIBUTE@block_name@Sota@*/     function dameElValorSota()    { return(10) }
-/*@ATTRIBUTE@block_name@Caballo@*/  function dameElValorCaballo() { return(11) }
-/*@ATTRIBUTE@block_name@Rey@*/      function dameElValorRey()     { return(12) }
+/*@ATTRIBUTE@block_name@Sota@*/     function armarValorSota()    { return(10) }
+/*@ATTRIBUTE@block_name@Caballo@*/  function armarValorCaballo() { return(11) }
+/*@ATTRIBUTE@block_name@Rey@*/      function armarValorRey()     { return(12) }
 
 //---------------------------------------------------------------------------------------------------/
 /*------------------------------ Operaciones de acceso a valores (interfaz) -------------------------/

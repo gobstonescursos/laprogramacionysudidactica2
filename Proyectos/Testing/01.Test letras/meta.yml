@@ -66,4 +66,4 @@ library:
 name: Test letras
 source:
   visible: true
-  percentage: 0.95
+  percentage: 0.90
