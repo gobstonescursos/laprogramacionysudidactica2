@@ -32,17 +32,16 @@ blocks:
         <block type="not"></block>
     </category>
     <category name="Operaciones de Palos">
-        <block type="espadas"></block>
-        <block type="oros"></block>
         <block type="bastos"></block>
         <block type="copas"></block>
+        <block type="espadas"></block>
+        <block type="oros"></block>
         <block type="esMenorPalo__"></block>
         <block type="esMayorPalo__"></block>
         <block type="minPalo"></block>
         <block type="maxPalo"></block>
         <block type="paloSiguiente_"></block>
         <block type="paloPrevio_"></block>
-        <block type="copas"></block>
     </category>
     <category name="Operaciones de Cartas">
         <block type="dameCarta__"></block>
