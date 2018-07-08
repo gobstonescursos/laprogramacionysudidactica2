@@ -30,20 +30,20 @@ type CartaEspañola is variant {
 //---------------------------------------------------------------------------------------------------/
 /*--------------------- Operaciones de creación de cartas españolas (interfaz) ----------------------/
 /---------------------------------------------------------------------------------------------------*/
-/*@ATTRIBUTE@block_name@carta _ de _@*/           function dameCarta__(v,p) { return(aux_armarCartaEspañola(v, p)) }
+/*@ATTRIBUTE@block_name@la carta _ de _@*/        function dameCarta__(v,p) { return(aux_armarCartaEspañola(v, p)) }
 /*@ATTRIBUTE@block_name@comodín@*/                function dameComodín()    { return(aux_armarComodín())           }
 
 //---------------------------------------------------------------------------------------------------/
 /*---------------------- Operaciones de acceso de cartas españolas (interfaz) -----------------------/
 /---------------------------------------------------------------------------------------------------*/
 /*@ATTRIBUTE@block_name@es comodín _@*/           function esComodín_(c)          { return(aux_esComodín(c))   }
-/*@ATTRIBUTE@block_name@palo de la _@*/           function dameElPalo_(c)         { return(aux_dameElPalo(c))  }
-/*@ATTRIBUTE@block_name@número de la _@*/         function dameElValor_(c)        { return(aux_dameElValor(c)) }
+/*@ATTRIBUTE@block_name@palo de _@*/              function dameElPalo_(c)         { return(aux_dameElPalo(c))  }
+/*@ATTRIBUTE@block_name@valor de _@*/             function dameElValor_(c)        { return(aux_dameElValor(c)) }
 
 /*@ATTRIBUTE@block_name@_ es menor carta que _@*/ function esMenorCarta__(carta1, carta2) { return(aux_esMenorCartaEspañola(carta1, carta2)) }
 /*@ATTRIBUTE@block_name@_ es mayor carta que _@*/ function esMayorCarta__(carta1, carta2) { return(aux_esMayorCartaEspañola(carta1, carta2)) }
-/*@ATTRIBUTE@block_name@el palo más chico@*/      function minCarta()             { return(aux_minCartaEspañola()) }
-/*@ATTRIBUTE@block_name@el palo más grande@*/     function maxCarta()             { return(aux_maxCartaEspañola()) }
+/*@ATTRIBUTE@block_name@la carta más chica@*/     function minCarta()             { return(aux_minCartaEspañola()) }
+/*@ATTRIBUTE@block_name@la carta más grande@*/    function maxCarta()             { return(aux_maxCartaEspañola()) }
 /*@ATTRIBUTE@block_name@carta siguiente a _@*/    function cartaSiguiente_(carta) { return(aux_cartaEspañolaSiguiente(carta)) }
 /*@ATTRIBUTE@block_name@carta previa a _@*/       function cartaPrevia_(carta)    { return(aux_cartaEspañolaPrevia(carta)) }
 

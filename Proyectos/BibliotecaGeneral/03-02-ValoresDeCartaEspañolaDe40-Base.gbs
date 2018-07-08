@@ -168,7 +168,7 @@ function aux_códigoParaElValorDeCartaEspañola(valor)  {
 }
 
 function aux_valorDeCartaEspañolaParaElCódigo(códigoValor) { 
-  if (not aux_esCódigoParaElValorDeCartaEspañola(valor)) { BOOM("No es un código válido para el valor de una carta española") }
+  if (not aux_esCódigoParaElValorDeCartaEspañola(códigoValor)) { BOOM("No es un código válido para el valor de una carta española") }
   return (códigoValor) 
 }
 
