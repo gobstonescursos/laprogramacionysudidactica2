@@ -70,10 +70,10 @@ procedure TestEstáAntesQue() {
 }
 
 procedure TestEstáDespuésQue() {
-  PonerLetra_(letra_(13))
+  PonerLetra_(letra_(15))
   letra1 := leerLetra()
   PasarASiguientePosición()
-  PonerLetra_(letra_(14))
+  PonerLetra_(letra_(16))
   letra2 := leerLetra()
   Assert(esMayorLetra__(letra2, letra1))
   Assert(not(esMayorLetra__(letra1, letra2)))
@@ -88,14 +88,14 @@ procedure TestSiguienteYPrevio() {
 }
 
 procedure TestSiguienteYPrevioEnMedio() {
-  PonerLetra_(letra_(15))
+  PonerLetra_(letra_(17))
   letra := leerLetra()
   PasarASiguientePosición()
   PonerLetra_(letraSiguiente_(letra))
-  Assert(letraSiguiente_(letra) == letra_(16))
+  Assert(letraSiguiente_(letra) == letra_(18))
   PasarASiguientePosición()
   PonerLetra_(letraPrevia_(letra))
-  Assert(letraPrevia_(letra) == letra_(14))
+  Assert(letraPrevia_(letra) == letra_(16))
 }
 
 procedure TestSiguienteYPrevioEnBordeInferior() {
