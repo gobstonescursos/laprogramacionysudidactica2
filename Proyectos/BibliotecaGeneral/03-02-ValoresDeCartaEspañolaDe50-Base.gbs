@@ -1,0 +1,215 @@
+/*==================================================================================================*/
+/*--------------------------------- REQUIERE 00-Gobstones-Base.gbs ---------------------------------*/
+/*==================================================================================================*/
+
+/*==================================================================================================*/
+/*---------------------- INTERFAZ de 03-02-ValoresDeCartaEspañolaDe50-Base.gbs ----------------------/
+/----- Autor: Pablo E. "Fidel" Martínez López -------------------------------------------------------/
+/----- EMail: fidel@unq.edu.ar                -------------------------------------------------------/
+/----- Fecha creación: 2018.06                -------------------------------------------------------/
+/----- Fecha última modificación: 2018.06     -------------------------------------------------------/
+/----- Licencia: GNU General Public License, v2                                             ---------/
+/----- Sitio Oficial de la licencia: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html  --------*/
+/*==================================================================================================*/
+
+//---------------------------------------------------------------------------------------------------/
+/*-------------------------------------- Definiciones de tipos --------------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+// Los valores de carta española son simplemente números enteros
+
+//---------------------------------------------------------------------------------------------------/
+/*----------------------------- Operaciones de creación de valores (interfaz) -----------------------/
+/---------------------------------------------------------------------------------------------------*/
+{-
+///*@ATTRIBUTE@tooltip@Denota el valor de una carta de un mazo de cartas españolas de 40 cartas*/
+///*@ATTRIBUTE@block_name@_@*/
+///*@ATTRIBUTE@block_dropdown@[("As", '1'), ("2", '2'), ("3", '3'), ("4", '4'), ("5", '5'), ("6", '6'), ("7", '7'), ("Sota", '10'), ("Caballo", '11'), ("Rey", '12')]@*/
+//function valorCartaEspañolaDe40_(valor) { return (valor) }
+-}
+
+/*@ATTRIBUTE@block_name@As@*/       function armarValorAs()      { return(1) }
+/*@ATTRIBUTE@block_name@valor _@*/  function armarValor_(valor)  { return (aux_armarValorDeCartaEspañolaDe40(valor)) }
+/*@ATTRIBUTE@block_name@Sota@*/     function armarValorSota()    { return(10) }
+/*@ATTRIBUTE@block_name@Caballo@*/  function armarValorCaballo() { return(11) }
+/*@ATTRIBUTE@block_name@Rey@*/      function armarValorRey()     { return(12) }
+
+//---------------------------------------------------------------------------------------------------/
+/*------------------------------ Operaciones de acceso a valores (interfaz) -------------------------/
+/---------------------------------------------------------------------------------------------------*/
+/*@ATTRIBUTE@block_name@_ es menor valor que _@*/ function esMenorValor__(valor1, valor2) { return(aux_esMenorValorDeCartaEspañola(valor1, valor2)) }
+/*@ATTRIBUTE@block_name@_ es mayor valor que _@*/ function esMayorValor__(valor1, valor2) { return(aux_esMayorValorDeCartaEspañola(valor1, valor2)) }
+/*@ATTRIBUTE@block_name@el valor más chico@*/     function minValor()             { return(aux_minValorDeCartaEspañola())                }
+/*@ATTRIBUTE@block_name@el valor más grande@*/    function maxValor()             { return(aux_maxValorDeCartaEspañola())                }
+/*@ATTRIBUTE@block_name@valor siguiente a _@*/    function valorSiguiente_(valor) { return(aux_valorDeCartaEspañolaSiguiente(valor)) }
+/*@ATTRIBUTE@block_name@valor previo a _@*/       function valorPrevio_(valor)    { return(aux_valorDeCartaEspañolaPrevio(valor))    }
+
+//---------------------------------------------------------------------------------------------------/
+/*------------------ Operaciones de sensado de valores en el tablero (interfaz) ---------------------/
+/---------------------------------------------------------------------------------------------------*/
+/* NO HAY OPERACIONES DE SENSADO de valores de carta española INDIVIDUALES
+   Los valores de carta española son parte del tipo carta española
+ */
+
+//---------------------------------------------------------------------------------------------------/
+/*--------------------------- Operaciones de E/S de valores (interfaz) ------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+/* NO HAY OPERACIONES DE E/S de valores de carta española INDIVIDUALES
+   Los valores de carta española son parte del tipo carta española
+ */
+/*==================================================================================================*/
+/*------------------- FIN INTERFAZ de 03-02-ValoresDeCartaEspañolaDe50-Base.gbs --------------------*/
+/*==================================================================================================*/
+
+
+/*==================================================================================================*/
+/*-------------------- AUXILIARES de 03-02-ValoresDeCartaEspañolaDe50-Base.gbs ---------------------*/
+/*==================================================================================================*/
+
+//---------------------------------------------------------------------------------------------------/
+/*--------------- Operaciones a cambiar para pasar de 40 a 50 cartas (auxiliares) -------------------/
+/---------------------------------------------------------------------------------------------------*/
+function aux_armarValorDeCartaEspañola(valor)                  { return(aux_armarValorDeCartaEspañolaDe50(valor))                   }
+
+function aux_esCódigoParaElValorDeCartaEspañola(valor)         { return (aux_esCódigoParaElValorDeCartaEspañolaDe50(valor))         }
+function aux_esCódigoParaElValorNoFiguraDeCartaEspañola(valor) { return (aux_esCódigoParaElValorNoFiguraDeCartaEspañolaDe50(valor)) }
+
+function aux_códigoParaElValorDeCartaEspañolaSiguiente(valor)  { return (aux_códigoParaElValorDeCartaEspañolaDe50Siguiente(valor))  }
+function aux_códigoParaElValorDeCartaEspañolaPrevio(valor)     { return (aux_códigoParaElValorDeCartaEspañolaDe50Previo(valor))     }
+
+//function aux_armarValorDeCartaEspañola(valor)                  { return(aux_armarValorDeCartaEspañolaDe40(valor))                   }
+//
+//function aux_esCódigoParaElValorDeCartaEspañola(valor)         { return (aux_esCódigoParaElValorDeCartaEspañolaDe40(valor))         }
+//function aux_esCódigoParaElValorNoFiguraDeCartaEspañola(valor) { return (aux_esCódigoParaElValorNoFiguraDeCartaEspañolaDe40(valor)) }
+//
+//function aux_códigoParaElValorDeCartaEspañolaSiguiente(valor)  { return (aux_códigoParaElValorDeCartaEspañolaDe40Siguiente(valor))  }
+//function aux_códigoParaElValorDeCartaEspañolaPrevio(valor)     { return (aux_códigoParaElValorDeCartaEspañolaDe40Previo(valor))     }
+
+//---------------------------------------------------------------------------------------------------/
+/*----------------------------- Auxiliares para construir valores -----------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+function aux_armarValorDeCartaEspañolaDe50(valor) {
+  if (not aux_esValorNoFiguraDeCartaEspañola(valor)) { BOOM("No es un valor válido de una carta española de 50 cartas para una carta numérica")}
+  return(valor) 
+}
+ 
+function aux_armarValorDeCartaEspañolaDe40(valor) {
+  if (not aux_esValorNoFiguraDeCartaEspañola(valor)) { BOOM("No es un valor válido de una carta española de 40 cartas para una carta numérica")}
+  return(valor) 
+}
+// ATENCIÓN: Cambia el mensaje de error; el comportamiento se decide en la subtarea
+ 
+//---------------------------------------------------------------------------------------------------/
+/*------------------------------ Auxiliares para acceso a valores -----------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+// ESPECÍFICAS
+function aux_esValorDeCartaEspañola(valor)         { return (aux_esCódigoParaElValorDeCartaEspañola(valor))         }
+function aux_esValorNoFiguraDeCartaEspañola(valor) { return (aux_esCódigoParaElValorNoFiguraDeCartaEspañola(valor)) }
+    // ATENCIÓN: dependen de la elección de la auxiliar si es de 40 o de 50 cartas
+
+// ESTÁNDAR
+function aux_esMenorValorDeCartaEspañola(valor1, valor2) { return (aux_códigoParaElValorDeCartaEspañola(valor1) < aux_códigoParaElValorDeCartaEspañola(valor2)) }
+function aux_esMayorValorDeCartaEspañola(valor1, valor2) { return (aux_códigoParaElValorDeCartaEspañola(valor1) > aux_códigoParaElValorDeCartaEspañola(valor2)) }
+    // ATENCIÓN: dependen de la elección de la auxiliar si es de 40 o de 50 cartas
+  
+function aux_minValorDeCartaEspañola() { return (aux_minCódigoParaElValorDeCartaEspañola()) }
+function aux_maxValorDeCartaEspañola() { return (aux_maxCódigoParaElValorDeCartaEspañola()) }
+
+function aux_valorDeCartaEspañolaSiguiente(valor) { return (aux_códigoParaElValorDeCartaEspañolaSiguiente(valor)) }
+function aux_valorDeCartaEspañolaPrevio(valor)    { return (aux_códigoParaElValorDeCartaEspañolaPrevio(valor))    }
+    // ATENCIÓN: dependen de la elección de la auxiliar si es de 40 o de 50 cartas
+
+//---------------------------------------------------------------------------------------------------/
+/*------------------ Auxiliares para sensar valores de carta española en el tablero -----------------/
+/---------------------------------------------------------------------------------------------------*/
+/* NO HAY OPERACIONES DE SENSADO de valores de carta española INDIVIDUALES
+   Los valores de carta española son parte del tipo carta española
+ */
+
+//---------------------------------------------------------------------------------------------------/
+/*---------------------- Operaciones de E/S de valores de carta española ----------------------------/
+/---------------------------------------------------------------------------------------------------*/
+/* NO HAY OPERACIONES DE SENSADO de valores de carta española INDIVIDUALES
+   Los valores de carta española son parte del tipo carta española
+ */
+
+//---------------------------------------------------------------------------------------------------/
+/*---------------------------- Operaciones auxiliares de codificación -------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+function aux_minCódigoParaElValorDeCartaEspañola() { return (1)  }
+function aux_maxCódigoParaElValorDeCartaEspañola() { return (12) }
+
+function aux_esCódigoParaElValorDeCartaEspañolaDe50(códigoValor) {   
+  return (códigoValor >= aux_minCódigoParaElValorDeCartaEspañola() 
+       && códigoValor <= aux_maxCódigoParaElValorDeCartaEspañola())
+}
+
+function aux_esCódigoParaElValorDeCartaEspañolaDe40(códigoValor) {   
+  return (códigoValor >= aux_minCódigoParaElValorDeCartaEspañola() 
+       && códigoValor <= aux_maxCódigoParaElValorDeCartaEspañola()
+       && códigoValor /= 8 && códigoValor /= 9
+         )
+}
+
+function aux_esCódigoParaElValorNoFiguraDeCartaEspañolaDe50(códigoValor) {   
+  return (aux_esCódigoParaElValorDeCartaEspañolaDe40(códigoValor)
+       && códigoValor >= 2 && códigoValor <= 9
+         )
+}
+
+function aux_esCódigoParaElValorNoFiguraDeCartaEspañolaDe40(códigoValor) {   
+  return (aux_esCódigoParaElValorDeCartaEspañolaDe40(códigoValor)
+       && códigoValor >= 2 && códigoValor <= 7
+         )
+}
+
+function aux_códigoParaElValorDeCartaEspañola(valor)  { 
+  if (not aux_esValorDeCartaEspañola(valor)) { BOOM("No es un valor válido para una carta española") }
+  return (valor) 
+}
+
+function aux_valorDeCartaEspañolaParaElCódigo(códigoValor) { 
+  if (not aux_esCódigoParaElValorDeCartaEspañola(valor)) { BOOM("No es un código válido para el valor de una carta española") }
+  return (códigoValor) 
+}
+
+//-----------
+// PARA aux_códigoParaElValorDeCartaEspañolaSiguiente y aux_códigoParaElValorDeCartaEspañolaPrevio VER SECCIÓN DE MODULARIZACIÓN DE 40 a 50 cartas
+//-----------
+function aux_códigoParaElValorDeCartaEspañolaDe50Siguiente(valor) {
+  return (choose 
+           aux_minCódigoParaElValorDeCartaEspañola()  when (valor == aux_maxCódigoParaElValorDeCartaEspañola())
+           valor+1                                    otherwise
+         )
+}
+
+function aux_códigoParaElValorDeCartaEspañolaDe50Previo(valor) {
+  return (choose 
+           aux_maxCódigoParaElValorDeCartaEspañola()  when (valor == aux_minCódigoParaElValorDeCartaEspañola())
+           valor-1                                    otherwise
+         )
+}
+
+function aux_códigoParaElValorDeCartaEspañolaDe40Siguiente(valor) {
+  return (choose 
+           aux_minCódigoParaElValorDeCartaEspañola()  when (valor == aux_maxCódigoParaElValorDeCartaEspañola())
+           10                                         when (valor == 7)
+           valor+1                                    otherwise
+         )
+}
+
+function aux_códigoParaElValorDeCartaEspañolaDe40Previo(valor) {
+  return (choose 
+           aux_maxCódigoParaElValorDeCartaEspañola()  when (valor == aux_minCódigoParaElValorDeCartaEspañola())
+           7                                          when (valor == 10)
+           valor-1                                    otherwise
+         )
+}
+
+//---------------------------------------------------------------------------------------------------/
+/*----------------------- Operaciones auxiliares de codificación para el tablero --------------------/
+/---------------------------------------------------------------------------------------------------*/
+// LOS VALORES DE CARTA ESPAÑOLA NO SE REPRESENTAN EN EL TABLERO
+
+/*==================================================================================================*/
+/*------------------ FIN AUXILIARES de 03-02-ValoresDeCartaEspañolaDe50-Base.gbs -------------------*/
+/*==================================================================================================*/

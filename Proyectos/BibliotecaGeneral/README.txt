@@ -18,10 +18,10 @@ Redactar bien el readme...
         <block type="Mover__Veces"></block>
         <block type="SacarTodas"></block>
         <block type="SacarTodas_"></block>
-        <block type="PasarASiguientePosición"></block>
-        <block type="IrAlOrigen"></block>
-        <block type="BOOM"></block>
         <block type="IrAlBorde"></block>
+        <block type="IrAlOrigen"></block>
+        <block type="PasarASiguientePosición"></block>
+        <block type="BOOM"></block>
       </category>
       <category name="Combinaciones">
         <block type="RepeticionSimple"></block>

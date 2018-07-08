@@ -3,11 +3,11 @@
 /*--------------------- (provisto también para 03-01-PalosDeCartaEspañola-Base.gbs) ----------------*/
 /*-------------------------- (y para 03-02-ValoresDeCartaEspañola-Base.gbs) ------------------------*/
 /*-------------------------- REQUIERE 03-01-PalosDeCartaEspañola-Base.gbs --------------------------*/
-/*------------------------- REQUIERE 03-02-ValoresDeCartaEspañola-Base.gbs -------------------------*/
+/*----------------------- REQUIERE 03-02-ValoresDeCartaEspañolaDe40-Base.gbs -----------------------*/
 /*==================================================================================================*/
 
 /*==================================================================================================*/
-/*---------------------------- INTERFAZ de 03-CartasEspañolas-Base.gbs ------------------------------/
+/*-------------------------- INTERFAZ de 03-CartasEspañolasDe40-Base.gbs ----------------------------/
 /----- Autor: Pablo E. "Fidel" Martínez López -------------------------------------------------------/
 /----- EMail: fidel@unq.edu.ar                -------------------------------------------------------/
 /----- Fecha creación: 2018.06                -------------------------------------------------------/
@@ -78,18 +78,48 @@ function hayOtraCartaDestapadaSinIluminar() { return(aux_hayOtraCartaEspañolaDe
 procedure IluminarLaCartaActual()     { AuxIluminarLaCartaEspañolaActual()    }
 
 /*==================================================================================================*/
-/*-------------------------- FIN INTERFAZ de 03-CartasEspañolas-Base.gbs ---------------------------*/
+/*------------------------ FIN INTERFAZ de 03-CartasEspañolasDe40-Base.gbs -------------------------*/
 /*==================================================================================================*/
 
 
 /*==================================================================================================*/
-/*--------------------------- AUXILIARES de 03-CartasEspañolas-Base.gbs ----------------------------*/
+/*------------------------- AUXILIARES de 03-CartasEspañolasDe40-Base.gbs --------------------------*/
 /*==================================================================================================*/
+
+//---------------------------------------------------------------------------------------------------/
+/*--------------- Operaciones a cambiar para pasar de 40 a 50 cartas (auxiliares) -------------------/
+/---------------------------------------------------------------------------------------------------*/
+// ATENCIÓN: DEBE ELEGIRSE LA BIBLIOTECA DE VALORES SINCRONIZADA CON ESTA SECCIÓN
+
+//function aux_armarComodín()     { return(aux_armarComodínDe50())     }
+//function aux_esComodín(carta)   { return(aux_esComodínDe50(carta))   }
+//
+//function aux_maxCartaEspañola() { return(aux_maxCartaEspañolaDe50()) }
+//
+//function aux_cartaEspañolaSiguiente(carta) { return(aux_cartaEspañolaSiguienteDe50(carta)) }
+//function aux_cartaEspañolaPrevia(carta)    { return(aux_cartaEspañolaPreviaDe50(carta))    }
+//
+//function aux_esCódigoParaElComodín(códigoComodín) { return (aux_esCódigoParaElComodínDe50(códigoComodín)) }
+//function aux_códigoParaElComodín() { return (aux_códigoParaElComodínDe50()) }
+
+function aux_armarComodín()     { return(aux_armarComodínDe40())     }
+function aux_esComodín(carta)   { return(aux_esComodínDe40(carta))   }
+
+function aux_maxCartaEspañola() { return(aux_maxCartaEspañolaDe40()) }
+
+function aux_cartaEspañolaSiguiente(carta) { return(aux_cartaEspañolaSiguienteDe40(carta)) }
+function aux_cartaEspañolaPrevia(carta)    { return(aux_cartaEspañolaPreviaDe40(carta))    }
+
+function aux_esCódigoParaElComodín(códigoComodín) { return (aux_esCódigoParaElComodínDe40(códigoComodín)) }
+function aux_códigoParaElComodín() { return (aux_códigoParaElComodínDe40()) }
 
 //---------------------------------------------------------------------------------------------------/
 /*------------------------ Auxiliares para construir cartas españolas -------------------------------/
 /---------------------------------------------------------------------------------------------------*/
-function aux_armarComodín() { return(Comodín) }
+function aux_armarComodínDe50() { return(Comodín) }
+function aux_armarComodínDe40() { return(boom("No hay comodín en un mazo de cartas españolas de 40 cartas")) }
+// VER LA SECCIÓN DE MODULARIZACIÓN PARA ELEGIR SI ES UN MAZO DE 40 o 50 CARTAS
+
 function aux_armarCartaEspañola(valor,palo) {
   // PRECONDICIÓN: valor y palo corresponden a los de una carta válida
   if (not aux_esValorDeCartaEspañola(valor)) { BOOM("No existen cartas de ese valor") }
@@ -100,7 +130,11 @@ function aux_armarCartaEspañola(valor,palo) {
 /*------------------------- Auxiliares para acceso a cartas españolas -------------------------------/
 /---------------------------------------------------------------------------------------------------*/
 // BÁSICAS
-function aux_esComodín(carta) { return(carta==aux_armarComodín()) }
+function aux_esComodínDe50(carta) { return(carta==aux_armarComodín()) }
+function aux_esComodínDe40(carta) { 
+   if (carta == Comodín) { BOOM("¿Armaste el comodín por tu cuenta? Eso no está bien, porque no hay comodín en un mazo de cartas españolas de 40 cartas") }
+   return(False)                     
+}
 
 function aux_dameElPalo(carta) { 
   // PRECONDICIÓN: la carta no es el comodín
@@ -145,11 +179,13 @@ function aux_esMayorCartaEspañola(carta1, carta2) {
   )
 }
          
-function aux_minCartaEspañola() { return(aux_armarCartaEspañola(aux_minValorDeCartaEspañola()
-                                                              , aux_minPaloDeCartaEspañola())) }
-function aux_maxCartaEspañola() { return(aux_armarComodín())                                   }
-         
-function aux_cartaEspañolaSiguiente(carta) {
+function aux_minCartaEspañola()     { return(aux_armarCartaEspañola(aux_minValorDeCartaEspañola()
+                                                                   ,aux_minPaloDeCartaEspañola())) }
+function aux_maxCartaEspañolaDe50() { return(aux_armarComodín())                                   }
+function aux_maxCartaEspañolaDe40() { return(aux_armarCartaEspañola(aux_maxValorDeCartaEspañola()
+                                                                   ,aux_maxPaloDeCartaEspañola())) }
+                                                              
+function aux_cartaEspañolaSiguienteDe50(carta) {
   if (carta == aux_maxCartaEspañola())
         { resultado := aux_minCartaEspañola() }
    else { // aux_maxCartaEspañola() es el Comodín, y entonces se puede usar valor y palo
@@ -165,7 +201,23 @@ function aux_cartaEspañolaSiguiente(carta) {
    return(resultado)
 }
 
-function aux_cartaEspañolaPrevia(carta) {
+function aux_cartaEspañolaSiguienteDe40(carta) {
+  if (aux_esComodín(carta)) { BOOM("NO PUEDE SUCEDER, es un mazo de 40 cartas") }
+  if (carta == aux_maxCartaEspañola())
+        { resultado := aux_minCartaEspañola() }
+   else { 
+      valorCarta := aux_dameElValor(carta)
+      paloCarta := aux_dameElPalo(carta)
+      if     (valorCarta < aux_maxValorDeCartaEspañola())
+        { resultado := aux_armarCartaEspañola(aux_valorDeCartaEspañolaSiguiente(valorCarta), paloCarta) }
+      else // Debe ser (valorCarta == aux_maxValorDeCartaEspañola() && paloCarta < aux_maxPaloDeCartaEspañola())
+           //  porque si son iguales, sería aux_minCartaEspañola() que se descartó en el primer if
+           { resultado := aux_armarCartaEspañola(aux_minValorDeCartaEspañola(), aux_paloDeCartaEspañolaSiguiente(paloCarta)) }
+   }
+   return(resultado)
+}
+
+function aux_cartaEspañolaPreviaDe50(carta) {
   if (carta == aux_minCartaEspañola())
         { resultado := aux_maxCartaEspañola() }
    elseif (aux_esComodín(carta))
@@ -175,7 +227,23 @@ function aux_cartaEspañolaPrevia(carta) {
       paloCarta := aux_dameElPalo(carta)
       if     (valorCarta > aux_minValorDeCartaEspañola())
         { resultado := aux_armarCartaEspañola(aux_valorDeCartaEspañolaPrevio(valorCarta), paloCarta) }
-      else // (valorCarta == aux_minValorDeCartaEspañola() && paloCarta > aux_minPaloDeCartaEspañola())
+      else // Debe ser (valorCarta == aux_minValorDeCartaEspañola() && paloCarta > aux_minPaloDeCartaEspañola())
+           //  porque si son iguales, sería aux_minCartaEspañola() que se descartó en el primer if
+        { resultado := aux_armarCartaEspañola(aux_minValorDeCartaEspañola(), aux_paloDeCartaEspañolaSiguiente(paloCarta)) }
+   }
+   return(resultado)
+}
+
+function aux_cartaEspañolaPreviaDe40(carta) {
+  if (aux_esComodín(carta)) { BOOM("NO PUEDE SUCEDER, es un mazo de 40 cartas") }
+  if (carta == aux_minCartaEspañola())
+        { resultado := aux_maxCartaEspañola() }
+   else {
+      valorCarta := aux_dameElValor(carta)
+      paloCarta := aux_dameElPalo(carta)
+      if     (valorCarta > aux_minValorDeCartaEspañola())
+        { resultado := aux_armarCartaEspañola(aux_valorDeCartaEspañolaPrevio(valorCarta), paloCarta) }
+      else // Debe ser (valorCarta == aux_minValorDeCartaEspañola() && paloCarta > aux_minPaloDeCartaEspañola())
            //  porque si son iguales, sería aux_minCartaEspañola() que se descartó en el primer if
         { resultado := aux_armarCartaEspañola(aux_minValorDeCartaEspañola(), aux_paloDeCartaEspañolaSiguiente(paloCarta)) }
    }
@@ -261,8 +329,11 @@ procedure AuxDestaparLaCartaEspañolaActual() {
 /*--------------------------- Operaciones auxiliares de codificación --------------------------------/
 /---------------------------------------------------------------------------------------------------*/
 // ESPECÍFICAS
-function aux_esCódigoParaElComodín(códigoComodín) { return (códigoComodín == aux_códigoParaElComodín()) }
-function aux_códigoParaElComodín() { return (aux_maxCódigoParaElPaloDeCartaEspañola()+1) }
+function aux_esCódigoParaElComodínDe50(códigoComodín) { return (códigoComodín == aux_códigoParaElComodín()) }
+function aux_códigoParaElComodínDe50() { return (aux_maxCódigoParaElPaloDeCartaEspañola()+1) }
+
+function aux_esCódigoParaElComodínDe40(códigoComodín) { return (False) }
+function aux_códigoParaElComodínDe40() { return (boom("No hay comodín en un mazo de 40 cartas")) }
 // LA CODIFICACIÓN DE CARTAS ESTÁ TODA JUNTA EN las funciones que siguen y en aux_códigoParaLaCartaEspañola
 // El comodín va después del último palo
 
@@ -402,5 +473,5 @@ procedure AuxIluminarLaCartaEspañolaActual() {
  }
  
 /*==================================================================================================*/
-/*------------------------- FIN AUXILIARES de 03-CartasEspañolas-Base.gbs --------------------------*/
+/*----------------------- FIN AUXILIARES de 03-CartasEspañolasDe40-Base.gbs ------------------------*/
 /*==================================================================================================*/

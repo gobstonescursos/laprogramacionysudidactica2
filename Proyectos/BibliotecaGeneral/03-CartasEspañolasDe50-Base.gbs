@@ -1,0 +1,476 @@
+/*==================================================================================================*/
+/*--------------------------------- REQUIERE 00-Gobstones-Base.gbs ---------------------------------*/
+/*--------------------- (provisto también para 03-01-PalosDeCartaEspañola-Base.gbs) ----------------*/
+/*-------------------------- (y para 03-02-ValoresDeCartaEspañola-Base.gbs) ------------------------*/
+/*-------------------------- REQUIERE 03-01-PalosDeCartaEspañola-Base.gbs --------------------------*/
+/*----------------------- REQUIERE 03-02-ValoresDeCartaEspañolaDe50-Base.gbs -----------------------*/
+/*==================================================================================================*/
+
+/*==================================================================================================*/
+/*-------------------------- INTERFAZ de 03-CartasEspañolasDe50-Base.gbs ----------------------------/
+/----- Autor: Pablo E. "Fidel" Martínez López -------------------------------------------------------/
+/----- EMail: fidel@unq.edu.ar                -------------------------------------------------------/
+/----- Fecha creación: 2018.06                -------------------------------------------------------/
+/----- Fecha última modificación: 2018.06     -------------------------------------------------------/
+/----- Licencia: GNU General Public License, v2                                             ---------/
+/----- Sitio Oficial de la licencia: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html  --------*/
+/*==================================================================================================*/
+
+//---------------------------------------------------------------------------------------------------/
+/*-------------------------------------- Definiciones de tipos --------------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+type CartaEspañola is variant { 
+                                case Carta   { 
+                                  field valor 
+                                  field palo 
+                                }
+                                case Comodín {}
+                              }
+
+//---------------------------------------------------------------------------------------------------/
+/*--------------------- Operaciones de creación de cartas españolas (interfaz) ----------------------/
+/---------------------------------------------------------------------------------------------------*/
+/*@ATTRIBUTE@block_name@carta _ de _@*/           function dameCarta__(v,p) { return(aux_armarCartaEspañola(v, p)) }
+/*@ATTRIBUTE@block_name@comodín@*/                function dameComodín()    { return(aux_armarComodín())           }
+
+//---------------------------------------------------------------------------------------------------/
+/*---------------------- Operaciones de acceso de cartas españolas (interfaz) -----------------------/
+/---------------------------------------------------------------------------------------------------*/
+/*@ATTRIBUTE@block_name@es comodín _@*/           function esComodín_(c)          { return(aux_esComodín(c))   }
+/*@ATTRIBUTE@block_name@palo de la _@*/           function dameElPalo_(c)         { return(aux_dameElPalo(c))  }
+/*@ATTRIBUTE@block_name@número de la _@*/         function dameElValor_(c)        { return(aux_dameElValor(c)) }
+
+/*@ATTRIBUTE@block_name@_ es menor carta que _@*/ function esMenorCarta__(carta1, carta2) { return(aux_esMenorCartaEspañola(carta1, carta2)) }
+/*@ATTRIBUTE@block_name@_ es mayor carta que _@*/ function esMayorCarta__(carta1, carta2) { return(aux_esMayorCartaEspañola(carta1, carta2)) }
+/*@ATTRIBUTE@block_name@el palo más chico@*/      function minCarta()             { return(aux_minCartaEspañola()) }
+/*@ATTRIBUTE@block_name@el palo más grande@*/     function maxCarta()             { return(aux_maxCartaEspañola()) }
+/*@ATTRIBUTE@block_name@carta siguiente a _@*/    function cartaSiguiente_(carta) { return(aux_cartaEspañolaSiguiente(carta)) }
+/*@ATTRIBUTE@block_name@carta previa a _@*/       function cartaPrevia_(carta)    { return(aux_cartaEspañolaPrevia(carta)) }
+
+//---------------------------------------------------------------------------------------------------/
+/*---------------- Operaciones de sensado de cartas españolas en el tablero (interfaz) --------------/
+/---------------------------------------------------------------------------------------------------*/
+function hayCarta() { return(aux_hayCartaEspañola()) }
+
+function laCartaEstáTapada() { return(aux_laCartaEspañolaEstáTapadaConBoom())                    }
+function hayCartaTapada()    { return(aux_hayCartaEspañola() && aux_laCartaEspañolaEstáTapada()) }
+
+//---------------------------------------------------------------------------------------------------/
+/*------------------------ Operaciones de E/S de cartas españolas (interfaz) ------------------------/
+/---------------------------------------------------------------------------------------------------*/
+function  leerCarta()                 { return(aux_leerCartaEspañola())       }
+procedure PonerCarta_(carta)          { AuxPonerCartaEspañolaDestapada(carta) }
+procedure SacarCartaActual()          { AuxSacarCartaEspañolaActual()         }
+
+procedure DarVueltaLaCartaActual()    { AuxDarVueltaLaCartaEspañolaActual()   }
+procedure PonerCartaDestapada_(carta) { AuxPonerCartaEspañolaDestapada(carta) }
+procedure PonerCartaTapada_(carta)    { AuxPonerCartaEspañolaTapada(carta)    }
+
+//---------------------------------------------------------------------------------------------------/
+/*------------------------ Operaciones específicas para MEMOTEST (interfaz) -------------------------/
+/---------------------------------------------------------------------------------------------------*/
+// DE SENSADO
+function laCartaEstáIluminada()             { return(aux_laCartaEspañolaEstáIluminadaConBoom())      }
+function hayCartaDestapadaSinIluminar()     { return(aux_hayCartaEspañolaDestapadaSinIluminar())     }
+function hayOtraCartaDestapadaSinIluminar() { return(aux_hayOtraCartaEspañolaDestapadaSinIluminar()) }
+
+// De E/S
+procedure IluminarLaCartaActual()     { AuxIluminarLaCartaEspañolaActual()    }
+
+/*==================================================================================================*/
+/*------------------------ FIN INTERFAZ de 03-CartasEspañolasDE50-Base.gbs -------------------------*/
+/*==================================================================================================*/
+
+
+/*==================================================================================================*/
+/*------------------------- AUXILIARES de 03-CartasEspañolasDe50-Base.gbs --------------------------*/
+/*==================================================================================================*/
+
+//---------------------------------------------------------------------------------------------------/
+/*--------------- Operaciones a cambiar para pasar de 40 a 50 cartas (auxiliares) -------------------/
+/---------------------------------------------------------------------------------------------------*/
+// DEBE ELEGIRSE LA BIBLIOTECA DE VALORES SINCRONIZADA CON ESTA SECCIÓN
+function aux_armarComodín()     { return(aux_armarComodínDe50())     }
+function aux_esComodín(carta)   { return(aux_esComodínDe50(carta))   }
+
+function aux_maxCartaEspañola() { return(aux_maxCartaEspañolaDe50()) }
+
+function aux_cartaEspañolaSiguiente(carta) { return(aux_cartaEspañolaSiguienteDe50(carta)) }
+function aux_cartaEspañolaPrevia(carta)    { return(aux_cartaEspañolaPreviaDe50(carta))    }
+
+function aux_esCódigoParaElComodín(códigoComodín) { return (aux_esCódigoParaElComodínDe50(códigoComodín)) }
+function aux_códigoParaElComodín() { return (aux_códigoParaElComodínDe50()) }
+
+//function aux_armarComodín()     { return(aux_armarComodínDe40())     }
+//function aux_esComodín(carta)   { return(aux_esComodínDe40(carta))   }
+//
+//function aux_maxCartaEspañola() { return(aux_maxCartaEspañolaDe40()) }
+//
+//function aux_cartaEspañolaSiguiente(carta) { return(aux_cartaEspañolaSiguienteDe40(carta)) }
+//function aux_cartaEspañolaPrevia(carta)    { return(aux_cartaEspañolaPreviaDe40(carta))    }
+//
+//function aux_esCódigoParaElComodín(códigoComodín) { return (aux_esCódigoParaElComodínDe40(códigoComodín)) }
+//function aux_códigoParaElComodín() { return (aux_códigoParaElComodínDe40()) }
+
+//---------------------------------------------------------------------------------------------------/
+/*------------------------ Auxiliares para construir cartas españolas -------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+function aux_armarComodínDe50() { return(Comodín) }
+function aux_armarComodínDe40() { return(boom("No hay comodín en un mazo de cartas españolas de 40 cartas")) }
+// VER LA SECCIÓN DE MODULARIZACIÓN PARA ELEGIR SI ES UN MAZO DE 40 o 50 CARTAS
+
+function aux_armarCartaEspañola(valor,palo) {
+  // PRECONDICIÓN: valor y palo corresponden a los de una carta válida
+  if (not aux_esValorDeCartaEspañola(valor)) { BOOM("No existen cartas de ese valor") }
+  return(Carta(valor <- valor, palo <- palo)) 
+}
+
+//---------------------------------------------------------------------------------------------------/
+/*------------------------- Auxiliares para acceso a cartas españolas -------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+// BÁSICAS
+function aux_esComodínDe50(carta) { return(carta==aux_armarComodín()) }
+function aux_esComodínDe40(carta) { 
+   if (carta == Comodín) { BOOM("¿Armaste el comodín por tu cuenta? Eso no está bien, porque no hay comodín en un mazo de cartas españolas de 40 cartas") }
+   return(False)                     
+}
+
+function aux_dameElPalo(carta) { 
+  // PRECONDICIÓN: la carta no es el comodín
+  if (aux_esComodín(carta)) { BOOM("El comodín no tiene palo") }
+  return(palo(carta)) 
+}
+
+function aux_dameElValor(carta) { 
+  // PRECONDICIÓN: la carta no es el comodín
+  if (aux_esComodín(carta)) { BOOM("El comodín no tiene valor") }
+  return(valor(carta)) 
+}
+
+// ESTÁNDAR
+function aux_esMenorCartaEspañola(carta1, carta2) {
+  return(choose
+           /* si la carta1 no es comodín, la carta2 debe serlo, y entonces carta1 es menor,
+            y si la carta1 es comodín, la carta1 NO puede ser menor que la carta2 (a lo sumo es igual)
+           */
+           not aux_esComodín(carta1)                                   when (aux_esComodín(carta1) 
+                                                                          || aux_esComodín(carta2))
+           aux_esMenorPaloDeCartaEspañola(aux_dameElPalo(carta1)
+                                          ,aux_dameElPalo(carta2)) 
+        || (aux_dameElPalo(carta1) == aux_dameElPalo(carta2) 
+         && aux_esMenorValorDeCartaEspañola(aux_dameElValor(carta1)
+                                           ,aux_dameElValor(carta2)))  otherwise
+  )
+}
+         
+function aux_esMayorCartaEspañola(carta1, carta2) {
+  return(choose
+           /* si la carta2 no es comodín, la carta1 debe serlo, y entonces carta1 es mayor
+            y si la carta2 es comodín, la carta1 NO puede ser mayor que la carta2 (a lo sumo es igual)
+           */
+           not aux_esComodín(carta1)                                   when (aux_esComodín(carta1) 
+                                                                          || aux_esComodín(carta2))
+           aux_esMayorPaloDeCartaEspañola(aux_dameElPalo(carta1)
+                                         ,aux_dameElPalo(carta2)) 
+        || (aux_dameElPalo(carta1) == aux_dameElPalo(carta2) 
+         && aux_esMayorValorDeCartaEspañola(aux_dameElValor(carta1)
+                                           ,aux_dameElValor(carta2)))  otherwise
+  )
+}
+         
+function aux_minCartaEspañola()     { return(aux_armarCartaEspañola(aux_minValorDeCartaEspañola()
+                                                                   ,aux_minPaloDeCartaEspañola())) }
+function aux_maxCartaEspañolaDe50() { return(aux_armarComodín())                                   }
+function aux_maxCartaEspañolaDe40() { return(aux_armarCartaEspañola(aux_maxValorDeCartaEspañola()
+                                                                   ,aux_maxPaloDeCartaEspañola())) }
+                                                              
+function aux_cartaEspañolaSiguienteDe50(carta) {
+  if (carta == aux_maxCartaEspañola())
+        { resultado := aux_minCartaEspañola() }
+   else { // aux_maxCartaEspañola() es el Comodín, y entonces se puede usar valor y palo
+      valorCarta := aux_dameElValor(carta)
+      paloCarta := aux_dameElPalo(carta)
+      if     (valorCarta < aux_maxValorDeCartaEspañola())
+        { resultado := aux_armarCartaEspañola(aux_valorDeCartaEspañolaSiguiente(valorCarta), paloCarta) }
+      elseif (valorCarta == aux_maxValorDeCartaEspañola() && paloCarta < aux_maxPaloDeCartaEspañola())
+        { resultado := aux_armarCartaEspañola(aux_minValorDeCartaEspañola(), aux_paloDeCartaEspañolaSiguiente(paloCarta)) }
+      else // (valorCarta == aux_maxValorDeCartaEspañola() && paloCarta == aux_maxPaloDeCartaEspañola())
+        { resultado := aux_armarComodín() }
+   }
+   return(resultado)
+}
+
+function aux_cartaEspañolaSiguienteDe40(carta) {
+  if (aux_esComodín(carta)) { BOOM("NO PUEDE SUCEDER, es un mazo de 40 cartas") }
+  if (carta == aux_maxCartaEspañola())
+        { resultado := aux_minCartaEspañola() }
+   else { 
+      valorCarta := aux_dameElValor(carta)
+      paloCarta := aux_dameElPalo(carta)
+      if     (valorCarta < aux_maxValorDeCartaEspañola())
+        { resultado := aux_armarCartaEspañola(aux_valorDeCartaEspañolaSiguiente(valorCarta), paloCarta) }
+      else // Debe ser (valorCarta == aux_maxValorDeCartaEspañola() && paloCarta < aux_maxPaloDeCartaEspañola())
+           //  porque si son iguales, sería aux_minCartaEspañola() que se descartó en el primer if
+           { resultado := aux_armarCartaEspañola(aux_minValorDeCartaEspañola(), aux_paloDeCartaEspañolaSiguiente(paloCarta)) }
+   }
+   return(resultado)
+}
+
+function aux_cartaEspañolaPreviaDe50(carta) {
+  if (carta == aux_minCartaEspañola())
+        { resultado := aux_maxCartaEspañola() }
+   elseif (aux_esComodín(carta))
+        { resultado := aux_armarCartaEspañola(aux_maxValorDeCartaEspañola(), aux_maxPaloDeCartaEspañola()) }
+   else {
+      valorCarta := aux_dameElValor(carta)
+      paloCarta := aux_dameElPalo(carta)
+      if     (valorCarta > aux_minValorDeCartaEspañola())
+        { resultado := aux_armarCartaEspañola(aux_valorDeCartaEspañolaPrevio(valorCarta), paloCarta) }
+      else // Debe ser (valorCarta == aux_minValorDeCartaEspañola() && paloCarta > aux_minPaloDeCartaEspañola())
+           //  porque si son iguales, sería aux_minCartaEspañola() que se descartó en el primer if
+        { resultado := aux_armarCartaEspañola(aux_minValorDeCartaEspañola(), aux_paloDeCartaEspañolaSiguiente(paloCarta)) }
+   }
+   return(resultado)
+}
+
+function aux_cartaEspañolaPreviaDe40(carta) {
+  if (aux_esComodín(carta)) { BOOM("NO PUEDE SUCEDER, es un mazo de 40 cartas") }
+  if (carta == aux_minCartaEspañola())
+        { resultado := aux_maxCartaEspañola() }
+   else {
+      valorCarta := aux_dameElValor(carta)
+      paloCarta := aux_dameElPalo(carta)
+      if     (valorCarta > aux_minValorDeCartaEspañola())
+        { resultado := aux_armarCartaEspañola(aux_valorDeCartaEspañolaPrevio(valorCarta), paloCarta) }
+      else // Debe ser (valorCarta == aux_minValorDeCartaEspañola() && paloCarta > aux_minPaloDeCartaEspañola())
+           //  porque si son iguales, sería aux_minCartaEspañola() que se descartó en el primer if
+        { resultado := aux_armarCartaEspañola(aux_minValorDeCartaEspañola(), aux_paloDeCartaEspañolaSiguiente(paloCarta)) }
+   }
+   return(resultado)
+}
+
+//---------------------------------------------------------------------------------------------------/
+/*----------------------- Auxiliares para sensar cartas españolas en el tablero ---------------------/
+/---------------------------------------------------------------------------------------------------*/
+function aux_hayCartaEspañola() { return (aux_hayTipoCartaEspañola() && aux_hayDatoCartaEspañola()) }
+
+function aux_hayTipoCartaEspañola() { return (aux_esTipoCartaEspañola(aux_leerTipo())) }
+function aux_hayDatoCartaEspañola() { return (aux_esDatoCartaEspañola(aux_leerDato())) }
+
+function aux_laCartaEspañolaEstáTapada() { 
+  // PRECONDICIÓN: hay una carta española
+  return (aux_hayAtributoReverso())
+}
+
+function aux_laCartaEspañolaEstáTapadaConBoom() { 
+  if (not aux_hayCartaEspañola()) { BOOM("No hay una carta que pueda estar tapada") }
+  return(aux_laCartaEspañolaEstáTapada())    
+}
+
+function aux_hayCartaEspañolaDestapada() { 
+  return (aux_hayCartaEspañola()           
+       && not aux_laCartaEspañolaEstáTapada())
+}
+
+//---------------------------------------------------------------------------------------------------/
+/*-------------------------- Operaciones de E/S de cartas españolas ---------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+function aux_leerCartaEspañola() {
+  // PRECONDICIÓN: hay una carta destapada en la celda actual
+  if (not aux_hayCartaEspañola())      { BOOM("No hay una carta española que pueda leer") }
+  if (aux_laCartaEspañolaEstáTapada()) { BOOM("No puedo leer una carta española tapada")  }
+  return(aux_cartaEspañolaParaElCódigo(aux_leerDato()))
+}         
+
+procedure AuxPonerCartaEspañolaTapada(carta) {
+  // PRECONDICIÓN: no hay una carta española en la celda actual
+  /* El BOOM lo hace AuxPonerCartaEspañolaDestapada
+  // if (aux_hayCartaEspañola()) { BOOM("No puedo bajar una carta española donde ya hay una") } 
+  */
+  AuxPonerCartaEspañolaDestapada(carta)
+  AuxTaparLaCartaEspañolaActual()   // La carta recién puesta no está iluminada
+}
+
+procedure AuxPonerCartaEspañolaDestapada(carta) {
+  // PRECONDICIÓN: no hay una carta en la celda actual
+  if (aux_hayCartaEspañola()) { BOOM("No puedo bajar una carta española donde ya hay una") }
+  AuxSacarTodas()
+  AuxPonerRepresentaciónParaLaCartaEspañola(carta)
+}
+
+procedure AuxSacarCartaEspañolaActual() {
+  // PRECONDICIÓN: hay una carta destapada en la celda actual
+  if (not aux_hayCartaEspañola())       { BOOM("No hay una carta que pueda sacar") }
+  if (aux_laCartaEspañolaEstáTapada())  { BOOM("No puedo sacar una carta tapada")  }
+  AuxSacarRepresentaciónParaLaCartaEspañola()
+}
+
+procedure AuxDarVueltaLaCartaEspañolaActual() {
+  if (not aux_hayCartaEspañola())         { BOOM("No hay una carta que pueda girar")   }
+  if (not aux_laCartaEspañolaEstáTapada()  // Para garantizar el invariante de la condición siguiente
+   && aux_laCartaEspañolaEstáIluminada()) { BOOM("No puedo girar una carta iluminada") }
+  if (aux_laCartaEspañolaEstáTapada()) 
+       { AuxDestaparLaCartaEspañolaActual() }
+  else { AuxTaparLaCartaEspañolaActual()    }
+}
+
+procedure AuxTaparLaCartaEspañolaActual()    { 
+ // PRECONDICIÓN: hay una carta española destapada y no iluminada en la celda actual
+  AuxPonerAtributoReverso()
+}
+
+procedure AuxDestaparLaCartaEspañolaActual() { 
+ // PRECONDICIÓN: hay una carta española tapada en la celda actual
+  AuxSacarAtributoReverso()
+}
+
+//---------------------------------------------------------------------------------------------------/
+/*--------------------------- Operaciones auxiliares de codificación --------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+// ESPECÍFICAS
+function aux_esCódigoParaElComodínDe50(códigoComodín) { return (códigoComodín == aux_códigoParaElComodín()) }
+function aux_códigoParaElComodínDe50() { return (aux_maxCódigoParaElPaloDeCartaEspañola()+1) }
+
+function aux_esCódigoParaElComodínDe40(códigoComodín) { return (False) }
+function aux_códigoParaElComodínDe40() { return (boom("No hay comodín en un mazo de 40 cartas")) }
+// LA CODIFICACIÓN DE CARTAS ESTÁ TODA JUNTA EN las funciones que siguen y en aux_códigoParaLaCartaEspañola
+// El comodín va después del último palo
+
+function aux_analizarDatoCarta(códigoCartaEspañola) {
+  return (códigoCartaEspañola mod 100, códigoCartaEspañola div 100)
+}
+
+function aux_producirDatoCarta(códigoValor, códigoPalo) {
+  /* PRECONDICIÓN: códigoValor es un código de carta española válido, 
+                 y códigoPalo es un código de palo de carta española válido
+  */
+ if (not (aux_sonValorYPaloDeCartaEspañola(códigoValor, códigoPalo))) { BOOM("El código del valor o del palo no es válido") }
+ return (choose
+            100*códigoPalo                when (aux_esCódigoParaElComodín(códigoPalo))
+            100*códigoPalo + códigoValor  otherwise
+         )
+}
+
+function aux_sonValorYPaloDeCartaEspañola(códigoValor, códigoPalo) {
+  return(aux_esCódigoParaElComodín(códigoPalo) || 
+         (aux_esCódigoParaElValorDeCartaEspañola(códigoValor) 
+       && aux_esCódigoParaElPaloDeCartaEspañola(códigoPalo))
+        )
+}
+
+// ESTÁNDAR
+function aux_minCódigoParaLaCartaEspañola() { return(aux_códigoParaLaCartaEspañola(aux_minCartaEspañola())) }
+function aux_maxCódigoParaLaCartaEspañola() { return(aux_códigoParaLaCartaEspañola(aux_maxCartaEspañola())) }
+
+function aux_esCódigoParaLaCartaEspañola(códigoCartaEspañola) {
+  let (códigoValor, códigoPalo) := aux_analizarDatoCarta(códigoCartaEspañola)
+  return (aux_sonValorYPaloDeCartaEspañola(códigoValor, códigoPalo))
+}
+
+function aux_códigoParaLaCartaEspañola(carta) { 
+  return(choose
+           aux_producirDatoCarta(0, aux_códigoParaElComodín())                      when (aux_esComodín(carta))
+           aux_producirDatoCarta(aux_códigoParaElValorDeCartaEspañola(valor(carta))
+                                ,aux_códigoParaElPaloDeCartaEspañola(palo(carta)))  otherwise
+        ) 
+}
+
+function aux_cartaEspañolaParaElCódigo(códigoCarta) {
+  // PRECONDICIÓN: el códigoDatoCarta corresponde a los de una carta válida
+  if (not aux_esCódigoParaLaCartaEspañola(códigoCarta)) { BOOM("No es un código de carta válido") }
+  let (códigoValor, códigoPalo) := aux_analizarDatoCarta(códigoCarta)
+  return(choose
+           aux_armarComodín()                                    when (aux_esCódigoParaElComodín(códigoPalo))
+           aux_armarCartaEspañola(
+               aux_valorDeCartaEspañolaParaElCódigo(códigoValor)
+              ,aux_paloDeCartaEspañolaParaElCódigo(códigoPalo))  otherwise
+  )
+}
+
+function aux_códigoParaLaCartaEspañolaSiguiente(carta) { return (aux_códigoParaLaCartaEspañola(aux_cartaEspañolaSiguiente(carta))) }
+function aux_códigoParaLaCartaEspañolaPrevia(carta)    { return (aux_códigoParaLaCartaEspañola(aux_cartaEspañolaPrevia(carta)))    }
+
+//---------------------------------------------------------------------------------------------------/
+/*----------------- Operaciones auxiliares de codificación para el tablero --------------------------/
+/---------------------------------------------------------------------------------------------------*/
+function aux_códigoParaElTipoCartaEspañola()      { return(3)                                    }
+function aux_códigoParaElDatoCartaEspañola(carta) { return(aux_códigoParaLaCartaEspañola(carta)) }
+
+function aux_esTipoCartaEspañola(código) { return (código == aux_códigoParaElTipoCartaEspañola()) }
+function aux_esDatoCartaEspañola(dato)   { return (aux_esCódigoParaLaCartaEspañola(dato)) }
+
+procedure AuxPonerRepresentaciónParaLaCartaEspañola(carta) {
+  // PRECONDICIÓN: la celda está vacía
+  AuxPoner__Veces(aux_colorParaElTipo(), aux_códigoParaElTipoCartaEspañola()) 
+  AuxPoner__Veces(aux_colorParaElDato(), aux_códigoParaElDatoCartaEspañola(carta)) 
+}
+
+procedure AuxSacarRepresentaciónParaLaCartaEspañola() { 
+   // PRECONDICIÓN: hay una representación de cartas
+   AuxSacarTodas() 
+}
+
+//---------------------------------------------------------------------------------------------------/
+/*-------------------------- Auxiliares de atributos de cartas españolas ----------------------------/
+/---------------------------------------------------------------------------------------------------*/
+function  aux_códigoParaElAtributoReverso() { return(1) }
+function  aux_hayAtributoReverso()  { return (nroBolitas(aux_colorParaElAtributo())==aux_códigoParaElAtributoReverso()) }
+procedure AuxPonerAtributoReverso() { Poner__Veces(aux_colorParaElAtributo(), aux_códigoParaElAtributoReverso())        }
+procedure AuxSacarAtributoReverso() { Sacar__Veces(aux_colorParaElAtributo(), aux_códigoParaElAtributoReverso())        }
+
+function aux_códigoParaElAtributoIluminación() { return(2) }
+function  aux_hayAtributoIluminación()  { return (nroBolitas(aux_colorParaElAtributo())==aux_códigoParaElAtributoIluminación()) }
+procedure AuxPonerAtributoIluminación() { Poner__Veces(aux_colorParaElAtributo(), aux_códigoParaElAtributoIluminación())        }
+procedure AuxSacarAtributoIluminación() { Sacar__Veces(aux_colorParaElAtributo(), aux_códigoParaElAtributoIluminación())        }
+
+//---------------------------------------------------------------------------------------------------/
+/*--------------------------- Auxiliares específicas para MEMOTEST ----------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+// DE SENSADO
+function aux_laCartaEspañolaEstáIluminada() {
+  // PRECONDICIÓN: hay una carta española y no está tapada
+  return (aux_hayAtributoIluminación())
+}
+
+function aux_laCartaEspañolaEstáIluminadaConBoom() { 
+  if (not aux_hayCartaEspañola())      { BOOM("No hay una carta española que pueda estar iluminada")     }
+  if (aux_laCartaEspañolaEstáTapada()) { BOOM("Las cartas españolas tapadas no pueden estar iluminadas") }
+  return(aux_laCartaEspañolaEstáIluminada()) 
+}
+
+function aux_hayCartaEspañolaDestapadaSinIluminar() { 
+  return (aux_hayCartaEspañola()           
+       && not aux_laCartaEspañolaEstáTapada()
+       && not aux_laCartaEspañolaEstáIluminada())
+}
+
+function aux_hayOtraCartaEspañolaDestapadaSinIluminar() {
+  // PRECONDICIÓN: no hay ninguna celda marcada
+  AuxMarcar()
+  IrAlOrigen()
+  while (not aux_terminoElRecorrido() && not aux_hayCartaEspañolaDestapadaSinIluminarYSinMarca()) 
+      { AuxPasarASiguientePosición() }
+  valorDeRetorno := aux_hayCartaEspañolaDestapadaSinIluminarYSinMarca()
+  AuxVolverALaMarca()
+  AuxDesmarcar()
+  return(valorDeRetorno)
+}                                    
+
+function aux_hayCartaEspañolaDestapadaSinIluminarYSinMarca() { 
+   return (aux_hayCartaEspañolaDestapadaSinIluminar() && not aux_hayMarca()) 
+}
+
+// DE E/S
+procedure AuxIluminarLaCartaEspañolaActual() {
+  /* PROPÓSITO:
+      - si hay una carta destapada sin iluminar, la ilumina.
+      - en cualquier otro caso, no hace nada 
+        (las cartas tapadas o iluminadas permanecen igual y 
+        si no hay carta, no pasa nada)
+  */
+   if (aux_hayCartaEspañolaDestapadaSinIluminar()) { AuxPonerAtributoIluminación() } 
+ }
+ 
+/*==================================================================================================*/
+/*----------------------- FIN AUXILIARES de 03-CartasEspañolasDe50-Base.gbs ------------------------*/
+/*==================================================================================================*/
