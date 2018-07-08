@@ -2,13 +2,13 @@ interactive program {
   K_ARROW_RIGHT -> {
     indice := nroBolitas(Rojo) + 1
     LimpiarTablero()
-    TestsDeCartas(indice)
+    TestsDePalosDeCartaEspañola(indice)
     IrAlOrigen()
     Poner__Veces(Rojo, 1)
   }
 }
 
-procedure TestsDeCartas(códigoDeTest) {
+procedure TestsDePalosDeCartaEspañola(códigoDeTest) {
   if (códigoDeTest == 1) {
     TestPalos()
   } elseif (códigoDeTest == 2) {
