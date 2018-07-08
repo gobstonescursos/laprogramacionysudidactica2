@@ -3,13 +3,13 @@
 /*---------------------------- INTERFAZ de 03-CartasEspañolas-Base.gbs -----------------------------*/
 /*---------------------------------- (ver  19 líneas más adelante) ---------------------------------*/
 /*------------------------- INTERFAZ de 03-01-PalosDeCartaEspañola-Base.gbs ------------------------*/
-/*---------------------------------- (ver 603 líneas más adelante) ---------------------------------*/
+/*---------------------------------- (ver 618 líneas más adelante) ---------------------------------*/
 /*------------------------ INTERFAZ de 03-02-ValoresDeCartaEspañola-Base.gbs -----------------------*/
 /*---------------------------------- (ver 419 líneas más adelante) ---------------------------------*/
 /*--------------------------------- INTERFAZ de 01-Letras-Base.gbs ---------------------------------*/
-/*---------------------------------- (ver 848 líneas más adelante) ---------------------------------*/
+/*---------------------------------- (ver 863 líneas más adelante) ---------------------------------*/
 /*------------------------------- INTERFAZ de 00.Gobstones-Base.gbs --------------------------------*/
-/*---------------------------------- (ver 754 líneas más adelante) ---------------------------------*/
+/*---------------------------------- (ver 769 líneas más adelante) ---------------------------------*/
 /*==================================================================================================*/
 
 /*==================================================================================================*/
@@ -470,10 +470,8 @@ procedure AuxIluminarLaCartaEspañolaActual() {
 /*@ATTRIBUTE@block_name@_ es mayor valor que _@*/ function esMayorValor__(valor1, valor2) { return(aux_esMayorValorDeCartaEspañola(valor1, valor2)) }
 /*@ATTRIBUTE@block_name@el valor más chico@*/     function minValor()             { return(aux_minValorDeCartaEspañola())                }
 /*@ATTRIBUTE@block_name@el valor más grande@*/    function maxValor()             { return(aux_maxValorDeCartaEspañola())                }
-///*@ATTRIBUTE@block_name@valor siguiente a _@*/    function valorSiguiente_(valor) { return(aux_valorDeCartaEspañolaDe50Siguiente(valor)) }
-///*@ATTRIBUTE@block_name@valor previo a _@*/       function valorPrevio_(valor)    { return(aux_valorDeCartaEspañolaDe50Previo(valor))    }
-/*@ATTRIBUTE@block_name@valor siguiente a _@*/    function valorSiguiente_(valor) { return(aux_valorDeCartaEspañolaDe40Siguiente(valor)) }
-/*@ATTRIBUTE@block_name@valor previo a _@*/       function valorPrevio_(valor)    { return(aux_valorDeCartaEspañolaDe40Previo(valor))    }
+/*@ATTRIBUTE@block_name@valor siguiente a _@*/    function valorSiguiente_(valor) { return(aux_valorDeCartaEspañolaSiguiente(valor)) }
+/*@ATTRIBUTE@block_name@valor previo a _@*/       function valorPrevio_(valor)    { return(aux_valorDeCartaEspañolaPrevio(valor))    }
 
 //---------------------------------------------------------------------------------------------------/
 /*------------------ Operaciones de sensado de valores en el tablero (interfaz) ---------------------/
@@ -488,7 +486,6 @@ procedure AuxIluminarLaCartaEspañolaActual() {
 /* NO HAY OPERACIONES DE E/S de valores de carta española INDIVIDUALES
    Los valores de carta española son parte del tipo carta española
  */
-
 /*==================================================================================================*/
 /*--------------------- FIN INTERFAZ de 03-02-ValoresDeCartaEspañola-Base.gbs ----------------------*/
 /*==================================================================================================*/
@@ -497,6 +494,17 @@ procedure AuxIluminarLaCartaEspañolaActual() {
 /*==================================================================================================*/
 /*---------------------- AUXILIARES de 03-02-ValoresDeCartaEspañola-Base.gbs -----------------------*/
 /*==================================================================================================*/
+
+//---------------------------------------------------------------------------------------------------/
+/*--------------- Operaciones a cambiar para pasar de 40 a 50 cartas (auxiliares) -------------------/
+/---------------------------------------------------------------------------------------------------*/
+//function aux_esCódigoParaElValorDeCartaEspañola(valor)      { return (aux_esCódigoParaElValorDeCartaEspañolaDe50(valor)) }
+function aux_esCódigoParaElValorDeCartaEspañola(valor)      { return (aux_esCódigoParaElValorDeCartaEspañolaDe40(valor)) }
+
+//function aux_códigoParaElValorDeCartaEspañolaSiguiente(valor) { return (aux_códigoParaElValorDeCartaEspañolaDe50Siguiente(valor)) }
+//function aux_códigoParaElValorDeCartaEspañolaPrevio(valor)    { return (aux_códigoParaElValorDeCartaEspañolaDe50Previo(valor))    }
+function aux_códigoParaElValorDeCartaEspañolaSiguiente(valor) { return (aux_códigoParaElValorDeCartaEspañolaDe40Siguiente(valor)) }
+function aux_códigoParaElValorDeCartaEspañolaPrevio(valor)    { return (aux_códigoParaElValorDeCartaEspañolaDe40Previo(valor))    }
 
 //---------------------------------------------------------------------------------------------------/
 /*----------------------------- Auxiliares para construir valores -----------------------------------/
@@ -508,24 +516,21 @@ procedure AuxIluminarLaCartaEspañolaActual() {
 //---------------------------------------------------------------------------------------------------/
 /*------------------------------ Auxiliares para acceso a valores -----------------------------------/
 /---------------------------------------------------------------------------------------------------*/
-// ¡¡¡¡LOS VALORES SON DIRECTAMENTE SU CÓDIGO!!!! Por eso no están las funciones de decodificación
-
 // ESPECÍFICAS
-function aux_esValorDeCartaEspañola(valor)  { return (aux_esCódigoParaElValorDeCartaEspañola(valor)) }
+function aux_esValorDeCartaEspañola(valor)      { return (aux_esCódigoParaElValorDeCartaEspañola(valor)) }
+    // ATENCIÓN: depende de la elección de la auxiliar si es de 40 o de 50 cartas
 
 // ESTÁNDAR
-function aux_esMenorValorDeCartaEspañola(valor1, valor2) { return (valor1 < valor2) }
-function aux_esMayorValorDeCartaEspañola(valor1, valor2) { return (valor1 > valor2) }
+function aux_esMenorValorDeCartaEspañola(valor1, valor2) { return (aux_códigoParaElValorDeCartaEspañola(valor1) < aux_códigoParaElValorDeCartaEspañola(valor2)) }
+function aux_esMayorValorDeCartaEspañola(valor1, valor2) { return (aux_códigoParaElValorDeCartaEspañola(valor1) > aux_códigoParaElValorDeCartaEspañola(valor2)) }
+    // ATENCIÓN: dependen de la elección de la auxiliar si es de 40 o de 50 cartas
   
 function aux_minValorDeCartaEspañola() { return (aux_minCódigoParaElValorDeCartaEspañola()) }
 function aux_maxValorDeCartaEspañola() { return (aux_maxCódigoParaElValorDeCartaEspañola()) }
 
-function aux_valorDeCartaEspañolaSiguiente(valor) { return (aux_códigoParaElValorDeCartaEspañolaDe40Siguiente(valor)) }
-function aux_valorDeCartaEspañolaPrevio(valor)    { return (aux_códigoParaElValorDeCartaEspañolaDe40Previo(valor))    }
-//function aux_valorDeCartaEspañolaDe50Siguiente(valor) { return (aux_códigoParaElValorDeCartaEspañolaDe50Siguiente(valor)) }
-//function aux_valorDeCartaEspañolaDe50Previo(valor)    { return (aux_códigoParaElValorDeCartaEspañolaDe50Previo(valor))    }
-function aux_valorDeCartaEspañolaDe40Siguiente(valor) { return (aux_códigoParaElValorDeCartaEspañolaDe40Siguiente(valor)) }
-function aux_valorDeCartaEspañolaDe40Previo(valor)    { return (aux_códigoParaElValorDeCartaEspañolaDe40Previo(valor))    }
+function aux_valorDeCartaEspañolaSiguiente(valor) { return (aux_códigoParaElValorDeCartaEspañolaSiguiente(valor)) }
+function aux_valorDeCartaEspañolaPrevio(valor)    { return (aux_códigoParaElValorDeCartaEspañolaPrevio(valor))    }
+    // ATENCIÓN: dependen de la elección de la auxiliar si es de 40 o de 50 cartas
 
 //---------------------------------------------------------------------------------------------------/
 /*------------------ Auxiliares para sensar valores de carta española en el tablero -----------------/
@@ -547,9 +552,16 @@ function aux_valorDeCartaEspañolaDe40Previo(valor)    { return (aux_códigoPara
 function aux_minCódigoParaElValorDeCartaEspañola() { return (1)  }
 function aux_maxCódigoParaElValorDeCartaEspañola() { return (12) }
 
-function aux_esCódigoParaElValorDeCartaEspañola(códigoValor) {   
+function aux_esCódigoParaElValorDeCartaEspañolaDe50(códigoValor) {   
   return (códigoValor >= aux_minCódigoParaElValorDeCartaEspañola() 
        && códigoValor <= aux_maxCódigoParaElValorDeCartaEspañola())
+}
+
+function aux_esCódigoParaElValorDeCartaEspañolaDe40(códigoValor) {   
+  return (códigoValor >= aux_minCódigoParaElValorDeCartaEspañola() 
+       && códigoValor <= aux_maxCódigoParaElValorDeCartaEspañola()
+       && códigoValor /= 8 && códigoValor /= 9
+         )
 }
 
 function aux_códigoParaElValorDeCartaEspañola(valor)  { 
@@ -562,6 +574,9 @@ function aux_valorDeCartaEspañolaParaElCódigo(códigoValor) {
   return (códigoValor) 
 }
 
+//-----------
+// PARA aux_códigoParaElValorDeCartaEspañolaSiguiente y aux_códigoParaElValorDeCartaEspañolaPrevio VER SECCIÓN DE MODULARIZACIÓN DE 40 a 50 cartas
+//-----------
 function aux_códigoParaElValorDeCartaEspañolaDe50Siguiente(valor) {
   return (choose 
            aux_minCódigoParaElValorDeCartaEspañola()  when (valor == aux_maxCódigoParaElValorDeCartaEspañola())
