@@ -60,19 +60,6 @@ blocks:
         <block type="SacarCartaActual"></block>
         <block type="DarVueltaLaCartaActual"></block>
     </category>
-    <category name="Operaciones de Letras">
-        <block type="letra_"></block>
-        <block type="leerLetra"></block>
-        <block type="PonerLetra_"></block>
-        <block type="SacarLetraActual"></block>
-        <block type="hayLetra"></block>
-        <block type="esMenorLetra__"></block>
-        <block type="esMayorLetra__"></block>
-        <block type="minLetra"></block>
-        <block type="maxLetra"></block>
-        <block type="letraSiguiente_"></block>
-        <block type="letraPrevia_"></block>
-    </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">  </category>
     <category name="Definiciones">
         <block type="procedures_defnoreturn"></block>
@@ -92,7 +79,7 @@ execution_speed:
     can_change_speed: true
 library:
   visible: false
-name: Test cartas
+name: Test palos
 source:
   visible: true
   percentage: 0.90
