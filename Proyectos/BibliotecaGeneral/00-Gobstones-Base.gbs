@@ -10,19 +10,18 @@
 /*@ATTRIBUTE@block_name@Poner _, _ veces@*/ procedure Poner__Veces(c,n) { AuxPoner__Veces(c,n) }
 /*@ATTRIBUTE@block_name@Sacar _, _ veces@*/ procedure Sacar__Veces(c,n) { AuxSacar__Veces(c,n) }
 /*@ATTRIBUTE@block_name@Mover _, _ veces@*/ procedure Mover__Veces(d,n) { AuxMover__Veces(d,n) }
-procedure SacarTodas()   { AuxSacarTodas()   }
-procedure SacarTodas_(c) { AuxSacarTodas_(c) }
+procedure SacarTodas()       { AuxSacarTodas()      }
+procedure SacarTodas_(c)     { AuxSacarTodas_(c)    }
+procedure MoverSiPuede_(dir) { AuxMoverSiPuede(dir) }
 
-procedure IrAlOrigen()   { AuxIrAlOrigen()   }
-
-procedure PasarASiguientePosiciónHacia_(dir) { AuxPasarASiguientePosiciónHacia(dir) }
-procedure PasarASiguientePosición()          { AuxPasarASiguientePosición()         }
+procedure IrAlOrigen()              { AuxIrAlOrigen()              }
+procedure PasarASiguientePosición() { AuxPasarASiguientePosición() }
 /*==================================================================================================*/
 /*----------------------------- FIN INTERFAZ de 00.Gobstones-Base.gbs ------------------------------*/
 /*==================================================================================================*/
 
 /*==================================================================================================*/
-/*------------------------------ AUXILIARES de 00-Gobstones-Base.gbs -------------------------------*/
+  /*------------------------------ AUXILIARES de 00-Gobstones-Base.gbs -------------------------------*/
 /*==================================================================================================*/
 
 //---------------------------------------------------------------------------------------------------/
@@ -35,7 +34,9 @@ procedure AuxMover__Veces(d,n) { repeat (n) { Mover(d) } }
 procedure AuxSacarTodas()   { foreach c in [minColor()..maxColor()] { AuxSacarTodas_(c) } }
 procedure AuxSacarTodas_(c) { AuxSacar__Veces(c, nroBolitas(c)) }
 
-procedure AuxIrAlOrigen()   { IrAlBorde(Sur) IrAlBorde(Oeste) }
+procedure AuxIrAlOrigen()              { AuxIrAlOrigenGral(Sur,Oeste)                }
+procedure AuxMoverSiPuede(dir)         { if (puedeMover(dir)) { Mover(dir) }         }
+procedure AuxPasarASiguientePosición() { AuxPasarASiguientePosiciónGral(Este, Norte) }
 
 //---------------------------------------------------------------------------------------------------/
 /*---------------------------- Operaciones auxiliares de codificación -------------------------------/
@@ -51,17 +52,7 @@ function aux_leerAtributo() { return(nroBolitas(aux_colorParaElAtributo())) }
 function aux_leerMarca()    { return(nroBolitas(aux_colorParaLaMarca()))    }
 
 //---------------------------------------------------------------------------------------------------/
-/*--------------------------------- Operaciones de movimiento ---------------------------------------/
-/---------------------------------------------------------------------------------------------------*/
-procedure AuxPasarASiguientePosiciónHacia(dir) { if (puedeMover(dir)) { Mover(dir) } }
-procedure AuxPasarASiguientePosición() {
-    if     (puedeMover(Este))  { Mover(Este)                     }
-    elseif (puedeMover(Norte)) { IrAlBorde(Oeste) Mover(Norte)   }
-    else                       { IrAlBorde(Oeste) IrAlBorde(Sur) }
-}
-
-//---------------------------------------------------------------------------------------------------/
-/*---------------------------------- Operaciones de recorrido ---------------------------------------/
+/*----------------------------------- Operaciones de marcas -----------------------------------------/
 /---------------------------------------------------------------------------------------------------*/
 // La marca son 100 bolitas del aux_colorParaMarca, pero puede haber otras marcas antes
 function  aux_códigoParaLaMarca() { return(100) }
@@ -74,11 +65,30 @@ procedure AuxDesmarcar() {
 
 procedure AuxVolverALaMarca() {
   // PRECONDICIÓN: hay una marca en el tablero
-  AuxIrAlOrigen()
-  while (not aux_terminoElRecorrido() && not aux_hayMarca()) { AuxPasarASiguientePosición() }
+  AuxIniciarRecorrido()
+  while (not aux_terminóElRecorrido() && not aux_hayMarca()) { AuxAvanzarRecorrido() }
 }
 
-function aux_terminoElRecorrido() { return (not puedeMover(Este) && not puedeMover(Norte)) }
+//---------------------------------------------------------------------------------------------------/
+/*---------------------------------- Operaciones de recorrido ---------------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+// El Recorrido default es Este-Norte
+procedure AuxIniciarRecorrido()    { AuxIniciarRecorridoGral(Oeste, Sur)             }
+procedure AuxAvanzarRecorrido()    { AuxAvanzarRecorridoGral(Este, Norte)     }
+function  aux_terminóElRecorrido() { return (aux_terminóElRecorridoGral(Este,Norte)) }
+
+procedure AuxIniciarRecorridoGral(dirPpal, dirSecundaria) 
+  { IrAlBorde(opuesto(dirPpal)) IrAlBorde(opuesto(dirSecundaria)) }
+
+function aux_terminóElRecorridoGral(dirPpal, dirSecundaria) 
+  { return (not puedeMover(dirPpal) && not puedeMover(dirSecundaria)) }
+
+procedure AuxAvanzarRecorridoGral(dirPpal, dirSecundaria) {
+    if     (puedeMover(dirPpal))       { Mover(dirPpal)                                                }
+    elseif (puedeMover(dirSecundaria)) { IrAlBorde(opuesto(dirPpal)) Mover(dirSecundaria)              }
+    else                               { IrAlBorde(opuesto(dirPpal)) IrAlBorde(opuesto(dirSecundaria)) }
+}
+
 /*==================================================================================================*/
 /*---------------------------- FIN AUXILIARES de 00-Gobstones-Base.gbs -----------------------------*/
 /*==================================================================================================*/
