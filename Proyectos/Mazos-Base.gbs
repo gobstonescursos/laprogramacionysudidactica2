@@ -1,75 +1,154 @@
-/////////////////////////////////////////////////////////////////////
-// PRESUPONE LA EXISTENCIA EN EL MISMO PROGRAMA DE Cartas-Base.gbs
-/////////////////////////////////////////////////////////////////////
+/*==================================================================================================*/
+/*--------------------------------- REQUIERE 00-Gobstones-Base.gbs ---------------------------------*/
+/*--------------------- (provisto también para 03-01-PalosDeCartaEspañola-Base.gbs  ----------------*/
+/*--------------------------- y para 03-02-ValoresDeCartaEspañola-Base.gbs) ------------------------*/
+/*-------------------------- REQUIERE 03-01-PalosDeCartaEspañola-Base.gbs --------------------------*/
+/*----------------------- REQUIERE 03-02-ValoresDeCartaEspañolaDe40-Base.gbs -----------------------*/
+/*---------------------------- REQUIERE 03-CartasEspañolasDe40-Base.gbs ----------------------------*/
+/*==================================================================================================*/
 
-//--------------------------------
-// Operaciones de mazos (interfaz)
-//--------------------------------
-function mazoVacío()                   { return([])                            }
-/// PRUEBA: /*@ATTRIBUTE@block_method@_.agregar la carta _ al final@*/
+/*==================================================================================================*/
+/*---------------------------- INTERFAZ de 04-MazoEspañolaDe40-Base.gbs -----------------------------/
+/----- Autor: Pablo E. "Fidel" Martínez López -------------------------------------------------------/
+/----- EMail: fidel@unq.edu.ar                -------------------------------------------------------/
+/----- Fecha creación: 2018.06                -------------------------------------------------------/
+/----- Fecha última modificación: 2018.06     -------------------------------------------------------/
+/----- Licencia: GNU General Public License, v2                                             ---------/
+/----- Sitio Oficial de la licencia: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html  --------*/
+/*==================================================================================================*/
+
+//---------------------------------------------------------------------------------------------------/
+/*-------------------------------------- Definiciones de tipos --------------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+type Mazo is record {
+  // INVARIANTE DE REPRESENTACIÓN: el tamaño es siempre la longitud de la lista de cartas
+      field cartas
+      field tamaño
+}
+
+//---------------------------------------------------------------------------------------------------/
+/*--------------------- Operaciones de creación de un mazo español (interfaz) -----------------------/
+/---------------------------------------------------------------------------------------------------*/
+function mazoVacío()                      { return(aux_armarMazoVacío())              }
+
 /*@ATTRIBUTE@block_name@agregar al mazo _ la carta _ al final@*/ 
-function agregarAlMazo__(mazo, carta)  { return(aux_agregarAlMazo(mazo, carta) }
+function agregarAlFinalDelMazo__(m,c)     { return(aux_agregarAlFinalDelMazo(m,c)     }
+/*@ATTRIBUTE@block_name@agregar al mazo _ la carta _ al principio@*/ 
+function agregarAlPrincipioDelMazo__(m,c) { return(aux_agregarAlPrincipioDelMazo(m,c) }
 
+function juntarMazos__(m1,m2)             { return(aux_juntarMazos(m1,m2)             }
+function mazoEspañol()                    { return(aux_mazoEspañol())                 }
+  // 
+
+//---------------------------------------------------------------------------------------------------/
+/*----------------------- Operaciones de acceso a un mazo español (interfaz) ------------------------/
+/---------------------------------------------------------------------------------------------------*/
 /*@ATTRIBUTE@block_name@quedan cartas en _?@*/ 
-function quedanCartas_(m) { return(aux_quedanCartas(m)) }
+function quedanCartas_(m)              { return(aux_quedanCartas(m))            }
 
-function dameLaPrimeraCartaDe_(mazo)   { return(aux_dameLaPrimeraCarta(mazo))  }
-function sacarLaPrimeraCartaDe_(mazo)  { return(aux_sacarLaPrimeraCarta(mazo)) }
+/*@ATTRIBUTE@block_name@cantidad de cartas del mazo _@*/ 
+function cantidadDeCartasDelMazo_(m)   { return(aux_cantidadDeCartasDelMazo(m)) }
 
-function mazoEspañolChinChon() { return(aux_mazoEspañolChinChon()) }
-function mazoEspañolTruco()    { return(aux_mazoEspañolTruco())    }
+function dameLaPrimeraCartaDe_(mazo)   { return(aux_dameLaPrimeraCarta(mazo))   }
+function sacarLaPrimeraCartaDe_(mazo)  { return(aux_sacarLaPrimeraCarta(mazo))  }
 
+function dameLaÚltimaCartaDe_(mazo)    { return(aux_dameLaÚltimaCarta(mazo))    }
+function sacarLaÚltimaCartaDe_(mazo)   { return(aux_sacarLaÚltimaCarta(mazo))   }
+
+function dameLaCartaMásGrandeDe_(mazo) { return(aux_dameLaCartaMásGrande(mazo)) }
+function dameLaCartaMásChicaDe_(mazo)  { return(aux_dameLaCartaMásChica(mazo))  }
+
+//---------------------------------------------------------------------------------------------------/
+/*------------------ Operaciones de manipulación de un mazo español (interfaz) ----------------------/
+/---------------------------------------------------------------------------------------------------*/
 function  leerMazo()         { return (aux_leerMazo()) }
 function  SacarMazo()        { AuxSacarMazo()          }
 procedure MostrarMazo_(mazo) { AuxMostrarMazo(mazo)    }
 
-//--------------------------------
-//--------------------------------
-// AUXILIARES
-//--------------------------------
-//--------------------------------
+/*==================================================================================================*/
+/*-------------------------- FIN INTERFAZ de 04-MazoEspañolaDe40-Base.gbs --------------------------*/
+/*==================================================================================================*/
+
+
+/*==================================================================================================*/
+/*--------------------------- AUXILIARES de 04-MazoEspañolaDe40-Base.gbs ---------------------------*/
+/*==================================================================================================*/
+
+//---------------------------------------------------------------------------------------------------/
+/*--------------- Operaciones a cambiar para pasar de 40 a 50 cartas (auxiliares) -------------------/
+/---------------------------------------------------------------------------------------------------*/
+// POR AHORA, NINGUNA (DEPENDE DE LOS MÓDULOS IMPORTADOS: Cartas y Valores)
+
+//---------------------------------------------------------------------------------------------------/
+/*------------------------ Auxiliares para construir mazos españoles --------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+function aux_armarMazoVacío()                { return(Mazo(cartas<-[]            
+                                                          ,tamaño<-0))                     }
+function aux_agregarAlFinalDelMazo(m, c)     { return(Mazo(cartas<-cartas(m)++[c]
+                                                          ,tamaño<-tamaño(m)+1))           }
+function aux_agregarAlPrincipioDelMazo(m, c) { return(Mazo(cartas<-[c]++cartas(m)                                                     
+                                                          ,tamaño<-tamaño(m)+1))           }
+function aux_juntarMazos(m1,m2)              { return(Mazo(cartas<-cartas(m1)++cartas(m2)
+                                                          ,tamaño<-tamaño(m1)+tamaño(m2))) }
+
+function aux_mazoEspañol() {
+    // La decisión de si es de 40 o de 50 cartas depende de los valores
+    let (cs,n) := aux_armarRepresentaciónDeMazoEspañol()
+    return(Mazo(cartas<-cs, tamaño<-n))
+}
+
+//---------------------------------------------------------------------------------------------------/
+/*------------------------- Auxiliares para acceso a mazos españoles --------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+function aux_quedanCartas(mazo) {
+  //if (not aux_esUnMazoVálido(mazo)) { BOOM("No es un mazo válido. ¿Lo manipulaste por tu cuenta?") }
+  return(tamaño(mazo)>0)
+}
+
+function aux_cantidadDeCartasDelMazo(mazo) {
+  //if (not aux_esUnMazoVálido(mazo)) { BOOM("No es un mazo válido. ¿Lo manipulaste por tu cuenta?") }
+  return(tamaño(mazo))
+}
+
+function aux_dameLaPrimeraCarta(mazo)   {
+  // PRECONDICIÓN: quedan cartas en el mazo, y es válido
+  //if (not aux_esUnMazoVálido(mazo)) { BOOM("No es un mazo válido. ¿Lo manipulaste por tu cuenta?") }
+  return(primero(cartas(mazo)))
+}
+
+function aux_sacarLaPrimeraCarta(mazo)  {
+  // PRECONDICIÓN: quedan cartas en el mazo, y es válido
+  //if (not aux_esUnMazoVálido(mazo)) { BOOM("No es un mazo válido. ¿Lo manipulaste por tu cuenta?") }
+  return(aux_sacarLaPrimeraCartaDeRepresentaciónDeMazoEspañol(mazo))
+}
+
+function aux_dameLaÚltimaCarta(mazo)   {
+  // PRECONDICIÓN: quedan cartas en el mazo, y es válido
+  //if (not aux_esUnMazoVálido(mazo)) { BOOM("No es un mazo válido. ¿Lo manipulaste por tu cuenta?") }
+  return(último(cartas(mazo)))
+}
+
+function aux_sacarLaÚltimaCarta(mazo)  {
+  // PRECONDICIÓN: quedan cartas en el mazo, y es válido
+  //if (not aux_esUnMazoVálido(mazo)) { BOOM("No es un mazo válido. ¿Lo manipulaste por tu cuenta?") }
+  return(aux_sacarLaÚltimaCartaDeRepresentaciónDeMazoEspañol(mazo))
+}
+
+function aux_dameLaCartaMásGrande(mazo)  {
+  // PRECONDICIÓN: quedan cartas en el mazo, y es válido
+  //if (not aux_esUnMazoVálido(mazo)) { BOOM("No es un mazo válido. ¿Lo manipulaste por tu cuenta?") }
+  return(aux_dameLaMásGrandeDeRepresentaciónDeMazoEspañol(mazo))
+}
+
+function aux_dameLaCartaMásChica(mazo)  {
+  // PRECONDICIÓN: quedan cartas en el mazo, y es válido
+  //if (not aux_esUnMazoVálido(mazo)) { BOOM("No es un mazo válido. ¿Lo manipulaste por tu cuenta?") }
+  return(aux_dameLaMásChicaDeRepresentaciónDeMazoEspañol(mazo))
+}
 
 //--------------------------------
 // Operaciones de mazos
 //--------------------------------
-function aux_agregarAlMazo(mazo, carta) { return(mazo ++ [ carta ]) }
-
-function aux_quedanCartas(mazo)         { return(not(mazo==[])) }
-
-// PRECONDICIÓN: quedan cartas en el mazo
-function aux_dameLaPrimeraCarta(mazo)   { return(primero(mazo)) }
-function aux_sacarLaPrimeraCarta(mazo)  { return(resto(mazo))   }
-
-function aux_mazoEspañolChinChon() {
-    mazo := []
-    foreach palo in [ Espadas, Oros, Copas, Bastos ]
-      { mazo := mazo ++ aux_cartasEspañolasChinChonDe(palo) }
-    mazo := mazo ++ [ aux_comodín(), aux_comodín() ]
-    return(mazo)
-}
-
-function aux_cartasEspañolasChinChonDe(palo) {
-    cartasDelPalo := []
-    foreach valor in [1..12] 
-      { cartasDelPalo := cartasDelPalo ++ [ aux_carta(valor,palo) ] }
-    return(cartasDelPalo)
-}
-
-function aux_mazoEspañolTruco() {
-    mazo := []
-    foreach palo in [Espadas, Oros, Copas, Bastos] 
-      { mazo := mazo ++ aux_cartasEspañolasTrucoDe(palo) }
-    return(mazo)
-}
-
-function aux_cartasEspañolasTrucoDe(palo) {
-    cartasDelPalo := []
-    foreach valor in [1..7]   
-      { cartasDelPalo := cartasDelPalo ++ [ aux_carta(valor,palo) ] }
-    foreach valor in [10..12] 
-      { cartasDelPalo := cartasDelPalo ++ [ aux_carta(valor,palo) ] }
-    return(cartasDelPalo)
-}
 
 function aux_leerMazo() {
    mazo := []
@@ -100,3 +179,100 @@ procedure AuxMostrarMazo(mazo) {
    }
    if (aux_quedanCartas(faltanMostrar)) { AuxPonerCartaDestapada(primero(faltanMostrar)) }
 }
+
+/*==================================================================================================*/
+/*------------------------ FIN AUXILIARES de 04-MazoEspañolaDe40-Base.gbs --------------------------*/
+/*==================================================================================================*/
+
+function aux_armarRepresentaciónDeMazoEspañol() {
+  // RECORRIDO SOBRE LOS PALOS
+  paloActual      := aux_minPaloDeCartaEspañola()          // INICIAR EN EL PRIMER PALO
+  cartasARetornar := []
+  lenARetornar    := 0
+  while(not (paloActual==aux_maxPaloDeCartaEspañola)) {    // NO ES EL ÚLTIMO PALO
+                                                           // PROCESAR EL PALO ACTUAL
+    let (cartasDelPalo, lenDelPalo) := aux_armarRepresentaciónDeCartasDeMazoEspañolDe(paloActual)
+    cartasARetornar := cartasARetornar ++ cartasDelPalo
+    lenARetornar    := lenARetornar    +  lenDelPalo
+                                                          // PASAR AL SIGUIENTE PALO
+    paloActual      := aux_paloDeCartaEspañolaSiguiente(paloActual)
+  }
+                                                          // PROCESAR EL ÚLTIMO PALO POR SEPARADO
+  let (cartasDelPalo, lenDelPalo) := aux_armarRepresentaciónDeCartasDeMazoEspañolDe(paloActual)
+  cartasARetornar := cartasARetornar ++ cartasDelPalo
+  lenARetornar    := lenARetornar    +  lenDelPalo
+
+  return (cartasARetornar, lenARetornar)
+}
+
+function aux_armarRepresentaciónDeCartasDeMazoEspañolDe(palo) {
+  // RECORRIDO SOBRE LOS VALORES DEL PALO DADO
+  valorActual     := aux_minValorDeCartaEspañola()         // INICIAR EN EL PRIMER VALOR
+  cartasARetornar := []
+  lenARetornar    := 0
+  while(not (valorActual==aux_maxValorDeCartaEspañola)) {  // NO ES EL ÚLTIMO VALOR
+                                                           // PROCESAR EL VALOR ACTUAL
+    cartasARetornar := cartasARetornar ++ [aux_armarCartaEspañola(valorActual, palo)]
+    lenARetornar    := lenARetornar    +  1
+                                                          // PASAR AL SIGUIENTE VALOR
+    valorActual     := aux_valorDeCartaEspañolaSiguiente(valorActual)
+  }
+                                                          // PROCESAR EL ÚLTIMO VALOR POR SEPARADO
+  cartasARetornar := cartasARetornar ++ [aux_armarCartaEspañola(valorActual, palo)]
+  lenARetorna  r  := lenARetornar    +  1 
+
+  return (cartasARetornar, lenARetornar)
+}
+
+function aux_esUnMazoVálido(mazo) { return(aux_calcularLongitud(cartas(mazo))==tamaño(mazo)) }
+
+function aux_calcularLongitud(xs) {
+  len := 0
+  foreach x in xs { len := len + 1 }
+  return(len)
+}
+
+function aux_sacarLaPrimeraCartaDeRepresentaciónDeMazoEspañol(mazo) {
+  return(Mazo(cartas<-resto(cartas(mazo))
+             ,tamaño<-tamaño(mazo)-1))
+}
+
+function aux_sacarLaÚltimaCartaDeRepresentaciónDeMazoEspañol(mazo) {
+  return(Mazo(cartas<-comienzo(cartas(mazo))
+             ,tamaño<-tamaño(mazo)-1))
+}
+
+function aux_dameLaMásGrandeDeRepresentaciónDeMazoEspañol(mazo) {
+  // PRECONDICIÓN: el mazo no está vacío
+  // RECORRIDO SOBRE LAS CARTAS DEL MAZO
+  cartasARecorrer := cartas(mazo)
+  másGrandeActual := primero(cartasARecorrer)          // INICIO CON LA PRIMER CARTA
+  cartasARecorrer := resto(cartasARecorrer)
+  while (not esVacía(cartasARecorrer)) {               // NO SE ACABARON LAS CARTAS?
+                                                       // PROCESAR LA PRÓXIMA CARTA
+    if (aux_esMayorCartaEspañola(primero(cartasARecorrer), másGrandeActual))
+      { másGrandeActual := primero(cartasARecorrer) }
+                                                       // PASAR A LA SIGUENTE CARTA
+    cartasARecorrer := resto(cartasARecorrer)
+  }
+  return(másGrandeActual)
+}
+
+function aux_dameLaMásChicaDeRepresentaciónDeMazoEspañol(mazo) {
+  // PRECONDICIÓN: el mazo no está vacío
+  // RECORRIDO SOBRE LAS CARTAS DEL MAZO
+  cartasARecorrer := cartas(mazo)
+  másChicaActual  := primero(cartasARecorrer)          // INICIO CON LA PRIMER CARTA
+  cartasARecorrer := resto(cartasARecorrer)
+  while (not esVacía(cartasARecorrer)) {               // NO SE ACABARON LAS CARTAS?
+                                                       // PROCESAR LA PRÓXIMA CARTA
+    if (aux_esMenorCartaEspañola(primero(cartasARecorrer), másChicaActual))
+      { másChicaActual := primero(cartasARecorrer) }
+                                                       // PASAR A LA SIGUENTE CARTA
+    cartasARecorrer := resto(cartasARecorrer)
+  }
+  return(másChicaActual)
+}
+
+function último(xs)  { return (ultimo(xs)) }
+function esVacía(xs) { return (xs==[])     }

@@ -50,7 +50,7 @@ type CartaEspañola is variant {
 //---------------------------------------------------------------------------------------------------/
 /*---------------- Operaciones de sensado de cartas españolas en el tablero (interfaz) --------------/
 /---------------------------------------------------------------------------------------------------*/
-function hayCarta() { return(aux_hayCartaEspañola()) }
+function hayCarta()          { return(aux_hayCartaEspañola())                                    }
 
 function laCartaEstáTapada() { return(aux_laCartaEspañolaEstáTapadaConBoom())                    }
 function hayCartaTapada()    { return(aux_hayCartaEspañola() && aux_laCartaEspañolaEstáTapada()) }
@@ -75,7 +75,7 @@ function hayCartaDestapadaSinIluminar()     { return(aux_hayCartaEspañolaDestap
 function hayOtraCartaDestapadaSinIluminar() { return(aux_hayOtraCartaEspañolaDestapadaSinIluminar()) }
 
 // De E/S
-procedure IluminarLaCartaActual()     { AuxIluminarLaCartaEspañolaActual()    }
+procedure IluminarLaCartaActual()           { AuxIluminarLaCartaEspañolaActual()                     }
 
 /*==================================================================================================*/
 /*------------------------ FIN INTERFAZ de 03-CartasEspañolasDE50-Base.gbs -------------------------*/
@@ -90,27 +90,27 @@ procedure IluminarLaCartaActual()     { AuxIluminarLaCartaEspañolaActual()    }
 /*--------------- Operaciones a cambiar para pasar de 40 a 50 cartas (auxiliares) -------------------/
 /---------------------------------------------------------------------------------------------------*/
 // DEBE ELEGIRSE LA BIBLIOTECA DE VALORES SINCRONIZADA CON ESTA SECCIÓN
-function aux_armarComodín()     { return(aux_armarComodínDe50())     }
-function aux_esComodín(carta)   { return(aux_esComodínDe50(carta))   }
+function aux_armarComodín()                       { return(aux_armarComodínDe50())                        }
+function aux_esComodín(carta)                     { return(aux_esComodínDe50(carta))                      }
 
-function aux_maxCartaEspañola() { return(aux_maxCartaEspañolaDe50()) }
+function aux_maxCartaEspañola()                   { return(aux_maxCartaEspañolaDe50())                    }
 
-function aux_cartaEspañolaSiguiente(carta) { return(aux_cartaEspañolaSiguienteDe50(carta)) }
-function aux_cartaEspañolaPrevia(carta)    { return(aux_cartaEspañolaPreviaDe50(carta))    }
+function aux_cartaEspañolaSiguiente(carta)        { return(aux_cartaEspañolaSiguienteDe50(carta))         }
+function aux_cartaEspañolaPrevia(carta)           { return(aux_cartaEspañolaPreviaDe50(carta))            }
 
 function aux_esCódigoParaElComodín(códigoComodín) { return (aux_esCódigoParaElComodínDe50(códigoComodín)) }
-function aux_códigoParaElComodín() { return (aux_códigoParaElComodínDe50()) }
+function aux_códigoParaElComodín()                { return (aux_códigoParaElComodínDe50())                }
 
-//function aux_armarComodín()     { return(aux_armarComodínDe40())     }
-//function aux_esComodín(carta)   { return(aux_esComodínDe40(carta))   }
+//function aux_armarComodín()                       { return(aux_armarComodínDe40())                        }
+//function aux_esComodín(carta)                     { return(aux_esComodínDe40(carta))                      }
 //
-//function aux_maxCartaEspañola() { return(aux_maxCartaEspañolaDe40()) }
+//function aux_maxCartaEspañola()                   { return(aux_maxCartaEspañolaDe40())                    }
 //
-//function aux_cartaEspañolaSiguiente(carta) { return(aux_cartaEspañolaSiguienteDe40(carta)) }
-//function aux_cartaEspañolaPrevia(carta)    { return(aux_cartaEspañolaPreviaDe40(carta))    }
+//function aux_cartaEspañolaSiguiente(carta)        { return(aux_cartaEspañolaSiguienteDe40(carta))         }
+//function aux_cartaEspañolaPrevia(carta)           { return(aux_cartaEspañolaPreviaDe40(carta))            }
 //
 //function aux_esCódigoParaElComodín(códigoComodín) { return (aux_esCódigoParaElComodínDe40(códigoComodín)) }
-//function aux_códigoParaElComodín() { return (aux_códigoParaElComodínDe40()) }
+//function aux_códigoParaElComodín()                { return (aux_códigoParaElComodínDe40())                }
 
 //---------------------------------------------------------------------------------------------------/
 /*------------------------ Auxiliares para construir cartas españolas -------------------------------/
@@ -447,9 +447,9 @@ function aux_hayCartaEspañolaDestapadaSinIluminar() {
 function aux_hayOtraCartaEspañolaDestapadaSinIluminar() {
   // PRECONDICIÓN: no hay ninguna celda marcada
   AuxMarcar()
-  IrAlOrigen()
-  while (not aux_terminoElRecorrido() && not aux_hayCartaEspañolaDestapadaSinIluminarYSinMarca()) 
-      { AuxPasarASiguientePosición() }
+  AuxIniciarRecorrido()
+  while (not aux_terminóElRecorrido() && not aux_hayCartaEspañolaDestapadaSinIluminarYSinMarca()) 
+      { AuxAvanzarRecorrido() }
   valorDeRetorno := aux_hayCartaEspañolaDestapadaSinIluminarYSinMarca()
   AuxVolverALaMarca()
   AuxDesmarcar()
