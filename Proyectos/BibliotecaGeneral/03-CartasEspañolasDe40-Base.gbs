@@ -229,7 +229,7 @@ function aux_cartaEspañolaPreviaDe50(carta) {
         { resultado := aux_armarCartaEspañola(aux_valorDeCartaEspañolaPrevio(valorCarta), paloCarta) }
       else // Debe ser (valorCarta == aux_minValorDeCartaEspañola() && paloCarta > aux_minPaloDeCartaEspañola())
            //  porque si son iguales, sería aux_minCartaEspañola() que se descartó en el primer if
-        { resultado := aux_armarCartaEspañola(aux_minValorDeCartaEspañola(), aux_paloDeCartaEspañolaSiguiente(paloCarta)) }
+           { resultado := aux_armarCartaEspañola(aux_maxValorDeCartaEspañola(), aux_paloDeCartaEspañolaPrevio(paloCarta)) }
    }
    return(resultado)
 }
@@ -245,7 +245,7 @@ function aux_cartaEspañolaPreviaDe40(carta) {
         { resultado := aux_armarCartaEspañola(aux_valorDeCartaEspañolaPrevio(valorCarta), paloCarta) }
       else // Debe ser (valorCarta == aux_minValorDeCartaEspañola() && paloCarta > aux_minPaloDeCartaEspañola())
            //  porque si son iguales, sería aux_minCartaEspañola() que se descartó en el primer if
-        { resultado := aux_armarCartaEspañola(aux_minValorDeCartaEspañola(), aux_paloDeCartaEspañolaSiguiente(paloCarta)) }
+        { resultado := aux_armarCartaEspañola(aux_maxValorDeCartaEspañola(), aux_paloDeCartaEspañolaPrevio(paloCarta)) }
    }
    return(resultado)
 }
