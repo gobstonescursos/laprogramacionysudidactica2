@@ -1178,12 +1178,12 @@ procedure AuxPasarASiguientePosición() {
 /*---------------------------------- Operaciones de recorrido ---------------------------------------/
 /---------------------------------------------------------------------------------------------------*/
 // La marca son 100 bolitas del aux_colorParaMarca, pero puede haber otras marcas antes
-function  aux_códigoDeLaMarca() { return(100) }
-function  aux_hayMarca() { return (nroBolitas(aux_colorParaLaMarca())>aux_códigoDeLaMarca()) }
-procedure AuxMarcar()    { AuxPoner__Veces(aux_colorParaLaMarca(),aux_códigoDeLaMarca())     }
+function  aux_códigoParaLaMarca() { return(100) }
+function  aux_hayMarca() { return (nroBolitas(aux_colorParaLaMarca())>=aux_códigoParaLaMarca()) }
+procedure AuxMarcar()    { AuxPoner__Veces(aux_colorParaLaMarca(),aux_códigoParaLaMarca())     }
 procedure AuxDesmarcar() { 
   // PRECONDICIÓN: hay una marca en el lugar (o sea, aux_hayMarca() es verdadero)
-  AuxSacar__Veces(aux_colorParaLaMarca(),aux_códigoDeLaMarca()) 
+  AuxSacar__Veces(aux_colorParaLaMarca(),aux_códigoParaLaMarca()) 
 }
 
 procedure AuxVolverALaMarca() {
