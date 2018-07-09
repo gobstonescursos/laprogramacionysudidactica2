@@ -30,15 +30,15 @@ type Mazo is record {
 //---------------------------------------------------------------------------------------------------/
 /*--------------------- Operaciones de creación de un mazo español (interfaz) -----------------------/
 /---------------------------------------------------------------------------------------------------*/
-function mazoVacío()                      { return(aux_armarMazoVacío())              }
+function mazoVacío()                      { return(aux_armarMazoVacío())               }
 
 /*@ATTRIBUTE@block_name@agregar al mazo _ la carta _ al final@*/ 
-function agregarAlFinalDelMazo__(m,c)     { return(aux_agregarAlFinalDelMazo(m,c)     }
+function agregarAlFinalDelMazo__(m,c)     { return(aux_agregarAlFinalDelMazo(m,c))     }
 /*@ATTRIBUTE@block_name@agregar al mazo _ la carta _ al principio@*/ 
-function agregarAlPrincipioDelMazo__(m,c) { return(aux_agregarAlPrincipioDelMazo(m,c) }
+function agregarAlPrincipioDelMazo__(m,c) { return(aux_agregarAlPrincipioDelMazo(m,c)) }
 
-function juntarMazos__(m1,m2)             { return(aux_juntarMazos(m1,m2)             }
-function mazoEspañol()                    { return(aux_mazoEspañolCompleto())         }
+function juntarMazos__(m1,m2)             { return(aux_juntarMazos(m1,m2))             }
+function mazoEspañol()                    { return(aux_mazoEspañolCompleto())          }
   // 
 
 //---------------------------------------------------------------------------------------------------/
@@ -62,9 +62,9 @@ function dameLaCartaMásChicaDe_(mazo)  { return(aux_dameLaCartaMásChica(mazo))
 //---------------------------------------------------------------------------------------------------/
 /*------------------ Operaciones de manipulación de un mazo español (interfaz) ----------------------/
 /---------------------------------------------------------------------------------------------------*/
-function  leerMazo()         { return (aux_leerMazo()) }
-function  SacarMazo()        { AuxSacarMazo()          }
-procedure MostrarMazo_(mazo) { AuxMostrarMazo(mazo)    }
+function  leerMazo()       { return (aux_leerMazo()) }
+procedure PonerMazo_(mazo) { AuxPonerMazo(mazo)      }
+procedure SacarMazo()      { AuxSacarMazo()          }
 
 /*==================================================================================================*/
 /*--------------------------- FIN INTERFAZ de 04-MazosEspañoles-Base.gbs ---------------------------*/
@@ -155,27 +155,17 @@ function aux_leerMazo() {
    //            yendo al Este y luego al Sur
    cartasLeídas   := []
    cantidadLeídas := 0
-   while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayCartaDestapada()) {
-    cartasLeídas   := cartasLeídas ++ [ aux_leerCarta() ]
+   while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayCartaEspañolaDestapada()) {
+    cartasLeídas   := cartasLeídas ++ [ aux_leerCartaEspañola() ]
     cantidadLeídas := cantidadLeídas + 1
     AuxAvanzarRecorridoGral(Este, Sur)
    }
-   if (aux_hayCartaDestapada()) { mazo := mazo ++ [ aux_leerCarta() ] }
+   if (aux_hayCartaEspañolaDestapada()) { mazo := mazo ++ [ aux_leerCartaEspañola() ] }
 
    return(Mazo(cartas<-cartasLeídas, tamaño<-cantidadLeídas))
 }
 
-procedure AuxSacarMazo() {
-   // PROPÓSITO: saca todas las cartas que están a continuación, a partir de la posición actual
-   //            yendo al Este y luego al Sur
-   while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayCartaDestapada()) {
-    AuxSacarCartaActual()
-    AuxAvanzarRecorridoGral(Este, Sur)
-  }
-  if (aux_hayCartaDestapada()) { AuxSacarCartaActual() }
-}
-
-procedure AuxMostrarMazo(mazo) {
+procedure AuxPonerMazo(mazo) {
    // PROPÓSITO: muestra la parte del mazo que pueda entre la celda actual y el borde del tablero, de a una carta por celda
    // PRECONDICIÓN: las celdas donde vayan a ir cartas deben estar vacías
    faltanMostrar := cartas(mazo)
@@ -185,6 +175,16 @@ procedure AuxMostrarMazo(mazo) {
      faltanMostrar := resto(faltanMostrar)
    }
    if (aux_quedanCartas(faltanMostrar)) { AuxPonerCartaEspañolaDestapada(primero(faltanMostrar)) }
+}
+
+procedure AuxSacarMazo() {
+   // PROPÓSITO: saca todas las cartas que están a continuación, a partir de la posición actual
+   //            yendo al Este y luego al Sur
+   while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayCartaEspañolaDestapada()) {
+    AuxSacarCartaEspañolaActual()
+    AuxAvanzarRecorridoGral(Este, Sur)
+  }
+  if (aux_hayCartaEspañolaDestapada()) { AuxSacarCartaEspañolaActual() }
 }
 
 //---------------------------------------------------------------------------------------------------/
@@ -236,43 +236,43 @@ function aux_dameLaMásChicaDeRepresentaciónDeMazoEspañol(mazo) {
 
 function aux_armarRepresentaciónDeMazoEspañolCompleto() {
   // RECORRIDO SOBRE LOS PALOS
-  paloActual      := aux_minPaloDeCartaEspañola()          // INICIAR EN EL PRIMER PALO
-  cartasARetornar := []
-  lenARetornar    := 0
+  paloActual        := aux_minPaloDeCartaEspañola()        // INICIAR EN EL PRIMER PALO
+  cartasARetornar   := []
+  cantidadARetornar := 0
   while(not (paloActual==aux_maxPaloDeCartaEspañola)) {    // NO ES EL ÚLTIMO PALO
                                                            // PROCESAR EL PALO ACTUAL
     let (cartasDelPalo, lenDelPalo) := aux_armarRepresentaciónDeCartasDeMazoEspañolCompletoDe(paloActual)
-    cartasARetornar := cartasARetornar ++ cartasDelPalo
-    lenARetornar    := lenARetornar    +  lenDelPalo
+    cartasARetornar   := cartasARetornar ++ cartasDelPalo
+    cantidadARetornar := cantidadARetornar    +  lenDelPalo
                                                           // PASAR AL SIGUIENTE PALO
-    paloActual      := aux_paloDeCartaEspañolaSiguiente(paloActual)
+    paloActual        := aux_paloDeCartaEspañolaSiguiente(paloActual)
   }
                                                           // PROCESAR EL ÚLTIMO PALO POR SEPARADO
   let (cartasDelPalo, lenDelPalo) := aux_armarRepresentaciónDeCartasDeMazoEspañolCompletoDe(paloActual)
-  cartasARetornar := cartasARetornar ++ cartasDelPalo
-  lenARetornar    := lenARetornar    +  lenDelPalo
+  cartasARetornar   := cartasARetornar ++ cartasDelPalo
+  cantidadARetornar := cantidadARetornar    +  lenDelPalo
 
-  return (cartasARetornar, lenARetornar)
+  return (cartasARetornar, cantidadARetornar)
 }
 
 function aux_armarRepresentaciónDeCartasDeMazoEspañolCompletoDe(palo) {
   // RECORRIDO SOBRE LOS VALORES DEL PALO DADO
-  valorActual     := aux_minValorDeCartaEspañola()         // INICIAR EN EL PRIMER VALOR
-  cartasARetornar := []
-  lenARetornar    := 0
+  valorActual       := aux_minValorDeCartaEspañola()       // INICIAR EN EL PRIMER VALOR
+  cartasARetornar   := []
+  cantidadARetornar := 0
   while(not (valorActual==aux_maxValorDeCartaEspañola)) {  // NO ES EL ÚLTIMO VALOR
                                                            // PROCESAR EL VALOR ACTUAL
-    cartasARetornar := cartasARetornar ++ [aux_armarCartaEspañola(valorActual, palo)]
-    lenARetornar    := lenARetornar    +  1
+    cartasARetornar   := cartasARetornar ++ [aux_armarCartaEspañola(valorActual, palo)]
+    cantidadARetornar := cantidadARetornar    +  1
                                                           // PASAR AL SIGUIENTE VALOR
-    valorActual     := aux_valorDeCartaEspañolaSiguiente(valorActual)
+    valorActual       := aux_valorDeCartaEspañolaSiguiente(valorActual)
   }
                                                           // PROCESAR EL ÚLTIMO VALOR POR SEPARADO
-  cartasARetornar := cartasARetornar ++ [aux_armarCartaEspañola(valorActual, palo)]
-  lenARetorna  r  := lenARetornar    +  1 
+  cartasARetornar   := cartasARetornar ++ [aux_armarCartaEspañola(valorActual, palo)]
+  cantidadARetornar := cantidadARetornar    +  1 
 
-  return (cartasARetornar, lenARetornar)
-}
+  return (cartasARetornar, cantidadARetornar)
+
 
 /*==================================================================================================*/
 /*------------------------- FIN AUXILIARES de 04-MazosEspañoles-Base.gbs ---------------------------*/

@@ -34,11 +34,11 @@ procedure AuxMover__Veces(d,n) { repeat (n) { Mover(d) } }
 procedure AuxSacarTodas()   { foreach c in [minColor()..maxColor()] { AuxSacarTodas_(c) } }
 procedure AuxSacarTodas_(c) { AuxSacar__Veces(c, nroBolitas(c)) }
 
-procedure AuxMoverSiPuede(dir)         { if (puedeMover(dir)) { Mover(dir) }         }
+procedure AuxMoverSiPuede(dir)         { if (puedeMover(dir)) { Mover(dir) }   }
 
 // Las direcciones deben ser opuestas en estos dos procedimientos
-procedure AuxIrAlOrigen()              { AuxIrAlOrigenGral             (Oeste, Norte) }
-procedure AuxPasarASiguientePosición() { AuxPasarASiguientePosiciónGral(Este,  Sur)   }
+procedure AuxIrAlOrigen()              { AuxIniciarRecorridoGral(Oeste, Norte) }
+procedure AuxPasarASiguientePosición() { AuxAvanzarRecorridoGral(Este,  Sur)   }
 
 //---------------------------------------------------------------------------------------------------/
 /*---------------------------- Operaciones auxiliares de codificación -------------------------------/
