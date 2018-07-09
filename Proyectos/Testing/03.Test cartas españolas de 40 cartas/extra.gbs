@@ -243,7 +243,7 @@ function aux_cartaEspañolaPreviaDe50(carta) {
         { resultado := aux_armarCartaEspañola(aux_valorDeCartaEspañolaPrevio(valorCarta), paloCarta) }
       else // Debe ser (valorCarta == aux_minValorDeCartaEspañola() && paloCarta > aux_minPaloDeCartaEspañola())
            //  porque si son iguales, sería aux_minCartaEspañola() que se descartó en el primer if
-        { resultado := aux_armarCartaEspañola(aux_minValorDeCartaEspañola(), aux_paloDeCartaEspañolaSiguiente(paloCarta)) }
+        { resultado := aux_armarCartaEspañola(aux_maxValorDeCartaEspañola(), aux_paloDeCartaEspañolaPrevio(paloCarta)) }
    }
    return(resultado)
 }
@@ -259,7 +259,7 @@ function aux_cartaEspañolaPreviaDe40(carta) {
         { resultado := aux_armarCartaEspañola(aux_valorDeCartaEspañolaPrevio(valorCarta), paloCarta) }
       else // Debe ser (valorCarta == aux_minValorDeCartaEspañola() && paloCarta > aux_minPaloDeCartaEspañola())
            //  porque si son iguales, sería aux_minCartaEspañola() que se descartó en el primer if
-        { resultado := aux_armarCartaEspañola(aux_minValorDeCartaEspañola(), aux_paloDeCartaEspañolaSiguiente(paloCarta)) }
+        { resultado := aux_armarCartaEspañola(aux_maxValorDeCartaEspañola(), aux_paloDeCartaEspañolaPrevio(paloCarta)) }
    }
    return(resultado)
 }
@@ -911,12 +911,12 @@ function letra_(códigoLetra) { return(aux_letraParaElCódigo(códigoLetra)) }
 //---------------------------------------------------------------------------------------------------/
 /*------------------------------- Operaciones de acceso a letras (interfaz) -------------------------/
 /---------------------------------------------------------------------------------------------------*/
-/*@ATTRIBUTE@block_name@_ está antes que _@*/   function esMenorLetra__(letra1, letra2) { return(aux_esMenorLetra(letra1, letra2)) }
-/*@ATTRIBUTE@block_name@_ está después que _@*/ function esMayorLetra__(letra1, letra2) { return(aux_esMayorLetra(letra1, letra2)) }
-/*@ATTRIBUTE@block_name@la letra más chica@*/   function minLetra()             { return(aux_minLetra())            }
-/*@ATTRIBUTE@block_name@la letra más grande@*/  function maxLetra()             { return(aux_maxLetra())            }
-/*@ATTRIBUTE@block_name@letra siguiente a _@*/  function letraSiguiente_(letra) { return(aux_letraSiguiente(letra)) }
-/*@ATTRIBUTE@block_name@letra previa a _@*/     function letraPrevia_(letra)    { return(aux_letraPrevia(letra))    }
+/*@ATTRIBUTE@block_name@_ está antes que la letra _@*/   function esMenorLetra__(letra1, letra2) { return(aux_esMenorLetra(letra1, letra2)) }
+/*@ATTRIBUTE@block_name@_ está después que la letra _@*/ function esMayorLetra__(letra1, letra2) { return(aux_esMayorLetra(letra1, letra2)) }
+/*@ATTRIBUTE@block_name@la letra más chica@*/            function minLetra()             { return(aux_minLetra())            }
+/*@ATTRIBUTE@block_name@la letra más grande@*/           function maxLetra()             { return(aux_maxLetra())            }
+/*@ATTRIBUTE@block_name@letra siguiente a _@*/           function letraSiguiente_(letra) { return(aux_letraSiguiente(letra)) }
+/*@ATTRIBUTE@block_name@letra previa a _@*/              function letraPrevia_(letra)    { return(aux_letraPrevia(letra))    }
 
 //---------------------------------------------------------------------------------------------------/
 /*------------------- Operaciones de sensado de letras en el tablero (interfaz) ---------------------/
