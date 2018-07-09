@@ -34,9 +34,11 @@ procedure AuxMover__Veces(d,n) { repeat (n) { Mover(d) } }
 procedure AuxSacarTodas()   { foreach c in [minColor()..maxColor()] { AuxSacarTodas_(c) } }
 procedure AuxSacarTodas_(c) { AuxSacar__Veces(c, nroBolitas(c)) }
 
-procedure AuxIrAlOrigen()              { AuxIrAlOrigenGral(Sur,Oeste)                }
 procedure AuxMoverSiPuede(dir)         { if (puedeMover(dir)) { Mover(dir) }         }
-procedure AuxPasarASiguientePosición() { AuxPasarASiguientePosiciónGral(Este, Norte) }
+
+// Las direcciones deben ser opuestas en estos dos procedimientos
+procedure AuxIrAlOrigen()              { AuxIrAlOrigenGral             (Oeste, Norte) }
+procedure AuxPasarASiguientePosición() { AuxPasarASiguientePosiciónGral(Este,  Sur)   }
 
 //---------------------------------------------------------------------------------------------------/
 /*---------------------------- Operaciones auxiliares de codificación -------------------------------/
@@ -72,10 +74,10 @@ procedure AuxVolverALaMarca() {
 //---------------------------------------------------------------------------------------------------/
 /*---------------------------------- Operaciones de recorrido ---------------------------------------/
 /---------------------------------------------------------------------------------------------------*/
-// El Recorrido default es Este-Norte
-procedure AuxIniciarRecorrido()    { AuxIniciarRecorridoGral(Oeste, Sur)             }
-procedure AuxAvanzarRecorrido()    { AuxAvanzarRecorridoGral(Este, Norte)     }
-function  aux_terminóElRecorrido() { return (aux_terminóElRecorridoGral(Este,Norte)) }
+// El Recorrido default es Este-Norte (el iniciar debe usar las direcciones opuestas)
+procedure AuxIniciarRecorrido()    { AuxIniciarRecorridoGral           (Oeste, Sur)    }
+procedure AuxAvanzarRecorrido()    { AuxAvanzarRecorridoGral           (Este,  Norte)  }
+function  aux_terminóElRecorrido() { return (aux_terminóElRecorridoGral(Este,  Norte)) }
 
 procedure AuxIniciarRecorridoGral(dirPpal, dirSecundaria) 
   { IrAlBorde(opuesto(dirPpal)) IrAlBorde(opuesto(dirSecundaria)) }
