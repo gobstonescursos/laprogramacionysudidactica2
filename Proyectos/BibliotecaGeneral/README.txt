@@ -52,14 +52,14 @@ Redactar bien el readme...
         <block type="armarValorSota"></block>
         <block type="armarValorCaballo"></block>
         <block type="armarValorRey"></block>
+        <block type="minValor"></block>
+        <block type="maxValor"></block>
       </category>
       <category name="Acceso">
         <block type="esMenorValor__"></block>
         <block type="esMayorValor__"></block>
         <block type="valorSiguiente_"></block>
         <block type="valorPrevio_"></block>
-        <block type="minValor"></block>
-        <block type="maxValor"></block>
       </category>
     </category>
     <category name="Operaciones de Palos">
@@ -68,19 +68,21 @@ Redactar bien el readme...
         <block type="copas"></block>
         <block type="espadas"></block>
         <block type="oros"></block>
+        <block type="minPalo"></block>
+        <block type="maxPalo"></block>
       </category>
       <category name="Acceso">
         <block type="esMenorPalo__"></block>
         <block type="esMayorPalo__"></block>
         <block type="paloSiguiente_"></block>
         <block type="paloPrevio_"></block>
-        <block type="minPalo"></block>
-        <block type="maxPalo"></block>
       </category>
     </category>
     <category name="Operaciones de Cartas">
       <category name="Creación">
         <block type="dameCarta__"></block>
+        <block type="minCarta"></block>
+        <block type="maxCarta"></block>
         <block type="leerCarta"></block>
       </category>
       <category name="Manipulación">
@@ -97,14 +99,41 @@ Redactar bien el readme...
         <block type="esMayorCarta__"></block>
         <block type="cartaSiguiente_"></block>
         <block type="cartaPrevia_"></block>
-        <block type="minCarta"></block>
-        <block type="maxCarta"></block>
+        <block type="IluminarLaCartaActual"></block>
+        <block type="laCartaEstáIluminada"></block>
+        <block type="hayCartaDestapadaSinIluminar"></block>
+        <block type="hayOtraCartaDestapadaSinIluminar"></block>
+    </category>
+    <category name="Operaciones de Mazos">
+      <category name="Creación">
+        <block type="mazoVacío"></block>
+        <block type="agregarAlFinalDelMazo__"></block>
+        <block type="agregarAlPrincipioDelMazo__"></block>
+        <block type="juntarMazos__"></block>
+        <block type="mazoEspañol"></block>
+      </category>
+      <category name="Manipulación">
+        <block type="leerMazo"></block>
+        <block type="PonerMazo_"></block>
+        <block type="SacarMazo"></block>
+      </category>
+      <category name="Acceso">
+        <block type="quedanCartas_"></block>
+        <block type="cantidadDeCartasDelMazo_"></block>
+        <block type="dameLaPrimeraCartaDe_"></block>
+        <block type="sacarLaPrimeraCartaDe_"></block>
+        <block type="dameLaÚltimaCartaDe_"></block>
+        <block type="sacarLaÚltimaCartaDe_"></block>
+        <block type="dameLaCartaMásGrandeDe_"></block>
+        <block type="dameLaCartaMásChicaDe_"></block>
       </category>
     </category>
     <category name="Operaciones de Letras">
       <category name="Creación">
         <block type="letra_"></block>
         <block type="leerLetra"></block>
+        <block type="minLetra"></block>
+        <block type="maxLetra"></block>
       </category>
       <category name="Manipulación">
         <block type="PonerLetra_"></block>
@@ -116,8 +145,6 @@ Redactar bien el readme...
         <block type="esMayorLetra__"></block>
         <block type="letraSiguiente_"></block>
         <block type="letraPrevia_"></block>
-        <block type="minLetra"></block>
-        <block type="maxLetra"></block>
       </category>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
