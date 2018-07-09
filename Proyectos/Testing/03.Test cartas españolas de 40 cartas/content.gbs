@@ -2,104 +2,191 @@ interactive program {
   K_ARROW_RIGHT -> {
     indice := nroBolitas(Rojo) + 1
     LimpiarTablero()
-    TestsDeCartas(indice)
+    TestsDeCartasEspañolasDe40(indice)
     IrAlOrigen()
     Poner__Veces(Rojo, 1)
   }
-}
-
-procedure TestsDeCartas(códigoDeTest) {
-  if (códigoDeTest == 1)     { TestTodosLosPalos()          } 
-  elseif (códigoDeTest == 2) { TestSacarLetra()             } 
-  elseif (códigoDeTest == 3) { TestHayLetra()               }
-  elseif (códigoDeTest == 4) { TestLeerLetra()              }
-  elseif (códigoDeTest == 5) { TestEstáAntesQue()           }
-  elseif (códigoDeTest == 6) { TestEstáDespuésQue()         }
-  elseif (códigoDeTest == 7) { TestSiguienteYPrevio()       }
-  elseif (códigoDeTest == 8) { TestMinLetraYMaxLetra()      }
-  elseif (códigoDeTest == 8) { TestMinLetraYMaxLetra()      }
-  elseif (códigoDeTest == 8) { TestMinLetraYMaxLetra()      }
-  elseif (códigoDeTest == 8) { TestMinLetraYMaxLetra()      }
-  elseif (códigoDeTest == 8) { TestMinLetraYMaxLetra()      }
-  elseif (códigoDeTest == 8) { TestMinLetraYMaxLetra()      }
-  elseif (códigoDeTest == 8) { TestMinLetraYMaxLetra()      }
-  elseif (códigoDeTest == 8) { BOOM("")                     }
-  elseif (códigoDeTest == 8) { TestLetraYPonerLetra()       }
-  elseif (códigoDeTest == 8) { TestSacarLetra()             }
-  elseif (códigoDeTest == 8) { TestHayLetra()               }
-  elseif (códigoDeTest == 8) { TestLeerLetra()              }
-  elseif (códigoDeTest == 8) { TestEstáAntesQue()           }
-  elseif (códigoDeTest == 8) { TestEstáDespuésQue()         }
-  elseif (códigoDeTest == 8) { TestSiguienteYPrevio()       }
-  elseif (códigoDeTest == 8) { TestMinLetraYMaxLetra()      }
-  else                       { BOOM("Pasó todos los tests") }
-}
-
-procedure TestTodosLosPalos() {
-  PonerCarta_(
-}
-
-procedure TestLetraYPonerLetra() {
-  PonerTodasLasLetras()
-  Assert(0 == 0)
-}
-
-procedure PonerTodasLasLetras() {
-  código := 10
-  PonerLetra_(letra_(código))
-  código := código + 1
-  while (not (código > 37)) {
-    PasarASiguientePosición()
-    PonerLetra_(letra_(código))
-    código := código + 1
+  K_ARROW_LEFT -> {
+    indice := nroBolitas(Rojo) - 1
+    LimpiarTablero()
+    TestsDeCartasEspañolasDe40(indice)
+    IrAlOrigen()
+    Sacar__Veces(Rojo, 1)
+  }
+  K_CTRL_ARROW_RIGHT -> {
+    indice := nroBolitas(Rojo) + 10
+    LimpiarTablero()
+    TestsDeCartasEspañolasDe40(indice)
+    IrAlOrigen()
+    Poner__Veces(Rojo, 10)
   }
 }
 
-procedure TestSacarLetra() {
-  PonerTodasLasLetras()
+procedure TestsDeCartasEspañolasDe40(códigoDeTest) {
+  if (códigoDeTest == 1) {
+    TestCartaYPonerCarta()
+  } elseif (códigoDeTest == 2) {
+    TestSacarCarta()
+  } elseif (códigoDeTest == 3) {
+    TestDarVueltaLaCartaActual1()
+  } elseif (códigoDeTest == 4) {
+    TestDarVueltaLaCartaActual2()
+  } elseif (códigoDeTest == 5) {
+    TestHayCarta()
+    TestHayCartaTapada()
+  } elseif (códigoDeTest == 6) {
+    TestLeerCarta()
+  } elseif (códigoDeTest == 7) {
+    TestEsCartaMenorQue()
+  } elseif (códigoDeTest == 8) {
+    TestEsMayorCartaQue()
+  } elseif (códigoDeTest == 9) {
+    TestSiguienteYPrevio()
+  } elseif (códigoDeTest == 10) {
+    TestMinCartaYMaxCarta()
+  } elseif (códigoDeTest == 11) {
+    TestIluminarLaCartaActual()
+  } elseif (códigoDeTest == 12) {
+    TestHayCartaIluminada()
+  } else {
+    BOOM("Pasó todos los tests")
+  }
+}
+
+procedure TestCartaYPonerCarta() {
+  PonerTodasLasCartas()
+  Assert(0 == 0)
+}
+
+procedure PonerTodasLasCartas() {
+  paloActual := minPalo()
+  while (not (paloActual == maxPalo())) {
+    PonerTodasLasCartasDePalo(paloActual)
+    paloActual := paloSiguiente_(paloActual)
+    PasarASiguientePosición()
+  }
+  PonerTodasLasCartasDePalo(paloActual)
+}
+
+procedure PonerTodasLasCartasDePalo(paloAPoner) {
+  valorActual := minValor()
+  while (not (valorActual == maxValor())) {
+    PonerCarta_(dameCarta__(valorActual, paloAPoner))
+    valorActual := valorSiguiente_(valorActual)
+    PasarASiguientePosición()
+  }
+  PonerCarta_(dameCarta__(valorActual, paloAPoner))
+}
+
+procedure TestSacarCarta() {
+  PonerTodasLasCartas()
   IrAlOrigen()
-  repeat(28) {
+  repeat(40) {
     PasarASiguientePosición()
-    SacarLetraActual()
+    SacarCartaActual()
   }
   Assert(0 == 0)
 }
 
-procedure TestHayLetra() {
-  PonerLetra_(letra_(11))
-  Assert(hayLetra())
+procedure TestDarVueltaLaCartaActual1() {
+  PonerTodasLasCartasYDarlasVuelta()
+  Assert(0 == 0)
+}
+
+procedure TestDarVueltaLaCartaActual2() {
+  PonerTodasLasCartasYDarlasVuelta()
+  IrAlOrigen()
+  repeat(40) {
+    PasarASiguientePosición()
+    DarVueltaLaCartaActual()
+  }
+  Assert(0 == 0)
+}
+
+procedure PonerTodasLasCartasYDarlasVuelta() {
+  PonerTodasLasCartas()
+  IrAlOrigen()
+  repeat(40) {
+    PasarASiguientePosición()
+    DarVueltaLaCartaActual()
+  }
+}
+
+procedure TestHayCarta() {
+  PonerCarta_(dameCarta__(armarValorAs(), bastos()))
+  Assert(hayCarta())
   PasarASiguientePosición()
   SacarTodas()
-  Assert(not(hayLetra()))
+  Assert(not(hayCarta()))
 }
 
-procedure TestLeerLetra() {
-  PonerLetra_(letra_(12))
-  Assert(letra_(12) == leerLetra())
-}
-
-procedure TestEstáAntesQue() {
-  PonerLetra_(letra_(13))
-  letra1 := leerLetra()
+procedure TestHayCartaTapada() {
   PasarASiguientePosición()
-  PonerLetra_(letra_(14))
-  letra2 := leerLetra()
-  Assert(esMenorLetra__(letra1, letra2))
-  Assert(not(esMenorLetra__(letra2, letra1)))
-  Assert(not(esMenorLetra__(letra1, letra1)))
-}
-
-procedure TestEstáDespuésQue() {
-  PonerLetra_(letra_(13))
-  letra1 := leerLetra()
+  PonerCarta_(dameCarta__(armarValorAs(), oros()))
+  DarVueltaLaCartaActual()
+  Assert(hayCartaTapada())
   PasarASiguientePosición()
-  PonerLetra_(letra_(14))
-  letra2 := leerLetra()
-  Assert(esMayorLetra__(letra2, letra1))
-  Assert(not(esMayorLetra__(letra1, letra2)))
-  Assert(not(esMayorLetra__(letra1, letra1)))
+  PonerCarta_(dameCarta__(armarValorAs(), oros()))
+  Assert(not(hayCartaTapada()))
+  PasarASiguientePosición()
+  SacarTodas()
+  Assert(not(hayCartaTapada()))
 }
 
+procedure TestLeerCarta() {
+  PonerCarta_(dameCarta__(armarValor_(2), copas()))
+  Assert(copas() == dameElPalo_(leerCarta()) && armarValor_(2) == dameElValor_(leerCarta()))
+}
+
+procedure TestEsCartaMenorQue() {
+  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(armarValor_(3), espadas()), dameCarta__(armarValor_(5), espadas()))
+  PasarASiguientePosición()
+  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(armarValor_(6), oros()), dameCarta__(armarValorCaballo(), oros()))
+  PasarASiguientePosición()
+  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(armarValorCaballo(), espadas()), dameCarta__(armarValorRey(), espadas()))
+  PasarASiguientePosición()
+  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(armarValorRey(), bastos()), dameCarta__(armarValorAs(), espadas()))
+  PasarASiguientePosición()
+  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(armarValorRey(), espadas()), dameCarta__(armarValorCaballo(), oros()))
+  PasarASiguientePosición()
+  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(armarValorCaballo(), copas()), dameCarta__(armarValor_(3), oros()))
+  PasarASiguientePosición()
+  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(armarValor_(7), bastos()), dameCarta__(armarValor_(2), espadas()))
+}
+
+procedure TestearQueUnaCartaEsMenorQueOtra(carta1, carta2) {
+  PonerCarta_(carta1)
+  PasarASiguientePosición()
+  PonerCarta_(carta2)
+  Assert(esMenorCarta__(carta1, carta2))
+  Assert(not(esMenorCarta__(carta2, carta1)))
+  Assert(not(esMenorCarta__(carta1, carta1)))
+}
+
+procedure TestEsMayorCartaQue() {
+  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(armarValor_(4), espadas()), dameCarta__(armarValor_(6), espadas()))
+  PasarASiguientePosición()
+  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(armarValor_(7), oros()), dameCarta__(armarValorRey(), oros()))
+  PasarASiguientePosición()
+  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(armarValorSota(), espadas()), dameCarta__(armarValorCaballo(), espadas()))
+  PasarASiguientePosición()
+  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(armarValorCaballo(), bastos()), dameCarta__(armarValorAs(), espadas()))
+  PasarASiguientePosición()
+  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(armarValorCaballo(), espadas()), dameCarta__(armarValorSota(), oros()))
+  PasarASiguientePosición()
+  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(armarValorRey(), copas()), dameCarta__(armarValor_(4), oros()))
+  PasarASiguientePosición()
+  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(armarValor_(6), bastos()), dameCarta__(armarValor_(3), espadas()))
+}
+
+procedure TestearQueUnaCartaEsMayorQueOtra(carta1, carta2) {
+  PonerCarta_(carta1)
+  PasarASiguientePosición()
+  PonerCarta_(carta2)
+  Assert(esMayorCarta__(carta2, carta1))
+  Assert(not(esMayorCarta__(carta1, carta2)))
+  Assert(not(esMayorCarta__(carta1, carta1)))
+}
 
 procedure TestSiguienteYPrevio() {
   TestSiguienteYPrevioEnMedio()
@@ -108,49 +195,84 @@ procedure TestSiguienteYPrevio() {
 }
 
 procedure TestSiguienteYPrevioEnMedio() {
-  PonerLetra_(letra_(15))
-  letra := leerLetra()
-  PasarASiguientePosición()
-  PonerLetra_(letraSiguiente_(letra))
-  Assert(letraSiguiente_(letra) == letra_(16))
-  PasarASiguientePosición()
-  PonerLetra_(letraPrevia_(letra))
-  Assert(letraPrevia_(letra) == letra_(14))
+  TesteaSiguienteYPrevio(dameCarta__(armarValor_(3), espadas()), dameCarta__(armarValor_(4), espadas()), dameCarta__(armarValor_(2), espadas()))
 }
 
 procedure TestSiguienteYPrevioEnBordeInferior() {
   PasarASiguientePosición()
-  PonerLetra_(letra_(10))
-  letra := leerLetra()
+  TesteaSiguienteYPrevio(dameCarta__(armarValorAs(), bastos()), dameCarta__(armarValor_(2), bastos()), dameCarta__(armarValorRey(), oros()))
   PasarASiguientePosición()
-  PonerLetra_(letraSiguiente_(letra))
-  Assert(letraSiguiente_(letra) == letra_(11))
+  TesteaSiguienteYPrevio(dameCarta__(armarValorAs(), espadas()), dameCarta__(armarValor_(2), espadas()), dameCarta__(armarValorRey(), copas()))
   PasarASiguientePosición()
-  PonerLetra_(letraPrevia_(letra))
-  Assert(letraPrevia_(letra) == letra_(37))
+  TesteaSiguienteYPrevio(dameCarta__(armarValor_(7), oros()), dameCarta__(armarValorSota(), oros()), dameCarta__(armarValor_(6), oros()))
 }
 
 procedure TestSiguienteYPrevioEnBordeSuperior() {
   PasarASiguientePosición()
-  PonerLetra_(letra_(37))
-  letra := leerLetra()
+  TesteaSiguienteYPrevio(dameCarta__(armarValorRey(), oros()), dameCarta__(armarValorAs(), bastos()), dameCarta__(armarValorCaballo(), oros()))
   PasarASiguientePosición()
-  PonerLetra_(letraSiguiente_(letra))
-  Assert(letraSiguiente_(letra) == letra_(10))
+  TesteaSiguienteYPrevio(dameCarta__(armarValorRey(), copas()), dameCarta__(armarValorAs(), espadas()), dameCarta__(armarValorCaballo(), copas()))
   PasarASiguientePosición()
-  PonerLetra_(letraPrevia_(letra))
-  Assert(letraPrevia_(letra) == letra_(36))
+  TesteaSiguienteYPrevio(dameCarta__(armarValorSota(), copas()), dameCarta__(armarValorCaballo(), copas()), dameCarta__(armarValor_(7), copas()))
 }
 
-procedure TestMinLetraYMaxLetra() {
-  PonerLetra_(minLetra())
-  Assert(minLetra() == letra_(10))
+procedure TesteaSiguienteYPrevio(carta, cartaSiguiente, cartaPrevia) {
+  PonerCarta_(cartaPrevia_(carta))
   PasarASiguientePosición()
-  PonerLetra_(maxLetra())
-  Assert(maxLetra() == letra_(37))
+  PonerCarta_(carta)
+  PasarASiguientePosición()
+  PonerCarta_(cartaSiguiente_(carta))
+  Assert(cartaSiguiente_(carta) == cartaSiguiente)
+  PasarASiguientePosición()
+  Assert(cartaPrevia_(carta) == cartaPrevia)
 }
 
+procedure TestMinCartaYMaxCarta() {
+  PonerCarta_(minCarta())
+  Assert(minCarta() == dameCarta__(armarValorAs(), bastos()))
+  PasarASiguientePosición()
+  PonerCarta_(maxCarta())
+  Assert(maxCarta() == dameCarta__(armarValorRey(), oros()))
+}
 
+procedure TestIluminarLaCartaActual() {
+  PonerTodasLasCartasELiuminarlas()
+  Assert(0 == 0)
+}
+
+procedure PonerTodasLasCartasELiuminarlas() {
+  PonerTodasLasCartas()
+  IrAlOrigen()
+  repeat(40) {
+    PasarASiguientePosición()
+    IluminarLaCartaActual()
+  }
+}
+
+procedure TestHayCartaIluminada() {
+  PonerCarta_(dameCarta__(armarValorAs(), espadas()))
+  IluminarLaCartaActual()
+  hayOtra := hayOtraCartaDestapadaSinIluminar()
+  Assert(not(hayCartaDestapadaSinIluminar()))
+  PasarASiguientePosición()
+  Assert(not(hayOtra))
+  PasarASiguientePosición()
+  PonerCarta_(dameCarta__(armarValorAs(), espadas()))
+  Assert(hayCartaDestapadaSinIluminar())
+  PasarASiguientePosición()
+  SacarTodas()
+  Assert(not(hayCartaDestapadaSinIluminar()))
+  PasarASiguientePosición()
+  PonerCarta_(dameCarta__(armarValorAs(), espadas()))
+  DarVueltaLaCartaActual()
+  Assert(not(hayCartaDestapadaSinIluminar()))
+  PasarASiguientePosición()
+  PonerCarta_(dameCarta__(armarValorAs(), bastos()))
+  IluminarLaCartaActual()
+  hayOtra := hayOtraCartaDestapadaSinIluminar()
+  PasarASiguientePosición()
+  Assert(hayOtra)
+}
 
 procedure Assert(condiciónAVerificar) {
   PasarASiguientePosición()
@@ -162,9 +284,8 @@ procedure Assert(condiciónAVerificar) {
 }
 
 procedure LimpiarTablero() {
-  IrAlOrigen()
   PasarASiguientePosición()
-  repeat(29) {
+  repeat(47) {
     SacarTodas()
     PasarASiguientePosición()
   }
