@@ -73,6 +73,12 @@ blocks:
         <block type="minCarta"></block>
         <block type="maxCarta"></block>
     </category>
+    <category name="Operaciones para Memotest">
+        <block type="IluminarLaCartaActual"></block>
+        <block type="laCartaEstáIluminada"></block>
+        <block type="hayCartaDestapadaSinIluminar"></block>
+        <block type="hayOtraCartaDestapadaSinIluminar"></block>
+    </category>
     <category name="Operaciones de Letras">
         <block type="letra_"></block>
         <block type="leerLetra"></block>
