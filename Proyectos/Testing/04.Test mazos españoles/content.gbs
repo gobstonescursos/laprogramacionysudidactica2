@@ -1,277 +1,106 @@
-interactive program {
-  K_ARROW_RIGHT -> {
-    indice := nroBolitas(Rojo) + 1
-    LimpiarTablero()
-    TestsDeCartasEspañolasDe40(indice)
-    IrAlOrigen()
-    Poner__Veces(Rojo, 1)
-  }
-  K_ARROW_LEFT -> {
-    indice := nroBolitas(Rojo) - 1
-    LimpiarTablero()
-    TestsDeCartasEspañolasDe40(indice)
-    IrAlOrigen()
-    Sacar__Veces(Rojo, 1)
-  }
-  K_CTRL_ARROW_RIGHT -> {
-    indice := nroBolitas(Rojo) + 10
-    LimpiarTablero()
-    TestsDeCartasEspañolasDe40(indice)
-    IrAlOrigen()
-    Poner__Veces(Rojo, 10)
-  }
-}
-
-procedure TestsDeCartasEspañolasDe40(códigoDeTest) {
+procedure TestsDeMazosEspañoles(códigoDeTest) {
   if (códigoDeTest == 1) {
-    TestCartaYPonerCarta()
+    TestMazoEspañolYPonerMazo()
   } elseif (códigoDeTest == 2) {
-    TestSacarCarta()
+    TestSacarMazo()
   } elseif (códigoDeTest == 3) {
-    TestDarVueltaLaCartaActual1()
+    TestDameLaPrimerCarta_SacarLaPrimerCartaYQuedanCartas()
   } elseif (códigoDeTest == 4) {
-    TestDarVueltaLaCartaActual2()
+    TestDameLaÚltimaCarta_SacarLaÚltimaCartaYQuedanCartas()
   } elseif (códigoDeTest == 5) {
-    TestHayCarta()
-    TestHayCartaTapada()
+    TestLeerMazoYMazoVacíoYAgregarAlPrincipio()
   } elseif (códigoDeTest == 6) {
-    TestLeerCarta()
+    TestJuntarMazosYAgregarAlFinal()
   } elseif (códigoDeTest == 7) {
-    TestEsCartaMenorQue()
+    TestDameLaMásChicaYDameLaMásGrande()
   } elseif (códigoDeTest == 8) {
-    TestEsMayorCartaQue()
   } elseif (códigoDeTest == 9) {
-    TestSiguienteYPrevio()
   } elseif (códigoDeTest == 10) {
-    TestMinCartaYMaxCarta()
   } elseif (códigoDeTest == 11) {
-    TestIluminarLaCartaActual()
   } elseif (códigoDeTest == 12) {
-    TestHayCartaIluminada()
   } else {
     BOOM("Pasó todos los tests")
   }
 }
 
-procedure TestCartaYPonerCarta() {
-  PonerTodasLasCartas()
+function mazoDeEjemplo1() {
+  mazoActual := mazoVacío()
+  valorActual := armarValorAs()
+  cantidad := 6
+  while (not (cantidad == 0)) {
+    mazoActual := agregarAlFinalDelMazo__(mazoActual, dameCarta__(valorActual, espadas()))
+    valorActual := valorSiguiente_(valorSiguiente_(valorSiguiente_(valorActual)))
+    cantidad := cantidad - 1
+  }
+  return (mazoActual)
+}
+
+procedure TestMazoEspañolYPonerMazo() {
+  PonerMazo_(mazoEspañol())
   Assert(0 == 0)
 }
 
-procedure PonerTodasLasCartas() {
-  paloActual := minPalo()
-  while (not (paloActual == maxPalo())) {
-    PonerTodasLasCartasDePalo(paloActual)
-    paloActual := paloSiguiente_(paloActual)
-    PasarASiguientePosición()
-  }
-  PonerTodasLasCartasDePalo(paloActual)
-}
-
-procedure PonerTodasLasCartasDePalo(paloAPoner) {
-  valorActual := minValor()
-  while (not (valorActual == maxValor())) {
-    PonerCarta_(dameCarta__(valorActual, paloAPoner))
-    valorActual := valorSiguiente_(valorActual)
-    PasarASiguientePosición()
-  }
-  PonerCarta_(dameCarta__(valorActual, paloAPoner))
-}
-
-procedure TestSacarCarta() {
-  PonerTodasLasCartas()
+procedure TestLeerMazoYMazoVacíoYAgregarAlPrincipio() {
+  PonerMazo_(invertir(mazoDeEjemplo1()))
   IrAlOrigen()
-  repeat(40) {
+  PasarASiguientePosición()
+  mazoActual := leerMazo()
+  repeat(cantidadDeCartasDelMazo_(mazoActual) - 1) {
     PasarASiguientePosición()
-    SacarCartaActual()
   }
-  Assert(0 == 0)
+  Assert(mazoDeEjemplo1() == invertir(mazoActual))
 }
 
-procedure TestDarVueltaLaCartaActual1() {
-  PonerTodasLasCartasYDarlasVuelta()
-  Assert(0 == 0)
-}
-
-procedure TestDarVueltaLaCartaActual2() {
-  PonerTodasLasCartasYDarlasVuelta()
+procedure TestSacarMazo() {
+  PonerMazo_(mazoEspañol())
   IrAlOrigen()
-  repeat(40) {
+  PasarASiguientePosición()
+  SacarMazo()
+  Assert(0 == 0)
+}
+
+function mazoDeEjemplo2() {
+  mazoActual := mazoVacío()
+  valorActual := armarValor_(6)
+  cantidad := 8
+  while (not (cantidad == 0)) {
+    mazoActual := agregarAlPrincipioDelMazo__(mazoActual, dameCarta__(valorActual, bastos()))
+    valorActual := valorSiguiente_(valorSiguiente_(valorSiguiente_(valorActual)))
+    cantidad := cantidad - 1
+  }
+  return (mazoActual)
+}
+
+procedure TestDameLaPrimerCarta_SacarLaPrimerCartaYQuedanCartas() {
+  PonerCarta_(dameLaPrimeraCartaDe_(mazoEspañol()))
+  mazoActual := sacarLaPrimeraCartaDe_(mazoEspañol())
+  while (not (not(quedanCartas_(mazoActual)))) {
     PasarASiguientePosición()
-    DarVueltaLaCartaActual()
+    PonerCarta_(dameLaPrimeraCartaDe_(mazoActual))
+    mazoActual := sacarLaPrimeraCartaDe_(mazoActual)
   }
   Assert(0 == 0)
 }
 
-procedure PonerTodasLasCartasYDarlasVuelta() {
-  PonerTodasLasCartas()
-  IrAlOrigen()
-  repeat(40) {
+procedure TestDameLaÚltimaCarta_SacarLaÚltimaCartaYQuedanCartas() {
+  PonerCarta_(dameLaÚltimaCartaDe_(mazoEspañol()))
+  mazoActual := sacarLaÚltimaCartaDe_(mazoEspañol())
+  while (not (not(quedanCartas_(mazoActual)))) {
     PasarASiguientePosición()
-    DarVueltaLaCartaActual()
+    PonerCarta_(dameLaÚltimaCartaDe_(mazoActual))
+    mazoActual := sacarLaÚltimaCartaDe_(mazoActual)
   }
-}
-
-procedure TestHayCarta() {
-  PonerCarta_(dameCarta__(armarValorAs(), bastos()))
-  Assert(hayCarta())
-  PasarASiguientePosición()
-  SacarTodas()
-  Assert(not(hayCarta()))
-}
-
-procedure TestHayCartaTapada() {
-  PasarASiguientePosición()
-  PonerCarta_(dameCarta__(armarValorAs(), oros()))
-  DarVueltaLaCartaActual()
-  Assert(hayCartaTapada())
-  PasarASiguientePosición()
-  PonerCarta_(dameCarta__(armarValorAs(), oros()))
-  Assert(not(hayCartaTapada()))
-  PasarASiguientePosición()
-  SacarTodas()
-  Assert(not(hayCartaTapada()))
-}
-
-procedure TestLeerCarta() {
-  PonerCarta_(dameCarta__(armarValor_(2), copas()))
-  Assert(copas() == dameElPalo_(leerCarta()) && armarValor_(2) == dameElValor_(leerCarta()))
-}
-
-procedure TestEsCartaMenorQue() {
-  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(armarValor_(3), espadas()), dameCarta__(armarValor_(5), espadas()))
-  PasarASiguientePosición()
-  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(armarValor_(6), oros()), dameCarta__(armarValorCaballo(), oros()))
-  PasarASiguientePosición()
-  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(armarValorCaballo(), espadas()), dameCarta__(armarValorRey(), espadas()))
-  PasarASiguientePosición()
-  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(armarValorRey(), bastos()), dameCarta__(armarValorAs(), espadas()))
-  PasarASiguientePosición()
-  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(armarValorRey(), espadas()), dameCarta__(armarValorCaballo(), oros()))
-  PasarASiguientePosición()
-  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(armarValorCaballo(), copas()), dameCarta__(armarValor_(3), oros()))
-  PasarASiguientePosición()
-  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(armarValor_(7), bastos()), dameCarta__(armarValor_(2), espadas()))
-}
-
-procedure TestearQueUnaCartaEsMenorQueOtra(carta1, carta2) {
-  PonerCarta_(carta1)
-  PasarASiguientePosición()
-  PonerCarta_(carta2)
-  Assert(esMenorCarta__(carta1, carta2))
-  Assert(not(esMenorCarta__(carta2, carta1)))
-  Assert(not(esMenorCarta__(carta1, carta1)))
-}
-
-procedure TestEsMayorCartaQue() {
-  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(armarValor_(4), espadas()), dameCarta__(armarValor_(6), espadas()))
-  PasarASiguientePosición()
-  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(armarValor_(7), oros()), dameCarta__(armarValorRey(), oros()))
-  PasarASiguientePosición()
-  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(armarValorSota(), espadas()), dameCarta__(armarValorCaballo(), espadas()))
-  PasarASiguientePosición()
-  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(armarValorCaballo(), bastos()), dameCarta__(armarValorAs(), espadas()))
-  PasarASiguientePosición()
-  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(armarValorCaballo(), espadas()), dameCarta__(armarValorSota(), oros()))
-  PasarASiguientePosición()
-  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(armarValorRey(), copas()), dameCarta__(armarValor_(4), oros()))
-  PasarASiguientePosición()
-  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(armarValor_(6), bastos()), dameCarta__(armarValor_(3), espadas()))
-}
-
-procedure TestearQueUnaCartaEsMayorQueOtra(carta1, carta2) {
-  PonerCarta_(carta1)
-  PasarASiguientePosición()
-  PonerCarta_(carta2)
-  Assert(esMayorCarta__(carta2, carta1))
-  Assert(not(esMayorCarta__(carta1, carta2)))
-  Assert(not(esMayorCarta__(carta1, carta1)))
-}
-
-procedure TestSiguienteYPrevio() {
-  TestSiguienteYPrevioEnMedio()
-  TestSiguienteYPrevioEnBordeInferior()
-  TestSiguienteYPrevioEnBordeSuperior()
-}
-
-procedure TestSiguienteYPrevioEnMedio() {
-  TesteaSiguienteYPrevio(dameCarta__(armarValor_(3), espadas()), dameCarta__(armarValor_(4), espadas()), dameCarta__(armarValor_(2), espadas()))
-}
-
-procedure TestSiguienteYPrevioEnBordeInferior() {
-  PasarASiguientePosición()
-  TesteaSiguienteYPrevio(dameCarta__(armarValorAs(), bastos()), dameCarta__(armarValor_(2), bastos()), dameCarta__(armarValorRey(), oros()))
-  PasarASiguientePosición()
-  TesteaSiguienteYPrevio(dameCarta__(armarValorAs(), espadas()), dameCarta__(armarValor_(2), espadas()), dameCarta__(armarValorRey(), copas()))
-  PasarASiguientePosición()
-  TesteaSiguienteYPrevio(dameCarta__(armarValor_(7), oros()), dameCarta__(armarValorSota(), oros()), dameCarta__(armarValor_(6), oros()))
-}
-
-procedure TestSiguienteYPrevioEnBordeSuperior() {
-  PasarASiguientePosición()
-  TesteaSiguienteYPrevio(dameCarta__(armarValorRey(), oros()), dameCarta__(armarValorAs(), bastos()), dameCarta__(armarValorCaballo(), oros()))
-  PasarASiguientePosición()
-  TesteaSiguienteYPrevio(dameCarta__(armarValorRey(), copas()), dameCarta__(armarValorAs(), espadas()), dameCarta__(armarValorCaballo(), copas()))
-  PasarASiguientePosición()
-  TesteaSiguienteYPrevio(dameCarta__(armarValorSota(), copas()), dameCarta__(armarValorCaballo(), copas()), dameCarta__(armarValor_(7), copas()))
-}
-
-procedure TesteaSiguienteYPrevio(carta, cartaSiguiente, cartaPrevia) {
-  PonerCarta_(cartaPrevia_(carta))
-  PasarASiguientePosición()
-  PonerCarta_(carta)
-  PasarASiguientePosición()
-  PonerCarta_(cartaSiguiente_(carta))
-  Assert(cartaSiguiente_(carta) == cartaSiguiente)
-  PasarASiguientePosición()
-  Assert(cartaPrevia_(carta) == cartaPrevia)
-}
-
-procedure TestMinCartaYMaxCarta() {
-  PonerCarta_(minCarta())
-  Assert(minCarta() == dameCarta__(armarValorAs(), bastos()))
-  PasarASiguientePosición()
-  PonerCarta_(maxCarta())
-  Assert(maxCarta() == dameCarta__(armarValorRey(), oros()))
-}
-
-procedure TestIluminarLaCartaActual() {
-  PonerTodasLasCartasELiuminarlas()
   Assert(0 == 0)
 }
 
-procedure PonerTodasLasCartasELiuminarlas() {
-  PonerTodasLasCartas()
-  IrAlOrigen()
-  repeat(40) {
-    PasarASiguientePosición()
-    IluminarLaCartaActual()
+function invertir(mazo) {
+  mazoADevolver := mazoVacío()
+  mazoActual := mazo
+  while (not (not(quedanCartas_(mazoActual)))) {
+    mazoADevolver := agregarAlPrincipioDelMazo__(mazoADevolver, dameLaPrimeraCartaDe_(mazoActual))
+    mazoActual := sacarLaPrimeraCartaDe_(mazoActual)
   }
-}
-
-procedure TestHayCartaIluminada() {
-  PonerCarta_(dameCarta__(armarValorAs(), espadas()))
-  IluminarLaCartaActual()
-  hayOtra := hayOtraCartaDestapadaSinIluminar()
-  Assert(not(hayCartaDestapadaSinIluminar()))
-  PasarASiguientePosición()
-  Assert(not(hayOtra))
-  PasarASiguientePosición()
-  PonerCarta_(dameCarta__(armarValorAs(), espadas()))
-  Assert(hayCartaDestapadaSinIluminar())
-  PasarASiguientePosición()
-  SacarTodas()
-  Assert(not(hayCartaDestapadaSinIluminar()))
-  PasarASiguientePosición()
-  PonerCarta_(dameCarta__(armarValorAs(), espadas()))
-  DarVueltaLaCartaActual()
-  Assert(not(hayCartaDestapadaSinIluminar()))
-  PasarASiguientePosición()
-  PonerCarta_(dameCarta__(armarValorAs(), bastos()))
-  IluminarLaCartaActual()
-  hayOtra := hayOtraCartaDestapadaSinIluminar()
-  PasarASiguientePosición()
-  Assert(hayOtra)
+  return (mazoADevolver)
 }
 
 procedure Assert(condiciónAVerificar) {
@@ -283,6 +112,20 @@ procedure Assert(condiciónAVerificar) {
   }
 }
 
+procedure TestJuntarMazosYAgregarAlFinal() {
+  PonerMazo_(juntarMazos__(mazoDeEjemplo1(), mazoDeEjemplo2()))
+  IrAlOrigen()
+  PasarASiguientePosición()
+  repeat(cantidadDeCartasDelMazo_(mazoDeEjemplo1())) {
+    PasarASiguientePosición()
+  }
+  mazoActual := leerMazo()
+  repeat(cantidadDeCartasDelMazo_(mazoActual) - 1) {
+    PasarASiguientePosición()
+  }
+  Assert(mazoDeEjemplo2() == mazoActual)
+}
+
 procedure LimpiarTablero() {
   PasarASiguientePosición()
   repeat(47) {
@@ -292,3 +135,37 @@ procedure LimpiarTablero() {
   PasarASiguientePosición()
 }
 
+procedure TestDameLaMásChicaYDameLaMásGrande() {
+  mazo := invertir(juntarMazos__(mazoDeEjemplo1(), mazoDeEjemplo2()))
+  PonerMazo_(mazo)
+  Assert(dameLaCartaMásChicaDe_(mazo) == dameCarta__(armarValorAs(), bastos()))
+  Assert(dameLaCartaMásGrandeDe_(mazo) == dameCarta__(armarValorRey(), espadas()))
+}
+
+
+interactive program {
+  K_ARROW_RIGHT -> {
+    IrAlOrigen()
+    indice := nroBolitas(Rojo) + 1
+    LimpiarTablero()
+    TestsDeMazosEspañoles(indice)
+    IrAlOrigen()
+    Poner__Veces(Rojo, 1)
+  }
+  K_ARROW_LEFT -> {
+    IrAlOrigen()
+    indice := nroBolitas(Rojo) - 1
+    LimpiarTablero()
+    TestsDeMazosEspañoles(indice)
+    IrAlOrigen()
+    Sacar__Veces(Rojo, 1)
+  }
+  K_CTRL_ARROW_RIGHT -> {
+    IrAlOrigen()
+    indice := nroBolitas(Rojo) + 10
+    LimpiarTablero()
+    TestsDeMazosEspañoles(indice)
+    IrAlOrigen()
+    Poner__Veces(Rojo, 10)
+  }
+}
