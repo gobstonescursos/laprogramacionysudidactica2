@@ -195,8 +195,8 @@ procedure AuxPonerMazo(mazo) {
      AuxPonerCartaEspañolaDestapada(primero(faltanMostrar))
      faltanMostrar := resto(faltanMostrar)
      while (not aux_terminóElRecorridoGral(Este, Sur) && not esVacía(faltanMostrar)) {
-      AuxAvanzarRecorridoGral(Este, Sur)
-      AuxPonerCartaEspañolaDestapada(primero(faltanMostrar))
+       AuxAvanzarRecorridoGral(Este, Sur)
+       AuxPonerCartaEspañolaDestapada(primero(faltanMostrar))
        faltanMostrar := resto(faltanMostrar)
      }
    }
