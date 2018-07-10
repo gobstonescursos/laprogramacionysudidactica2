@@ -36,9 +36,9 @@ procedure AuxSacarTodas_(c) { AuxSacar__Veces(c, nroBolitas(c)) }
 
 procedure AuxMoverSiPuede(dir)         { if (puedeMover(dir)) { Mover(dir) }   }
 
-// Las direcciones deben ser opuestas en estos dos procedimientos
-procedure AuxIrAlOrigen()              { AuxIniciarRecorridoGral(Oeste, Norte) }
-procedure AuxPasarASiguientePosición() { AuxAvanzarRecorridoGral(Este,  Sur)   }
+// Las direcciones deben ser las mismas en estos dos procedimientos
+procedure AuxIrAlOrigen()              { AuxIniciarRecorridoGral(Este, Sur) }
+procedure AuxPasarASiguientePosición() { AuxAvanzarRecorridoGral(Este, Sur) }
 
 //---------------------------------------------------------------------------------------------------/
 /*---------------------------- Operaciones auxiliares de codificación -------------------------------/
@@ -74,10 +74,10 @@ procedure AuxVolverALaMarca() {
 //---------------------------------------------------------------------------------------------------/
 /*---------------------------------- Operaciones de recorrido ---------------------------------------/
 /---------------------------------------------------------------------------------------------------*/
-// El Recorrido default es Este-Norte (el iniciar debe usar las direcciones opuestas)
-procedure AuxIniciarRecorrido()    { AuxIniciarRecorridoGral           (Oeste, Sur)    }
-procedure AuxAvanzarRecorrido()    { AuxAvanzarRecorridoGral           (Este,  Norte)  }
-function  aux_terminóElRecorrido() { return (aux_terminóElRecorridoGral(Este,  Norte)) }
+// El Recorrido default es Este-Norte (los 3 deben usar los mismos parámetros)
+procedure AuxIniciarRecorrido()    { AuxIniciarRecorridoGral          (Este, Norte)  }
+procedure AuxAvanzarRecorrido()    { AuxAvanzarRecorridoGral          (Este, Norte)  }
+function  aux_terminóElRecorrido() { return(aux_terminóElRecorridoGral(Este, Norte)) }
 
 procedure AuxIniciarRecorridoGral(dirPpal, dirSecundaria) 
   { IrAlBorde(opuesto(dirPpal)) IrAlBorde(opuesto(dirSecundaria)) }
