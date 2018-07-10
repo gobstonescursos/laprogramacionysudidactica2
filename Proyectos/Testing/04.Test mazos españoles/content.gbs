@@ -1,10 +1,37 @@
+interactive program {
+  K_ARROW_RIGHT -> {
+    IrAlOrigen()
+    indice := nroBolitas(Rojo) + 1
+    LimpiarTablero()
+    TestsDeMazosEspañoles(indice)
+    IrAlOrigen()
+    Poner__Veces(Rojo, 1)
+  }
+  K_ARROW_LEFT -> {
+    IrAlOrigen()
+    indice := nroBolitas(Rojo) - 1
+    LimpiarTablero()
+    TestsDeMazosEspañoles(indice)
+    IrAlOrigen()
+    Sacar__Veces(Rojo, 1)
+  }
+  K_CTRL_ARROW_RIGHT -> {
+    IrAlOrigen()
+    indice := nroBolitas(Rojo) + 10
+    LimpiarTablero()
+    TestsDeMazosEspañoles(indice)
+    IrAlOrigen()
+    Poner__Veces(Rojo, 10)
+  }
+}
+
 procedure TestsDeMazosEspañoles(códigoDeTest) {
   if (códigoDeTest == 1) {
     TestMazoEspañolYPonerMazo()
   } elseif (códigoDeTest == 2) {
     TestSacarMazo()
   } elseif (códigoDeTest == 3) {
-    TestDameLaPrimerCarta_SacarLaPrimerCartaYQuedanCartas()
+    TestDameLaPrimeraCarta_SacarLaPrimeraCartaYQuedanCartas()
   } elseif (códigoDeTest == 4) {
     TestDameLaÚltimaCarta_SacarLaÚltimaCartaYQuedanCartas()
   } elseif (códigoDeTest == 5) {
@@ -13,11 +40,6 @@ procedure TestsDeMazosEspañoles(códigoDeTest) {
     TestJuntarMazosYAgregarAlFinal()
   } elseif (códigoDeTest == 7) {
     TestDameLaMásChicaYDameLaMásGrande()
-  } elseif (códigoDeTest == 8) {
-  } elseif (códigoDeTest == 9) {
-  } elseif (códigoDeTest == 10) {
-  } elseif (códigoDeTest == 11) {
-  } elseif (códigoDeTest == 12) {
   } else {
     BOOM("Pasó todos los tests")
   }
@@ -29,6 +51,18 @@ function mazoDeEjemplo1() {
   cantidad := 6
   while (not (cantidad == 0)) {
     mazoActual := agregarAlFinalDelMazo__(mazoActual, dameCarta__(valorActual, espadas()))
+    valorActual := valorSiguiente_(valorSiguiente_(valorSiguiente_(valorActual)))
+    cantidad := cantidad - 1
+  }
+  return (mazoActual)
+}
+
+function mazoDeEjemplo2() {
+  mazoActual := mazoVacío()
+  valorActual := armarValor_(6)
+  cantidad := 8
+  while (not (cantidad == 0)) {
+    mazoActual := agregarAlPrincipioDelMazo__(mazoActual, dameCarta__(valorActual, bastos()))
     valorActual := valorSiguiente_(valorSiguiente_(valorSiguiente_(valorActual)))
     cantidad := cantidad - 1
   }
@@ -59,19 +93,7 @@ procedure TestSacarMazo() {
   Assert(0 == 0)
 }
 
-function mazoDeEjemplo2() {
-  mazoActual := mazoVacío()
-  valorActual := armarValor_(6)
-  cantidad := 8
-  while (not (cantidad == 0)) {
-    mazoActual := agregarAlPrincipioDelMazo__(mazoActual, dameCarta__(valorActual, bastos()))
-    valorActual := valorSiguiente_(valorSiguiente_(valorSiguiente_(valorActual)))
-    cantidad := cantidad - 1
-  }
-  return (mazoActual)
-}
-
-procedure TestDameLaPrimerCarta_SacarLaPrimerCartaYQuedanCartas() {
+procedure TestDameLaPrimeraCarta_SacarLaPrimeraCartaYQuedanCartas() {
   PonerCarta_(dameLaPrimeraCartaDe_(mazoEspañol()))
   mazoActual := sacarLaPrimeraCartaDe_(mazoEspañol())
   while (not (not(quedanCartas_(mazoActual)))) {
@@ -103,15 +125,6 @@ function invertir(mazo) {
   return (mazoADevolver)
 }
 
-procedure Assert(condiciónAVerificar) {
-  PasarASiguientePosición()
-  if (condiciónAVerificar) {
-    Poner__Veces(Verde, 1)
-  } else {
-    Poner__Veces(Rojo, 1)
-  }
-}
-
 procedure TestJuntarMazosYAgregarAlFinal() {
   PonerMazo_(juntarMazos__(mazoDeEjemplo1(), mazoDeEjemplo2()))
   IrAlOrigen()
@@ -126,15 +139,6 @@ procedure TestJuntarMazosYAgregarAlFinal() {
   Assert(mazoDeEjemplo2() == mazoActual)
 }
 
-procedure LimpiarTablero() {
-  PasarASiguientePosición()
-  repeat(47) {
-    SacarTodas()
-    PasarASiguientePosición()
-  }
-  PasarASiguientePosición()
-}
-
 procedure TestDameLaMásChicaYDameLaMásGrande() {
   mazo := invertir(juntarMazos__(mazoDeEjemplo1(), mazoDeEjemplo2()))
   PonerMazo_(mazo)
@@ -142,30 +146,20 @@ procedure TestDameLaMásChicaYDameLaMásGrande() {
   Assert(dameLaCartaMásGrandeDe_(mazo) == dameCarta__(armarValorRey(), espadas()))
 }
 
-
-interactive program {
-  K_ARROW_RIGHT -> {
-    IrAlOrigen()
-    indice := nroBolitas(Rojo) + 1
-    LimpiarTablero()
-    TestsDeMazosEspañoles(indice)
-    IrAlOrigen()
+procedure Assert(condiciónAVerificar) {
+  PasarASiguientePosición()
+  if (condiciónAVerificar) {
+    Poner__Veces(Verde, 1)
+  } else {
     Poner__Veces(Rojo, 1)
   }
-  K_ARROW_LEFT -> {
-    IrAlOrigen()
-    indice := nroBolitas(Rojo) - 1
-    LimpiarTablero()
-    TestsDeMazosEspañoles(indice)
-    IrAlOrigen()
-    Sacar__Veces(Rojo, 1)
+}
+
+procedure LimpiarTablero() {
+  PasarASiguientePosición()
+  repeat(47) {
+    SacarTodas()
+    PasarASiguientePosición()
   }
-  K_CTRL_ARROW_RIGHT -> {
-    IrAlOrigen()
-    indice := nroBolitas(Rojo) + 10
-    LimpiarTablero()
-    TestsDeMazosEspañoles(indice)
-    IrAlOrigen()
-    Poner__Veces(Rojo, 10)
-  }
+  PasarASiguientePosición()
 }
