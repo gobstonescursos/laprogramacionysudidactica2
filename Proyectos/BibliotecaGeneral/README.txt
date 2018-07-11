@@ -45,6 +45,31 @@ Redactar bien el readme...
         <block type="not"></block>
       </category>
     </category>
+    <category name="Operaciones de Números">
+        <block type="leerNúmero"></block>
+        <block type="PonerNúmero_"></block>
+        <block type="SacarNúmeroActual"></block>
+        <block type="hayNúmero"></block>
+    </category>
+    <category name="Operaciones de Letras">
+      <category name="Creación">
+        <block type="letra_"></block>
+        <block type="minLetra"></block>
+        <block type="maxLetra"></block>
+        <block type="leerLetra"></block>
+      </category>
+      <category name="Manipulación">
+        <block type="PonerLetra_"></block>
+        <block type="SacarLetraActual"></block>
+        <block type="hayLetra"></block>
+      </category>
+      <category name="Acceso">
+        <block type="esMenorLetra__"></block>
+        <block type="esMayorLetra__"></block>
+        <block type="letraSiguiente_"></block>
+        <block type="letraPrevia_"></block>
+      </category>
+    </category>
     <category name="Operaciones de Valores">
       <category name="Creación">
         <block type="armarValorAs"></block>
@@ -86,11 +111,11 @@ Redactar bien el readme...
         <block type="leerCarta"></block>
       </category>
       <category name="Manipulación">
-        <block type="hayCarta"></block>
-        <block type="hayCartaTapada"></block>
         <block type="PonerCarta_"></block>
         <block type="SacarCartaActual"></block>
         <block type="DarVueltaLaCartaActual"></block>
+        <block type="hayCarta"></block>
+        <block type="hayCartaTapada"></block>
       </category>
       <category name="Acceso">
         <block type="dameElPalo_"></block>
@@ -99,10 +124,13 @@ Redactar bien el readme...
         <block type="esMayorCarta__"></block>
         <block type="cartaSiguiente_"></block>
         <block type="cartaPrevia_"></block>
+      </category>
+      <category name="Iluminación">
         <block type="IluminarLaCartaActual"></block>
         <block type="laCartaEstáIluminada"></block>
         <block type="hayCartaDestapadaSinIluminar"></block>
         <block type="hayOtraCartaDestapadaSinIluminar"></block>
+      </category>
     </category>
     <category name="Operaciones de Mazos">
       <category name="Creación">
@@ -111,9 +139,9 @@ Redactar bien el readme...
         <block type="agregarAlPrincipioDelMazo__"></block>
         <block type="juntarMazos__"></block>
         <block type="mazoEspañol"></block>
+        <block type="leerMazo"></block>
       </category>
       <category name="Manipulación">
-        <block type="leerMazo"></block>
         <block type="PonerMazo_"></block>
         <block type="SacarMazo"></block>
       </category>
@@ -128,25 +156,6 @@ Redactar bien el readme...
         <block type="dameLaCartaMásChicaDe_"></block>
       </category>
     </category>
-    <category name="Operaciones de Letras">
-      <category name="Creación">
-        <block type="letra_"></block>
-        <block type="leerLetra"></block>
-        <block type="minLetra"></block>
-        <block type="maxLetra"></block>
-      </category>
-      <category name="Manipulación">
-        <block type="PonerLetra_"></block>
-        <block type="SacarLetraActual"></block>
-        <block type="hayLetra"></block>
-      </category>
-      <category name="Acceso">
-        <block type="esMenorLetra__"></block>
-        <block type="esMayorLetra__"></block>
-        <block type="letraSiguiente_"></block>
-        <block type="letraPrevia_"></block>
-      </category>
-    </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">  </category>
     <category name="Definiciones">
@@ -155,3 +164,122 @@ Redactar bien el readme...
         <block type="procedures_defreturn"></block>
     </category>
 
+Otra caja posible, sin las subcategorías:
+    
+    <category name="Comandos básicos">
+        <block type="Poner__Veces"></block>
+        <block type="Sacar__Veces"></block>
+        <block type="Mover__Veces"></block>
+        <block type="SacarTodas"></block>
+        <block type="SacarTodas_"></block>
+        <block type="IrAlBorde"></block>
+        <block type="IrAlOrigen"></block>
+        <block type="PasarASiguientePosición"></block>
+        <block type="BOOM"></block>
+        <block type="RepeticionSimple"></block>
+        <block type="AlternativaCompleta"></block>
+        <block type="RepeticionCondicional"></block>
+        <block type="Asignacion"></block>
+    </category>
+    <category name="Expresiones básicas">
+        <block type="math_number"></block>
+        <block type="ColorSelector"></block>
+        <block type="DireccionSelector"></block>
+        <block type="nroBolitas"></block>
+        <block type="puedeMover"></block>
+        <block type="OperadorNumerico"></block>
+        <block type="OperadorDeComparacion"></block>
+        <block type="OperadorLogico"></block>
+        <block type="not"></block>
+    </category>
+    <category name="Operaciones de Números">
+        <block type="leerNúmero"></block>
+        <block type="PonerNúmero_"></block>
+        <block type="SacarNúmeroActual"></block>
+        <block type="hayNúmero"></block>
+    </category>
+    <category name="Operaciones de Letras">
+        <block type="letra_"></block>
+        <block type="minLetra"></block>
+        <block type="maxLetra"></block>
+        <block type="leerLetra"></block>
+        <block type="PonerLetra_"></block>
+        <block type="SacarLetraActual"></block>
+        <block type="hayLetra"></block>
+        <block type="esMenorLetra__"></block>
+        <block type="esMayorLetra__"></block>
+        <block type="letraSiguiente_"></block>
+        <block type="letraPrevia_"></block>
+    </category>
+    <category name="Operaciones de Valores">
+        <block type="armarValorAs"></block>
+        <block type="armarValor_"></block>
+        <block type="armarValorSota"></block>
+        <block type="armarValorCaballo"></block>
+        <block type="armarValorRey"></block>
+        <block type="minValor"></block>
+        <block type="maxValor"></block>
+        <block type="esMenorValor__"></block>
+        <block type="esMayorValor__"></block>
+        <block type="valorSiguiente_"></block>
+        <block type="valorPrevio_"></block>
+    </category>
+    <category name="Operaciones de Palos">
+        <block type="bastos"></block>
+        <block type="copas"></block>
+        <block type="espadas"></block>
+        <block type="oros"></block>
+        <block type="minPalo"></block>
+        <block type="maxPalo"></block>
+        <block type="esMenorPalo__"></block>
+        <block type="esMayorPalo__"></block>
+        <block type="paloSiguiente_"></block>
+        <block type="paloPrevio_"></block>
+    </category>
+    <category name="Operaciones de Cartas">
+        <block type="dameCarta__"></block>
+        <block type="minCarta"></block>
+        <block type="maxCarta"></block>
+        <block type="leerCarta"></block>
+        <block type="PonerCarta_"></block>
+        <block type="SacarCartaActual"></block>
+        <block type="DarVueltaLaCartaActual"></block>
+        <block type="hayCarta"></block>
+        <block type="hayCartaTapada"></block>
+        <block type="dameElPalo_"></block>
+        <block type="dameElValor_"></block>
+        <block type="esMenorCarta__"></block>
+        <block type="esMayorCarta__"></block>
+        <block type="cartaSiguiente_"></block>
+        <block type="cartaPrevia_"></block>
+        <block type="IluminarLaCartaActual"></block>
+        <block type="laCartaEstáIluminada"></block>
+        <block type="hayCartaDestapadaSinIluminar"></block>
+        <block type="hayOtraCartaDestapadaSinIluminar"></block>
+    </category>
+    <category name="Operaciones de Mazos">
+        <block type="mazoVacío"></block>
+        <block type="agregarAlFinalDelMazo__"></block>
+        <block type="agregarAlPrincipioDelMazo__"></block>
+        <block type="juntarMazos__"></block>
+        <block type="mazoEspañol"></block>
+        <block type="leerMazo"></block>
+        <block type="PonerMazo_"></block>
+        <block type="SacarMazo"></block>
+        <block type="quedanCartas_"></block>
+        <block type="cantidadDeCartasDelMazo_"></block>
+        <block type="dameLaPrimeraCartaDe_"></block>
+        <block type="sacarLaPrimeraCartaDe_"></block>
+        <block type="dameLaÚltimaCartaDe_"></block>
+        <block type="sacarLaÚltimaCartaDe_"></block>
+        <block type="dameLaCartaMásGrandeDe_"></block>
+        <block type="dameLaCartaMásChicaDe_"></block>
+    </category>
+    <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
+    <category name="Mis funciones" custom="FUNCTION_CALLS">  </category>
+    <category name="Definiciones">
+        <block type="procedures_defnoreturn"></block>
+        <block type="procedures_defreturnsimplewithparams"></block>
+        <block type="procedures_defreturn"></block>
+    </category>
+    

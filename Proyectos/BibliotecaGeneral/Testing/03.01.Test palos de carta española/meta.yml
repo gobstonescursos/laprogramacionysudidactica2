@@ -6,7 +6,6 @@ attire:
 blocks:
   defaultToolbox: |
     <category name="Comandos básicos">
-      <category name="Primitivos">
         <block type="Poner__Veces"></block>
         <block type="Sacar__Veces"></block>
         <block type="Mover__Veces"></block>
@@ -16,84 +15,67 @@ blocks:
         <block type="IrAlOrigen"></block>
         <block type="PasarASiguientePosición"></block>
         <block type="BOOM"></block>
-      </category>
-      <category name="Combinaciones">
         <block type="RepeticionSimple"></block>
         <block type="AlternativaCompleta"></block>
         <block type="RepeticionCondicional"></block>
         <block type="Asignacion"></block>
-      </category>
     </category>
     <category name="Expresiones básicas">
-      <category name="Primitivos">
         <block type="math_number"></block>
         <block type="ColorSelector"></block>
         <block type="DireccionSelector"></block>
         <block type="nroBolitas"></block>
         <block type="puedeMover"></block>
-      </category>
-      <category name="Operadores">
         <block type="OperadorNumerico"></block>
         <block type="OperadorDeComparacion"></block>
         <block type="OperadorLogico"></block>
         <block type="not"></block>
-      </category>
     </category>
     <category name="Operaciones de Valores">
-      <category name="Creación">
         <block type="armarValorAs"></block>
         <block type="armarValor_"></block>
         <block type="armarValorSota"></block>
         <block type="armarValorCaballo"></block>
         <block type="armarValorRey"></block>
-      </category>
-      <category name="Acceso">
+        <block type="minValor"></block>
+        <block type="maxValor"></block>
         <block type="esMenorValor__"></block>
         <block type="esMayorValor__"></block>
         <block type="valorSiguiente_"></block>
         <block type="valorPrevio_"></block>
-        <block type="minValor"></block>
-        <block type="maxValor"></block>
-      </category>
     </category>
     <category name="Operaciones de Palos">
-      <category name="Creación">
         <block type="bastos"></block>
         <block type="copas"></block>
         <block type="espadas"></block>
         <block type="oros"></block>
-      </category>
-      <category name="Acceso">
+        <block type="minPalo"></block>
+        <block type="maxPalo"></block>
         <block type="esMenorPalo__"></block>
         <block type="esMayorPalo__"></block>
         <block type="paloSiguiente_"></block>
         <block type="paloPrevio_"></block>
-        <block type="minPalo"></block>
-        <block type="maxPalo"></block>
-      </category>
     </category>
     <category name="Operaciones de Cartas">
-      <category name="Creación">
         <block type="dameCarta__"></block>
+        <block type="minCarta"></block>
+        <block type="maxCarta"></block>
         <block type="leerCarta"></block>
-      </category>
-      <category name="Manipulación">
-        <block type="hayCarta"></block>
-        <block type="hayCartaTapada"></block>
         <block type="PonerCarta_"></block>
         <block type="SacarCartaActual"></block>
         <block type="DarVueltaLaCartaActual"></block>
-      </category>
-      <category name="Acceso">
+        <block type="hayCarta"></block>
+        <block type="hayCartaTapada"></block>
         <block type="dameElPalo_"></block>
         <block type="dameElValor_"></block>
         <block type="esMenorCarta__"></block>
         <block type="esMayorCarta__"></block>
         <block type="cartaSiguiente_"></block>
         <block type="cartaPrevia_"></block>
-        <block type="minCarta"></block>
-        <block type="maxCarta"></block>
-      </category>
+        <block type="IluminarLaCartaActual"></block>
+        <block type="laCartaEstáIluminada"></block>
+        <block type="hayCartaDestapadaSinIluminar"></block>
+        <block type="hayOtraCartaDestapadaSinIluminar"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">  </category>

@@ -58,16 +58,16 @@ blocks:
     </category>
     <category name="Operaciones de Cartas">
         <block type="dameCarta__"></block>
+        <block type="minCarta"></block>
+        <block type="maxCarta"></block>
         <block type="leerCarta"></block>
-        <block type="hayCarta"></block>
-        <block type="hayCartaTapada"></block>
         <block type="PonerCarta_"></block>
         <block type="SacarCartaActual"></block>
         <block type="DarVueltaLaCartaActual"></block>
+        <block type="hayCarta"></block>
+        <block type="hayCartaTapada"></block>
         <block type="dameElPalo_"></block>
         <block type="dameElValor_"></block>
-        <block type="minCarta"></block>
-        <block type="maxCarta"></block>
         <block type="esMenorCarta__"></block>
         <block type="esMayorCarta__"></block>
         <block type="cartaSiguiente_"></block>
@@ -94,19 +94,6 @@ blocks:
         <block type="sacarLaÚltimaCartaDe_"></block>
         <block type="dameLaCartaMásGrandeDe_"></block>
         <block type="dameLaCartaMásChicaDe_"></block>
-    </category>
-    <category name="Operaciones de Letras">
-        <block type="letra_"></block>
-        <block type="leerLetra"></block>
-        <block type="PonerLetra_"></block>
-        <block type="SacarLetraActual"></block>
-        <block type="hayLetra"></block>
-        <block type="minLetra"></block>
-        <block type="maxLetra"></block>
-        <block type="esMenorLetra__"></block>
-        <block type="esMayorLetra__"></block>
-        <block type="letraSiguiente_"></block>
-        <block type="letraPrevia_"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">  </category>
