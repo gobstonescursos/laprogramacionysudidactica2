@@ -1,0 +1,23 @@
+program { DarVueltaLasFiguras() }
+
+procedure DarVueltaLasFiguras() {
+  repeat(9) {
+    ProcesarUnaCarta()
+    PasarASiguientePosición()
+  }
+}
+
+procedure ProcesarUnaCarta() {
+  DarVueltaLaCartaActual()
+  if (not(esFigura(leerCarta()))) {
+    DarVueltaLaCartaActual()
+  }
+}
+
+function esFigura(carta) { return (...) }
+
+function esRey(carta)     { return (...) }
+function esCaballo(carta) { return (...) }
+function esSota(carta)    { return (...) }
+
+

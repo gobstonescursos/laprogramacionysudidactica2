@@ -1,0 +1,56 @@
+[
+  { "name": "Repaso curso anterior", "repo": "gobstones/laprogramacionysudidactica2"
+  , "exercises": 
+    [ { "id": "1.1", "name": "Lucho enciende las luces"
+      , "path": "Proyectos/Clase1/1.1.Lucho enciende las luces"
+      }
+    , { "id": "1.2", "name": "Lucho enciende las luces extendido"
+      , "path": "Proyectos/Clase1/1.2.Lucho enciende las luces extendido"
+      }
+    , { "id": "1.3", "name": "Lucho cuadrado"
+      , "path": "Proyectos/Clase1/1.3.Lucho cuadrado"
+      }
+    , { "id": "1.4", "name": "Lucho cuadrado parametrizado"
+      , "path": "Proyectos/Clase1/1.4.Lucho cuadrado parametrizado"
+      }
+    ]
+  },
+  { "name": "Expresiones y funciones simples", "repo": "gobstones/laprogramacionysudidactica2"
+  , "exercises":
+    [ { "id": "2.3", "name": "Quiero retruco"
+      , "path": "Proyectos/Clase2/2.3.0.Quiero retruco"
+      }
+    , { "id": "2.4", "name": "Te carteaste"
+      , "path": "Proyectos/Clase2/2.3.1.Te carteaste"
+      }
+    , { "id": "2.5", "name": "El rey, el caballo, ..."
+      , "path": "Proyectos/Clase2/2.3.El rey, el caballo"
+      }
+    , { "id": "2.6", "name": "Memotest"
+      , "path": "Proyectos/Clase2/2.4.Memotest"
+      }
+    ]
+  },
+  { "name": "Pool de ideas", "repo": "gobstones/laprogramacionysudidactica2"
+  , "exercises":
+    [ { "id": "1", "name": "Poniendo orden"
+      , "path": "Proyectos/Pool/1.Poniendo orden"
+      }
+    , { "id": "2", "name": "Otra forma de ordenar"
+      , "path": "Proyectos/Pool/2.Otra forma de ordenar"
+      }
+    , { "id": "3", "name": "Poniendo orden, en abstracto"
+      , "path": "Proyectos/Pool/3.Poniendo orden, en abstracto"
+      }
+    , { "id": "4", "name": "Contar las cartas"
+      , "path": "Proyectos/Pool/4.0.Contar las cartas"
+      }
+    , { "id": "5", "name": "Contar las cartas (transición)"
+      , "path": "Proyectos/Pool/4.1.Contar las cartas, transición"
+      }
+    , { "id": "6", "name": "Contar las cartas en abstracto"
+      , "path": "Proyectos/Pool/5.Contar las cartas, en abstracto"
+      }
+    ]
+  }  
+]

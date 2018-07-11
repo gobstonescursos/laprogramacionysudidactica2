@@ -1,0 +1,51 @@
+attire:
+  active: El rey, el caballo, ...
+  user_permissions:
+    can_toggle_visibility: false
+  visible: true
+blocks:
+  disabled:
+  visible:
+    - Procedimientos primitivos
+    - Mis procedimientos
+    - RepeticionSimple
+    - RepeticionCondicional
+    - AlternativaSimple
+    - AlternativaCompleta
+    - Asignacion
+    - Mis funciones
+    - Numero
+    - OperadorDeComparacion
+    - OperadorLogico
+    - DefinicionDeProcedimientoParametrizado
+    - DefinicionDeFuncionSimpleParametrizada
+  primitiveProcedures: |
+    <category name="Operaciones de cartas">
+      <block type="DarVueltaLaCartaActual"></block>
+      <block type="PasarALaSiguientePosición"></block>
+    </category>
+  primitiveFunctions: |
+    <category name="Armado de cartas">
+      <block type="leerCarta" ></block>
+    </category>
+    <category name="Mirar las cartas">
+      <block type="dameElPalo_"></block>
+      <block type="dameElValor_"></block>
+    </category>
+board:
+  active: 1
+  initial_board_source: random
+  user_permissions:
+    can_change_source: false
+    can_edit_board: false
+  visible_edition: false
+execution_speed:
+  active: high
+  user_permissions:
+    can_change_speed: true
+source:
+  visible: true
+  percentage: 0.85
+library:
+  visible: false
+name: El rey, el caballo, ...
