@@ -34,7 +34,7 @@
       }
 	]
   }
-, { "name": "3.Expresiones lógicas, funciones  y sensores", "repo":"gobstones/laprogramacionysudidactica2"
+, { "name": "3.Sensores", "repo":"gobstones/laprogramacionysudidactica2"
   , "exercises":
     [ { "id": "3.1", "name": "No te gastes el ancho"
       , "path": "Proyectos/3.Expresiones lógicas, funciones  y sensores/3.1.Está lista la cena"
@@ -50,7 +50,7 @@
       }
 	 ]
   }
-, { "name": "5.Parámetros en procedimientos y funciones", "repo": "gobstones/laprogramacionysudidactica2"
+, { "name": "5.Parámetros", "repo": "gobstones/laprogramacionysudidactica2"
   , "exercises":
     [ { "id": "5.1", "name": "Licuados"
       , "path": "Proyectos/5.Parámetros en procedimientos y funciones/5.1.Licuados"
