@@ -4,15 +4,19 @@ attire:
     can_toggle_visibility: false
   visible: true
 blocks:
-  disabled:
-  visible:
-    - Procedimientos primitivos
-    - Mis procedimientos
-    - RepeticionSimple
-    - Direccion
-    - Numero
-    - procedures_defnoreturnnoparams
-    - Definicion de procedimientos simples
+    <category name="Comandos básicos">
+        <block type="MoverALuchoAl_"></block>
+        <block type="EncenderLuz"></block>
+        <block type="RepeticionSimple"></block>
+    </category>
+    <category name="Expresiones básicas">
+        <block type="math_number"></block>
+        <block type="DireccionSelector"></block>
+    </category>
+    <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
+    <category name="Definiciones">
+        <block type="procedures_defnoreturnnoparams"></block>
+    </category>
 board:
   active: 1
   initial_board_source: selected
