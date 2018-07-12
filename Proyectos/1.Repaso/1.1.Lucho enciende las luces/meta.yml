@@ -4,6 +4,7 @@ attire:
     can_toggle_visibility: false
   visible: true
 blocks:
+  defaultToolbox: |
     <category name="Comandos básicos">
         <block type="MoverALuchoAl_"></block>
         <block type="EncenderLuz"></block>
