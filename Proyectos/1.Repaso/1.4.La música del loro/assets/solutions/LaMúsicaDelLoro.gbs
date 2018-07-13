@@ -1,0 +1,13 @@
+program { HacerQueElLoroEmpieceElConcierto() }
+
+procedure HacerQueElLoroEmpieceElConcierto() {
+  LlevarAlLoroHastaElInstrumento()
+  ComenzarElConcierto()
+}
+
+procedure LlevarAlLoroHastaElInstrumento() { while (not (hayInstrumento())) { MoverAlLoroAl_(Este) } }
+procedure ComenzarElConcierto() {
+  if (hayTambor()) { TocarElTambor()   } 
+  else             { TocarLaGuitarra() }
+}
+

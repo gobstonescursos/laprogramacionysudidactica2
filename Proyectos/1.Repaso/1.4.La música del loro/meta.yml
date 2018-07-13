@@ -1,1 +1,42 @@
+attire:
+  active: La música del loro
+  user_permissions:
+    can_toggle_visibility: false
+  visible: true
+blocks:
+  defaultToolbox: |
+    <category name="Comandos básicos">
+        <block type="MoverAlLoroAl_"></block>
+        <block type="TocarElTambor"></block>
+        <block type="TocarLaGuitarra"></block>
+        <block type="AlternativaCompleta"></block>
+        <block type="RepeticionCondicional"></block>
+    </category>
+    <category name="Expresiones básicas">
+        <block type="math_number"></block>
+        <block type="DireccionSelector"></block>
+        <block type="hayInstrumento"></block>
+        <block type="hayTambor"></block>
+        <block type="hayGuitarra"></block>
+    </category>
+    <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
+    <category name="Definiciones">
+        <block type="procedures_defnoreturnnoparams"></block>
+    </category>
+board:
+  active: 1
+  initial_board_source: random
+  user_permissions:
+    can_change_source: false
+    can_edit_board: false
+  visible_edition: false
+execution_speed:
+  active: high
+  user_permissions:
+    can_change_speed: true
+library:
+  visible: false
+source:
+  visible: true
+  percentage: 0.65  
 name: La música del loro

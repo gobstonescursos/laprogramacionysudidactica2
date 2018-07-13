@@ -1,0 +1,105 @@
+/*----------------------------------------------------------------------------------------*/
+/*---------------- INTERFAZ --------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------*/
+procedure MoverAlLoroAl_(dir) { AuxMoverAlLoroAl(dir)        }
+procedure TocarElTambor()     { AuxTocarElTambor()           }
+procedure TocarLaGuitarra()   { AuxTocarLaGuitarra()         }
+function  hayInstrumento()    { return(aux_hayInstrumento()) }
+function  hayTambor()         { return(aux_hayTambor())      }
+function  hayGuitarra()       { return(aux_hayGuitarra())    }
+
+/*----------------------------------------------------------------------------------------*/
+/*---------------- OPERACIONES AUXILIARES ------------------------------------------------*/
+/*----------------------------------------------------------------------------------------*/
+procedure AuxMoverAlLoroAl(dir){
+    if (not aux_estáElLoroEnLaCeldaActual()) { BOOM("No puedo mover al loro si no está en esta celda")               }
+    if (dir /= Este)                         { BOOM("El loro solo sabe moverse hacia el Este")                       }
+    if (aux_comenzóElShow())                 { BOOM("No puedo interrumpir el concierto por mal que toque")           }
+    AuxSacarAlLoro()
+    Mover(dir)
+    AuxPonerAlLoro()
+}
+
+procedure AuxTocarElTambor() {
+    if (not aux_estáElLoroEnLaCeldaActual()) { BOOM("No puedo darle instrucciones al loro si no está en esta celda") }
+    if (not aux_hayTambor())                 { BOOM("No puedo tocar el tambor si no está en esta celda")             }
+    if (aux_comenzóElShow())                 { BOOM("No puedo interrumpir el concierto por mal que toque")           }
+    AuxComenzarElShow()
+}
+
+procedure AuxTocarLaGuitarra() {
+    if (not aux_estáElLoroEnLaCeldaActual()) { BOOM("No puedo darle instrucciones al loro si no está en esta celda") }
+    if (not aux_hayGuitarra())               { BOOM("No puedo tocar la guitarra si no está en esta celda")           }
+    if (aux_comenzóElShow())                 { BOOM("No puedo interrumpir el concierto por mal que toque")           }
+    AuxComenzarElShow()
+}
+
+function aux_elLoro()        { return(Azul)  }
+function aux_tambor()        { return(Negro) }
+function aux_guitarra()      { return(Verde) }
+function aux_showComenzado() { return(Rojo)  }
+
+function aux_estáElLoroEnLaCeldaActual()    { return (nroBolitas(aux_elLoro())   ==1)       }
+function aux_hayInstrumento()               { return (aux_hayGuitarra() || aux_hayTambor()) }
+function aux_hayTambor()                    { return (nroBolitas(aux_tambor())   ==1)       }
+function aux_hayGuitarra()                  { return (nroBolitas(aux_guitarra()) ==1)       }
+function aux_hayIndicaciónDeShowComenzado() { return (nroBolitas(aux_showComenzado())==1)   }
+function aux_comenzóElShow()                { 
+    AuxMarcar()
+    AuxIniciarRecorrido()
+    while (not aux_terminóElRecorrido() && not aux_hayIndicaciónDeShowComenzado()) { AuxAvanzarRecorrido() }
+    valorDeRetorno := aux_hayIndicaciónDeShowComenzado()
+    AuxVolverALaMarca()
+    AuxDesmarcar()
+    return (valorDeRetorno) 
+}
+
+procedure AuxPonerAlLoro()    { Poner(aux_elLoro())        }
+procedure AuxSacarAlLoro()    { Sacar(aux_elLoro())        }
+procedure AuxComenzarElShow() { Poner(aux_showComenzado()) }
+
+//---------------------------------------------------------------------------------------------------/
+/*----------------------------------- Operaciones de marcas -----------------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+// La marca son 100 bolitas del aux_colorParaMarca, pero puede haber otras marcas antes
+function aux_colorParaLaMarca()  { return(Verde) }
+function aux_códigoParaLaMarca() { return(100)   }
+
+function  aux_hayMarca() { return (nroBolitas(aux_colorParaLaMarca())>=aux_códigoParaLaMarca()) }
+procedure AuxMarcar()    { AuxPoner__Veces(aux_colorParaLaMarca(),aux_códigoParaLaMarca())      }
+procedure AuxDesmarcar() { 
+  // PRECONDICIÓN: hay una marca en el lugar (o sea, aux_hayMarca() es verdadero)
+  AuxSacar__Veces(aux_colorParaLaMarca(),aux_códigoParaLaMarca()) 
+}
+
+procedure AuxVolverALaMarca() {
+  // PRECONDICIÓN: hay una marca en el tablero
+  AuxIniciarRecorrido()
+  while (not aux_terminóElRecorrido() && not aux_hayMarca()) { AuxAvanzarRecorrido() }
+}
+
+//---------------------------------------------------------------------------------------------------/
+/*---------------------------------- Operaciones de recorrido ---------------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+// El Recorrido default es Este-Norte (los 3 deben usar los mismos parámetros)
+procedure AuxIniciarRecorrido()    { AuxIniciarRecorridoGral          (Este, Norte)  }
+procedure AuxAvanzarRecorrido()    { AuxAvanzarRecorridoGral          (Este, Norte)  }
+function  aux_terminóElRecorrido() { return(aux_terminóElRecorridoGral(Este, Norte)) }
+
+procedure AuxIniciarRecorridoGral(dirPpal, dirSecundaria) 
+  { IrAlBorde(opuesto(dirPpal)) IrAlBorde(opuesto(dirSecundaria)) }
+
+function aux_terminóElRecorridoGral(dirPpal, dirSecundaria) 
+  { return (not puedeMover(dirPpal) && not puedeMover(dirSecundaria)) }
+
+procedure AuxAvanzarRecorridoGral(dirPpal, dirSecundaria) {
+    if     (puedeMover(dirPpal))       { Mover(dirPpal)                                                }
+    elseif (puedeMover(dirSecundaria)) { IrAlBorde(opuesto(dirPpal)) Mover(dirSecundaria)              }
+    else                               { IrAlBorde(opuesto(dirPpal)) IrAlBorde(opuesto(dirSecundaria)) }
+}
+
+//---------------------------------------------------------------------------------------------------/
+/*---------------------------------- Operaciones de Gobstones ---------------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+procedure AuxPoner__Veces(c,n) { repeat (n) { Poner(c) } }
+procedure AuxSacar__Veces(c,n) { repeat (n) { Sacar(c) } }
