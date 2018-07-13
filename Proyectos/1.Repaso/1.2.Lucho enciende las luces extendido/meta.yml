@@ -1,5 +1,5 @@
 attire:
-  active: Lucho enciende las luces extendido
+  active: Lucho enciende las luces
   user_permissions:
     can_toggle_visibility: false
   visible: true
@@ -34,4 +34,4 @@ library:
 source:
   visible: true
   percentage: 0.65  
-name: Lucho enciende las luces extendido
+name: Lucho enciende las luces, extendido
