@@ -19,4 +19,4 @@ También podés hacer un procedimiento para moverte de una diagonal a la otra, �
 
 [Enunciado en PDF][PDF]
 
-[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/Clase1/1.1.Lucho%20enciende%20las%20luces/resources/description.pdf "Enunciado de 'Lucho enciende las luces' en PDF"
+[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/1.Repaso/1.1.Lucho%20enciende%20las%20luces/assets/resources/description.pdf "Enunciado de 'Lucho enciende las luces' en PDF"
