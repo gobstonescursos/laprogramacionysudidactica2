@@ -4,22 +4,22 @@ program {
 
 procedure PatearLas6Pelotas() {
   repeat(5) {
-    Patear1PelotaYVolverALaSalida()
+    Patear1PelotaYVolverAlInicioDeLaFila()
     CambiarAlBetoDeFila()
   }
-  Patear1PelotaYVolverALaSalida()
+  Patear1PelotaYVolverAlInicioDeLaFila()
 }
 
-procedure Patear1PelotaYVolverALaSalida() {
+procedure Patear1PelotaYVolverAlInicioDeLaFila() {
   while (not (estáLaPelotaEnEstaCelda())) {
     MoverAlBetoAl_(Este)
   }
   PatearAlArco()
-  VolverALaSalida()
+  VolverAlInicioDeLaFila()
 }
 
-procedure VolverALaSalida() {
-  while (not (estáElBetoEnLaSalida())) {
+procedure VolverAlInicioDeLaFila() {
+  while (not (estáElBetoEnElInicioDeLaFila())) {
     MoverAlBetoAl_(Oeste)
   }
 }

@@ -4,7 +4,7 @@ program {
       MoverAlBetoAl_(Este)
     }
     PatearAlArco()
-    while (not (estáElBetoEnLaSalida())) {
+    while (not (estáElBetoEnElInicioDeLaFila())) {
       MoverAlBetoAl_(Oeste)
     }
     CambiarAlBetoDeFila()
@@ -13,7 +13,7 @@ program {
     MoverAlBetoAl_(Este)
   }
   PatearAlArco()
-  while (not (estáElBetoEnLaSalida())) {
+  while (not (estáElBetoEnElInicioDeLaFila())) {
     MoverAlBetoAl_(Oeste)
   }
 }

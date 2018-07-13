@@ -16,7 +16,7 @@ blocks:
         <block type="math_number"></block>
         <block type="DireccionSelector"></block>
         <block type="estáLaPelotaEnEstaCelda"></block>
-        <block type="estáElBetoEnLaSalida"></block>
+        <block type="estáElBetoEnElInicioDeLaFila"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Definiciones">

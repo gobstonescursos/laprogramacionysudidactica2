@@ -2,13 +2,13 @@
 /*---------------- INTERFAZ --------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------*/
 /*@ATTRIBUTE@block_name@Mover al Beto hacia el _@*/
-procedure MoverAlBetoAl_(dir)       { AuxMoverAlBetoAl(dir)                     }
-procedure PatearAlArco()            { AuxPatearAlArco()                         }
+procedure MoverAlBetoAl_(dir)            { AuxMoverAlBetoAl(dir)                     }
+procedure PatearAlArco()                 { AuxPatearAlArco()                         }
 /*@ATTRIBUTE@block_name@Cambiar al Beto de fila@*/
-procedure CambiarAlBetoDeFila()     { AuxCambiarAlBetoDeFila()                  }
-function  estáLaPelotaEnEstaCelda() { return(aux_estáLaPelotaEnLaCeldaActual()) }
-/*@ATTRIBUTE@block_name@está el Beto en la salida@*/
-function  estáElBetoEnLaSalida()    { return(aux_estáElBetoEnLaSalida())        }
+procedure CambiarAlBetoDeFila()          { AuxCambiarAlBetoDeFila()                  }
+function  estáLaPelotaEnEstaCelda()      { return(aux_estáLaPelotaEnLaCeldaActual()) }
+/*@ATTRIBUTE@block_name@está el Beto en el inicio de la fila@*/
+function  estáElBetoEnElInicioDeLaFila() { return(aux_estáElBetoEnElInicio())        }
 
 /*----------------------------------------------------------------------------------------*/
 /*---------------- OPERACIONES AUXILIARES ------------------------------------------------*/
@@ -33,7 +33,7 @@ procedure AuxPatearAlArco() {
 
 procedure AuxCambiarAlBetoDeFila() {
     if (not aux_estáElBetoEnLaCeldaActual())   { BOOM("No puedo mover al Beto si no está en esta celda")               }
-    if (puedeMover(Oeste))                     { BOOM("Para cambiar de fila el Beto debe estar en la salida")          }
+    if (not aux_estáElBetoEnElInicio())        { BOOM("Para cambiar de fila el Beto debe estar en el inicio")          }
     AuxSacarAlBeto()
     Mover(Sur)
     AuxPonerAlBeto()
@@ -43,7 +43,7 @@ function aux_elBeto() { return(Azul)  }
 function aux_pelota() { return(Negro) }
 function aux_arco()   { return(Rojo)  }
 
-function aux_estáElBetoEnLaSalida()        { 
+function aux_estáElBetoEnElInicio()        { 
     if (not aux_estáElBetoEnLaCeldaActual())   { BOOM("No está el Beto en esta celda")                                 }
     return (not puedeMover(Oeste)) 
 }
