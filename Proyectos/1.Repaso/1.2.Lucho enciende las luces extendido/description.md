@@ -1,4 +1,4 @@
-#Actividad 1.2. Lucho enciende las luces extendido
+#Actividad 1.2. Lucho enciende las luces, extendido
 
 El programa a realizar es similar al de la actividad anterior: debe instruir a Lucho para que encienda todas las luces que aparecen en el escenario, que están siempre en el mismo lugar. Pero ahora el escenario inicial es diferente:
 
@@ -17,4 +17,5 @@ En la actividad anterior pensaste algunas estrategias de solución, y construist
 
 [Enunciado en PDF][PDF]
 
-[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/Clase1/1.1.Lucho%20enciende%20las%20luces%20extendido/resources/description.pdf "Enunciado de 'Lucho enciende las luces extendido' en PDF"
+[PDF]:
+https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/1.Repaso/1.1.Lucho%20enciende%20las%20luces%20extendido/assets/resources/description.pdf "Enunciado de 'Lucho enciende las luces, extendido' en PDF" 
