@@ -1,0 +1,26 @@
+program {
+  PatearLas6Pelotas()
+}
+
+procedure PatearLas6Pelotas() {
+  repeat(5) {
+    Patear1PelotaYVolverALaSalida()
+    CambiarAlBetoDeFila()
+  }
+  Patear1PelotaYVolverALaSalida()
+}
+
+procedure Patear1PelotaYVolverALaSalida() {
+  while (not (estáLaPelotaEnEstaCelda())) {
+    MoverAlBetoAl_(Este)
+  }
+  PatearAlArco()
+  VolverALaSalida()
+}
+
+procedure VolverALaSalida() {
+  while (not (estáElBetoEnLaSalida())) {
+    MoverAlBetoAl_(Oeste)
+  }
+}
+
