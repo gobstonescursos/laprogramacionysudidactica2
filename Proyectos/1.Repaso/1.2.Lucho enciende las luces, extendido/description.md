@@ -18,4 +18,4 @@ En la actividad anterior pensaste algunas estrategias de solución, y construist
 [Enunciado en PDF][PDF]
 
 [PDF]:
-https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/1.Repaso/1.1.Lucho%20enciende%20las%20luces%20extendido/assets/resources/description.pdf "Enunciado de 'Lucho enciende las luces, extendido' en PDF" 
+https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/1.Repaso/1.1.Lucho%20enciende%20las%20luces%2C%20extendido/assets/resources/description.pdf "Enunciado de 'Lucho enciende las luces, extendido' en PDF" 
