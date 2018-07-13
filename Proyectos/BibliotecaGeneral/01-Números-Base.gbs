@@ -1,0 +1,175 @@
+/*==================================================================================================*/
+/*--------------------------------- REQUIERE 00-Gobstones-Base.gbs ---------------------------------*/
+/*----------------------------------- REQUIERE 00-Listas-Base.gbs ----------------------------------*/
+/*==================================================================================================*/
+
+/*==================================================================================================*/
+/*-------------------------------- INTERFAZ de 01-Números-Base.gbs ----------------------------------/
+/----- Autor: Pablo E. "Fidel" Martínez López -------------------------------------------------------/
+/----- EMail: fidel@unq.edu.ar                -------------------------------------------------------/
+/----- Fecha creación: 2018.06                -------------------------------------------------------/
+/----- Fecha última modificación: 2018.06     -------------------------------------------------------/
+/----- Licencia: GNU General Public License, v2                                             ---------/
+/----- Sitio Oficial de la licencia: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html  --------*/
+/*==================================================================================================*/
+
+//---------------------------------------------------------------------------------------------------/
+/*-------------------------------------- Definiciones de tipos --------------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+// NO HAY TIPOS NUEVOS. Se usan los números de Gobstones
+
+//---------------------------------------------------------------------------------------------------/
+/*----------------------------- Operaciones de creación de números (interfaz) -----------------------/
+/---------------------------------------------------------------------------------------------------*/
+// NO HAY OPERACIONES DE CREACIÓN NUEVAS. Se usan los números de Gobstones
+
+//---------------------------------------------------------------------------------------------------/
+/*------------------------------ Operaciones de acceso a números (interfaz) -------------------------/
+/---------------------------------------------------------------------------------------------------*/
+// NO HAY OPERACIONES DE ACCESO NUEVAS. Se usan los números de Gobstones
+
+//---------------------------------------------------------------------------------------------------/
+/*------------------ Operaciones de sensado de números en el tablero (interfaz) ---------------------/
+/---------------------------------------------------------------------------------------------------*/
+function hayNúmero() { return(aux_hayNúmero()) }
+
+//---------------------------------------------------------------------------------------------------/
+/*--------------------------- Operaciones de E/S de números (interfaz) ------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+function  leerNúmero()         { return(aux_leerNúmero())  }
+procedure PonerNúmero_(número) { AuxPonerNúmero(número)    }
+procedure SacarNúmeroActual()  { AuxSacarNúmeroActual()    }
+
+/*==================================================================================================*/
+/*------------------------------ FIN INTERFAZ de 01-Números-Base.gbs -------------------------------*/
+/*==================================================================================================*/
+
+
+/*==================================================================================================*/
+/*------------------------------- AUXILIARES de 01-Números-Base.gbs --------------------------------*/
+/*==================================================================================================*/
+
+//---------------------------------------------------------------------------------------------------/
+/*----------------------------- Auxiliares para construir números ----------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+// NO HAY OPERACIONES ESPECÍFICAS DE CONSTRUCCIÓN. Se usan los número de Gobstones
+
+//---------------------------------------------------------------------------------------------------/
+/*------------------------------ Auxiliares para acceso a números -----------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+// NO HAY OPERACIONES DE ACCESO NUEVAS. Se usan los números de Gobstones
+
+//---------------------------------------------------------------------------------------------------/
+/*--------------------------- Auxiliares para sensar números en el tablero --------------------------/
+/---------------------------------------------------------------------------------------------------*/
+function aux_hayNúmero() { return(aux_hayDígito()) } 
+function aux_hayDígito() {
+  return (aux_hayTipoNúmero() 
+       && aux_hayDatoDígito()) 
+}
+
+function aux_hayTipoNúmero() { return (aux_esTipoNúmero(aux_leerTipo())) }
+function aux_hayDatoNúmero() { return (aux_hayDatoDígito())              }
+function aux_hayDatoDígito() { return (aux_esDatoDígito(aux_leerDato())) }
+
+//---------------------------------------------------------------------------------------------------/
+/*------------------------------- Operaciones de E/S de números -------------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+function aux_leerDígito() {
+  // PRECONDICIÓN: hay un dígito en la celda actual
+  return(aux_dígitoParaElCódigo(aux_leerDato()))
+}
+
+function aux_leerNúmero() {
+   dígitosLeídos := []
+   while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayDígito()) {
+      dígitosLeídos := dígitosLeídos ++ [ aux_leerDígito() ]
+      AuxAvanzarRecorridoGral(Este, Sur)
+   }
+   if (aux_hayDígito()) { 
+      dígitosLeídos := dígitosLeídos ++ [ aux_leerDígito() ]
+  }
+  return(aux_númeroParaElCódigo(dígitosLeídos))
+}         
+
+procedure AuxPonerDígito(dígito) { 
+    AuxSacarTodas()
+    AuxPoner__Veces(aux_colorParaElTipo(), aux_códigoParaElTipoNúmero())
+    AuxPoner__Veces(aux_colorParaElDato(), dígito)
+}
+
+procedure AuxPonerNúmero(número) {
+  movióDeMás := False
+  dígitos := aux_códigoParaElNúmero(número)
+  while (not esVacía(dígitos) && not aux_terminóElRecorridoGral(Este, Sur)) {
+    AuxPonerDígito(primero(dígitos))
+    dígitos := resto(dígitos)
+    AuxPasarASiguientePosición()
+    movióDeMás := True
+  }
+  if (not esVacía(dígitos)) { AuxPonerDígito(primero(dígitos)) }
+  else { if (movióDeMás) /* Retrocede un lugar */ { AuxAvanzarRecorridoGral(Oeste, Norte) } }
+}
+
+procedure AuxSacarDígito() { AuxSacarTodas() }
+procedure AuxSacarNúmeroActual() {
+  movióDeMás := False
+  while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayDígito()) {
+    AuxSacarDígito()
+    AuxAvanzarRecorridoGral(Este, Sur)
+    movióDeMás := True
+  }
+  if (aux_hayDígito())                     { AuxSacarDígito()                      }
+  if (movióDeMás) /* Retrocede un lugar */ { AuxAvanzarRecorridoGral(Oeste, Norte) }
+}
+
+//---------------------------------------------------------------------------------------------------/
+/*---------------------------- Operaciones auxiliares de codificación -------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+function aux_esUnDígitoVálido(número) { return(número >= 0 && número <= 9) }
+function aux_esUnNúmeroVálido(número) { return(número >= 0)                }
+
+function aux_dígitoParaElCódigo(códigoDígito) { return(códigoDígito) }
+function aux_númeroParaElCódigo(códigoNúmero) {
+   númeroLeído      := 0
+   dígitosFaltantes := códigoNúmero
+   while (not esVacía(dígitosFaltantes)) {
+      númeroLeído      := númeroLeído * 10 + primero(dígitosFaltantes)
+      dígitosFaltantes := resto(dígitosFaltantes)
+   }
+
+   return(númeroLeído)
+}
+
+function aux_códigoParaElDígito(dígito) { return(dígito) }
+function aux_códigoParaElNúmero(número) {
+  // PRECONDICIÓN: el número no es negativo
+  if (not aux_esUnNúmeroVálido(número)) { BOOM("No funciona con números negativos") }
+  if (número == 0) { dígitosObtenidos := [0] }
+  else {
+    dígitosObtenidos := []
+    valorAProcesar   := número
+    while (valorAProcesar > 0) {
+      dígitosObtenidos := [ aux_códigoParaElDígito(valorAProcesar mod 10) ] ++ dígitosObtenidos
+      valorAProcesar   := valorAProcesar div 10
+    }
+  }
+  return(dígitosObtenidos)
+}
+
+//---------------------------------------------------------------------------------------------------/
+/*----------------------- Operaciones auxiliares de codificación para el tablero --------------------/
+/---------------------------------------------------------------------------------------------------*/
+function aux_códigoParaElTipoNúmero()       { return(1)                              }
+function aux_códigoParaElDatoNúmero(número) { 
+    if (not aux_esDatoDígito(número)) { BOOM("Solo los dígitos se representan en el tablero") }
+    return(aux_códigoParaElDígito(número)) 
+}
+
+function aux_esTipoNúmero(código) { return (código == aux_códigoParaElTipoNúmero())  }
+function aux_esDatoNúmero(dato)   { return (aux_esDatoDígito(dato))                  }
+function aux_esDatoDígito(dato)   { return (aux_esUnDígitoVálido(dato))              }
+
+/*==================================================================================================*/
+/*------------------------------- AUXILIARES de 01-Números-Base.gbs --------------------------------*/
+/*==================================================================================================*/
