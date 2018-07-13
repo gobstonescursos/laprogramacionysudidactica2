@@ -24,7 +24,7 @@ blocks:
     </category>
 board:
   active: 1
-  initial_board_source: selected
+  initial_board_source: random
   user_permissions:
     can_change_source: false
     can_edit_board: false
