@@ -18,7 +18,7 @@
 , { "name": "2.Expresiones lógicas y funciones", "repo": "gobstones/laprogramacionysudidactica2"
   , "exercises":
     [ { "id": "2.1", "name": "La cena de Dino"
-      , "path": "Proyectos/2.Expresiones lógicas y funciones)/2.1.La cena de Dino"
+      , "path": "Proyectos/2.Expresiones lógicas y funciones/2.1.La cena de Dino"
       }
     , { "id": "2.2", "name": "Dino aprende a no comer chatarra"
       , "path": "Proyectos/2.Expresiones lógicas y funciones/2.2.Dino aprende a no comer chatarra"
