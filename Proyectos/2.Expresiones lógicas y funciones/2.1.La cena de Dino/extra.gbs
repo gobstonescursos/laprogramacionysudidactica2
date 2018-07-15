@@ -8,6 +8,7 @@ procedure CambiarADinoDeFila()         { AuxCambiarADinoDeFila()                
 /*@ATTRIBUTE@block_name@está Dino en el inicio de la fila@*/
 function  estáDinoEnElInicioDeLaFila() { return(aux_estáDinoEnElInicio())               }
 
+procedure RechazarLaComida()           { AuxRechazarLaComida()                          }
 procedure ComerLaHamburguesa()         { AuxComerLaHamburguesa()                        }
 procedure ComerLaTorta()               { AuxComerLaTorta()                              }
 procedure ComerElBife()                { AuxComerElBife()                               }
@@ -36,6 +37,12 @@ procedure AuxCambiarADinoDeFila() {
     AuxPonerADino()
 }
 
+procedure AuxRechazarLaComida() { 
+    if (not aux_estáDinoEnLaCeldaActual())     { BOOM("No puedo darle instrucciones a Dino si no está en esta celda") }
+    if (not aux_hayComidaEnLaCeldaActual())    { BOOM("No hay ninguna comida que rechazar")                           }
+    AuxPonerProhibido()
+}
+
 procedure AuxComerLaHamburguesa() { 
     if (not aux_estáDinoEnLaCeldaActual())     { BOOM("No puedo darle instrucciones a Dino si no está en esta celda") }
     if (not aux_estáLaHamburguesaEnLaCeldaActual()) 
@@ -62,6 +69,7 @@ procedure AuxComerElDurazno() {
 }
 
 function aux_dino()           { return(Azul)  }
+function aux_prohibido()      { return(Negro) }
 function aux_comidaSana()     { return(Verde) }
 function aux_comidaChatarra() { return(Rojo)  }
 function aux_platoPrincipal() { return(1)     }
@@ -72,14 +80,18 @@ function aux_estáDinoEnElInicio()        {
     return (not puedeMover(Oeste)) 
 }
 
+function aux_hayComidaEnLaCeldaActual()         { return (hayBolitas(aux_comidaChatarra()) 
+                                                       || hayBolitas(aux_comidaSana()))                           }
 function aux_estáDinoEnLaCeldaActual()          { return (nroBolitas(aux_dino())==1)                              }
 function aux_estáLaHamburguesaEnLaCeldaActual() { return (nroBolitas(aux_comidaChatarra())==aux_platoPrincipal()) }
 function aux_estáLaTortaEnLaCeldaActual()       { return (nroBolitas(aux_comidaChatarra())==aux_postre())         }
 function aux_estáElBifeEnLaCeldaActual()        { return (nroBolitas(aux_comidaSana())    ==aux_platoPrincipal()) }
 function aux_estáElDuraznoEnLaCeldaActual()     { return (nroBolitas(aux_comidaSana())    ==aux_postre())         }
 
-procedure AuxPonerADino()      { Poner(aux_dino())     }
-procedure AuxSacarADino()      { Sacar(aux_dino())     }
+procedure AuxPonerProhibido()  { Poner(aux_prohibido()) }
+
+procedure AuxPonerADino()      { Poner(aux_dino())      }
+procedure AuxSacarADino()      { Sacar(aux_dino())      }
 
 procedure AuxSacarLaHamburguesa() { AuxSacar__Veces(aux_comidaChatarra(), aux_platoPrincipal()) }
 procedure AuxSacarLaTorta()       { AuxSacar__Veces(aux_comidaChatarra(), aux_postre())         }
