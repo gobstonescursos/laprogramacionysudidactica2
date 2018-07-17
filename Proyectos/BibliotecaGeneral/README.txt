@@ -46,9 +46,9 @@ Redactar bien el readme...
       </category>
     </category>
     <category name="Operaciones de Números">
-        <block type="leerNúmero"></block>
-        <block type="PonerNúmero_"></block>
-        <block type="SacarNúmeroActual"></block>
+        <block type="númeroPorDígitosActual"></block>
+        <block type="PonerNúmeroPorDígitos_"></block>
+        <block type="SacarNúmeroPorDígitosActual"></block>
         <block type="hayNúmero"></block>
     </category>
     <category name="Operaciones de Letras">
@@ -193,9 +193,9 @@ Otra caja posible, sin las subcategorías:
         <block type="not"></block>
     </category>
     <category name="Operaciones de Números">
-        <block type="leerNúmero"></block>
-        <block type="PonerNúmero_"></block>
-        <block type="SacarNúmeroActual"></block>
+        <block type="númeroPorDígitosActual"></block>
+        <block type="PonerNúmeroPorDígitos_"></block>
+        <block type="SacarNúmeroPorDígitosActual"></block>
         <block type="hayNúmero"></block>
     </category>
     <category name="Operaciones de Letras">

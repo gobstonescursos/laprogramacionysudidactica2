@@ -1,6 +1,7 @@
 interactive program {
   K_ARROW_RIGHT -> {
     indice := nroBolitas(Rojo) + 1
+    IrAlOrigen()
     LimpiarTablero()
     TestsDeLetras(indice)
     IrAlOrigen()
@@ -9,128 +10,57 @@ interactive program {
 }
 
 procedure TestsDeLetras(códigoDeTest) {
-  if (códigoDeTest == 1)     { TestLetraYPonerLetra()       } 
-  elseif (códigoDeTest == 2) { TestSacarLetra()             } 
-  elseif (códigoDeTest == 3) { TestHayLetra()               }
-  elseif (códigoDeTest == 4) { TestLeerLetra()              }
-  elseif (códigoDeTest == 5) { TestEstáAntesQue()           }
-  elseif (códigoDeTest == 6) { TestEstáDespuésQue()         }
-  elseif (códigoDeTest == 7) { TestSiguienteYPrevio()       }
-  elseif (códigoDeTest == 8) { TestMinLetraYMaxLetra()      }
-  else                       { BOOM("Pasó todos los tests") }
-}
-procedure TestLetraYPonerLetra() {
-  PonerTodasLasLetras()
-  Assert(0 == 0)
-}
-
-procedure PonerTodasLasLetras() {
-  código := 10
-  PonerLetra_(letra_(código))
-  código := código + 1
-  while (not (código > 37)) {
-    PasarASiguientePosición()
-    PonerLetra_(letra_(código))
-    código := código + 1
+  if (códigoDeTest == 1) {
+    TestPonerNúmero()
+  } elseif (códigoDeTest == 2) {
+    TestSacarNúmero()
+  } elseif (códigoDeTest == 3) {
+    TestHayNúmero()
+  } elseif (códigoDeTest == 4) {
+    TestNúmeroActual()
+  } else {
+    BOOM("Pasó todos los tests")
   }
 }
 
-procedure TestSacarLetra() {
-  PonerTodasLasLetras()
+procedure TestPonerNúmero() {
+  PonerVariosNúmeros()
+}
+
+procedure PonerVariosNúmeros() {
+  número := 0
+  PonerNúmeroPorDígitos_(número)
+  Assert(0 == 0)
+  número := número + 1
+  while (not (número > 12)) {
+    PasarASiguientePosición()
+    PonerNúmeroPorDígitos_(número)
+    Assert(0 == 0)
+    número := número + 1
+  }
+  PasarASiguientePosición()
+  PonerNúmeroPorDígitos_(253)
+  Assert(0 == 0)
+  PasarASiguientePosición()
+  PonerNúmeroPorDígitos_(7942)
+  Assert(0 == 0)
+  PasarASiguientePosición()
+  PonerNúmeroPorDígitos_(1993412)
+  Assert(0 == 0)
+  PasarASiguientePosición()
+  PonerNúmeroPorDígitos_(17)
+}
+
+procedure TestSacarNúmero() {
+  PonerNúmeroPorDígitos_(7942)
+  Assert(0 == 0)
+  PasarASiguientePosición()
+  PonerNúmeroPorDígitos_(7942)
   IrAlOrigen()
-  repeat(28) {
-    PasarASiguientePosición()
-    SacarLetraActual()
-  }
+  PasarASiguientePosición()
+  SacarNúmeroPorDígitosActual()
   Assert(0 == 0)
 }
-
-procedure TestHayLetra() {
-  PonerLetra_(letra_(11))
-  Assert(hayLetra())
-  PasarASiguientePosición()
-  SacarTodas()
-  Assert(not(hayLetra()))
-}
-
-procedure TestLeerLetra() {
-  PonerLetra_(letra_(12))
-  Assert(letra_(12) == leerLetra())
-}
-
-procedure TestEstáAntesQue() {
-  PonerLetra_(letra_(13))
-  letra1 := leerLetra()
-  PasarASiguientePosición()
-  PonerLetra_(letra_(14))
-  letra2 := leerLetra()
-  Assert(esMenorLetra__(letra1, letra2))
-  Assert(not(esMenorLetra__(letra2, letra1)))
-  Assert(not(esMenorLetra__(letra1, letra1)))
-}
-
-procedure TestEstáDespuésQue() {
-  PonerLetra_(letra_(15))
-  letra1 := leerLetra()
-  PasarASiguientePosición()
-  PonerLetra_(letra_(16))
-  letra2 := leerLetra()
-  Assert(esMayorLetra__(letra2, letra1))
-  Assert(not(esMayorLetra__(letra1, letra2)))
-  Assert(not(esMayorLetra__(letra1, letra1)))
-}
-
-
-procedure TestSiguienteYPrevio() {
-  TestSiguienteYPrevioEnMedio()
-  TestSiguienteYPrevioEnBordeInferior()
-  TestSiguienteYPrevioEnBordeSuperior()
-}
-
-procedure TestSiguienteYPrevioEnMedio() {
-  PonerLetra_(letra_(17))
-  letra := leerLetra()
-  PasarASiguientePosición()
-  PonerLetra_(letraSiguiente_(letra))
-  Assert(letraSiguiente_(letra) == letra_(18))
-  PasarASiguientePosición()
-  PonerLetra_(letraPrevia_(letra))
-  Assert(letraPrevia_(letra) == letra_(16))
-}
-
-procedure TestSiguienteYPrevioEnBordeInferior() {
-  PasarASiguientePosición()
-  PonerLetra_(letra_(10))
-  letra := leerLetra()
-  PasarASiguientePosición()
-  PonerLetra_(letraSiguiente_(letra))
-  Assert(letraSiguiente_(letra) == letra_(11))
-  PasarASiguientePosición()
-  PonerLetra_(letraPrevia_(letra))
-  Assert(letraPrevia_(letra) == letra_(37))
-}
-
-procedure TestSiguienteYPrevioEnBordeSuperior() {
-  PasarASiguientePosición()
-  PonerLetra_(letra_(37))
-  letra := leerLetra()
-  PasarASiguientePosición()
-  PonerLetra_(letraSiguiente_(letra))
-  Assert(letraSiguiente_(letra) == letra_(10))
-  PasarASiguientePosición()
-  PonerLetra_(letraPrevia_(letra))
-  Assert(letraPrevia_(letra) == letra_(36))
-}
-
-procedure TestMinLetraYMaxLetra() {
-  PonerLetra_(minLetra())
-  Assert(minLetra() == letra_(10))
-  PasarASiguientePosición()
-  PonerLetra_(maxLetra())
-  Assert(maxLetra() == letra_(37))
-}
-
-
 
 procedure Assert(condiciónAVerificar) {
   PasarASiguientePosición()
@@ -141,13 +71,35 @@ procedure Assert(condiciónAVerificar) {
   }
 }
 
-procedure LimpiarTablero() {
+procedure TestHayNúmero() {
+  PonerNúmeroPorDígitos_(422417)
   IrAlOrigen()
+  repeat(6) {
+    PasarASiguientePosición()
+  }
+  Assert(hayNúmero())
   PasarASiguientePosición()
-  repeat(29) {
+  SacarTodas()
+  Assert(not(hayNúmero()))
+}
+
+procedure LimpiarTablero() {
+  PasarASiguientePosición()
+  repeat(47) {
     SacarTodas()
     PasarASiguientePosición()
   }
   PasarASiguientePosición()
 }
 
+procedure TestNúmeroActual() {
+  númeroOriginal := 179942
+  PonerNúmeroPorDígitos_(númeroOriginal)
+  IrAlOrigen()
+  PasarASiguientePosición()
+  númeroLeído := númeroPorDígitosActual()
+  repeat(5) {
+    PasarASiguientePosición()
+  }
+  Assert(númeroLeído == númeroOriginal)
+}

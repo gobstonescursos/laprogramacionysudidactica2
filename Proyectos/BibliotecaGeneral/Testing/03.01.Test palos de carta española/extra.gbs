@@ -1448,9 +1448,9 @@ function hayNúmero() { return(aux_hayNúmero()) }
 //---------------------------------------------------------------------------------------------------/
 /*--------------------------- Operaciones de E/S de números (interfaz) ------------------------------/
 /---------------------------------------------------------------------------------------------------*/
-function  leerNúmero()         { return(aux_leerNúmero())  }
-procedure PonerNúmero_(número) { AuxPonerNúmero(número)    }
-procedure SacarNúmeroActual()  { AuxSacarNúmeroActual()    }
+function  númeroPorDígitosActual()       { return(aux_númeroPorDígitosActual()) }
+procedure PonerNúmeroPorDígitos_(número) { AuxPonerNúmeroPorDígitos(número)     }
+procedure SacarNúmeroPorDígitosActual()  { AuxSacarNúmeroPorDígitosActual()     }
 
 /*==================================================================================================*/
 /*------------------------------ FIN INTERFAZ de 01-Números-Base.gbs -------------------------------*/
@@ -1492,7 +1492,7 @@ function aux_leerDígito() {
   return(aux_dígitoParaElCódigo(aux_leerDato()))
 }
 
-function aux_leerNúmero() {
+function aux_númeroPorDígitosActual() {
    dígitosLeídos := []
    while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayDígito()) {
       dígitosLeídos := dígitosLeídos ++ [ aux_leerDígito() ]
@@ -1510,7 +1510,7 @@ procedure AuxPonerDígito(dígito) {
     AuxPoner__Veces(aux_colorParaElDato(), dígito)
 }
 
-procedure AuxPonerNúmero(número) {
+procedure AuxPonerNúmeroPorDígitos(número) {
   movióDeMás := False
   dígitos := aux_códigoParaElNúmero(número)
   while (not esVacía(dígitos) && not aux_terminóElRecorridoGral(Este, Sur)) {
@@ -1524,7 +1524,7 @@ procedure AuxPonerNúmero(número) {
 }
 
 procedure AuxSacarDígito() { AuxSacarTodas() }
-procedure AuxSacarNúmeroActual() {
+procedure AuxSacarNúmeroPorDígitosActual() {
   movióDeMás := False
   while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayDígito()) {
     AuxSacarDígito()

@@ -4,7 +4,7 @@
 /*==================================================================================================*/
 
 /*==================================================================================================*/
-/*-------------------------------- INTERFAZ de 01-Números-Base.gbs ----------------------------------/
+/*-------------------------- INTERFAZ de 01-01-NúmerosPorDígitos-Base.gbs ---------------------------/
 /----- Autor: Pablo E. "Fidel" Martínez López -------------------------------------------------------/
 /----- EMail: fidel@unq.edu.ar                -------------------------------------------------------/
 /----- Fecha creación: 2018.06                -------------------------------------------------------/
@@ -36,17 +36,17 @@ function hayNúmero() { return(aux_hayNúmero()) }
 //---------------------------------------------------------------------------------------------------/
 /*--------------------------- Operaciones de E/S de números (interfaz) ------------------------------/
 /---------------------------------------------------------------------------------------------------*/
-function  leerNúmero()         { return(aux_leerNúmero())  }
-procedure PonerNúmero_(número) { AuxPonerNúmero(número)    }
-procedure SacarNúmeroActual()  { AuxSacarNúmeroActual()    }
+function  númeroPorDígitosActual()       { return(aux_númeroPorDígitosActual()) }
+procedure PonerNúmeroPorDígitos_(número) { AuxPonerNúmeroPorDígitos(número)     }
+procedure SacarNúmeroPorDígitosActual()  { AuxSacarNúmeroPorDígitosActual()     }
 
 /*==================================================================================================*/
-/*------------------------------ FIN INTERFAZ de 01-Números-Base.gbs -------------------------------*/
+/*------------------------ FIN INTERFAZ de 01-01-NúmerosPorDígitos-Base.gbs ------------------------*/
 /*==================================================================================================*/
 
 
 /*==================================================================================================*/
-/*------------------------------- AUXILIARES de 01-Números-Base.gbs --------------------------------*/
+/*------------------------- AUXILIARES de 01-01-NúmerosPorDígitos-Base.gbs -------------------------*/
 /*==================================================================================================*/
 
 //---------------------------------------------------------------------------------------------------/
@@ -80,7 +80,7 @@ function aux_leerDígito() {
   return(aux_dígitoParaElCódigo(aux_leerDato()))
 }
 
-function aux_leerNúmero() {
+function aux_númeroPorDígitosActual() {
    dígitosLeídos := []
    while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayDígito()) {
       dígitosLeídos := dígitosLeídos ++ [ aux_leerDígito() ]
@@ -98,7 +98,7 @@ procedure AuxPonerDígito(dígito) {
     AuxPoner__Veces(aux_colorParaElDato(), dígito)
 }
 
-procedure AuxPonerNúmero(número) {
+procedure AuxPonerNúmeroPorDígitos(número) {
   movióDeMás := False
   dígitos := aux_códigoParaElNúmero(número)
   while (not esVacía(dígitos) && not aux_terminóElRecorridoGral(Este, Sur)) {
@@ -112,7 +112,7 @@ procedure AuxPonerNúmero(número) {
 }
 
 procedure AuxSacarDígito() { AuxSacarTodas() }
-procedure AuxSacarNúmeroActual() {
+procedure AuxSacarNúmeroPorDígitosActual() {
   movióDeMás := False
   while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayDígito()) {
     AuxSacarDígito()
@@ -171,5 +171,5 @@ function aux_esDatoNúmero(dato)   { return (aux_esDatoDígito(dato))           
 function aux_esDatoDígito(dato)   { return (aux_esUnDígitoVálido(dato))              }
 
 /*==================================================================================================*/
-/*------------------------------- AUXILIARES de 01-Números-Base.gbs --------------------------------*/
+/*------------------------- AUXILIARES de 01-01-NúmerosPorDígitos-Base.gbs -------------------------*/
 /*==================================================================================================*/
