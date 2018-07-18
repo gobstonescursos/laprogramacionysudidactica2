@@ -31,7 +31,12 @@
 //---------------------------------------------------------------------------------------------------/
 /*------------------ Operaciones de sensado de números en el tablero (interfaz) ---------------------/
 /---------------------------------------------------------------------------------------------------*/
-function hayNúmero() { return(aux_hayNúmero()) }
+function hayNúmeroPorDígitos() { return(aux_hayNúmeroPorDígitos()) }
+
+function elNúmeroPorDígitosEstáOculto()   { return(    aux_elNúmeroPorDígitosEstáOcultoConBoom())                       }
+function elNúmeroPorDígitosNoEstáOculto() { return(not aux_elNúmeroPorDígitosEstáOcultoConBoom())                       }
+function hayNúmeroPorDígitosOculto()      { return(aux_hayNúmeroPorDígitos() &&     aux_elNúmeroPorDígitosEstáOculto()) }
+function hayNúmeroPorDígitosNoOculto()    { return(aux_hayNúmeroPorDígitos() && not aux_elNúmeroPorDígitosEstáOculto()) }
 
 //---------------------------------------------------------------------------------------------------/
 /*--------------------------- Operaciones de E/S de números (interfaz) ------------------------------/
@@ -39,6 +44,9 @@ function hayNúmero() { return(aux_hayNúmero()) }
 function  númeroPorDígitosActual()       { return(aux_númeroPorDígitosActual()) }
 procedure PonerNúmeroPorDígitos_(número) { AuxPonerNúmeroPorDígitos(número)     }
 procedure SacarNúmeroPorDígitosActual()  { AuxSacarNúmeroPorDígitosActual()     }
+
+procedure OcultarElNúmeroPorDígitosActual()    { AuxOcultarElNúmeroPorDígitosActual() }
+procedure RevelarElNúmeroPorDígitosActual()    { AuxRevelarElNúmeroPorDígitosActual() }
 
 /*==================================================================================================*/
 /*------------------------ FIN INTERFAZ de 01-01-NúmerosPorDígitos-Base.gbs ------------------------*/
@@ -62,20 +70,39 @@ procedure SacarNúmeroPorDígitosActual()  { AuxSacarNúmeroPorDígitosActual() 
 //---------------------------------------------------------------------------------------------------/
 /*--------------------------- Auxiliares para sensar números en el tablero --------------------------/
 /---------------------------------------------------------------------------------------------------*/
-function aux_hayNúmero() { return(aux_hayDígito()) } 
+function aux_hayNúmeroPorDígitos() { return(aux_hayDígito()) } 
 function aux_hayDígito() {
-  return (aux_hayTipoNúmero() 
+  return (aux_hayTipoDígito() 
        && aux_hayDatoDígito()) 
 }
 
-function aux_hayTipoNúmero() { return (aux_esTipoNúmero(aux_leerTipo())) }
-function aux_hayDatoNúmero() { return (aux_hayDatoDígito())              }
+function aux_hayTipoDígito() { return (aux_esTipoDígito(aux_leerTipo())) }
 function aux_hayDatoDígito() { return (aux_esDatoDígito(aux_leerDato())) }
+
+function aux_elDígitoEstáOculto() { 
+  // PRECONDICIÓN: hay un dígito
+  return (aux_hayAtributoReverso())
+}
+
+function aux_elNúmeroPorDígitosEstáOculto() {
+  // PRECONDICIÓN: hay un número por dígitos
+  return (aux_elDígitoEstáOculto())
+}
+
+function aux_elDígitoEstáOcultoConBoom() { 
+  if (not aux_hayDígito()) { BOOM("No hay un dígito que pueda estar oculto") }
+  return(aux_elDígitoEstáOculto())    
+}
+
+function aux_elNúmeroPorDígitosEstáOcultoConBoom() {
+  if (not aux_hayNúmeroPorDígitos()) { BOOM("No hay un número por dígitos que pueda estar oculto") }
+  return(aux_elNúmeroPorDígitosEstáOculto())    
+}
 
 //---------------------------------------------------------------------------------------------------/
 /*------------------------------- Operaciones de E/S de números -------------------------------------/
 /---------------------------------------------------------------------------------------------------*/
-function aux_leerDígito() {
+function aux_dígitoActual() {
   // PRECONDICIÓN: hay un dígito en la celda actual
   return(aux_dígitoParaElCódigo(aux_leerDato()))
 }
@@ -83,24 +110,24 @@ function aux_leerDígito() {
 function aux_númeroPorDígitosActual() {
    dígitosLeídos := []
    while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayDígito()) {
-      dígitosLeídos := dígitosLeídos ++ [ aux_leerDígito() ]
+      dígitosLeídos := dígitosLeídos ++ [ aux_dígitoActual() ]
       AuxAvanzarRecorridoGral(Este, Sur)
    }
    if (aux_hayDígito()) { 
-      dígitosLeídos := dígitosLeídos ++ [ aux_leerDígito() ]
+      dígitosLeídos := dígitosLeídos ++ [ aux_dígitoActual() ]
   }
-  return(aux_númeroParaElCódigo(dígitosLeídos))
+  return(aux_númeroPorDígitosParaElCódigo(dígitosLeídos))
 }         
 
 procedure AuxPonerDígito(dígito) { 
     AuxSacarTodas()
-    AuxPoner__Veces(aux_colorParaElTipo(), aux_códigoParaElTipoNúmero())
-    AuxPoner__Veces(aux_colorParaElDato(), dígito)
+    AuxPoner__Veces(aux_colorParaElTipo(), aux_códigoParaElTipoDígito())
+    AuxPoner__Veces(aux_colorParaElDato(), aux_códigoParaElDatoDígito(dígito))
 }
 
 procedure AuxPonerNúmeroPorDígitos(número) {
   movióDeMás := False
-  dígitos := aux_códigoParaElNúmero(número)
+  dígitos := aux_códigoParaElNúmeroPorDígitos(número)
   while (not esVacía(dígitos) && not aux_terminóElRecorridoGral(Este, Sur)) {
     AuxPonerDígito(primero(dígitos))
     dígitos := resto(dígitos)
@@ -123,16 +150,51 @@ procedure AuxSacarNúmeroPorDígitosActual() {
   if (movióDeMás) /* Retrocede un lugar */ { AuxAvanzarRecorridoGral(Oeste, Norte) }
 }
 
+procedure AuxOcultarElNúmeroPorDígitosActual()    { 
+  movióDeMás := False
+  while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayDígito() && not aux_elDígitoEstáOcultoConBoom()) {
+    AuxOcultarElDígitoActual()
+    AuxAvanzarRecorridoGral(Este, Sur)
+    movióDeMás := True
+  }
+  if (aux_hayDígito())                     { AuxOcultarElDígitoActual()            }
+  if (movióDeMás) /* Retrocede un lugar */ { AuxAvanzarRecorridoGral(Oeste, Norte) }
+ }
+ 
+ procedure AuxRevelarElNúmeroPorDígitosActual() { 
+  // PRECONDICIÓN: hay un número por dígitos oculto en la celda actual
+  movióDeMás := False
+  while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayDígito() && aux_elDígitoEstáOcultoConBoom()) {
+    AuxRevelarElDígitoActual()
+    AuxAvanzarRecorridoGral(Este, Sur)
+    movióDeMás := True
+  }
+  if (aux_hayDígito())                     { AuxRevelarElDígitoActual()            }
+  if (movióDeMás) /* Retrocede un lugar */ { AuxAvanzarRecorridoGral(Oeste, Norte) }
+
+ }
+ 
+
+procedure AuxOcultarElDígitoActual()    { 
+  // PRECONDICIÓN: hay un dígito no oculto en la celda actual
+   AuxPonerAtributoReverso()
+ }
+ 
+ procedure AuxRevelarElDígitoActual() { 
+  // PRECONDICIÓN: hay un dígito oculto en la celda actual
+   AuxSacarAtributoReverso()
+ }
+ 
 //---------------------------------------------------------------------------------------------------/
 /*---------------------------- Operaciones auxiliares de codificación -------------------------------/
 /---------------------------------------------------------------------------------------------------*/
-function aux_esUnDígitoVálido(número) { return(número >= 0 && número <= 9) }
-function aux_esUnNúmeroVálido(número) { return(número >= 0)                }
+function aux_esUnDígitoVálido(número)           { return(número >= 0 && número <= 9) }
+function aux_esUnNúmeroPorDígitosVálido(número) { return(número >= 0)                }
 
 function aux_dígitoParaElCódigo(códigoDígito) { return(códigoDígito) }
-function aux_númeroParaElCódigo(códigoNúmero) {
+function aux_númeroPorDígitosParaElCódigo(códigoNúmeroPorDígitos) {
    númeroLeído      := 0
-   dígitosFaltantes := códigoNúmero
+   dígitosFaltantes := códigoNúmeroPorDígitos
    while (not esVacía(dígitosFaltantes)) {
       númeroLeído      := númeroLeído * 10 + primero(dígitosFaltantes)
       dígitosFaltantes := resto(dígitosFaltantes)
@@ -142,13 +204,13 @@ function aux_númeroParaElCódigo(códigoNúmero) {
 }
 
 function aux_códigoParaElDígito(dígito) { return(dígito) }
-function aux_códigoParaElNúmero(número) {
+function aux_códigoParaElNúmeroPorDígitos(númeroPorDígitos) {
   // PRECONDICIÓN: el número no es negativo
-  if (not aux_esUnNúmeroVálido(número)) { BOOM("No funciona con números negativos") }
-  if (número == 0) { dígitosObtenidos := [0] }
+  if (not aux_esUnNúmeroPorDígitosVálido(númeroPorDígitos)) { BOOM("No funciona con números negativos") }
+  if (númeroPorDígitos == 0) { dígitosObtenidos := [0] }
   else {
     dígitosObtenidos := []
-    valorAProcesar   := número
+    valorAProcesar   := númeroPorDígitos
     while (valorAProcesar > 0) {
       dígitosObtenidos := [ aux_códigoParaElDígito(valorAProcesar mod 10) ] ++ dígitosObtenidos
       valorAProcesar   := valorAProcesar div 10
@@ -160,14 +222,13 @@ function aux_códigoParaElNúmero(número) {
 //---------------------------------------------------------------------------------------------------/
 /*----------------------- Operaciones auxiliares de codificación para el tablero --------------------/
 /---------------------------------------------------------------------------------------------------*/
-function aux_códigoParaElTipoNúmero()       { return(1)                              }
-function aux_códigoParaElDatoNúmero(número) { 
-    if (not aux_esDatoDígito(número)) { BOOM("Solo los dígitos se representan en el tablero") }
-    return(aux_códigoParaElDígito(número)) 
+function aux_códigoParaElTipoDígito()       { return(1)                              }
+function aux_códigoParaElDatoDígito(dígito) { 
+    if (not aux_esDatoDígito(dígito)) { BOOM("En números por dígitos solo se representan dígitos en el tablero") }
+    return(aux_códigoParaElDígito(dígito)) 
 }
 
-function aux_esTipoNúmero(código) { return (código == aux_códigoParaElTipoNúmero())  }
-function aux_esDatoNúmero(dato)   { return (aux_esDatoDígito(dato))                  }
+function aux_esTipoDígito(código) { return (código == aux_códigoParaElTipoDígito())  }
 function aux_esDatoDígito(dato)   { return (aux_esUnDígitoVálido(dato))              }
 
 /*==================================================================================================*/
