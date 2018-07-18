@@ -1,4 +1,4 @@
-#Actividad: Testing de Números por dígitos
+#Actividad 1.1: Testing de números por dígitos
 
 Solo sirve para testear las números por dígitos.
 
@@ -9,3 +9,7 @@ Testea:
   2. sacar número por dígitos
   3. número por dígitos actual
   4. hay número por dígitos
+  5. ocultar números por dígitos
+  6. relevar números por dígitos
+  7. números por dígitos oculto
+  8. hay números por dígitos oculto y no oculto
