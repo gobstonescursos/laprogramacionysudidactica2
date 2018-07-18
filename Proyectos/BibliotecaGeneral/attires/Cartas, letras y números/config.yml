@@ -123,7 +123,7 @@ rules:
   - { image: Iluminada-Oros-10.png,     when: { blue:   3, black:  410, red:  2, green: 0 } } 
   - { image: Iluminada-Oros-11.png,     when: { blue:   3, black:  411, red:  2, green: 0 } } 
   - { image: Iluminada-Oros-12.png,     when: { blue:   3, black:  412, red:  2, green: 0 } } 
-  - { image: NúmeroOculto.png,          when: { blue:  10, black:  '*', red:  1, green: 0 } } 
+  - { image: NumeroOculto.png,          when: { blue:  10, black:  '*', red:  1, green: 0 } } 
   - { image: 000.png,                   when: { blue:  10, black: 1000, red:  0, green: 0 } } 
   - { image: 001.png,                   when: { blue:  10, black: 1001, red:  0, green: 0 } } 
   - { image: 002.png,                   when: { blue:  10, black: 1002, red:  0, green: 0 } } 
