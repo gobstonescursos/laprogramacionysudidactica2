@@ -1,0 +1,476 @@
+/*==================================================================================================*/
+/*---- PROVEE --------------------------------------------------------------------------------------*/
+/*------------------------------ INTERFAZ de 04-MazosEspañoles-Base.gbs ----------------------------*/
+/*----------------------------------------- (en línea ????) ----------------------------------------*/
+/*---------------------------- INTERFAZ de 03-CartasEspañolasDe40-Base.gbs -------------------------*/
+/*----------------------------------------- (en línea ????) ----------------------------------------*/
+/*------------------------- INTERFAZ de 03-01-PalosDeCartaEspañola-Base.gbs ------------------------*/
+/*----------------------------------------- (en línea ????) ----------------------------------------*/
+/*------------------------ INTERFAZ de 03-02-ValoresDeCartaEspañolaDe40-Base.gbs -------------------*/
+/*----------------------------------------- (en línea ????) ----------------------------------------*/
+/*--------------------------------- INTERFAZ de 02-Letras-Base.gbs ---------------------------------*/
+/*----------------------------------------- (en línea ????) ----------------------------------------*/
+/*------------------------------ INTERFAZ de 01-02-Números-Base.gbs --------------------------------*/
+/*----------------------------------------- (en línea ????) ----------------------------------------*/
+/*------------------------- INTERFAZ de 01-01-NúmerosPorDígitos-Base.gbs ---------------------------*/
+/*----------------------------------------- (en línea  229) ----------------------------------------*/
+/*--------------------------------- INTERFAZ de 00.Listas-Base.gbs ---------------------------------*/
+/*----------------------------------------- (en línea  191) ----------------------------------------*/
+/*------------------------------- INTERFAZ de 00.Gobstones-Base.gbs --------------------------------*/
+/*----------------------------------------- (en línea   23) ----------------------------------------*/
+/*==================================================================================================*/
+
+/*==================================================================================================*/
+/*------------------------------- INTERFAZ de 00.Gobstones-Base.gbs ---------------------------------/
+/----- Autor: Pablo E. "Fidel" Martínez López -------------------------------------------------------/
+/----- EMail: fidel@unq.edu.ar                -------------------------------------------------------/
+/----- Fecha creación: 2018.06                -------------------------------------------------------/
+/----- Fecha última modificación: 2018.06     -------------------------------------------------------/
+/----- Licencia: GNU General Public License, v2                                             ---------/
+/----- Sitio Oficial de la licencia: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html  --------*/
+/*==================================================================================================*/
+/*@ATTRIBUTE@block_name@Poner _, _ veces@*/ procedure Poner__Veces(c,n) { AuxPoner__Veces(c,n) }
+/*@ATTRIBUTE@block_name@Sacar _, _ veces@*/ procedure Sacar__Veces(c,n) { AuxSacar__Veces(c,n) }
+/*@ATTRIBUTE@block_name@Mover _, _ veces@*/ procedure Mover__Veces(d,n) { AuxMover__Veces(d,n) }
+procedure SacarTodas()       { AuxSacarTodas()      }
+procedure SacarTodas_(c)     { AuxSacarTodas_(c)    }
+procedure MoverSiPuede_(dir) { AuxMoverSiPuede(dir) }
+
+procedure IrAlOrigen()              { AuxIrAlOrigen()              }
+procedure PasarASiguientePosición() { AuxPasarASiguientePosición() }
+/*==================================================================================================*/
+/*----------------------------- FIN INTERFAZ de 00.Gobstones-Base.gbs ------------------------------*/
+/*==================================================================================================*/
+
+/*==================================================================================================*/
+  /*------------------------------ AUXILIARES de 00-Gobstones-Base.gbs -------------------------------*/
+/*==================================================================================================*/
+
+//---------------------------------------------------------------------------------------------------/
+/*----------------------------- Operaciones auxiliares de Gobstones ---------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+procedure AuxPoner__Veces(c,n) { repeat (n) { Poner(c) } }
+procedure AuxSacar__Veces(c,n) { repeat (n) { Sacar(c) } }
+procedure AuxMover__Veces(d,n) { repeat (n) { Mover(d) } }
+
+procedure AuxSacarTodas()   { foreach c in [minColor()..maxColor()] { AuxSacarTodas_(c) } }
+procedure AuxSacarTodas_(c) { AuxSacar__Veces(c, nroBolitas(c)) }
+
+procedure AuxMoverSiPuede(dir)         { if (puedeMover(dir)) { Mover(dir) }   }
+
+// Las direcciones deben ser las mismas en estos dos procedimientos
+procedure AuxIrAlOrigen()              { AuxIniciarRecorridoGral(Este, Sur) }
+procedure AuxPasarASiguientePosición() { AuxAvanzarRecorridoGral(Este, Sur) }
+
+//---------------------------------------------------------------------------------------------------/
+/*---------------------------- Operaciones auxiliares de codificación -------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+function aux_colorParaElDato()     { return(Negro) }
+function aux_colorParaElTipo()     { return(Azul)  }
+function aux_colorParaElAtributo() { return(Rojo)  }
+function aux_colorParaLaMarca()    { return(Verde) }
+
+function aux_leerTipo()     { return(nroBolitas(aux_colorParaElTipo()))     }
+function aux_leerDato()     { return(nroBolitas(aux_colorParaElDato()))     }
+function aux_leerAtributo() { return(nroBolitas(aux_colorParaElAtributo())) }
+function aux_leerMarca()    { return(nroBolitas(aux_colorParaLaMarca()))    }
+
+//---------------------------------------------------------------------------------------------------/
+/*------------------------------------ Auxiliares de atributos --------------------------------------/
+/--------- Para decidir nuevos atributos, cambiar W, X, Y o Z por el nombre correspondiente ---------/
+/-------------------------- Para más atributos nuevos, agregar más códigos --------------------------/
+/---------------------------------------------------------------------------------------------------*/
+function  aux_códigoParaElAtributoReverso() { return(0) }
+function  aux_hayAtributoReverso()  { return (aux_hayAtributo(aux_códigoParaElAtributoReverso())) }
+procedure AuxPonerAtributoReverso() { AuxPonerAtributo(aux_códigoParaElAtributoReverso())         }
+procedure AuxSacarAtributoReverso() { AuxSacarAtributo(aux_códigoParaElAtributoReverso())         }
+
+function  aux_códigoParaElAtributoIluminación() { return(1) }
+function  aux_hayAtributoIluminación()  { return (aux_hayAtributo(aux_códigoParaElAtributoIluminación())) }
+procedure AuxPonerAtributoIluminación() { AuxPonerAtributo(aux_códigoParaElAtributoIluminación())         }
+procedure AuxSacarAtributoIluminación() { AuxSacarAtributo(aux_códigoParaElAtributoIluminación())         }
+
+function  aux_códigoParaElAtributoW() { return(2) }
+function  aux_hayAtributoW()  { return (aux_hayAtributo(aux_códigoParaElAtributoW())) }
+procedure AuxPonerAtributoW() { AuxPonerAtributo(aux_códigoParaElAtributoW())         }
+procedure AuxSacarAtributoW() { AuxSacarAtributo(aux_códigoParaElAtributoW())         }
+
+function  aux_códigoParaElAtributoX() { return(3) }
+function  aux_hayAtributoX()  { return (aux_hayAtributo(aux_códigoParaElAtributoX())) }
+procedure AuxPonerAtributoX() { AuxPonerAtributo(aux_códigoParaElAtributoX())         }
+procedure AuxSacarAtributoX() { AuxSacarAtributo(aux_códigoParaElAtributoX())         }
+
+function  aux_códigoParaElAtributoY() { return(4) }
+function  aux_hayAtributoY()  { return (aux_hayAtributo(aux_códigoParaElAtributoY())) }
+procedure AuxPonerAtributoY() { AuxPonerAtributo(aux_códigoParaElAtributoY())         }
+procedure AuxSacarAtributoY() { AuxSacarAtributo(aux_códigoParaElAtributoY())         }
+
+function  aux_códigoParaElAtributoZ() { return(5) }
+function  aux_hayAtributoZ()  { return (aux_hayAtributo(aux_códigoParaElAtributoZ())) }
+procedure AuxPonerAtributoZ() { AuxPonerAtributo(aux_códigoParaElAtributoZ())         }
+procedure AuxSacarAtributoZ() { AuxSacarAtributo(aux_códigoParaElAtributoZ())         }
+
+function  aux_hayAtributo(códigoAtributo)  {
+   return (aux_contieneLaIésimaPotenciaDe2(nroBolitas(aux_colorParaElAtributo()),códigoAtributo))
+}
+procedure AuxPonerAtributo(códigoAtributo) { Poner__Veces(aux_colorParaElAtributo(), aux_potencia(2,códigoAtributo)) }
+procedure AuxSacarAtributo(códigoAtributo) { Sacar__Veces(aux_colorParaElAtributo(), aux_potencia(2,códigoAtributo)) }
+
+function aux_contieneLaIésimaPotenciaDe2(n,i) {
+  // PRECONDICIÓN: n>=0, i>=0
+  j := 0                     // j cuenta las potencias de 2 desde 0 hasta i
+  m := n                     // m guarda el número original con j shifts a derecha (los bits desde el j+1 en adelante)
+  while (m > 0 && j < i) {   // si m es 0, todos los bits que siguen son 0, y si j es i, entonces hay que mirar ese bit
+     j := j + 1              // paso a la siguiente potencia de 2
+     m := m div 2            // hago el shift de m a derecha
+  }
+  return (m mod 2 == 1)      // si m es 0 da False, y si no, depende del último bit (el de paridad)
+
+  // Ej: i<-2, n<-12
+  //    j  m   (m mod 2)
+  //    0 12     0
+  //    1  6     0
+  //    2  3     1    Resultado: True
+}
+
+function aux_potencia(x,n) {
+  // PRECONDICIÓN: x>=0, n>=0
+  pot := 1
+  i := 0
+  while (i<n) {
+     pot := pot * x
+     i := i + 1
+  }
+  return (pot)
+}
+
+//---------------------------------------------------------------------------------------------------/
+/*----------------------------------- Operaciones de marcas -----------------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+// La marca son 100 bolitas del aux_colorParaMarca, pero puede haber otras marcas antes
+function  aux_códigoParaLaMarca() { return(100) }
+function  aux_hayMarca() { return (nroBolitas(aux_colorParaLaMarca())>=aux_códigoParaLaMarca()) }
+procedure AuxMarcar()    { AuxPoner__Veces(aux_colorParaLaMarca(),aux_códigoParaLaMarca())     }
+procedure AuxDesmarcar() { 
+  // PRECONDICIÓN: hay una marca en el lugar (o sea, aux_hayMarca() es verdadero)
+  AuxSacar__Veces(aux_colorParaLaMarca(),aux_códigoParaLaMarca()) 
+}
+
+procedure AuxVolverALaMarca() {
+  // PRECONDICIÓN: hay una marca en el tablero
+  AuxIniciarRecorrido()
+  while (not aux_terminóElRecorrido() && not aux_hayMarca()) { AuxAvanzarRecorrido() }
+}
+
+//---------------------------------------------------------------------------------------------------/
+/*---------------------------------- Operaciones de recorrido ---------------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+// El Recorrido default es Este-Norte (los 3 deben usar los mismos parámetros)
+procedure AuxIniciarRecorrido()    { AuxIniciarRecorridoGral          (Este, Norte)  }
+procedure AuxAvanzarRecorrido()    { AuxAvanzarRecorridoGral          (Este, Norte)  }
+function  aux_terminóElRecorrido() { return(aux_terminóElRecorridoGral(Este, Norte)) }
+
+procedure AuxIniciarRecorridoGral(dirPpal, dirSecundaria) 
+  { IrAlBorde(opuesto(dirPpal)) IrAlBorde(opuesto(dirSecundaria)) }
+
+function aux_terminóElRecorridoGral(dirPpal, dirSecundaria) 
+  { return (not puedeMover(dirPpal) && not puedeMover(dirSecundaria)) }
+
+procedure AuxAvanzarRecorridoGral(dirPpal, dirSecundaria) {
+    if     (puedeMover(dirPpal))       { Mover(dirPpal)                                                }
+    elseif (puedeMover(dirSecundaria)) { IrAlBorde(opuesto(dirPpal)) Mover(dirSecundaria)              }
+    else                               { IrAlBorde(opuesto(dirPpal)) IrAlBorde(opuesto(dirSecundaria)) }
+}
+
+/*==================================================================================================*/
+/*---------------------------- FIN AUXILIARES de 00-Gobstones-Base.gbs -----------------------------*/
+/*==================================================================================================*/
+
+
+
+/*==================================================================================================*/
+/*----------------------------------- INTERFAZ de 00-Listas-Base.gbs --------------------------------/
+/----- Autor: Pablo E. "Fidel" Martínez López -------------------------------------------------------/
+/----- EMail: fidel@unq.edu.ar                -------------------------------------------------------/
+/----- Fecha creación: 2018.06                -------------------------------------------------------/
+/----- Fecha última modificación: 2018.06     -------------------------------------------------------/
+/----- Licencia: GNU General Public License, v2                                             ---------/
+/----- Sitio Oficial de la licencia: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html  --------*/
+/*==================================================================================================*/
+
+//-------------------------------
+// PARA CORRECCIÓN DE GOBSTONES, HASTA QUE LO ARREGLEMOS
+function último(xs)  { return (ultimo(xs)) }
+function esVacía(xs) { return (xs==[])     }
+//-------------------------------
+
+function calcularLongitud_(lista) { return(aux_calcularLongitud(lista)) }
+
+/*==================================================================================================*/
+/*-------------------------------- FIN INTERFAZ de 00-Listas-Base.gbs ------------------------------*/
+/*==================================================================================================*/
+
+
+/*==================================================================================================*/
+/*-------------------------------- AUXILIARES de 00-Listas-Base.gbs --------------------------------*/
+/*==================================================================================================*/
+function aux_calcularLongitud(lista) {
+  cantidadDeElementosContados := 0
+  foreach elemento in lista { cantidadDeElementosContados := cantidadDeElementosContados + 1 }
+  return(cantidadDeElementosContados)
+}
+
+/*==================================================================================================*/
+/*------------------------------ FIN AUXILIARES de 00-Listas-Base.gbs ------------------------------*/
+/*==================================================================================================*/
+
+
+
+/*==================================================================================================*/
+/*--------------------------------- REQUIERE 00-Gobstones-Base.gbs ---------------------------------*/
+/*----------------------------------- REQUIERE 00-Listas-Base.gbs ----------------------------------*/
+/*==================================================================================================*/
+
+/*==================================================================================================*/
+/*-------------------------- INTERFAZ de 01-01-NúmerosPorDígitos-Base.gbs ---------------------------/
+/----- Autor: Pablo E. "Fidel" Martínez López -------------------------------------------------------/
+/----- EMail: fidel@unq.edu.ar                -------------------------------------------------------/
+/----- Fecha creación: 2018.06                -------------------------------------------------------/
+/----- Fecha última modificación: 2018.06     -------------------------------------------------------/
+/----- Licencia: GNU General Public License, v2                                             ---------/
+/----- Sitio Oficial de la licencia: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html  --------*/
+/*==================================================================================================*/
+
+//---------------------------------------------------------------------------------------------------/
+/*-------------------------------------- Definiciones de tipos --------------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+// NO HAY TIPOS NUEVOS. Se usan los números de Gobstones
+
+//---------------------------------------------------------------------------------------------------/
+/*----------------------------- Operaciones de creación de números (interfaz) -----------------------/
+/---------------------------------------------------------------------------------------------------*/
+// NO HAY OPERACIONES DE CREACIÓN NUEVAS. Se usan los números de Gobstones
+
+//---------------------------------------------------------------------------------------------------/
+/*------------------------------ Operaciones de acceso a números (interfaz) -------------------------/
+/---------------------------------------------------------------------------------------------------*/
+// NO HAY OPERACIONES DE ACCESO NUEVAS. Se usan los números de Gobstones
+
+//---------------------------------------------------------------------------------------------------/
+/*------------------ Operaciones de sensado de números en el tablero (interfaz) ---------------------/
+/---------------------------------------------------------------------------------------------------*/
+function hayNúmeroPorDígitos() { return(aux_hayNúmeroPorDígitos()) }
+
+function elNúmeroPorDígitosEstáOculto()   { return(    aux_elNúmeroPorDígitosEstáOcultoConBoom())                       }
+function elNúmeroPorDígitosNoEstáOculto() { return(not aux_elNúmeroPorDígitosEstáOcultoConBoom())                       }
+function hayNúmeroPorDígitosOculto()      { return(aux_hayNúmeroPorDígitos() &&     aux_elNúmeroPorDígitosEstáOculto()) }
+function hayNúmeroPorDígitosNoOculto()    { return(aux_hayNúmeroPorDígitos() && not aux_elNúmeroPorDígitosEstáOculto()) }
+
+//---------------------------------------------------------------------------------------------------/
+/*--------------------------- Operaciones de E/S de números (interfaz) ------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+function  númeroPorDígitosActual()        { return(aux_númeroPorDígitosActual()) }
+function  númeroPorDígitosOculto()        { return(aux_númeroPorDígitosOculto()) }
+
+procedure PonerNúmeroPorDígitos_(número)  { AuxPonerNúmeroPorDígitos(número)     }
+procedure SacarNúmeroPorDígitosActual()   { AuxSacarNúmeroPorDígitosActual()     }
+
+procedure OcultarNúmeroPorDígitosActual() { AuxOcultarNúmeroPorDígitosActual()   }
+procedure RevelarNúmeroPorDígitosActual() { AuxRevelarNúmeroPorDígitosActual()   }
+
+/*==================================================================================================*/
+/*------------------------ FIN INTERFAZ de 01-01-NúmerosPorDígitos-Base.gbs ------------------------*/
+/*==================================================================================================*/
+
+
+/*==================================================================================================*/
+/*------------------------- AUXILIARES de 01-01-NúmerosPorDígitos-Base.gbs -------------------------*/
+/*==================================================================================================*/
+
+//---------------------------------------------------------------------------------------------------/
+/*----------------------------- Auxiliares para construir números ----------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+// NO HAY OPERACIONES ESPECÍFICAS DE CONSTRUCCIÓN. Se usan los número de Gobstones
+
+//---------------------------------------------------------------------------------------------------/
+/*------------------------------ Auxiliares para acceso a números -----------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+// NO HAY OPERACIONES DE ACCESO NUEVAS. Se usan los números de Gobstones
+
+//---------------------------------------------------------------------------------------------------/
+/*--------------------------- Auxiliares para sensar números en el tablero --------------------------/
+/---------------------------------------------------------------------------------------------------*/
+function aux_hayNúmeroPorDígitos() { return(aux_hayDígito()) } 
+function aux_hayDígito() {
+  return (aux_hayTipoDígito() 
+       && aux_hayDatoDígito()) 
+}
+
+function aux_hayTipoDígito() { return (aux_esTipoDígito(aux_leerTipo())) }
+function aux_hayDatoDígito() { return (aux_esDatoDígito(aux_leerDato())) }
+
+function aux_elDígitoEstáOculto() { 
+  // PRECONDICIÓN: hay un dígito
+  return (aux_hayAtributoReverso())
+}
+
+function aux_elNúmeroPorDígitosEstáOculto() {
+  // PRECONDICIÓN: hay un número por dígitos
+  return (aux_elDígitoEstáOculto())
+}
+
+function aux_elDígitoEstáOcultoConBoom() { 
+  if (not aux_hayDígito()) { BOOM("No hay un dígito que pueda estar oculto") }
+  return(aux_elDígitoEstáOculto())    
+}
+
+function aux_elNúmeroPorDígitosEstáOcultoConBoom() {
+  if (not aux_hayNúmeroPorDígitos()) { BOOM("No hay un número por dígitos que pueda estar oculto") }
+  return(aux_elNúmeroPorDígitosEstáOculto())    
+}
+
+//---------------------------------------------------------------------------------------------------/
+/*------------------------------- Operaciones de E/S de números -------------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+function aux_dígitoActual() {
+  // PRECONDICIÓN: hay un dígito en la celda actual
+  return(aux_dígitoParaElCódigo(aux_leerDato()))
+}
+
+function aux_númeroPorDígitosActual() {
+  if (aux_elDígitoEstáOculto()) { BOOM("No puedo ver el número por dígitos actual") }
+  return (aux_númeroPorDígitosDesdeLaCeldaActual())
+}
+
+function aux_númeroPorDígitosOculto() {
+  if (not aux_elDígitoEstáOculto()) { BOOM("Solo puedo ver números por dígitos que están ocultos") }
+  return (aux_númeroPorDígitosDesdeLaCeldaActual())
+}
+
+function aux_númeroPorDígitosDesdeLaCeldaActual() {
+   dígitosLeídos := []
+   while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayDígito()) {
+      dígitosLeídos := dígitosLeídos ++ [ aux_dígitoActual() ]
+      AuxAvanzarRecorridoGral(Este, Sur)
+   }
+   if (aux_hayDígito()) { 
+      dígitosLeídos := dígitosLeídos ++ [ aux_dígitoActual() ]
+  }
+  return(aux_númeroPorDígitosParaElCódigo(dígitosLeídos))
+}         
+
+procedure AuxPonerDígito(dígito) { 
+    AuxSacarTodas()
+    AuxPoner__Veces(aux_colorParaElTipo(), aux_códigoParaElTipoDígito())
+    AuxPoner__Veces(aux_colorParaElDato(), aux_códigoParaElDatoDígito(dígito))
+}
+
+procedure AuxPonerNúmeroPorDígitos(número) {
+  movióDeMás := False
+  dígitos := aux_códigoParaElNúmeroPorDígitos(número)
+  while (not esVacía(dígitos) && not aux_terminóElRecorridoGral(Este, Sur)) {
+    AuxPonerDígito(primero(dígitos))
+    dígitos := resto(dígitos)
+    AuxPasarASiguientePosición()
+    movióDeMás := True
+  }
+  if (not esVacía(dígitos)) { AuxPonerDígito(primero(dígitos)) }
+  else { if (movióDeMás) /* Retrocede un lugar */ { AuxAvanzarRecorridoGral(Oeste, Norte) } }
+}
+
+procedure AuxSacarDígito() { AuxSacarTodas() }
+procedure AuxSacarNúmeroPorDígitosActual() {
+  movióDeMás := False
+  while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayDígito()) {
+    AuxSacarDígito()
+    AuxAvanzarRecorridoGral(Este, Sur)
+    movióDeMás := True
+  }
+  if (aux_hayDígito())                     { AuxSacarDígito()                      }
+  if (movióDeMás) /* Retrocede un lugar */ { AuxAvanzarRecorridoGral(Oeste, Norte) }
+}
+
+procedure AuxOcultarNúmeroPorDígitosActual()    { 
+  movióDeMás := False
+  while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayDígito() && not aux_elDígitoEstáOcultoConBoom()) {
+    AuxOcultarDígitoActual()
+    AuxAvanzarRecorridoGral(Este, Sur)
+    movióDeMás := True
+  }
+  if (aux_hayDígito())                     { AuxOcultarDígitoActual()              }
+  if (movióDeMás) /* Retrocede un lugar */ { AuxAvanzarRecorridoGral(Oeste, Norte) }
+ }
+ 
+ procedure AuxRevelarNúmeroPorDígitosActual() { 
+  // PRECONDICIÓN: hay un número por dígitos oculto en la celda actual
+  movióDeMás := False
+  while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayDígito() && aux_elDígitoEstáOcultoConBoom()) {
+    AuxRevelarDígitoActual()
+    AuxAvanzarRecorridoGral(Este, Sur)
+    movióDeMás := True
+  }
+  if (aux_hayDígito())                     { AuxRevelarDígitoActual()              }
+  if (movióDeMás) /* Retrocede un lugar */ { AuxAvanzarRecorridoGral(Oeste, Norte) }
+
+ }
+ 
+
+procedure AuxOcultarDígitoActual()    { 
+  // PRECONDICIÓN: hay un dígito no oculto en la celda actual
+   AuxPonerAtributoReverso()
+ }
+ 
+ procedure AuxRevelarDígitoActual() { 
+  // PRECONDICIÓN: hay un dígito oculto en la celda actual
+   AuxSacarAtributoReverso()
+ }
+ 
+//---------------------------------------------------------------------------------------------------/
+/*---------------------------- Operaciones auxiliares de codificación -------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+function aux_esUnDígitoVálido(número)           { return(número >= 0 && número <= 9) }
+function aux_esUnNúmeroPorDígitosVálido(número) { return(número >= 0)                }
+
+function aux_dígitoParaElCódigo(códigoDígito) { return(códigoDígito) }
+function aux_númeroPorDígitosParaElCódigo(códigoNúmeroPorDígitos) {
+   númeroLeído      := 0
+   dígitosFaltantes := códigoNúmeroPorDígitos
+   while (not esVacía(dígitosFaltantes)) {
+      númeroLeído      := númeroLeído * 10 + primero(dígitosFaltantes)
+      dígitosFaltantes := resto(dígitosFaltantes)
+   }
+
+   return(númeroLeído)
+}
+
+function aux_códigoParaElDígito(dígito) { return(dígito) }
+function aux_códigoParaElNúmeroPorDígitos(númeroPorDígitos) {
+  // PRECONDICIÓN: el número no es negativo
+  if (not aux_esUnNúmeroPorDígitosVálido(númeroPorDígitos)) { BOOM("No funciona con números negativos") }
+  if (númeroPorDígitos == 0) { dígitosObtenidos := [0] }
+  else {
+    dígitosObtenidos := []
+    valorAProcesar   := númeroPorDígitos
+    while (valorAProcesar > 0) {
+      dígitosObtenidos := [ aux_códigoParaElDígito(valorAProcesar mod 10) ] ++ dígitosObtenidos
+      valorAProcesar   := valorAProcesar div 10
+    }
+  }
+  return(dígitosObtenidos)
+}
+
+//---------------------------------------------------------------------------------------------------/
+/*----------------------- Operaciones auxiliares de codificación para el tablero --------------------/
+/---------------------------------------------------------------------------------------------------*/
+function aux_códigoParaElTipoDígito()       { return(1)                              }
+function aux_códigoParaElDatoDígito(dígito) { 
+    if (not aux_esDatoDígito(dígito)) { BOOM("En números por dígitos solo se representan dígitos en el tablero") }
+    return(aux_códigoParaElDígito(dígito)) 
+}
+
+function aux_esTipoDígito(código) { return (código == aux_códigoParaElTipoDígito())  }
+function aux_esDatoDígito(dato)   { return (aux_esUnDígitoVálido(dato))              }
+
+/*==================================================================================================*/
+/*------------------------- AUXILIARES de 01-01-NúmerosPorDígitos-Base.gbs -------------------------*/
+/*==================================================================================================*/
