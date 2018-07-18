@@ -54,6 +54,75 @@ function aux_leerAtributo() { return(nroBolitas(aux_colorParaElAtributo())) }
 function aux_leerMarca()    { return(nroBolitas(aux_colorParaLaMarca()))    }
 
 //---------------------------------------------------------------------------------------------------/
+/*------------------------------------ Auxiliares de atributos --------------------------------------/
+/--------- Para decidir nuevos atributos, cambiar W, X, Y o Z por el nombre correspondiente ---------/
+/-------------------------- Para más atributos nuevos, agregar más códigos --------------------------/
+/---------------------------------------------------------------------------------------------------*/
+function  aux_códigoParaElAtributoReverso() { return(0) }
+function  aux_hayAtributoReverso()  { return (aux_hayAtributo(aux_códigoParaElAtributoReverso())) }
+procedure AuxPonerAtributoReverso() { AuxPonerAtributo(aux_códigoParaElAtributoReverso())         }
+procedure AuxSacarAtributoReverso() { AuxSacarAtributo(aux_códigoParaElAtributoReverso())         }
+
+function  aux_códigoParaElAtributoIluminación() { return(1) }
+function  aux_hayAtributoIluminación()  { return (aux_hayAtributo(aux_códigoParaElAtributoIluminación())) }
+procedure AuxPonerAtributoIluminación() { AuxPonerAtributo(aux_códigoParaElAtributoIluminación())         }
+procedure AuxSacarAtributoIluminación() { AuxSacarAtributo(aux_códigoParaElAtributoIluminación())         }
+
+function  aux_códigoParaElAtributoW() { return(2) }
+function  aux_hayAtributoW()  { return (aux_hayAtributo(aux_códigoParaElAtributoW())) }
+procedure AuxPonerAtributoW() { AuxPonerAtributo(aux_códigoParaElAtributoW())         }
+procedure AuxSacarAtributoW() { AuxSacarAtributo(aux_códigoParaElAtributoW())         }
+
+function  aux_códigoParaElAtributoX() { return(3) }
+function  aux_hayAtributoX()  { return (aux_hayAtributo(aux_códigoParaElAtributoX())) }
+procedure AuxPonerAtributoX() { AuxPonerAtributo(aux_códigoParaElAtributoX())         }
+procedure AuxSacarAtributoX() { AuxSacarAtributo(aux_códigoParaElAtributoX())         }
+
+function  aux_códigoParaElAtributoY() { return(4) }
+function  aux_hayAtributoY()  { return (aux_hayAtributo(aux_códigoParaElAtributoY())) }
+procedure AuxPonerAtributoY() { AuxPonerAtributo(aux_códigoParaElAtributoY())         }
+procedure AuxSacarAtributoY() { AuxSacarAtributo(aux_códigoParaElAtributoY())         }
+
+function  aux_códigoParaElAtributoZ() { return(5) }
+function  aux_hayAtributoZ()  { return (aux_hayAtributo(aux_códigoParaElAtributoZ())) }
+procedure AuxPonerAtributoZ() { AuxPonerAtributo(aux_códigoParaElAtributoZ())         }
+procedure AuxSacarAtributoZ() { AuxSacarAtributo(aux_códigoParaElAtributoZ())         }
+
+function  aux_hayAtributo(códigoAtributo)  {
+   return (aux_contieneLaIésimaPotenciaDe2(nroBolitas(aux_colorParaElAtributo()),códigoAtributo))
+}
+procedure AuxPonerAtributo(códigoAtributo) { Poner__Veces(aux_colorParaElAtributo(), aux_potencia(2,códigoAtributo)) }
+procedure AuxSacarAtributo(códigoAtributo) { Sacar__Veces(aux_colorParaElAtributo(), aux_potencia(2,códigoAtributo)) }
+
+function aux_contieneLaIésimaPotenciaDe2(n,i) {
+  // PRECONDICIÓN: n>=0, i>=0
+  j := 0                     // j cuenta las potencias de 2 desde 0 hasta i
+  m := n                     // m guarda el número original con j shifts a derecha (los bits desde el j+1 en adelante)
+  while (m > 0 && j < i) {   // si m es 0, todos los bits que siguen son 0, y si j es i, entonces hay que mirar ese bit
+     j := j + 1              // paso a la siguiente potencia de 2
+     m := m div 2            // hago el shift de m a derecha
+  }
+  return (m mod 2 == 1)      // si m es 0 da False, y si no, depende del último bit (el de paridad)
+
+  // Ej: i<-2, n<-12
+  //    j  m   (m mod 2)
+  //    0 12     0
+  //    1  6     0
+  //    2  3     1    Resultado: True
+}
+
+function aux_potencia(x,n) {
+  // PRECONDICIÓN: x>=0, n>=0
+  pot := 1
+  i := 0
+  while (i<n) {
+     pot := pot * x
+     i := i + 1
+  }
+  return (pot)
+}
+
+//---------------------------------------------------------------------------------------------------/
 /*----------------------------------- Operaciones de marcas -----------------------------------------/
 /---------------------------------------------------------------------------------------------------*/
 // La marca son 100 bolitas del aux_colorParaMarca, pero puede haber otras marcas antes
