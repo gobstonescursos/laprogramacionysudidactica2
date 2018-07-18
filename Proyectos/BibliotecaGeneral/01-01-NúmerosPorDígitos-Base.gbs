@@ -41,12 +41,14 @@ function hayNúmeroPorDígitosNoOculto()    { return(aux_hayNúmeroPorDígitos()
 //---------------------------------------------------------------------------------------------------/
 /*--------------------------- Operaciones de E/S de números (interfaz) ------------------------------/
 /---------------------------------------------------------------------------------------------------*/
-function  númeroPorDígitosActual()       { return(aux_númeroPorDígitosActual()) }
-procedure PonerNúmeroPorDígitos_(número) { AuxPonerNúmeroPorDígitos(número)     }
-procedure SacarNúmeroPorDígitosActual()  { AuxSacarNúmeroPorDígitosActual()     }
+function  númeroPorDígitosActual()        { return(aux_númeroPorDígitosActual()) }
+function  númeroPorDígitosOculto()        { return(aux_númeroPorDígitosOculto()) }
 
-procedure OcultarElNúmeroPorDígitosActual()    { AuxOcultarElNúmeroPorDígitosActual() }
-procedure RevelarElNúmeroPorDígitosActual()    { AuxRevelarElNúmeroPorDígitosActual() }
+procedure PonerNúmeroPorDígitos_(número)  { AuxPonerNúmeroPorDígitos(número)     }
+procedure SacarNúmeroPorDígitosActual()   { AuxSacarNúmeroPorDígitosActual()     }
+
+procedure OcultarNúmeroPorDígitosActual() { AuxOcultarNúmeroPorDígitosActual()   }
+procedure RevelarNúmeroPorDígitosActual() { AuxRevelarNúmeroPorDígitosActual()   }
 
 /*==================================================================================================*/
 /*------------------------ FIN INTERFAZ de 01-01-NúmerosPorDígitos-Base.gbs ------------------------*/
@@ -108,6 +110,16 @@ function aux_dígitoActual() {
 }
 
 function aux_númeroPorDígitosActual() {
+  if (aux_elDígitoEstáOculto()) { BOOM("No puedo ver el número por dígitos actual") }
+  return (aux_númeroPorDígitosDesdeLaCeldaActual())
+}
+
+function aux_númeroPorDígitosOculto() {
+  if (not aux_elDígitoEstáOculto()) { BOOM("Solo puedo ver números por dígitos que están ocultos") }
+  return (aux_númeroPorDígitosDesdeLaCeldaActual())
+}
+
+function aux_númeroPorDígitosDesdeLaCeldaActual() {
    dígitosLeídos := []
    while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayDígito()) {
       dígitosLeídos := dígitosLeídos ++ [ aux_dígitoActual() ]
@@ -150,37 +162,37 @@ procedure AuxSacarNúmeroPorDígitosActual() {
   if (movióDeMás) /* Retrocede un lugar */ { AuxAvanzarRecorridoGral(Oeste, Norte) }
 }
 
-procedure AuxOcultarElNúmeroPorDígitosActual()    { 
+procedure AuxOcultarNúmeroPorDígitosActual()    { 
   movióDeMás := False
   while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayDígito() && not aux_elDígitoEstáOcultoConBoom()) {
-    AuxOcultarElDígitoActual()
+    AuxOcultarDígitoActual()
     AuxAvanzarRecorridoGral(Este, Sur)
     movióDeMás := True
   }
-  if (aux_hayDígito())                     { AuxOcultarElDígitoActual()            }
+  if (aux_hayDígito())                     { AuxOcultarDígitoActual()              }
   if (movióDeMás) /* Retrocede un lugar */ { AuxAvanzarRecorridoGral(Oeste, Norte) }
  }
  
- procedure AuxRevelarElNúmeroPorDígitosActual() { 
+ procedure AuxRevelarNúmeroPorDígitosActual() { 
   // PRECONDICIÓN: hay un número por dígitos oculto en la celda actual
   movióDeMás := False
   while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayDígito() && aux_elDígitoEstáOcultoConBoom()) {
-    AuxRevelarElDígitoActual()
+    AuxRevelarDígitoActual()
     AuxAvanzarRecorridoGral(Este, Sur)
     movióDeMás := True
   }
-  if (aux_hayDígito())                     { AuxRevelarElDígitoActual()            }
+  if (aux_hayDígito())                     { AuxRevelarDígitoActual()              }
   if (movióDeMás) /* Retrocede un lugar */ { AuxAvanzarRecorridoGral(Oeste, Norte) }
 
  }
  
 
-procedure AuxOcultarElDígitoActual()    { 
+procedure AuxOcultarDígitoActual()    { 
   // PRECONDICIÓN: hay un dígito no oculto en la celda actual
    AuxPonerAtributoReverso()
  }
  
- procedure AuxRevelarElDígitoActual() { 
+ procedure AuxRevelarDígitoActual() { 
   // PRECONDICIÓN: hay un dígito oculto en la celda actual
    AuxSacarAtributoReverso()
  }
