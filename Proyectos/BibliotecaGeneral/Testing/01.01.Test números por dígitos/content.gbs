@@ -9,7 +9,7 @@ interactive program {
   }
 }
 
-procedure TestsDeLetras(códigoDeTest) {
+procedure TestsDeNúmerosPorDígitos(códigoDeTest) {
   if (códigoDeTest == 1) {
     TestPonerNúmeroPorDígitos()
   } elseif (códigoDeTest == 2) {
