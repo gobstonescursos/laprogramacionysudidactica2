@@ -10,6 +10,6 @@ Testea:
   3. número actual
   4. hay número
   5. ocultar número
-  6. relevar número
+  6. revelar número
   7. número oculto
   8. hay número oculto y no oculto
