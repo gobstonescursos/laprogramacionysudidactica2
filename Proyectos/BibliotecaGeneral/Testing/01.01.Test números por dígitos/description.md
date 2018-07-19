@@ -9,7 +9,7 @@ Testea:
   2. sacar número por dígitos
   3. número por dígitos actual
   4. hay número por dígitos
-  5. ocultar números por dígitos
-  6. relevar números por dígitos
-  7. números por dígitos oculto
-  8. hay números por dígitos oculto y no oculto
+  5. ocultar número por dígitos
+  6. relevar número por dígitos
+  7. número por dígitos oculto
+  8. hay número por dígitos oculto y no oculto
