@@ -790,7 +790,7 @@ procedure AuxSacarLetraActual() {
 procedure AuxOcultarLetraActual()    { 
   // PRECONDICIÓN: hay una letra en la celda actual. Si está oculta, no hace nada
   if (not aux_hayLetra())          { BOOM("No hay letra que ocultar") }
-  if (not aux_laLetraEstáOculto()) { AuxPonerAtributoReverso()         }
+  if (not aux_laLetraEstáOculta()) { AuxPonerAtributoReverso()        }
  }
  
  procedure AuxRevelarLetraActual() { 
