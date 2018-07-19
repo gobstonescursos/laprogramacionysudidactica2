@@ -9,7 +9,7 @@
 /*------------------------ INTERFAZ de 03-02-ValoresDeCartaEspañolaDe40-Base.gbs -------------------*/
 /*----------------------------------------- (en línea ????) ----------------------------------------*/
 /*--------------------------------- INTERFAZ de 02-Letras-Base.gbs ---------------------------------*/
-/*----------------------------------------- (en línea ????) ----------------------------------------*/
+/*----------------------------------------- (en línea  648) ----------------------------------------*/
 /*------------------------------ INTERFAZ de 01-02-Números-Base.gbs --------------------------------*/
 /*----------------------------------------- (en línea  480) ----------------------------------------*/
 /*------------------------- INTERFAZ de 01-01-NúmerosPorDígitos-Base.gbs ---------------------------*/
@@ -584,11 +584,13 @@ function aux_númeroOculto() {
 
 procedure AuxPonerNúmero(número) { 
     AuxSacarTodas()
-    AuxPoner__Veces(aux_colorParaElTipo(), aux_códigoParaElTipoNúmero())
-    AuxPoner__Veces(aux_colorParaElDato(), aux_códigoParaElDatoNúmero(número))
+    AuxPonerRepresentaciónParaElNúmero(número)
 }
 
-procedure AuxSacarNúmeroActual() { AuxSacarTodas() }
+procedure AuxSacarNúmeroActual() { 
+  if (not(aux_hayNúmero())) { BOOM("No hay un número que sacar") }
+  AuxSacarRepresentaciónParaElNúmero() 
+}
 
 procedure AuxOcultarNúmeroActual()    { 
   // PRECONDICIÓN: hay un número en la celda actual. Si está oculto, no hace nada
@@ -628,6 +630,292 @@ function aux_códigoParaElDatoNúmero(datoNúmero) { return(aux_códigoParaElNú
 function aux_esTipoNúmero(código) { return (código == aux_códigoParaElTipoNúmero())  }
 function aux_esDatoNúmero(dato)   { return (aux_esCódigoParaElNúmero(dato))          }
 
+procedure AuxPonerRepresentaciónParaElNúmero(número) {
+  AuxPoner__Veces(aux_colorParaElTipo(), aux_códigoParaElTipoNúmero())
+  AuxPoner__Veces(aux_colorParaElDato(), aux_códigoParaElDatoNúmero(número))
+}
+
+procedure AuxSacarRepresentaciónParaElNúmero() {
+  // PRECONDICIÓN: hay un número en la celda actual
+  AuxSacarTodas()
+}
 /*==================================================================================================*/
 /*------------------------------- AUXILIARES de 01-Números-Base.gbs --------------------------------*/
+/*==================================================================================================*/
+
+
+
+/*==================================================================================================*/
+/*--------------------------------- REQUIERE 00-Gobstones-Base.gbs ---------------------------------*/
+/*==================================================================================================*/
+
+/*==================================================================================================*/
+/*--------------------------------- INTERFAZ de 02-Letras-Base.gbs ----------------------------------/
+/----- Autor: Pablo E. "Fidel" Martínez López -------------------------------------------------------/
+/----- EMail: fidel@unq.edu.ar                -------------------------------------------------------/
+/----- Fecha creación: 2018.06                -------------------------------------------------------/
+/----- Fecha última modificación: 2018.06     -------------------------------------------------------/
+/----- Licencia: GNU General Public License, v2                                             ---------/
+/----- Sitio Oficial de la licencia: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html  --------*/
+/*==================================================================================================*/
+
+//---------------------------------------------------------------------------------------------------/
+/*-------------------------------------- Definiciones de tipos --------------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+type Letra is variant { 
+   case Espacio {} 
+   case A {}    case B {}    case C {}    case D {}    case E {}    case F {}    case G {}    case H {}    case I {}    
+   case J {}    case K {}    case L {}    case M {}    case N {}    case Ñ {}    case O {}    case P {}    case Q {}
+   case R {}    case S {}    case T {}    case U {}    case V {}    case W {}    case X {}    case Y {}    case Z {}
+}
+
+//---------------------------------------------------------------------------------------------------/
+/*------------------------------ Operaciones de creación de letras (interfaz) -----------------------/
+/---------------------------------------------------------------------------------------------------*/
+{-
+/*@ATTRIBUTE@tooltip@Denota una letra*/
+/*@ATTRIBUTE@block_name@_@*/
+/*@ATTRIBUTE@block_dropdown@[(" ", 'Espacio'), ("A", 'A'), ("B", 'B'), ("C", 'C'), ("D", 'D'), ("E", 'E'), ("F", 'F'), ("G", 'G'), ("H", 'H'), ("I", 'I'), ("J", 'J'), ("K", 'K'), ("L", 'L'), ("M", 'M'), ("N", 'N'), ("Ñ", 'Ñ'), ("O", 'O'), ("P", 'P'), ("Q", 'Q'), ("R", 'R'), ("S", 'S'), ("T", 'T'), ("U", 'U'), ("V", 'V'), ("W", 'W'), ("X", 'X'), ("Y", 'Y'), ("Z", 'Z')]@*/
+function letra_(letra) { return(letra) }
+-}
+
+function letra_(códigoLetra) { return(aux_letraParaElCódigo(códigoLetra)) }
+
+//---------------------------------------------------------------------------------------------------/
+/*------------------------------- Operaciones de acceso a letras (interfaz) -------------------------/
+/---------------------------------------------------------------------------------------------------*/
+/*@ATTRIBUTE@block_name@_ está antes que la letra _@*/   function esMenorLetra__(letra1, letra2) { return(aux_esMenorLetra(letra1, letra2)) }
+/*@ATTRIBUTE@block_name@_ está después que la letra _@*/ function esMayorLetra__(letra1, letra2) { return(aux_esMayorLetra(letra1, letra2)) }
+/*@ATTRIBUTE@block_name@la letra más chica@*/            function minLetra()             { return(aux_minLetra())            }
+/*@ATTRIBUTE@block_name@la letra más grande@*/           function maxLetra()             { return(aux_maxLetra())            }
+/*@ATTRIBUTE@block_name@letra siguiente a _@*/           function letraSiguiente_(letra) { return(aux_letraSiguiente(letra)) }
+/*@ATTRIBUTE@block_name@letra previa a _@*/              function letraPrevia_(letra)    { return(aux_letraPrevia(letra))    }
+
+//---------------------------------------------------------------------------------------------------/
+/*------------------- Operaciones de sensado de letras en el tablero (interfaz) ---------------------/
+/---------------------------------------------------------------------------------------------------*/
+function hayLetra() { return(aux_hayLetra()) }
+
+function laLetraEstáOculta()   { return(    aux_laLetraEstáOcultaConBoom())            }
+function laLetraNoEstáOculta() { return(not aux_laLetraEstáOcultaConBoom())            }
+function hayLetraOculta()      { return(aux_hayLetra() &&     aux_laLetraEstáOculta()) }
+function hayLetraNoOculta()    { return(aux_hayLetra() && not aux_laLetraEstáOculta()) }
+
+//---------------------------------------------------------------------------------------------------/
+/*---------------------------- Operaciones de E/S de letras (interfaz) ------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+function  letraActual()      { return(aux_letraActual()) }
+function  letraOculta()      { return(aux_letraOculta()) }
+
+procedure PonerLetra_(letra) { AuxPonerLetra(letra)      }
+procedure SacarLetraActual() { AuxSacarLetraActual()     }
+
+procedure OcultarLetraActual() { AuxOcultarLetraActual() }
+procedure RevelarLetraActual() { AuxRevelarLetraActual() }
+
+/*==================================================================================================*/
+/*------------------------------- FIN INTERFAZ de 02-Letras-Base.gbs -------------------------------*/
+/*==================================================================================================*/
+
+
+/*==================================================================================================*/
+/*-------------------------------- AUXILIARES de 02-Letras-Base.gbs --------------------------------*/
+/*==================================================================================================*/
+
+//---------------------------------------------------------------------------------------------------/
+/*------------------------------ Auxiliares para construir letras ----------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+/* NO HAY OPERACIONES ESPECÍFICAS DE CONSTRUCCIÓN de Letras
+   Se proveen con los constructores del tipo 
+ */
+
+//---------------------------------------------------------------------------------------------------/
+/*------------------------------- Auxiliares para acceso a letras -----------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+function aux_esMenorLetra(letra1, letra2) { return (aux_códigoParaLaLetra(letra1) < aux_códigoParaLaLetra(letra2)) }
+function aux_esMayorLetra(letra1, letra2) { return (aux_códigoParaLaLetra(letra1) > aux_códigoParaLaLetra(letra2)) }
+
+function aux_minLetra() { return (aux_letraParaElCódigo(aux_minCódigoParaLaLetra())) }
+function aux_maxLetra() { return (aux_letraParaElCódigo(aux_maxCódigoParaLaLetra())) }
+
+function aux_letraSiguiente(letra) { return (aux_letraParaElCódigo(aux_códigoParaLaLetraSiguiente(letra))) }
+function aux_letraPrevia(letra)    { return (aux_letraParaElCódigo(aux_códigoParaLaLetraPrevia(letra)))    }
+
+//---------------------------------------------------------------------------------------------------/
+/*---------------------------- Auxiliares para sensar letras en el tablero --------------------------/
+/---------------------------------------------------------------------------------------------------*/
+function aux_hayLetra() { 
+  return (aux_hayTipoLetra() 
+       && aux_hayDatoLetra()) 
+}
+
+function aux_hayTipoLetra() { return (aux_esTipoLetra(aux_leerTipo())) }
+function aux_hayDatoLetra() { return (aux_esDatoLetra(aux_leerDato())) }
+
+function aux_laLetraEstáOculta() {
+  // PRECONDICIÓN: hay un número
+  return (aux_hayAtributoReverso())
+}
+
+function aux_laLetraEstáOcultaConBoom() {
+  if (not aux_hayLetra()) { BOOM("No hay una letra que pueda estar oculta") }
+  return(aux_elNúmeroEstáOculto())    
+}
+
+//---------------------------------------------------------------------------------------------------/
+/*-------------------------------- Operaciones de E/S de letras -------------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+function aux_letraActual() {
+  // PRECONDICIÓN: hay una letra en la celda actual
+  if (not (aux_hayLetra()))      { BOOM("No hay una letra que pueda leer") }
+  return(aux_letraParaElCódigo(aux_leerDato()))
+}         
+
+function aux_letraOculta() {
+  if (not aux_laLetraEstáOculta()) { BOOM("Con esta operación solo puedo ver letras que están ocultas") }
+  return(aux_letraParaElCódigo(aux_leerDato()))
+}
+
+procedure AuxPonerLetra(letra) {
+  AuxSacarTodas()
+  AuxPonerRepresentaciónParaLaLetra(letra)
+}
+
+procedure AuxSacarLetraActual() {
+  // PRECONDICIÓN: hay una letra en la celda actual
+  if (not(aux_hayLetra())) { BOOM("No hay una letra que sacar") }
+  AuxSacarRepresentaciónParaLaLetra()
+}
+
+procedure AuxOcultarLetraActual()    { 
+  // PRECONDICIÓN: hay una letra en la celda actual. Si está oculta, no hace nada
+  if (not aux_hayLetra())          { BOOM("No hay letra que ocultar") }
+  if (not aux_laLetraEstáOculto()) { AuxPonerAtributoReverso()         }
+ }
+ 
+ procedure AuxRevelarLetraActual() { 
+  // PRECONDICIÓN: hay una letra en la celda actual. Si no está oculta, no hace nada
+  if (not aux_hayLetra())      { BOOM("No hay letra que revelar") }
+  if (aux_laLetraEstáOculta()) { AuxSacarAtributoReverso()         }
+ }
+ 
+//---------------------------------------------------------------------------------------------------/
+/*---------------------------- Operaciones auxiliares de codificación -------------------------------/
+/---------------------------------------------------------------------------------------------------*/
+function aux_minCódigoParaLaLetra() { return(10) }
+function aux_maxCódigoParaLaLetra() { return(37) }
+
+function aux_esCódigoParaLaLetra(códigoLetra) {
+  return (códigoLetra >= aux_minCódigoParaLaLetra() 
+       && códigoLetra <= aux_maxCódigoParaLaLetra())
+}
+
+function aux_códigoParaLaLetra(letra) {
+  return (choose
+    10 when (letra == Espacio)
+    11 when (letra == A)
+    12 when (letra == B)
+    13 when (letra == C)
+    14 when (letra == D)
+    15 when (letra == E)
+    16 when (letra == F)
+    17 when (letra == G)
+    18 when (letra == H)
+    19 when (letra == I)
+    20 when (letra == J)
+    21 when (letra == K)
+    22 when (letra == L)
+    23 when (letra == M)
+    24 when (letra == N)
+    25 when (letra == Ñ)
+    26 when (letra == O)
+    27 when (letra == P)
+    28 when (letra == Q)
+    29 when (letra == R)
+    30 when (letra == S)
+    31 when (letra == T)
+    32 when (letra == U)
+    33 when (letra == V)
+    34 when (letra == W)
+    35 when (letra == X)
+    36 when (letra == Y)
+    37 when (letra == Z)
+    boom("Al extender las letras, deberías extender también las funciones de codificación") otherwise
+    )
+}
+
+function aux_letraParaElCódigo(códigoLetra) {
+  // PRECONDICIÓN: el código es válido, o sea, corresponde a una letra 
+  //               (está entre aux_minCódigoParaLaLetra() y aux_maxCódigoParaLaeLetra())
+  if (not aux_esCódigoParaLaLetra(códigoLetra)) { BOOM("No es un código de letra válido") }
+  return (choose
+            Espacio when (códigoLetra == 10)
+            A       when (códigoLetra == 11)
+            B       when (códigoLetra == 12)
+            C       when (códigoLetra == 13)
+            D       when (códigoLetra == 14)
+            E       when (códigoLetra == 15)
+            F       when (códigoLetra == 16)
+            G       when (códigoLetra == 17)
+            H       when (códigoLetra == 18)
+            I       when (códigoLetra == 19)
+            J       when (códigoLetra == 20)
+            K       when (códigoLetra == 21)
+            L       when (códigoLetra == 22)
+            M       when (códigoLetra == 23)
+            N       when (códigoLetra == 24)
+            Ñ       when (códigoLetra == 25)
+            O       when (códigoLetra == 26)
+            P       when (códigoLetra == 27)
+            Q       when (códigoLetra == 28)
+            R       when (códigoLetra == 29)
+            S       when (códigoLetra == 30)
+            T       when (códigoLetra == 31)
+            U       when (códigoLetra == 32)
+            V       when (códigoLetra == 33)
+            W       when (códigoLetra == 34)
+            X       when (códigoLetra == 35)
+            Y       when (códigoLetra == 36)
+            Z       when (códigoLetra == 37)
+            boom("¡NO DEBERÍA SUCEDER! Revisar aux_esCódigoParaLaLetra.") otherwise
+          )
+}
+
+function aux_códigoParaLaLetraSiguiente(letra) {
+  códigoLetra := aux_códigoParaLaLetra(letra)
+  return (choose 
+           aux_minCódigoParaLaLetra()  when (códigoLetra == aux_maxCódigoParaLaLetra())
+           códigoLetra+1               otherwise
+         )
+}
+
+function aux_códigoParaLaLetraPrevia(letra) {
+  códigoLetra := aux_códigoParaLaLetra(letra)
+  return (choose 
+           aux_maxCódigoParaLaLetra()  when (códigoLetra == aux_minCódigoParaLaLetra())
+           códigoLetra-1               otherwise
+         )
+}
+
+
+//---------------------------------------------------------------------------------------------------/
+/*----------------------- Operaciones auxiliares de codificación para el tablero --------------------/
+/---------------------------------------------------------------------------------------------------*/
+function aux_códigoParaElTipoLetra()      { return(2)                            }
+function aux_códigoParaElDatoLetra(letra) { return(aux_códigoParaLaLetra(letra)) }
+
+function aux_esTipoLetra(código) { return (código == aux_códigoParaElTipoLetra())                                    }
+function aux_esDatoLetra(dato)   { return (dato >= aux_minCódigoParaLaLetra() && dato <= aux_maxCódigoParaLaLetra()) }
+
+procedure AuxPonerRepresentaciónParaLaLetra(letra) {
+  AuxPoner__Veces(aux_colorParaElTipo(), aux_códigoParaElTipoLetra())
+  AuxPoner__Veces(aux_colorParaElDato(), aux_códigoParaElDatoLetra(letra))
+}
+
+procedure AuxSacarRepresentaciónParaLaLetra() {
+  // PRECONDICIÓN: hay una letra en la celda actual
+  AuxSacarTodas()
+}
+/*==================================================================================================*/
+/*-------------------------------- AUXILIARES de 02-Letras-Base.gbs --------------------------------*/
 /*==================================================================================================*/
