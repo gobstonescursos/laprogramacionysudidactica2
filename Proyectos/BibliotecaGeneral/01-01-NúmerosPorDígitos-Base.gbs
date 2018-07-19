@@ -115,7 +115,7 @@ function aux_númeroPorDígitosActual() {
 }
 
 function aux_númeroPorDígitosOculto() {
-  if (not aux_elDígitoEstáOculto()) { BOOM("Solo puedo ver números por dígitos que están ocultos") }
+  if (not aux_elDígitoEstáOculto()) { BOOM("Con esta operación solo puedo ver números por dígitos que están ocultos") }
   return (aux_númeroPorDígitosDesdeLaCeldaActual())
 }
 
