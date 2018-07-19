@@ -49,12 +49,22 @@ function letra_(códigoLetra) { return(aux_letraParaElCódigo(códigoLetra)) }
 /---------------------------------------------------------------------------------------------------*/
 function hayLetra() { return(aux_hayLetra()) }
 
+function laLetraEstáOculta()   { return(    aux_laLetraEstáOcultaConBoom())            }
+function laLetraNoEstáOculta() { return(not aux_laLetraEstáOcultaConBoom())            }
+function hayLetraOculta()      { return(aux_hayLetra() &&     aux_laLetraEstáOculta()) }
+function hayLetraNoOculta()    { return(aux_hayLetra() && not aux_laLetraEstáOculta()) }
+
 //---------------------------------------------------------------------------------------------------/
 /*---------------------------- Operaciones de E/S de letras (interfaz) ------------------------------/
 /---------------------------------------------------------------------------------------------------*/
-function  leerLetra()        { return(aux_leerLetra()) }
-procedure PonerLetra_(letra) { AuxPonerLetra(letra)    }
-procedure SacarLetraActual() { AuxSacarLetraActual()   }
+function  letraActual()      { return(aux_letraActual()) }
+function  letraOculta()      { return(aux_letraOculta()) }
+
+procedure PonerLetra_(letra) { AuxPonerLetra(letra)      }
+procedure SacarLetraActual() { AuxSacarLetraActual()     }
+
+procedure OcultarLetraActual() { AuxOcultarLetraActual() }
+procedure RevelarLetraActual() { AuxRevelarLetraActual() }
 
 /*==================================================================================================*/
 /*------------------------------- FIN INTERFAZ de 02-Letras-Base.gbs -------------------------------*/
@@ -95,14 +105,29 @@ function aux_hayLetra() {
 function aux_hayTipoLetra() { return (aux_esTipoLetra(aux_leerTipo())) }
 function aux_hayDatoLetra() { return (aux_esDatoLetra(aux_leerDato())) }
 
+function aux_laLetraEstáOculta() {
+  // PRECONDICIÓN: hay un número
+  return (aux_hayAtributoReverso())
+}
+
+function aux_laLetraEstáOcultaConBoom() {
+  if (not aux_hayLetra()) { BOOM("No hay una letra que pueda estar oculta") }
+  return(aux_elNúmeroEstáOculto())    
+}
+
 //---------------------------------------------------------------------------------------------------/
 /*-------------------------------- Operaciones de E/S de letras -------------------------------------/
 /---------------------------------------------------------------------------------------------------*/
-function aux_leerLetra() {
+function aux_letraActual() {
   // PRECONDICIÓN: hay una letra en la celda actual
   if (not (aux_hayLetra()))      { BOOM("No hay una letra que pueda leer") }
   return(aux_letraParaElCódigo(aux_leerDato()))
 }         
+
+function aux_letraOculta() {
+  if (not aux_laLetraEstáOculta()) { BOOM("Con esta operación solo puedo ver letras que están ocultas") }
+  return(aux_letraParaElCódigo(aux_leerDato()))
+}
 
 procedure AuxPonerLetra(letra) {
   AuxSacarTodas()
@@ -115,6 +140,18 @@ procedure AuxSacarLetraActual() {
   AuxSacarRepresentaciónParaLaLetra()
 }
 
+procedure AuxOcultarLetraActual()    { 
+  // PRECONDICIÓN: hay una letra en la celda actual. Si está oculta, no hace nada
+  if (not aux_hayLetra())          { BOOM("No hay letra que ocultar") }
+  if (not aux_laLetraEstáOculto()) { AuxPonerAtributoReverso()         }
+ }
+ 
+ procedure AuxRevelarLetraActual() { 
+  // PRECONDICIÓN: hay una letra en la celda actual. Si no está oculta, no hace nada
+  if (not aux_hayLetra())      { BOOM("No hay letra que revelar") }
+  if (aux_laLetraEstáOculta()) { AuxSacarAtributoReverso()         }
+ }
+ 
 //---------------------------------------------------------------------------------------------------/
 /*---------------------------- Operaciones auxiliares de codificación -------------------------------/
 /---------------------------------------------------------------------------------------------------*/
@@ -225,7 +262,7 @@ function aux_esDatoLetra(dato)   { return (dato >= aux_minCódigoParaLaLetra() &
 
 procedure AuxPonerRepresentaciónParaLaLetra(letra) {
   AuxPoner__Veces(aux_colorParaElTipo(), aux_códigoParaElTipoLetra())
-  AuxPoner__Veces(aux_colorParaElDato(), aux_códigoParaLaLetra(letra))
+  AuxPoner__Veces(aux_colorParaElDato(), aux_códigoParaElDatoLetra(letra))
 }
 
 procedure AuxSacarRepresentaciónParaLaLetra() {
