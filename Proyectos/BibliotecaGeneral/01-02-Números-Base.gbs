@@ -36,7 +36,7 @@ function hayNúmero() { return(aux_hayNúmero()) }
 function elNúmeroEstáOculto()   { return(    aux_elNúmeroEstáOcultoConBoom())             }
 function elNúmeroNoEstáOculto() { return(not aux_elNúmeroEstáOcultoConBoom())             }
 function hayNúmeroOculto()      { return(aux_hayNúmero() &&     aux_elNúmeroEstáOculto()) }
-function hayNúmeroNoOculto()    { return(aux_hayNúmero() && not aux_elNúmeroOculto())     }
+function hayNúmeroNoOculto()    { return(aux_hayNúmero() && not aux_elNúmeroEstáOculto()) }
 
 //---------------------------------------------------------------------------------------------------/
 /*--------------------------- Operaciones de E/S de números (interfaz) ------------------------------/
