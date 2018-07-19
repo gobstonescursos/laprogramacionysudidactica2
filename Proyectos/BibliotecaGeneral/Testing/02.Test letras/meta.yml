@@ -35,7 +35,7 @@ blocks:
         <block type="letra_"></block>
         <block type="minLetra"></block>
         <block type="maxLetra"></block>
-        <block type="leerLetra"></block>
+        <block type="letraActual"></block>
         <block type="PonerLetra_"></block>
         <block type="SacarLetraActual"></block>
         <block type="hayLetra"></block>
