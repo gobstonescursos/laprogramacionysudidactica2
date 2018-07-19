@@ -36,9 +36,15 @@ blocks:
         <block type="minLetra"></block>
         <block type="maxLetra"></block>
         <block type="letraActual"></block>
+        <block type="letraOculta"></block>
         <block type="PonerLetra_"></block>
         <block type="SacarLetraActual"></block>
+        <block type="OcultarLetraActual"></block>
+        <block type="RevelarLetraActual"></block>
         <block type="hayLetra"></block>
+        <block type="hayLetraNoOculta"></block>
+        <block type="hayLetraOculta"></block>
+        <block type="laLetraEstáOculta"></block>
         <block type="esMenorLetra__"></block>
         <block type="esMayorLetra__"></block>
         <block type="letraSiguiente_"></block>
