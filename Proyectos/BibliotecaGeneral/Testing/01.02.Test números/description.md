@@ -9,3 +9,7 @@ Testea:
   2. sacar número
   3. número actual
   4. hay número
+  5. ocultar número
+  6. relevar número
+  7. número oculto
+  8. hay número oculto y no oculto

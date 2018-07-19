@@ -412,19 +412,6 @@ procedure AuxSacarRepresentaciónParaLaCartaEspañola() {
 }
 
 //---------------------------------------------------------------------------------------------------/
-/*-------------------------- Auxiliares de atributos de cartas españolas ----------------------------/
-/---------------------------------------------------------------------------------------------------*/
-function  aux_códigoParaElAtributoReverso() { return(1) }
-function  aux_hayAtributoReverso()  { return (nroBolitas(aux_colorParaElAtributo())==aux_códigoParaElAtributoReverso()) }
-procedure AuxPonerAtributoReverso() { Poner__Veces(aux_colorParaElAtributo(), aux_códigoParaElAtributoReverso())        }
-procedure AuxSacarAtributoReverso() { Sacar__Veces(aux_colorParaElAtributo(), aux_códigoParaElAtributoReverso())        }
-
-function aux_códigoParaElAtributoIluminación() { return(2) }
-function  aux_hayAtributoIluminación()  { return (nroBolitas(aux_colorParaElAtributo())==aux_códigoParaElAtributoIluminación()) }
-procedure AuxPonerAtributoIluminación() { Poner__Veces(aux_colorParaElAtributo(), aux_códigoParaElAtributoIluminación())        }
-procedure AuxSacarAtributoIluminación() { Sacar__Veces(aux_colorParaElAtributo(), aux_códigoParaElAtributoIluminación())        }
-
-//---------------------------------------------------------------------------------------------------/
 /*--------------------------- Auxiliares específicas para MEMOTEST ----------------------------------/
 /---------------------------------------------------------------------------------------------------*/
 // DE SENSADO
