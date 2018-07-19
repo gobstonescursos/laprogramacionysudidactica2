@@ -105,11 +105,13 @@ function aux_númeroOculto() {
 
 procedure AuxPonerNúmero(número) { 
     AuxSacarTodas()
-    AuxPoner__Veces(aux_colorParaElTipo(), aux_códigoParaElTipoNúmero())
-    AuxPoner__Veces(aux_colorParaElDato(), aux_códigoParaElDatoNúmero(número))
+    AuxPonerRepresentaciónParaElNúmero(número)
 }
 
-procedure AuxSacarNúmeroActual() { AuxSacarTodas() }
+procedure AuxSacarNúmeroActual() { 
+  if (not(aux_hayNúmero())) { BOOM("No hay un número que sacar") }
+  AuxSacarRepresentaciónParaElNúmero() 
+}
 
 procedure AuxOcultarNúmeroActual()    { 
   // PRECONDICIÓN: hay un número en la celda actual. Si está oculto, no hace nada
@@ -149,6 +151,15 @@ function aux_códigoParaElDatoNúmero(datoNúmero) { return(aux_códigoParaElNú
 function aux_esTipoNúmero(código) { return (código == aux_códigoParaElTipoNúmero())  }
 function aux_esDatoNúmero(dato)   { return (aux_esCódigoParaElNúmero(dato))          }
 
+procedure AuxPonerRepresentaciónParaElNúmero(número) {
+  AuxPoner__Veces(aux_colorParaElTipo(), aux_códigoParaElTipoNúmero())
+  AuxPoner__Veces(aux_colorParaElDato(), aux_códigoParaElDatoNúmero(número))
+}
+
+procedure AuxSacarRepresentaciónParaElNúmero() {
+  // PRECONDICIÓN: hay un número en la celda actual
+  AuxSacarTodas()
+}
 /*==================================================================================================*/
 /*------------------------------- AUXILIARES de 01-Números-Base.gbs --------------------------------*/
 /*==================================================================================================*/
