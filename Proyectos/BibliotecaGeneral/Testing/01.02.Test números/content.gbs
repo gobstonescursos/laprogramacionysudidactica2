@@ -3,13 +3,13 @@ interactive program {
     indice := nroBolitas(Rojo) + 1
     IrAlOrigen()
     LimpiarTablero()
-    TestsDeLetras(indice)
+    TestsDeNúmeros(indice)
     IrAlOrigen()
     Poner__Veces(Rojo, 1)
   }
 }
 
-procedure TestsDeLetras(códigoDeTest) {
+procedure TestsDeNúmeros(códigoDeTest) {
   if (códigoDeTest == 1) {
     TestPonerNúmero()
   } elseif (códigoDeTest == 2) {
@@ -18,6 +18,14 @@ procedure TestsDeLetras(códigoDeTest) {
     TestHayNúmero()
   } elseif (códigoDeTest == 4) {
     TestNúmeroActual()
+  } elseif (códigoDeTest == 5) {
+    TestOcultarNúmero()
+  } elseif (códigoDeTest == 6) {
+    TestRevelarNúmero()
+  } elseif (códigoDeTest == 7) {
+    TestNúmeroPorDígitosOculto()
+  } elseif (códigoDeTest == 8) {
+    TestHayNúmeroPorDígitosOcultoYNoOculto()
   } else {
     BOOM("Pasó todos los tests")
   }
@@ -29,37 +37,120 @@ procedure TestPonerNúmero() {
 
 procedure PonerVariosNúmeros() {
   número := 0
-  PonerNúmeroPorDígitos_(número)
+  PonerNúmero_(número)
   Assert(0 == 0)
   número := número + 1
   while (not (número > 12)) {
     PasarASiguientePosición()
-    PonerNúmeroPorDígitos_(número)
+    PonerNúmero_(número)
     Assert(0 == 0)
     número := número + 1
   }
   PasarASiguientePosición()
-  PonerNúmeroPorDígitos_(253)
+  PonerNúmero_(253)
   Assert(0 == 0)
   PasarASiguientePosición()
-  PonerNúmeroPorDígitos_(7942)
+  PonerNúmero_(315)
   Assert(0 == 0)
   PasarASiguientePosición()
-  PonerNúmeroPorDígitos_(1993412)
+  PonerNúmero_(77)
   Assert(0 == 0)
   PasarASiguientePosición()
-  PonerNúmeroPorDígitos_(17)
+  PonerNúmero_(42)
+  Assert(0 == 0)
+  PasarASiguientePosición()
+  PonerNúmero_(999)
+  Assert(0 == 0)
 }
 
 procedure TestSacarNúmero() {
-  PonerNúmeroPorDígitos_(7942)
-  Assert(0 == 0)
+  PonerNúmero_(942)
   PasarASiguientePosición()
-  PonerNúmeroPorDígitos_(7942)
+  PasarASiguientePosición()
+  PonerNúmero_(942)
+  Assert(0 == 0)
   IrAlOrigen()
   PasarASiguientePosición()
-  SacarNúmeroPorDígitosActual()
+  SacarNúmeroActual()
   Assert(0 == 0)
+}
+
+procedure TestHayNúmero() {
+  PonerNúmero_(417)
+  Assert(hayNúmero())
+  PasarASiguientePosición()
+  SacarTodas()
+  Assert(not(hayNúmero()))
+}
+
+procedure TestNúmeroActual() {
+  númeroOriginal := 333
+  PonerNúmero_(númeroOriginal)
+  númeroLeído := númeroActual()
+  Assert(númeroLeído == númeroOriginal)
+}
+
+procedure TestOcultarNúmero() {
+  PonerNúmero_(17)
+  PasarASiguientePosición()
+  PasarASiguientePosición()
+  PonerNúmero_(17)
+  Assert(0 == 0)
+  IrAlOrigen()
+  PasarASiguientePosición()
+  OcultarNúmeroActual()
+  Assert(0 == 0)
+}
+
+procedure TestNúmeroPorDígitosOculto() {
+  númeroOriginal := 99
+  PonerNúmero_(númeroOriginal)
+  PasarASiguientePosición()
+  PasarASiguientePosición()
+  PonerNúmero_(númeroOriginal)
+  Assert(0 == 0)
+  IrAlOrigen()
+  PasarASiguientePosición()
+  OcultarNúmeroActual()
+  IrAlOrigen()
+  PasarASiguientePosición()
+  númeroLeído := númeroOculto()
+  Assert(númeroLeído == númeroOriginal)
+}
+
+procedure TestRevelarNúmero() {
+  PonerNúmero_(42)
+  PasarASiguientePosición()
+  PasarASiguientePosición()
+  PonerNúmero_(42)
+  Assert(0 == 0)
+  IrAlOrigen()
+  PasarASiguientePosición()
+  OcultarNúmeroActual()
+  PasarASiguientePosición()
+  PasarASiguientePosición()
+  OcultarNúmeroActual()
+  IrAlOrigen()
+  PasarASiguientePosición()
+  RevelarNúmeroActual()
+  Assert(0 == 0)
+}
+
+procedure TestHayNúmeroPorDígitosOcultoYNoOculto() {
+  PonerNúmero_(77)
+  PasarASiguientePosición()
+  PasarASiguientePosición()
+  PonerNúmero_(77)
+  IrAlOrigen()
+  PasarASiguientePosición()
+  OcultarNúmeroActual()
+  IrAlOrigen()
+  PasarASiguientePosición()
+  hayNúmeroOculto := hayNúmeroOculto()
+  Assert(hayNúmeroOculto)
+  PasarASiguientePosición()
+  hayNúmeroNoOculto := hayNúmeroNoOculto()
+  Assert(hayNúmeroNoOculto)
 }
 
 procedure Assert(condiciónAVerificar) {
@@ -71,18 +162,6 @@ procedure Assert(condiciónAVerificar) {
   }
 }
 
-procedure TestHayNúmero() {
-  PonerNúmeroPorDígitos_(422417)
-  IrAlOrigen()
-  repeat(6) {
-    PasarASiguientePosición()
-  }
-  Assert(hayNúmero())
-  PasarASiguientePosición()
-  SacarTodas()
-  Assert(not(hayNúmero()))
-}
-
 procedure LimpiarTablero() {
   PasarASiguientePosición()
   repeat(47) {
@@ -92,14 +171,3 @@ procedure LimpiarTablero() {
   PasarASiguientePosición()
 }
 
-procedure TestNúmeroActual() {
-  númeroOriginal := 179942
-  PonerNúmeroPorDígitos_(númeroOriginal)
-  IrAlOrigen()
-  PasarASiguientePosición()
-  númeroLeído := númeroPorDígitosActual()
-  repeat(5) {
-    PasarASiguientePosición()
-  }
-  Assert(númeroLeído == númeroOriginal)
-}
