@@ -13,9 +13,9 @@
 /*------------------------------ INTERFAZ de 01-02-Números-Base.gbs --------------------------------*/
 /*----------------------------------------- (en línea ????) ----------------------------------------*/
 /*------------------------- INTERFAZ de 01-01-NúmerosPorDígitos-Base.gbs ---------------------------*/
-/*----------------------------------------- (en línea  173) ----------------------------------------*/
+/*----------------------------------------- (en línea  229) ----------------------------------------*/
 /*--------------------------------- INTERFAZ de 00.Listas-Base.gbs ---------------------------------*/
-/*----------------------------------------- (en línea  135) ----------------------------------------*/
+/*----------------------------------------- (en línea  191) ----------------------------------------*/
 /*------------------------------- INTERFAZ de 00.Gobstones-Base.gbs --------------------------------*/
 /*----------------------------------------- (en línea   23) ----------------------------------------*/
 /*==================================================================================================*/
@@ -77,16 +77,72 @@ function aux_leerMarca()    { return(nroBolitas(aux_colorParaLaMarca()))    }
 
 //---------------------------------------------------------------------------------------------------/
 /*------------------------------------ Auxiliares de atributos --------------------------------------/
+/--------- Para decidir nuevos atributos, cambiar W, X, Y o Z por el nombre correspondiente ---------/
+/-------------------------- Para más atributos nuevos, agregar más códigos --------------------------/
 /---------------------------------------------------------------------------------------------------*/
-function  aux_códigoParaElAtributoReverso() { return(1) }
-function  aux_hayAtributoReverso()  { return (nroBolitas(aux_colorParaElAtributo())==aux_códigoParaElAtributoReverso()) }
-procedure AuxPonerAtributoReverso() { Poner__Veces(aux_colorParaElAtributo(), aux_códigoParaElAtributoReverso())        }
-procedure AuxSacarAtributoReverso() { Sacar__Veces(aux_colorParaElAtributo(), aux_códigoParaElAtributoReverso())        }
+function  aux_códigoParaElAtributoReverso() { return(0) }
+function  aux_hayAtributoReverso()  { return (aux_hayAtributo(aux_códigoParaElAtributoReverso())) }
+procedure AuxPonerAtributoReverso() { AuxPonerAtributo(aux_códigoParaElAtributoReverso())         }
+procedure AuxSacarAtributoReverso() { AuxSacarAtributo(aux_códigoParaElAtributoReverso())         }
 
-function  aux_códigoParaElAtributoIluminación() { return(2) }
-function  aux_hayAtributoIluminación()  { return (nroBolitas(aux_colorParaElAtributo())==aux_códigoParaElAtributoIluminación()) }
-procedure AuxPonerAtributoIluminación() { Poner__Veces(aux_colorParaElAtributo(), aux_códigoParaElAtributoIluminación())        }
-procedure AuxSacarAtributoIluminación() { Sacar__Veces(aux_colorParaElAtributo(), aux_códigoParaElAtributoIluminación())        }
+function  aux_códigoParaElAtributoIluminación() { return(1) }
+function  aux_hayAtributoIluminación()  { return (aux_hayAtributo(aux_códigoParaElAtributoIluminación())) }
+procedure AuxPonerAtributoIluminación() { AuxPonerAtributo(aux_códigoParaElAtributoIluminación())         }
+procedure AuxSacarAtributoIluminación() { AuxSacarAtributo(aux_códigoParaElAtributoIluminación())         }
+
+function  aux_códigoParaElAtributoW() { return(2) }
+function  aux_hayAtributoW()  { return (aux_hayAtributo(aux_códigoParaElAtributoW())) }
+procedure AuxPonerAtributoW() { AuxPonerAtributo(aux_códigoParaElAtributoW())         }
+procedure AuxSacarAtributoW() { AuxSacarAtributo(aux_códigoParaElAtributoW())         }
+
+function  aux_códigoParaElAtributoX() { return(3) }
+function  aux_hayAtributoX()  { return (aux_hayAtributo(aux_códigoParaElAtributoX())) }
+procedure AuxPonerAtributoX() { AuxPonerAtributo(aux_códigoParaElAtributoX())         }
+procedure AuxSacarAtributoX() { AuxSacarAtributo(aux_códigoParaElAtributoX())         }
+
+function  aux_códigoParaElAtributoY() { return(4) }
+function  aux_hayAtributoY()  { return (aux_hayAtributo(aux_códigoParaElAtributoY())) }
+procedure AuxPonerAtributoY() { AuxPonerAtributo(aux_códigoParaElAtributoY())         }
+procedure AuxSacarAtributoY() { AuxSacarAtributo(aux_códigoParaElAtributoY())         }
+
+function  aux_códigoParaElAtributoZ() { return(5) }
+function  aux_hayAtributoZ()  { return (aux_hayAtributo(aux_códigoParaElAtributoZ())) }
+procedure AuxPonerAtributoZ() { AuxPonerAtributo(aux_códigoParaElAtributoZ())         }
+procedure AuxSacarAtributoZ() { AuxSacarAtributo(aux_códigoParaElAtributoZ())         }
+
+function  aux_hayAtributo(códigoAtributo)  {
+   return (aux_contieneLaIésimaPotenciaDe2(nroBolitas(aux_colorParaElAtributo()),códigoAtributo))
+}
+procedure AuxPonerAtributo(códigoAtributo) { Poner__Veces(aux_colorParaElAtributo(), aux_potencia(2,códigoAtributo)) }
+procedure AuxSacarAtributo(códigoAtributo) { Sacar__Veces(aux_colorParaElAtributo(), aux_potencia(2,códigoAtributo)) }
+
+function aux_contieneLaIésimaPotenciaDe2(n,i) {
+  // PRECONDICIÓN: n>=0, i>=0
+  j := 0                     // j cuenta las potencias de 2 desde 0 hasta i
+  m := n                     // m guarda el número original con j shifts a derecha (los bits desde el j+1 en adelante)
+  while (m > 0 && j < i) {   // si m es 0, todos los bits que siguen son 0, y si j es i, entonces hay que mirar ese bit
+     j := j + 1              // paso a la siguiente potencia de 2
+     m := m div 2            // hago el shift de m a derecha
+  }
+  return (m mod 2 == 1)      // si m es 0 da False, y si no, depende del último bit (el de paridad)
+
+  // Ej: i<-2, n<-12
+  //    j  m   (m mod 2)
+  //    0 12     0
+  //    1  6     0
+  //    2  3     1    Resultado: True
+}
+
+function aux_potencia(x,n) {
+  // PRECONDICIÓN: x>=0, n>=0
+  pot := 1
+  i := 0
+  while (i<n) {
+     pot := pot * x
+     i := i + 1
+  }
+  return (pot)
+}
 
 //---------------------------------------------------------------------------------------------------/
 /*----------------------------------- Operaciones de marcas -----------------------------------------/
@@ -213,12 +269,14 @@ function hayNúmeroPorDígitosNoOculto()    { return(aux_hayNúmeroPorDígitos()
 //---------------------------------------------------------------------------------------------------/
 /*--------------------------- Operaciones de E/S de números (interfaz) ------------------------------/
 /---------------------------------------------------------------------------------------------------*/
-function  númeroPorDígitosActual()       { return(aux_númeroPorDígitosActual()) }
-procedure PonerNúmeroPorDígitos_(número) { AuxPonerNúmeroPorDígitos(número)     }
-procedure SacarNúmeroPorDígitosActual()  { AuxSacarNúmeroPorDígitosActual()     }
+function  númeroPorDígitosActual()        { return(aux_númeroPorDígitosActual()) }
+function  númeroPorDígitosOculto()        { return(aux_númeroPorDígitosOculto()) }
 
-procedure OcultarElNúmeroPorDígitosActual()    { AuxOcultarElNúmeroPorDígitosActual() }
-procedure RevelarElNúmeroPorDígitosActual()    { AuxRevelarElNúmeroPorDígitosActual() }
+procedure PonerNúmeroPorDígitos_(número)  { AuxPonerNúmeroPorDígitos(número)     }
+procedure SacarNúmeroPorDígitosActual()   { AuxSacarNúmeroPorDígitosActual()     }
+
+procedure OcultarNúmeroPorDígitosActual() { AuxOcultarNúmeroPorDígitosActual()   }
+procedure RevelarNúmeroPorDígitosActual() { AuxRevelarNúmeroPorDígitosActual()   }
 
 /*==================================================================================================*/
 /*------------------------ FIN INTERFAZ de 01-01-NúmerosPorDígitos-Base.gbs ------------------------*/
@@ -280,6 +338,16 @@ function aux_dígitoActual() {
 }
 
 function aux_númeroPorDígitosActual() {
+  if (aux_elDígitoEstáOculto()) { BOOM("No puedo ver el número por dígitos actual") }
+  return (aux_númeroPorDígitosDesdeLaCeldaActual())
+}
+
+function aux_númeroPorDígitosOculto() {
+  if (not aux_elDígitoEstáOculto()) { BOOM("Solo puedo ver números por dígitos que están ocultos") }
+  return (aux_númeroPorDígitosDesdeLaCeldaActual())
+}
+
+function aux_númeroPorDígitosDesdeLaCeldaActual() {
    dígitosLeídos := []
    while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayDígito()) {
       dígitosLeídos := dígitosLeídos ++ [ aux_dígitoActual() ]
@@ -322,37 +390,37 @@ procedure AuxSacarNúmeroPorDígitosActual() {
   if (movióDeMás) /* Retrocede un lugar */ { AuxAvanzarRecorridoGral(Oeste, Norte) }
 }
 
-procedure AuxOcultarElNúmeroPorDígitosActual()    { 
+procedure AuxOcultarNúmeroPorDígitosActual()    { 
   movióDeMás := False
   while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayDígito() && not aux_elDígitoEstáOcultoConBoom()) {
-    AuxOcultarElDígitoActual()
+    AuxOcultarDígitoActual()
     AuxAvanzarRecorridoGral(Este, Sur)
     movióDeMás := True
   }
-  if (aux_hayDígito())                     { AuxOcultarElDígitoActual()            }
+  if (aux_hayDígito())                     { AuxOcultarDígitoActual()              }
   if (movióDeMás) /* Retrocede un lugar */ { AuxAvanzarRecorridoGral(Oeste, Norte) }
  }
  
- procedure AuxRevelarElNúmeroPorDígitosActual() { 
+ procedure AuxRevelarNúmeroPorDígitosActual() { 
   // PRECONDICIÓN: hay un número por dígitos oculto en la celda actual
   movióDeMás := False
   while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayDígito() && aux_elDígitoEstáOcultoConBoom()) {
-    AuxRevelarElDígitoActual()
+    AuxRevelarDígitoActual()
     AuxAvanzarRecorridoGral(Este, Sur)
     movióDeMás := True
   }
-  if (aux_hayDígito())                     { AuxRevelarElDígitoActual()            }
+  if (aux_hayDígito())                     { AuxRevelarDígitoActual()              }
   if (movióDeMás) /* Retrocede un lugar */ { AuxAvanzarRecorridoGral(Oeste, Norte) }
 
  }
  
 
-procedure AuxOcultarElDígitoActual()    { 
+procedure AuxOcultarDígitoActual()    { 
   // PRECONDICIÓN: hay un dígito no oculto en la celda actual
    AuxPonerAtributoReverso()
  }
  
- procedure AuxRevelarElDígitoActual() { 
+ procedure AuxRevelarDígitoActual() { 
   // PRECONDICIÓN: hay un dígito oculto en la celda actual
    AuxSacarAtributoReverso()
  }
