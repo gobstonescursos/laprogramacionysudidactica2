@@ -93,12 +93,15 @@ function aux_elNúmeroEstáOcultoConBoom() {
 /*------------------------------- Operaciones de E/S de números -------------------------------------/
 /---------------------------------------------------------------------------------------------------*/
 function aux_númeroActual() {
-  // PRECONDICIÓN: hay un número válido en la celda actual
+  // PRECONDICIÓN: hay un número no oculto en la celda actual
+  if (not aux_hayNúmero())      { BOOM("No hay un número que pueda leer") }
   if (aux_elNúmeroEstáOculto()) { BOOM("No puedo ver el número actual pues está oculto") }
   return(aux_númeroParaElCódigo(aux_leerDato()))
 }
 
 function aux_númeroOculto() {
+  // PRECONDICIÓN: hay un número oculto en la celda actual
+  if (not aux_hayNúmero())          { BOOM("No hay un número que pueda leer") }
   if (not aux_elNúmeroEstáOculto()) { BOOM("Con esta operación solo puedo ver números que están ocultos") }
   return(aux_númeroParaElCódigo(aux_leerDato()))
 }
