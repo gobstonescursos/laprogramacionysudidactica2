@@ -1,6 +1,7 @@
 interactive program {
   K_ARROW_RIGHT -> {
     indice := nroBolitas(Rojo) + 1
+    IrAlOrigen()
     LimpiarTablero()
     TestsDeCartasEspañolasDe40(indice)
     IrAlOrigen()
@@ -8,6 +9,7 @@ interactive program {
   }
   K_ARROW_LEFT -> {
     indice := nroBolitas(Rojo) - 1
+    IrAlOrigen()
     LimpiarTablero()
     TestsDeCartasEspañolasDe40(indice)
     IrAlOrigen()
@@ -15,6 +17,7 @@ interactive program {
   }
   K_CTRL_ARROW_RIGHT -> {
     indice := nroBolitas(Rojo) + 10
+    IrAlOrigen()
     LimpiarTablero()
     TestsDeCartasEspañolasDe40(indice)
     IrAlOrigen()
@@ -35,18 +38,20 @@ procedure TestsDeCartasEspañolasDe40(códigoDeTest) {
     TestHayCarta()
     TestHayCartaTapada()
   } elseif (códigoDeTest == 6) {
-    TestLeerCarta()
+    TestCartaActual()
   } elseif (códigoDeTest == 7) {
-    TestEsCartaMenorQue()
+    TestCartaTapada()
   } elseif (códigoDeTest == 8) {
-    TestEsMayorCartaQue()
+    TestEsCartaMenorQue()
   } elseif (códigoDeTest == 9) {
-    TestSiguienteYPrevio()
+    TestEsMayorCartaQue()
   } elseif (códigoDeTest == 10) {
-    TestMinCartaYMaxCarta()
+    TestSiguienteYPrevio()
   } elseif (códigoDeTest == 11) {
-    TestIluminarLaCartaActual()
+    TestMinCartaYMaxCarta()
   } elseif (códigoDeTest == 12) {
+    TestIluminarLaCartaActual()
+  } elseif (códigoDeTest == 13) {
     TestHayCartaIluminada()
   } else {
     BOOM("Pasó todos los tests")
@@ -112,6 +117,11 @@ procedure PonerTodasLasCartasYDarlasVuelta() {
   }
 }
 
+procedure TestCartaActual() {
+  PonerCarta_(dameCarta__(armarValor_(2), copas()))
+  Assert(copas() == dameElPalo_(cartaActual()) && armarValor_(2) == dameElValor_(cartaActual()))
+}
+
 procedure TestHayCarta() {
   PonerCarta_(dameCarta__(armarValorAs(), bastos()))
   Assert(hayCarta())
@@ -133,9 +143,10 @@ procedure TestHayCartaTapada() {
   Assert(not(hayCartaTapada()))
 }
 
-procedure TestLeerCarta() {
-  PonerCarta_(dameCarta__(armarValor_(2), copas()))
-  Assert(copas() == dameElPalo_(cartaActual()) && armarValor_(2) == dameElValor_(cartaActual()))
+procedure TestCartaTapada() {
+  PonerCarta_(dameCarta__(armarValor_(7), oros()))
+  DarVueltaLaCartaActual()
+  Assert(oros() == dameElPalo_(cartaTapada()) && armarValor_(7) == dameElValor_(cartaTapada()))
 }
 
 procedure TestEsCartaMenorQue() {
@@ -223,7 +234,6 @@ procedure TesteaSiguienteYPrevio(carta, cartaSiguiente, cartaPrevia) {
   PasarASiguientePosición()
   PonerCarta_(cartaSiguiente_(carta))
   Assert(cartaSiguiente_(carta) == cartaSiguiente)
-  PasarASiguientePosición()
   Assert(cartaPrevia_(carta) == cartaPrevia)
 }
 
@@ -291,4 +301,3 @@ procedure LimpiarTablero() {
   }
   PasarASiguientePosición()
 }
-
