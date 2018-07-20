@@ -42,7 +42,7 @@ blocks:
         <block type="elNúmeroEstáOculto"></block>
         <block type="OcultarNúmeroActual"></block>
         <block type="RevelarNúmeroActual"></block>
-        </category>
+    </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">  </category>
     <category name="Definiciones">
