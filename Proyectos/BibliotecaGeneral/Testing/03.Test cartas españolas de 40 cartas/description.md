@@ -10,10 +10,11 @@ Testea:
   3. dar vuelta la carta española actual
   4. dar vuelta la carta española actual ya dada vuelta
   5. hay carta española y hay carta española tapada
-  6. leer carta española
-  7. es menor carta española
-  8. es mayor carta española
-  9. carta española siguiente y previa
- 10. la carta española más chica y la más grande
- 11. iluminar la carta española actual
- 12. hay carta iluminada y hay otra carta iluminada
+  6. carta española actual
+  7. carta española tapada
+  8. es menor carta española
+  9. es mayor carta española
+ 10. carta española siguiente y previa
+ 11. la carta española más chica y la más grande
+ 12. iluminar la carta española actual
+ 13. hay carta iluminada y hay otra carta iluminada

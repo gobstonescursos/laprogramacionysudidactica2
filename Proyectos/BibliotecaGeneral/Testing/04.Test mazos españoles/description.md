@@ -12,4 +12,6 @@ Testea:
   5. Mazo vacío, agregar al principio y leer cartas
   6. Mazo vacío, agregar al final y juntar mazos
   7. Dame la carta más chica y dame la carta más grande
+  8. Mazo actual
+  9. Mazo tapado
   
