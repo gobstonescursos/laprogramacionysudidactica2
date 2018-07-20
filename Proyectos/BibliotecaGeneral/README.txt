@@ -45,29 +45,75 @@ Redactar bien el readme...
         <block type="not"></block>
       </category>
     </category>
-    <category name="Operaciones de Números">
+    <category name="Operaciones de Números por Dígitos">
+      <category name="Creación">
         <block type="númeroPorDígitosActual"></block>
+        <block type="númeroPorDígitosOculto"></block>
+      </category>
+      <category name="Manipulación">
         <block type="PonerNúmeroPorDígitos_"></block>
         <block type="SacarNúmeroPorDígitosActual"></block>
+        <block type="OcultarNúmeroPorDígitosActual"></block>
+        <block type="RevelarNúmeroPorDígitosActual"></block>
+        <block type="hayNúmeroPorDígitos"></block>
+        <block type="hayNúmeroPorDígitosNoOculto"></block>
+        <block type="hayNúmeroPorDígitosOculto"></block>
+      </category>
+    </category>
+    <category name="Operaciones de Números">
+      <category name="Creación">
+        <block type="númeroActual"></block>
+        <block type="númeroOculto"></block>
+      </category>
+      <category name="Manipulación">
+        <block type="PonerNúmero_"></block>
+        <block type="SacarNúmeroActual"></block>
         <block type="hayNúmero"></block>
+        <block type="hayNúmeroNoOculto"></block>
+        <block type="hayNúmeroOculto"></block>
+        <block type="elNúmeroEstáOculto"></block>
+        <block type="OcultarNúmeroActual"></block>
+        <block type="RevelarNúmeroActual"></block>
+      </category>
     </category>
     <category name="Operaciones de Letras">
       <category name="Creación">
         <block type="letra_"></block>
         <block type="minLetra"></block>
         <block type="maxLetra"></block>
-        <block type="leerLetra"></block>
+        <block type="letraActual"></block>
+        <block type="letraOculta"></block>
       </category>
       <category name="Manipulación">
         <block type="PonerLetra_"></block>
         <block type="SacarLetraActual"></block>
+        <block type="OcultarLetraActual"></block>
+        <block type="RevelarLetraActual"></block>
         <block type="hayLetra"></block>
+        <block type="hayLetraNoOculta"></block>
+        <block type="hayLetraOculta"></block>
       </category>
       <category name="Acceso">
         <block type="esMenorLetra__"></block>
         <block type="esMayorLetra__"></block>
         <block type="letraSiguiente_"></block>
         <block type="letraPrevia_"></block>
+      </category>
+    </category>
+    <category name="Operaciones de Palos">
+      <category name="Creación">
+        <block type="bastos"></block>
+        <block type="copas"></block>
+        <block type="espadas"></block>
+        <block type="oros"></block>
+        <block type="minPalo"></block>
+        <block type="maxPalo"></block>
+      </category>
+      <category name="Acceso">
+        <block type="esMenorPalo__"></block>
+        <block type="esMayorPalo__"></block>
+        <block type="paloSiguiente_"></block>
+        <block type="paloPrevio_"></block>
       </category>
     </category>
     <category name="Operaciones de Valores">
@@ -87,28 +133,13 @@ Redactar bien el readme...
         <block type="valorPrevio_"></block>
       </category>
     </category>
-    <category name="Operaciones de Palos">
-      <category name="Creación">
-        <block type="bastos"></block>
-        <block type="copas"></block>
-        <block type="espadas"></block>
-        <block type="oros"></block>
-        <block type="minPalo"></block>
-        <block type="maxPalo"></block>
-      </category>
-      <category name="Acceso">
-        <block type="esMenorPalo__"></block>
-        <block type="esMayorPalo__"></block>
-        <block type="paloSiguiente_"></block>
-        <block type="paloPrevio_"></block>
-      </category>
-    </category>
     <category name="Operaciones de Cartas">
       <category name="Creación">
         <block type="dameCarta__"></block>
         <block type="minCarta"></block>
         <block type="maxCarta"></block>
-        <block type="leerCarta"></block>
+        <block type="cartaActual"></block>
+        <block type="cartaTapada"></block>
       </category>
       <category name="Manipulación">
         <block type="PonerCarta_"></block>
@@ -139,11 +170,13 @@ Redactar bien el readme...
         <block type="agregarAlPrincipioDelMazo__"></block>
         <block type="juntarMazos__"></block>
         <block type="mazoEspañol"></block>
-        <block type="leerMazo"></block>
+        <block type="mazoActual"></block>
+        <block type="mazoTapado"></block>
       </category>
       <category name="Manipulación">
         <block type="PonerMazo_"></block>
         <block type="SacarMazo"></block>
+        <block type="DarVueltaElMazoActual"></block>
       </category>
       <category name="Acceso">
         <block type="quedanCartas_"></block>
@@ -192,24 +225,58 @@ Otra caja posible, sin las subcategorías:
         <block type="OperadorLogico"></block>
         <block type="not"></block>
     </category>
-    <category name="Operaciones de Números">
+    <category name="Operaciones de Números por Dígitos">
         <block type="númeroPorDígitosActual"></block>
+        <block type="númeroPorDígitosOculto"></block>
         <block type="PonerNúmeroPorDígitos_"></block>
         <block type="SacarNúmeroPorDígitosActual"></block>
+        <block type="OcultarNúmeroPorDígitosActual"></block>
+        <block type="RevelarNúmeroPorDígitosActual"></block>
+        <block type="hayNúmeroPorDígitos"></block>
+        <block type="hayNúmeroPorDígitosNoOculto"></block>
+        <block type="hayNúmeroPorDígitosOculto"></block>
+    </category>
+    <category name="Operaciones de Números">
+        <block type="númeroActual"></block>
+        <block type="númeroOculto"></block>
+        <block type="PonerNúmero_"></block>
+        <block type="SacarNúmeroActual"></block>
+        <block type="OcultarNúmeroActual"></block>
+        <block type="RevelarNúmeroActual"></block>
         <block type="hayNúmero"></block>
+        <block type="hayNúmeroNoOculto"></block>
+        <block type="hayNúmeroOculto"></block>
     </category>
     <category name="Operaciones de Letras">
         <block type="letra_"></block>
         <block type="minLetra"></block>
         <block type="maxLetra"></block>
-        <block type="leerLetra"></block>
+        <block type="letraActual"></block>
+        <block type="letraOculta"></block>
         <block type="PonerLetra_"></block>
         <block type="SacarLetraActual"></block>
+        <block type="OcultarLetraActual"></block>
+        <block type="RevelarLetraActual"></block>
         <block type="hayLetra"></block>
+        <block type="hayLetraNoOculta"></block>
+        <block type="hayLetraOculta"></block>
+        <block type="laLetraEstáOculta"></block>
         <block type="esMenorLetra__"></block>
         <block type="esMayorLetra__"></block>
         <block type="letraSiguiente_"></block>
         <block type="letraPrevia_"></block>
+    </category>
+    <category name="Operaciones de Palos">
+        <block type="bastos"></block>
+        <block type="copas"></block>
+        <block type="espadas"></block>
+        <block type="oros"></block>
+        <block type="minPalo"></block>
+        <block type="maxPalo"></block>
+        <block type="esMenorPalo__"></block>
+        <block type="esMayorPalo__"></block>
+        <block type="paloSiguiente_"></block>
+        <block type="paloPrevio_"></block>
     </category>
     <category name="Operaciones de Valores">
         <block type="armarValorAs"></block>
@@ -224,23 +291,12 @@ Otra caja posible, sin las subcategorías:
         <block type="valorSiguiente_"></block>
         <block type="valorPrevio_"></block>
     </category>
-    <category name="Operaciones de Palos">
-        <block type="bastos"></block>
-        <block type="copas"></block>
-        <block type="espadas"></block>
-        <block type="oros"></block>
-        <block type="minPalo"></block>
-        <block type="maxPalo"></block>
-        <block type="esMenorPalo__"></block>
-        <block type="esMayorPalo__"></block>
-        <block type="paloSiguiente_"></block>
-        <block type="paloPrevio_"></block>
-    </category>
     <category name="Operaciones de Cartas">
         <block type="dameCarta__"></block>
         <block type="minCarta"></block>
         <block type="maxCarta"></block>
-        <block type="leerCarta"></block>
+        <block type="cartaActual"></block>
+        <block type="cartaTapada"></block>
         <block type="PonerCarta_"></block>
         <block type="SacarCartaActual"></block>
         <block type="DarVueltaLaCartaActual"></block>
@@ -263,9 +319,11 @@ Otra caja posible, sin las subcategorías:
         <block type="agregarAlPrincipioDelMazo__"></block>
         <block type="juntarMazos__"></block>
         <block type="mazoEspañol"></block>
-        <block type="leerMazo"></block>
+        <block type="mazoActual"></block>
+        <block type="mazoTapado"></block>
         <block type="PonerMazo_"></block>
-        <block type="SacarMazo"></block>
+        <block type="SacarMazoActual"></block>
+        <block type="DarVueltaElMazoActual"></block>
         <block type="quedanCartas_"></block>
         <block type="cantidadDeCartasDelMazo_"></block>
         <block type="dameLaPrimeraCartaDe_"></block>
@@ -282,4 +340,3 @@ Otra caja posible, sin las subcategorías:
         <block type="procedures_defreturnsimplewithparams"></block>
         <block type="procedures_defreturn"></block>
     </category>
-    
