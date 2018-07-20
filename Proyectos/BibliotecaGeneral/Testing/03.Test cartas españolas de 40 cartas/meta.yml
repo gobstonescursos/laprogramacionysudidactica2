@@ -61,6 +61,7 @@ blocks:
         <block type="minCarta"></block>
         <block type="maxCarta"></block>
         <block type="cartaActual"></block>
+        <block type="cartaTapada"></block>
         <block type="PonerCarta_"></block>
         <block type="SacarCartaActual"></block>
         <block type="DarVueltaLaCartaActual"></block>

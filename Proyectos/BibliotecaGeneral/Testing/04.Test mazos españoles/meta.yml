@@ -61,6 +61,7 @@ blocks:
         <block type="minCarta"></block>
         <block type="maxCarta"></block>
         <block type="cartaActual"></block>
+        <block type="cartaTapada"></block>
         <block type="PonerCarta_"></block>
         <block type="SacarCartaActual"></block>
         <block type="DarVueltaLaCartaActual"></block>
@@ -84,6 +85,7 @@ blocks:
         <block type="juntarMazos__"></block>
         <block type="mazoEspañol"></block>
         <block type="mazoActual"></block>
+        <block type="mazoTapado"></block>
         <block type="PonerMazo_"></block>
         <block type="SacarMazo"></block>
         <block type="quedanCartas_"></block>
