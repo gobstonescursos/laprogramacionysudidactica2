@@ -36,12 +36,11 @@ blocks:
         <block type="númeroOculto"></block>
         <block type="PonerNúmero_"></block>
         <block type="SacarNúmeroActual"></block>
+        <block type="OcultarNúmeroActual"></block>
+        <block type="RevelarNúmeroActual"></block>
         <block type="hayNúmero"></block>
         <block type="hayNúmeroNoOculto"></block>
         <block type="hayNúmeroOculto"></block>
-        <block type="elNúmeroEstáOculto"></block>
-        <block type="OcultarNúmeroActual"></block>
-        <block type="RevelarNúmeroActual"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">  </category>

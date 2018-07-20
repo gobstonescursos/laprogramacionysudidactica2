@@ -36,12 +36,11 @@ blocks:
         <block type="númeroPorDígitosOculto"></block>
         <block type="PonerNúmeroPorDígitos_"></block>
         <block type="SacarNúmeroPorDígitosActual"></block>
+        <block type="OcultarNúmeroPorDígitosActual"></block>
+        <block type="RevelarNúmeroPorDígitosActual"></block>
         <block type="hayNúmeroPorDígitos"></block>
         <block type="hayNúmeroPorDígitosNoOculto"></block>
         <block type="hayNúmeroPorDígitosOculto"></block>
-        <block type="elNúmeroPorDígitosEstáOculto"></block>
-        <block type="OcultarNúmeroPorDígitosActual"></block>
-        <block type="RevelarNúmeroPorDígitosActual"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">  </category>
