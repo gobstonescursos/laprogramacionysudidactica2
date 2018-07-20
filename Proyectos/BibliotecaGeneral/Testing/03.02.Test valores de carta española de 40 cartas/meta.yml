@@ -31,6 +31,18 @@ blocks:
         <block type="OperadorLogico"></block>
         <block type="not"></block>
     </category>
+    <category name="Operaciones de Palos">
+        <block type="bastos"></block>
+        <block type="copas"></block>
+        <block type="espadas"></block>
+        <block type="oros"></block>
+        <block type="minPalo"></block>
+        <block type="maxPalo"></block>
+        <block type="esMenorPalo__"></block>
+        <block type="esMayorPalo__"></block>
+        <block type="paloSiguiente_"></block>
+        <block type="paloPrevio_"></block>
+    </category>
     <category name="Operaciones de Valores">
         <block type="armarValorAs"></block>
         <block type="armarValor_"></block>
@@ -44,23 +56,12 @@ blocks:
         <block type="valorSiguiente_"></block>
         <block type="valorPrevio_"></block>
     </category>
-    <category name="Operaciones de Palos">
-        <block type="bastos"></block>
-        <block type="copas"></block>
-        <block type="espadas"></block>
-        <block type="oros"></block>
-        <block type="minPalo"></block>
-        <block type="maxPalo"></block>
-        <block type="esMenorPalo__"></block>
-        <block type="esMayorPalo__"></block>
-        <block type="paloSiguiente_"></block>
-        <block type="paloPrevio_"></block>
-    </category>
     <category name="Operaciones de Cartas">
         <block type="dameCarta__"></block>
         <block type="minCarta"></block>
         <block type="maxCarta"></block>
         <block type="cartaActual"></block>
+        <block type="cartaTapada"></block>
         <block type="PonerCarta_"></block>
         <block type="SacarCartaActual"></block>
         <block type="DarVueltaLaCartaActual"></block>
