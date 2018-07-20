@@ -1,3 +1,18 @@
 program {
-  
+
 }
+
+procedure ContestarLaJugada() {
+  if (...) {
+    Mover__Veces(Sur, 1)
+    PonerCarta_(...)
+  } else {
+    ...
+  }
+}
+
+function el3DeOrosPierde() {
+  return (...)
+}
+
+

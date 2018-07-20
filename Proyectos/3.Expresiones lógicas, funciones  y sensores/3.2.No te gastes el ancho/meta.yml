@@ -4,10 +4,9 @@ attire:
     can_toggle_visibility: false
   visible: true
 blocks:
-  disabled: ["Poner__Veces", "Sacar__Veces", "Mover__Veces", "SacarTodas", "SacarTodas_", "IrAlBorde", "IrAlOrigen", "PasarASiguientePosición"
-            ,"BOOM", "RepeticionSimple", "RepeticionCondicional", "Asignacion", "math_number", "ColorSelector"
-            ,"DireccionSelector", "puedeMover", "OperadorNumerico"
-            ]
+  disabled: ["Poner__Veces", "Sacar__Veces", "SacarTodas", "SacarTodas_", "IrAlBorde", "IrAlOrigen", "PasarASiguientePosición"
+            ,"BOOM", "RepeticionSimple", "RepeticionCondicional", "Asignacion", "ColorSelector"
+            ,"puedeMover", "OperadorNumerico"]
   defaultToolbox: | 
     <category name="Comandos básicos">
         <block type="Poner__Veces"></block>
@@ -48,7 +47,9 @@ blocks:
     <category name="Definiciones">
         <block type="procedures_defnoreturn"></block>
         <block type="procedures_defreturnsimplewithparams"></block>
-    </category>
+        <block type="ComandoCompletar"></block>
+        <block type="ExpresionCompletar"></block>
+        </category>
 board:
   active: 1
   initial_board_source: random
