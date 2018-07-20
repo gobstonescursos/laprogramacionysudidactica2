@@ -20,15 +20,13 @@
 //---------------------------------------------------------------------------------------------------/
 /*----------------------------- Operaciones de creación de valores (interfaz) -----------------------/
 /---------------------------------------------------------------------------------------------------*/
-{-
 ///*@ATTRIBUTE@tooltip@Denota el valor de una carta de un mazo de cartas españolas de 40 cartas*/
-///*@ATTRIBUTE@block_name@_@*/
-///*@ATTRIBUTE@block_dropdown@[("As", '1'), ("2", '2'), ("3", '3'), ("4", '4'), ("5", '5'), ("6", '6'), ("7", '7'), ("Sota", '10'), ("Caballo", '11'), ("Rey", '12')]@*/
-//function valorCartaEspañolaDe40_(valor) { return (valor) }
--}
+/*@ATTRIBUTE@block_name@_@*/
+/*@ATTRIBUTE@block_dropdown@[("As", '1'), ("2", '2'), ("3", '3'), ("4", '4'), ("5", '5'), ("6", '6'), ("7", '7'), ("8", '8'), ("9", '9'), ("Sota", '10'), ("Caballo", '11'), ("Rey", '12')]@*/
+function valorDeCartaEspañolaDe50_(valor) { return (valor) }
 
 /*@ATTRIBUTE@block_name@As@*/       function armarValorAs()      { return(1) }
-/*@ATTRIBUTE@block_name@valor _@*/  function armarValor_(valor)  { return (aux_armarValorDeCartaEspañolaDe40(valor)) }
+/*@ATTRIBUTE@block_name@valor _@*/  function armarValor_(valor)  { return (aux_armarValorDeCartaEspañolaDe50(valor)) }
 /*@ATTRIBUTE@block_name@Sota@*/     function armarValorSota()    { return(10) }
 /*@ATTRIBUTE@block_name@Caballo@*/  function armarValorCaballo() { return(11) }
 /*@ATTRIBUTE@block_name@Rey@*/      function armarValorRey()     { return(12) }

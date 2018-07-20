@@ -1,13 +1,13 @@
 /*==================================================================================================*/
 /*---- PROVEE --------------------------------------------------------------------------------------*/
 /*------------------------------ INTERFAZ de 04-MazosEspañoles-Base.gbs ----------------------------*/
-/*----------------------------------------- (en línea 1790) ----------------------------------------*/
+/*----------------------------------------- (en línea 1784) ----------------------------------------*/
 /*---------------------------- INTERFAZ de 03-CartasEspañolasDe40-Base.gbs -------------------------*/
-/*----------------------------------------- (en línea 1311) ----------------------------------------*/
+/*----------------------------------------- (en línea 1305) ----------------------------------------*/
 /*------------------------ INTERFAZ de 03-02-ValoresDeCartaEspañolaDe40-Base.gbs -------------------*/
-/*----------------------------------------- (en línea 1093) ----------------------------------------*/
+/*----------------------------------------- (en línea 1089) ----------------------------------------*/
 /*------------------------- INTERFAZ de 03-01-PalosDeCartaEspañola-Base.gbs ------------------------*/
-/*----------------------------------------- (en línea  931) ----------------------------------------*/
+/*----------------------------------------- (en línea  929) ----------------------------------------*/
 /*--------------------------------- INTERFAZ de 02-Letras-Base.gbs ---------------------------------*/
 /*----------------------------------------- (en línea  651) ----------------------------------------*/
 /*------------------------------ INTERFAZ de 01-02-Números-Base.gbs --------------------------------*/
@@ -675,14 +675,12 @@ type Letra is variant {
 //---------------------------------------------------------------------------------------------------/
 /*------------------------------ Operaciones de creación de letras (interfaz) -----------------------/
 /---------------------------------------------------------------------------------------------------*/
-{-
 /*@ATTRIBUTE@tooltip@Denota una letra*/
 /*@ATTRIBUTE@block_name@_@*/
-/*@ATTRIBUTE@block_dropdown@[(" ", 'Espacio'), ("A", 'A'), ("B", 'B'), ("C", 'C'), ("D", 'D'), ("E", 'E'), ("F", 'F'), ("G", 'G'), ("H", 'H'), ("I", 'I'), ("J", 'J'), ("K", 'K'), ("L", 'L'), ("M", 'M'), ("N", 'N'), ("Ñ", 'Ñ'), ("O", 'O'), ("P", 'P'), ("Q", 'Q'), ("R", 'R'), ("S", 'S'), ("T", 'T'), ("U", 'U'), ("V", 'V'), ("W", 'W'), ("X", 'X'), ("Y", 'Y'), ("Z", 'Z')]@*/
+/*@ATTRIBUTE@block_dropdown@[("A", 'A'), ("B", 'B'), ("C", 'C'), ("D", 'D'), ("E", 'E'), ("F", 'F'), ("G", 'G'), ("H", 'H'), ("I", 'I'), ("J", 'J'), ("K", 'K'), ("L", 'L'), ("M", 'M'), ("N", 'N'), ("enie", 'Ñ'), ("O", 'O'), ("P", 'P'), ("Q", 'Q'), ("R", 'R'), ("S", 'S'), ("T", 'T'), ("U", 'U'), ("V", 'V'), ("W", 'W'), ("X", 'X'), ("Y", 'Y'), ("Z", 'Z'), ("espacio", 'Espacio')]@*/
 function letra_(letra) { return(letra) }
--}
 
-function letra_(códigoLetra) { return(aux_letraParaElCódigo(códigoLetra)) }
+function letraParaElCódigo_(códigoLetra) { return(aux_letraParaElCódigo(códigoLetra)) }
 
 //---------------------------------------------------------------------------------------------------/
 /*------------------------------- Operaciones de acceso a letras (interfaz) -------------------------/
@@ -950,12 +948,10 @@ type PaloDeCartaEspañola  is variant { case Bastos {} case Copas {} case Espada
 //---------------------------------------------------------------------------------------------------/
 /*------------------------------ Operaciones de creación de palos (interfaz) ------------------------/
 /---------------------------------------------------------------------------------------------------*/
-{-
 ///*@ATTRIBUTE@tooltip@Denota el palo de una carta de un mazo de cartas españolas*/
-///*@ATTRIBUTE@block_name@_@*/
-///*@ATTRIBUTE@block_dropdown@[("Bastos", 'Bastos'), ("Copas", 'Copas'), ("Espadas", 'Espadas'), ("Oros", 'Oros')]@*/
-//function palo_(palo) { return (palo) }
--}
+/*@ATTRIBUTE@block_name@_@*/
+/*@ATTRIBUTE@block_dropdown@[("Bastos", 'Bastos'), ("Copas", 'Copas'), ("Espadas", 'Espadas'), ("Oros", 'Oros')]@*/
+function palo_(palo) { return (palo) }
 
 ///*@ATTRIBUTE@tooltip@Denota el palo de espadas de un mazo de cartas españolas*/
 /*@ATTRIBUTE@block_name@Bastos@*/ function bastos()  { return(Bastos)  }
@@ -1112,12 +1108,10 @@ function aux_códigoParaElPaloDeCartaEspañolaPrevio(palo) {
 //---------------------------------------------------------------------------------------------------/
 /*----------------------------- Operaciones de creación de valores (interfaz) -----------------------/
 /---------------------------------------------------------------------------------------------------*/
-{-
 ///*@ATTRIBUTE@tooltip@Denota el valor de una carta de un mazo de cartas españolas de 40 cartas*/
-///*@ATTRIBUTE@block_name@_@*/
-///*@ATTRIBUTE@block_dropdown@[("As", '1'), ("2", '2'), ("3", '3'), ("4", '4'), ("5", '5'), ("6", '6'), ("7", '7'), ("Sota", '10'), ("Caballo", '11'), ("Rey", '12')]@*/
-//function valorCartaEspañolaDe40_(valor) { return (valor) }
--}
+/*@ATTRIBUTE@block_name@_@*/
+/*@ATTRIBUTE@block_dropdown@[("As", '1'), ("2", '2'), ("3", '3'), ("4", '4'), ("5", '5'), ("6", '6'), ("7", '7'), ("Sota", '10'), ("Caballo", '11'), ("Rey", '12')]@*/
+function valorDeCartaEspañolaDe40_(valor) { return (valor) }
 
 /*@ATTRIBUTE@block_name@As@*/       function armarValorAs()      { return(1) }
 /*@ATTRIBUTE@block_name@valor _@*/  function armarValor_(valor)  { return (aux_armarValorDeCartaEspañolaDe40(valor)) }

@@ -1,13 +1,3 @@
-interactive program {
-  K_ARROW_RIGHT -> {
-    indice := nroBolitas(Rojo) + 1
-    LimpiarTablero()
-    TestsDePalosDeCartaEspañola(indice)
-    IrAlOrigen()
-    Poner__Veces(Rojo, 1)
-  }
-}
-
 procedure TestsDePalosDeCartaEspañola(códigoDeTest) {
   if (códigoDeTest == 1) {
     TestPalos()
@@ -30,33 +20,42 @@ procedure TestPalos() {
 }
 
 procedure UsarTodosLosPalos() {
-  PonerCarta_(dameCarta__(1, bastos()))
+  PonerCarta_(dameCarta__(1, palo_(Bastos)))
   PasarASiguientePosición()
-  PonerCarta_(dameCarta__(1, copas()))
+  PonerCarta_(dameCarta__(1, palo_(Copas)))
   PasarASiguientePosición()
-  PonerCarta_(dameCarta__(1, espadas()))
+  PonerCarta_(dameCarta__(1, palo_(Espadas)))
   PasarASiguientePosición()
-  PonerCarta_(dameCarta__(1, oros()))
+  PonerCarta_(dameCarta__(1, palo_(Oros)))
+}
+
+procedure Assert(condiciónAVerificar) {
+  PasarASiguientePosición()
+  if (condiciónAVerificar) {
+    Poner__Veces(Verde, 1)
+  } else {
+    Poner__Veces(Rojo, 1)
+  }
 }
 
 procedure TestEsMenorPalo() {
-  PonerCarta_(dameCarta__(2, bastos()))
-  Assert(not(esMenorPalo__(bastos(), bastos())))
-  Testear2PalosPorMenor(bastos(), copas())
-  Testear2PalosPorMenor(bastos(), espadas())
-  Testear2PalosPorMenor(bastos(), oros())
+  PonerCarta_(dameCarta__(2, palo_(Bastos)))
+  Assert(not(esMenorPalo__(palo_(Bastos), palo_(Bastos))))
+  Testear2PalosPorMenor(palo_(Bastos), palo_(Copas))
+  Testear2PalosPorMenor(palo_(Bastos), palo_(Espadas))
+  Testear2PalosPorMenor(palo_(Bastos), palo_(Oros))
   PasarASiguientePosición()
-  PonerCarta_(dameCarta__(2, copas()))
-  Assert(not(esMenorPalo__(copas(), copas())))
-  Testear2PalosPorMenor(copas(), espadas())
-  Testear2PalosPorMenor(copas(), oros())
+  PonerCarta_(dameCarta__(2, palo_(Copas)))
+  Assert(not(esMenorPalo__(palo_(Copas), palo_(Copas))))
+  Testear2PalosPorMenor(palo_(Copas), palo_(Espadas))
+  Testear2PalosPorMenor(palo_(Copas), palo_(Oros))
   PasarASiguientePosición()
-  PonerCarta_(dameCarta__(2, espadas()))
-  Assert(not(esMenorPalo__(espadas(), espadas())))
-  Testear2PalosPorMenor(espadas(), oros())
+  PonerCarta_(dameCarta__(2, palo_(Espadas)))
+  Assert(not(esMenorPalo__(palo_(Espadas), palo_(Espadas))))
+  Testear2PalosPorMenor(palo_(Espadas), palo_(Oros))
   PasarASiguientePosición()
-  PonerCarta_(dameCarta__(2, oros()))
-  Assert(not(esMenorPalo__(oros(), oros())))
+  PonerCarta_(dameCarta__(2, palo_(Oros)))
+  Assert(not(esMenorPalo__(palo_(Oros), palo_(Oros))))
 }
 
 procedure Testear2PalosPorMenor(palo1, palo2) {
@@ -66,24 +65,33 @@ procedure Testear2PalosPorMenor(palo1, palo2) {
   Assert(not(esMenorPalo__(palo2, palo1)))
 }
 
+procedure LimpiarTablero() {
+  PasarASiguientePosición()
+  repeat(47) {
+    SacarTodas()
+    PasarASiguientePosición()
+  }
+  PasarASiguientePosición()
+}
+
 procedure TestEsMayorPalo() {
-  PonerCarta_(dameCarta__(3, bastos()))
-  Assert(not(esMayorPalo__(bastos(), bastos())))
-  Testear2PalosPorMayor(bastos(), copas())
-  Testear2PalosPorMayor(bastos(), espadas())
-  Testear2PalosPorMayor(bastos(), oros())
+  PonerCarta_(dameCarta__(3, palo_(Bastos)))
+  Assert(not(esMayorPalo__(palo_(Bastos), palo_(Bastos))))
+  Testear2PalosPorMayor(palo_(Bastos), palo_(Copas))
+  Testear2PalosPorMayor(palo_(Bastos), palo_(Espadas))
+  Testear2PalosPorMayor(palo_(Bastos), palo_(Oros))
   PasarASiguientePosición()
-  PonerCarta_(dameCarta__(3, copas()))
-  Assert(not(esMayorPalo__(copas(), copas())))
-  Testear2PalosPorMayor(copas(), espadas())
-  Testear2PalosPorMayor(copas(), oros())
+  PonerCarta_(dameCarta__(3, palo_(Copas)))
+  Assert(not(esMayorPalo__(palo_(Copas), palo_(Copas))))
+  Testear2PalosPorMayor(palo_(Copas), palo_(Espadas))
+  Testear2PalosPorMayor(palo_(Copas), palo_(Oros))
   PasarASiguientePosición()
-  PonerCarta_(dameCarta__(3, espadas()))
-  Assert(not(esMayorPalo__(espadas(), espadas())))
-  Testear2PalosPorMayor(espadas(), oros())
+  PonerCarta_(dameCarta__(3, palo_(Espadas)))
+  Assert(not(esMayorPalo__(palo_(Espadas), palo_(Espadas))))
+  Testear2PalosPorMayor(palo_(Espadas), palo_(Oros))
   PasarASiguientePosición()
-  PonerCarta_(dameCarta__(3, oros()))
-  Assert(not(esMayorPalo__(oros(), oros())))
+  PonerCarta_(dameCarta__(3, palo_(Oros)))
+  Assert(not(esMayorPalo__(palo_(Oros), palo_(Oros))))
 }
 
 procedure Testear2PalosPorMayor(palo1, palo2) {
@@ -100,7 +108,7 @@ procedure TestSiguienteYPrevio() {
 }
 
 procedure TestSiguienteYPrevioEnMedio() {
-  HacerTestDeSiguienteYPrevio(copas(), espadas(), bastos())
+  HacerTestDeSiguienteYPrevio(palo_(Copas), palo_(Espadas), palo_(Bastos))
 }
 
 procedure HacerTestDeSiguienteYPrevio(palo, paloSiguiente, paloPrevio) {
@@ -115,37 +123,30 @@ procedure HacerTestDeSiguienteYPrevio(palo, paloSiguiente, paloPrevio) {
 
 procedure TestMinPaloYMaxPalo() {
   PonerCarta_(dameCarta__(5, minPalo()))
-  Assert(minPalo() == bastos())
+  Assert(minPalo() == palo_(Bastos))
   PasarASiguientePosición()
   PonerCarta_(dameCarta__(5, maxPalo()))
-  Assert(maxPalo() == oros())
+  Assert(maxPalo() == palo_(Oros))
 }
 
 procedure TestSiguienteYPrevioEnBordeInferior() {
   PasarASiguientePosición()
-  HacerTestDeSiguienteYPrevio(bastos(), copas(), oros())
+  HacerTestDeSiguienteYPrevio(palo_(Bastos), palo_(Copas), palo_(Oros))
 }
 
 procedure TestSiguienteYPrevioEnBordeSuperior() {
   PasarASiguientePosición()
-  HacerTestDeSiguienteYPrevio(oros(), bastos(), espadas())
+  HacerTestDeSiguienteYPrevio(palo_(Oros), palo_(Bastos), palo_(Espadas))
 }
 
-procedure Assert(condiciónAVerificar) {
-  PasarASiguientePosición()
-  if (condiciónAVerificar) {
-    Poner__Veces(Verde, 1)
-  } else {
+
+interactive program {
+  K_ARROW_RIGHT -> {
+    indice := nroBolitas(Rojo) + 1
+    IrAlOrigen()
+    LimpiarTablero()
+    TestsDePalosDeCartaEspañola(indice)
+    IrAlOrigen()
     Poner__Veces(Rojo, 1)
   }
 }
-
-procedure LimpiarTablero() {
-  PasarASiguientePosición()
-  repeat(27) {
-    SacarTodas()
-    PasarASiguientePosición()
-  }
-  PasarASiguientePosición()
-}
-

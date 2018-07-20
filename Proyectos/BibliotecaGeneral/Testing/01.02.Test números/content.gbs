@@ -1,14 +1,3 @@
-interactive program {
-  K_ARROW_RIGHT -> {
-    indice := nroBolitas(Rojo) + 1
-    IrAlOrigen()
-    LimpiarTablero()
-    TestsDeNúmeros(indice)
-    IrAlOrigen()
-    Poner__Veces(Rojo, 1)
-  }
-}
-
 procedure TestsDeNúmeros(códigoDeTest) {
   if (códigoDeTest == 1) {
     TestPonerNúmero()
@@ -75,12 +64,30 @@ procedure TestSacarNúmero() {
   Assert(0 == 0)
 }
 
+procedure Assert(condiciónAVerificar) {
+  PasarASiguientePosición()
+  if (condiciónAVerificar) {
+    Poner__Veces(Verde, 1)
+  } else {
+    Poner__Veces(Rojo, 1)
+  }
+}
+
 procedure TestHayNúmero() {
   PonerNúmero_(417)
   Assert(hayNúmero())
   PasarASiguientePosición()
   SacarTodas()
   Assert(not(hayNúmero()))
+}
+
+procedure LimpiarTablero() {
+  PasarASiguientePosición()
+  repeat(47) {
+    SacarTodas()
+    PasarASiguientePosición()
+  }
+  PasarASiguientePosición()
 }
 
 procedure TestNúmeroActual() {
@@ -153,21 +160,14 @@ procedure TestHayNúmeroPorDígitosOcultoYNoOculto() {
   Assert(hayNúmeroNoOculto)
 }
 
-procedure Assert(condiciónAVerificar) {
-  PasarASiguientePosición()
-  if (condiciónAVerificar) {
-    Poner__Veces(Verde, 1)
-  } else {
+
+interactive program {
+  K_ARROW_RIGHT -> {
+    indice := nroBolitas(Rojo) + 1
+    IrAlOrigen()
+    LimpiarTablero()
+    TestsDeNúmeros(indice)
+    IrAlOrigen()
     Poner__Veces(Rojo, 1)
   }
 }
-
-procedure LimpiarTablero() {
-  PasarASiguientePosición()
-  repeat(47) {
-    SacarTodas()
-    PasarASiguientePosición()
-  }
-  PasarASiguientePosición()
-}
-

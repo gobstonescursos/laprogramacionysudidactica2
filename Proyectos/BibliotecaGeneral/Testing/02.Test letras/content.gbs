@@ -1,38 +1,49 @@
-interactive program {
-  K_ARROW_RIGHT -> {
-    indice := nroBolitas(Rojo) + 1
-    LimpiarTablero()
-    TestsDeLetras(indice)
-    IrAlOrigen()
-    Poner__Veces(Rojo, 1)
+procedure TestsDeLetras(códigoDeTest) {
+  if (códigoDeTest == 1) {
+    TestLetraYPonerLetra()
+  } elseif (códigoDeTest == 2) {
+    TestSacarLetra()
+  } elseif (códigoDeTest == 3) {
+    TestHayLetra()
+  } elseif (códigoDeTest == 4) {
+    TestLetraActual()
+  } elseif (códigoDeTest == 5) {
+    TestEstáAntesQue()
+  } elseif (códigoDeTest == 6) {
+    TestEstáDespuésQue()
+  } elseif (códigoDeTest == 7) {
+    TestSiguienteYPrevio()
+  } elseif (códigoDeTest == 8) {
+    TestMinLetraYMaxLetra()
+  } elseif (códigoDeTest == 9) {
+    TestOcultarLetra()
+  } elseif (códigoDeTest == 10) {
+    TestRevelarLetra()
+  } elseif (códigoDeTest == 11) {
+    TestLetraOculta()
+  } elseif (códigoDeTest == 12) {
+    TestHayLetraOcultaYNoOculta()
+  } else {
+    BOOM("Pasó todos los tests")
   }
 }
 
-procedure TestsDeLetras(códigoDeTest) {
-  if (códigoDeTest == 1)     { TestLetraYPonerLetra()       } 
-  elseif (códigoDeTest == 2) { TestSacarLetra()             } 
-  elseif (códigoDeTest == 3) { TestHayLetra()               }
-  elseif (códigoDeTest == 4) { TestLeerLetra()              }
-  elseif (códigoDeTest == 5) { TestEstáAntesQue()           }
-  elseif (códigoDeTest == 6) { TestEstáDespuésQue()         }
-  elseif (códigoDeTest == 7) { TestSiguienteYPrevio()       }
-  elseif (códigoDeTest == 8) { TestMinLetraYMaxLetra()      }
-  else                       { BOOM("Pasó todos los tests") }
-}
 procedure TestLetraYPonerLetra() {
   PonerTodasLasLetras()
   Assert(0 == 0)
 }
 
 procedure PonerTodasLasLetras() {
-  código := 10
-  PonerLetra_(letra_(código))
-  código := código + 1
-  while (not (código > 37)) {
+  letraActual := letra_(Espacio)
+  PonerLetra_(letraActual)
+  letraActual := letraSiguiente_(letraActual)
+  while (not (letraActual == letra_(Z))) {
     PasarASiguientePosición()
-    PonerLetra_(letra_(código))
-    código := código + 1
+    PonerLetra_(letraActual)
+    letraActual := letraSiguiente_(letraActual)
   }
+  PasarASiguientePosición()
+  PonerLetra_(letraActual)
 }
 
 procedure TestSacarLetra() {
@@ -46,23 +57,23 @@ procedure TestSacarLetra() {
 }
 
 procedure TestHayLetra() {
-  PonerLetra_(letra_(11))
+  PonerLetra_(letra_(B))
   Assert(hayLetra())
   PasarASiguientePosición()
   SacarTodas()
   Assert(not(hayLetra()))
 }
 
-procedure TestLeerLetra() {
-  PonerLetra_(letra_(12))
-  Assert(letra_(12) == letraActual())
+procedure TestLetraActual() {
+  PonerLetra_(letra_(C))
+  Assert(letra_(C) == letraActual())
 }
 
 procedure TestEstáAntesQue() {
-  PonerLetra_(letra_(13))
+  PonerLetra_(letra_(D))
   letra1 := letraActual()
   PasarASiguientePosición()
-  PonerLetra_(letra_(14))
+  PonerLetra_(letra_(E))
   letra2 := letraActual()
   Assert(esMenorLetra__(letra1, letra2))
   Assert(not(esMenorLetra__(letra2, letra1)))
@@ -70,67 +81,15 @@ procedure TestEstáAntesQue() {
 }
 
 procedure TestEstáDespuésQue() {
-  PonerLetra_(letra_(15))
+  PonerLetra_(letra_(E))
   letra1 := letraActual()
   PasarASiguientePosición()
-  PonerLetra_(letra_(16))
+  PonerLetra_(letra_(F))
   letra2 := letraActual()
   Assert(esMayorLetra__(letra2, letra1))
   Assert(not(esMayorLetra__(letra1, letra2)))
   Assert(not(esMayorLetra__(letra1, letra1)))
 }
-
-
-procedure TestSiguienteYPrevio() {
-  TestSiguienteYPrevioEnMedio()
-  TestSiguienteYPrevioEnBordeInferior()
-  TestSiguienteYPrevioEnBordeSuperior()
-}
-
-procedure TestSiguienteYPrevioEnMedio() {
-  PonerLetra_(letra_(17))
-  letra := letraActual()
-  PasarASiguientePosición()
-  PonerLetra_(letraSiguiente_(letra))
-  Assert(letraSiguiente_(letra) == letra_(18))
-  PasarASiguientePosición()
-  PonerLetra_(letraPrevia_(letra))
-  Assert(letraPrevia_(letra) == letra_(16))
-}
-
-procedure TestSiguienteYPrevioEnBordeInferior() {
-  PasarASiguientePosición()
-  PonerLetra_(letra_(10))
-  letra := letraActual()
-  PasarASiguientePosición()
-  PonerLetra_(letraSiguiente_(letra))
-  Assert(letraSiguiente_(letra) == letra_(11))
-  PasarASiguientePosición()
-  PonerLetra_(letraPrevia_(letra))
-  Assert(letraPrevia_(letra) == letra_(37))
-}
-
-procedure TestSiguienteYPrevioEnBordeSuperior() {
-  PasarASiguientePosición()
-  PonerLetra_(letra_(37))
-  letra := letraActual()
-  PasarASiguientePosición()
-  PonerLetra_(letraSiguiente_(letra))
-  Assert(letraSiguiente_(letra) == letra_(10))
-  PasarASiguientePosición()
-  PonerLetra_(letraPrevia_(letra))
-  Assert(letraPrevia_(letra) == letra_(36))
-}
-
-procedure TestMinLetraYMaxLetra() {
-  PonerLetra_(minLetra())
-  Assert(minLetra() == letra_(10))
-  PasarASiguientePosición()
-  PonerLetra_(maxLetra())
-  Assert(maxLetra() == letra_(37))
-}
-
-
 
 procedure Assert(condiciónAVerificar) {
   PasarASiguientePosición()
@@ -142,12 +101,128 @@ procedure Assert(condiciónAVerificar) {
 }
 
 procedure LimpiarTablero() {
-  IrAlOrigen()
   PasarASiguientePosición()
-  repeat(29) {
+  repeat(47) {
     SacarTodas()
     PasarASiguientePosición()
   }
   PasarASiguientePosición()
 }
 
+procedure TestSiguienteYPrevio() {
+  TestSiguienteYPrevioEnMedio()
+  TestSiguienteYPrevioEnBordeInferior()
+  TestSiguienteYPrevioEnBordeSuperior()
+}
+
+procedure TestSiguienteYPrevioEnMedio() {
+  PonerLetra_(letra_(G))
+  letra := letraActual()
+  PasarASiguientePosición()
+  PonerLetra_(letraSiguiente_(letra))
+  Assert(letraSiguiente_(letra) == letra_(H))
+  PasarASiguientePosición()
+  PonerLetra_(letraPrevia_(letra))
+  Assert(letraPrevia_(letra) == letra_(F))
+}
+
+procedure TestSiguienteYPrevioEnBordeInferior() {
+  PasarASiguientePosición()
+  PonerLetra_(letra_(Espacio))
+  letra := letraActual()
+  PasarASiguientePosición()
+  PonerLetra_(letraSiguiente_(letra))
+  Assert(letraSiguiente_(letra) == letra_(A))
+  PasarASiguientePosición()
+  PonerLetra_(letraPrevia_(letra))
+  Assert(letraPrevia_(letra) == letra_(Z))
+}
+
+procedure TestSiguienteYPrevioEnBordeSuperior() {
+  PasarASiguientePosición()
+  PonerLetra_(letra_(Z))
+  letra := letraActual()
+  PasarASiguientePosición()
+  PonerLetra_(letraSiguiente_(letra))
+  Assert(letraSiguiente_(letra) == letraParaElCódigo_(10))
+  PasarASiguientePosición()
+  PonerLetra_(letraPrevia_(letra))
+  Assert(letraPrevia_(letra) == letra_(Y))
+}
+
+procedure TestMinLetraYMaxLetra() {
+  PonerLetra_(minLetra())
+  Assert(minLetra() == letra_(Espacio))
+  PasarASiguientePosición()
+  PonerLetra_(maxLetra())
+  Assert(maxLetra() == letra_(Z))
+}
+
+procedure TestOcultarLetra() {
+  PonerTodasLasLetras()
+  IrAlOrigen()
+  OcultarTodasLasLetras()
+  Assert(0 == 0)
+}
+
+procedure TestRevelarLetra() {
+  PonerTodasLasLetras()
+  IrAlOrigen()
+  OcultarTodasLasLetras()
+  IrAlOrigen()
+  repeat(28) {
+    PasarASiguientePosición()
+    RevelarLetraActual()
+  }
+  Assert(0 == 0)
+}
+
+procedure TestLetraOculta() {
+  PonerLetra_(letra_(J))
+  OcultarLetraActual()
+  Assert(letra_(J) == letraOculta())
+}
+
+procedure TestHayLetraOcultaYNoOculta() {
+  PonerLetra_(letra_(Ñ))
+  Assert(hayLetraNoOculta())
+  PasarASiguientePosición()
+  PonerLetra_(letra_(Ñ))
+  OcultarLetraActual()
+  Assert(hayLetraOculta())
+}
+
+procedure OcultarTodasLasLetras() {
+  repeat(28) {
+    PasarASiguientePosición()
+    OcultarLetraActual()
+  }
+}
+
+
+interactive program {
+  K_ARROW_RIGHT -> {
+    indice := nroBolitas(Rojo) + 1
+    IrAlOrigen()
+    LimpiarTablero()
+    TestsDeLetras(indice)
+    IrAlOrigen()
+    Poner__Veces(Rojo, 1)
+  }
+  K_ARROW_LEFT -> {
+    indice := nroBolitas(Rojo) - 1
+    IrAlOrigen()
+    LimpiarTablero()
+    TestsDeLetras(indice)
+    IrAlOrigen()
+    Sacar__Veces(Rojo, 1)
+  }
+  K_CTRL_ARROW_RIGHT -> {
+    indice := nroBolitas(Rojo) + 10
+    IrAlOrigen()
+    LimpiarTablero()
+    TestsDeLetras(indice)
+    IrAlOrigen()
+    Poner__Veces(Rojo, 10)
+  }
+}

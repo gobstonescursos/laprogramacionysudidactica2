@@ -3,7 +3,7 @@ interactive program {
     indice := nroBolitas(Rojo) + 1
     IrAlOrigen()
     LimpiarTablero()
-    TestsDeLetras(indice)
+    TestsDeNúmerosPorDígitos(indice)
     IrAlOrigen()
     Poner__Veces(Rojo, 1)
   }

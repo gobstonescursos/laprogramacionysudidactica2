@@ -1,30 +1,3 @@
-interactive program {
-  K_ARROW_RIGHT -> {
-    indice := nroBolitas(Rojo) + 1
-    IrAlOrigen()
-    LimpiarTablero()
-    TestsDeCartasEspañolasDe40(indice)
-    IrAlOrigen()
-    Poner__Veces(Rojo, 1)
-  }
-  K_ARROW_LEFT -> {
-    indice := nroBolitas(Rojo) - 1
-    IrAlOrigen()
-    LimpiarTablero()
-    TestsDeCartasEspañolasDe40(indice)
-    IrAlOrigen()
-    Sacar__Veces(Rojo, 1)
-  }
-  K_CTRL_ARROW_RIGHT -> {
-    indice := nroBolitas(Rojo) + 10
-    IrAlOrigen()
-    LimpiarTablero()
-    TestsDeCartasEspañolasDe40(indice)
-    IrAlOrigen()
-    Poner__Veces(Rojo, 10)
-  }
-}
-
 procedure TestsDeCartasEspañolasDe40(códigoDeTest) {
   if (códigoDeTest == 1) {
     TestCartaYPonerCarta()
@@ -118,12 +91,12 @@ procedure PonerTodasLasCartasYDarlasVuelta() {
 }
 
 procedure TestCartaActual() {
-  PonerCarta_(dameCarta__(armarValor_(2), copas()))
-  Assert(copas() == dameElPalo_(cartaActual()) && armarValor_(2) == dameElValor_(cartaActual()))
+  PonerCarta_(dameCarta__(valorDeCartaEspañolaDe40_(2), palo_(Copas)))
+  Assert(palo_(Copas) == dameElPalo_(cartaActual()) && valorDeCartaEspañolaDe40_(2) == dameElValor_(cartaActual()))
 }
 
 procedure TestHayCarta() {
-  PonerCarta_(dameCarta__(armarValorAs(), bastos()))
+  PonerCarta_(dameCarta__(valorDeCartaEspañolaDe40_(1), palo_(Bastos)))
   Assert(hayCarta())
   PasarASiguientePosición()
   SacarTodas()
@@ -132,37 +105,55 @@ procedure TestHayCarta() {
 
 procedure TestHayCartaTapada() {
   PasarASiguientePosición()
-  PonerCarta_(dameCarta__(armarValorAs(), oros()))
+  PonerCarta_(dameCarta__(valorDeCartaEspañolaDe40_(1), palo_(Oros)))
   DarVueltaLaCartaActual()
   Assert(hayCartaTapada())
   PasarASiguientePosición()
-  PonerCarta_(dameCarta__(armarValorAs(), oros()))
+  PonerCarta_(dameCarta__(valorDeCartaEspañolaDe40_(1), palo_(Oros)))
   Assert(not(hayCartaTapada()))
   PasarASiguientePosición()
   SacarTodas()
   Assert(not(hayCartaTapada()))
 }
 
+procedure Assert(condiciónAVerificar) {
+  PasarASiguientePosición()
+  if (condiciónAVerificar) {
+    Poner__Veces(Verde, 1)
+  } else {
+    Poner__Veces(Rojo, 1)
+  }
+}
+
 procedure TestCartaTapada() {
-  PonerCarta_(dameCarta__(armarValor_(7), oros()))
+  PonerCarta_(dameCarta__(valorDeCartaEspañolaDe40_(7), palo_(Oros)))
   DarVueltaLaCartaActual()
-  Assert(oros() == dameElPalo_(cartaTapada()) && armarValor_(7) == dameElValor_(cartaTapada()))
+  Assert(palo_(Oros) == dameElPalo_(cartaTapada()) && valorDeCartaEspañolaDe40_(7) == dameElValor_(cartaTapada()))
+}
+
+procedure LimpiarTablero() {
+  PasarASiguientePosición()
+  repeat(47) {
+    SacarTodas()
+    PasarASiguientePosición()
+  }
+  PasarASiguientePosición()
 }
 
 procedure TestEsCartaMenorQue() {
-  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(armarValor_(3), espadas()), dameCarta__(armarValor_(5), espadas()))
+  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(valorDeCartaEspañolaDe40_(3), palo_(Espadas)), dameCarta__(valorDeCartaEspañolaDe40_(5), palo_(Espadas)))
   PasarASiguientePosición()
-  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(armarValor_(6), oros()), dameCarta__(armarValorCaballo(), oros()))
+  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(valorDeCartaEspañolaDe40_(6), palo_(Oros)), dameCarta__(valorDeCartaEspañolaDe40_(11), palo_(Oros)))
   PasarASiguientePosición()
-  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(armarValorCaballo(), espadas()), dameCarta__(armarValorRey(), espadas()))
+  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(valorDeCartaEspañolaDe40_(11), palo_(Espadas)), dameCarta__(valorDeCartaEspañolaDe40_(12), palo_(Espadas)))
   PasarASiguientePosición()
-  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(armarValorRey(), bastos()), dameCarta__(armarValorAs(), espadas()))
+  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(valorDeCartaEspañolaDe40_(12), palo_(Espadas)), dameCarta__(valorDeCartaEspañolaDe40_(1), palo_(Oros)))
   PasarASiguientePosición()
-  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(armarValorRey(), espadas()), dameCarta__(armarValorCaballo(), oros()))
+  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(valorDeCartaEspañolaDe40_(12), palo_(Espadas)), dameCarta__(valorDeCartaEspañolaDe40_(11), palo_(Oros)))
   PasarASiguientePosición()
-  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(armarValorCaballo(), copas()), dameCarta__(armarValor_(3), oros()))
+  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(valorDeCartaEspañolaDe40_(11), palo_(Copas)), dameCarta__(valorDeCartaEspañolaDe40_(3), palo_(Oros)))
   PasarASiguientePosición()
-  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(armarValor_(7), bastos()), dameCarta__(armarValor_(2), espadas()))
+  TestearQueUnaCartaEsMenorQueOtra(dameCarta__(valorDeCartaEspañolaDe40_(7), palo_(Bastos)), dameCarta__(valorDeCartaEspañolaDe40_(2), palo_(Espadas)))
 }
 
 procedure TestearQueUnaCartaEsMenorQueOtra(carta1, carta2) {
@@ -175,19 +166,19 @@ procedure TestearQueUnaCartaEsMenorQueOtra(carta1, carta2) {
 }
 
 procedure TestEsMayorCartaQue() {
-  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(armarValor_(4), espadas()), dameCarta__(armarValor_(6), espadas()))
+  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(valorDeCartaEspañolaDe40_(4), palo_(Espadas)), dameCarta__(valorDeCartaEspañolaDe40_(6), palo_(Espadas)))
   PasarASiguientePosición()
-  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(armarValor_(7), oros()), dameCarta__(armarValorRey(), oros()))
+  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(valorDeCartaEspañolaDe40_(7), palo_(Oros)), dameCarta__(valorDeCartaEspañolaDe40_(12), palo_(Oros)))
   PasarASiguientePosición()
-  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(armarValorSota(), espadas()), dameCarta__(armarValorCaballo(), espadas()))
+  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(valorDeCartaEspañolaDe40_(10), palo_(Espadas)), dameCarta__(valorDeCartaEspañolaDe40_(11), palo_(Espadas)))
   PasarASiguientePosición()
-  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(armarValorCaballo(), bastos()), dameCarta__(armarValorAs(), espadas()))
+  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(valorDeCartaEspañolaDe40_(11), palo_(Bastos)), dameCarta__(valorDeCartaEspañolaDe40_(1), palo_(Espadas)))
   PasarASiguientePosición()
-  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(armarValorCaballo(), espadas()), dameCarta__(armarValorSota(), oros()))
+  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(valorDeCartaEspañolaDe40_(11), palo_(Espadas)), dameCarta__(valorDeCartaEspañolaDe40_(10), palo_(Oros)))
   PasarASiguientePosición()
-  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(armarValorRey(), copas()), dameCarta__(armarValor_(4), oros()))
+  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(valorDeCartaEspañolaDe40_(12), palo_(Copas)), dameCarta__(valorDeCartaEspañolaDe40_(4), palo_(Oros)))
   PasarASiguientePosición()
-  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(armarValor_(6), bastos()), dameCarta__(armarValor_(3), espadas()))
+  TestearQueUnaCartaEsMayorQueOtra(dameCarta__(valorDeCartaEspañolaDe40_(6), palo_(Bastos)), dameCarta__(valorDeCartaEspañolaDe40_(3), palo_(Espadas)))
 }
 
 procedure TestearQueUnaCartaEsMayorQueOtra(carta1, carta2) {
@@ -206,12 +197,12 @@ procedure TestSiguienteYPrevio() {
 }
 
 procedure TestSiguienteYPrevioEnMedio() {
-  TesteaSiguienteYPrevio(dameCarta__(armarValor_(3), espadas()), dameCarta__(armarValor_(4), espadas()), dameCarta__(armarValor_(2), espadas()))
+  TesteaSiguienteYPrevio(dameCarta__(valorDeCartaEspañolaDe40_(3), palo_(Espadas)), dameCarta__(valorDeCartaEspañolaDe40_(4), palo_(Espadas)), dameCarta__(valorDeCartaEspañolaDe40_(2), palo_(Espadas)))
 }
 
 procedure TestSiguienteYPrevioEnBordeInferior() {
   PasarASiguientePosición()
-  TesteaSiguienteYPrevio(dameCarta__(armarValorAs(), bastos()), dameCarta__(armarValor_(2), bastos()), dameCarta__(armarValorRey(), oros()))
+  TesteaSiguienteYPrevio(dameCarta__(valorDeCartaEspañolaDe40_(1), palo_(Bastos)), dameCarta__(valorDeCartaEspañolaDe40_(2), palo_(Bastos)), dameCarta__(valorDeCartaEspañolaDe40_(12), palo_(Oros)))
   PasarASiguientePosición()
   TesteaSiguienteYPrevio(dameCarta__(armarValorAs(), espadas()), dameCarta__(armarValor_(2), espadas()), dameCarta__(armarValorRey(), copas()))
   PasarASiguientePosición()
@@ -220,11 +211,11 @@ procedure TestSiguienteYPrevioEnBordeInferior() {
 
 procedure TestSiguienteYPrevioEnBordeSuperior() {
   PasarASiguientePosición()
-  TesteaSiguienteYPrevio(dameCarta__(armarValorRey(), oros()), dameCarta__(armarValorAs(), bastos()), dameCarta__(armarValorCaballo(), oros()))
+  TesteaSiguienteYPrevio(dameCarta__(valorDeCartaEspañolaDe40_(12), palo_(Oros)), dameCarta__(valorDeCartaEspañolaDe40_(1), palo_(Bastos)), dameCarta__(valorDeCartaEspañolaDe40_(11), palo_(Oros)))
   PasarASiguientePosición()
-  TesteaSiguienteYPrevio(dameCarta__(armarValorRey(), copas()), dameCarta__(armarValorAs(), espadas()), dameCarta__(armarValorCaballo(), copas()))
+  TesteaSiguienteYPrevio(dameCarta__(valorDeCartaEspañolaDe40_(12), palo_(Copas)), dameCarta__(valorDeCartaEspañolaDe40_(1), palo_(Espadas)), dameCarta__(valorDeCartaEspañolaDe40_(11), palo_(Copas)))
   PasarASiguientePosición()
-  TesteaSiguienteYPrevio(dameCarta__(armarValorSota(), copas()), dameCarta__(armarValorCaballo(), copas()), dameCarta__(armarValor_(7), copas()))
+  TesteaSiguienteYPrevio(dameCarta__(valorDeCartaEspañolaDe40_(10), palo_(Copas)), dameCarta__(valorDeCartaEspañolaDe40_(11), palo_(Copas)), dameCarta__(valorDeCartaEspañolaDe40_(7), palo_(Copas)))
 }
 
 procedure TesteaSiguienteYPrevio(carta, cartaSiguiente, cartaPrevia) {
@@ -239,10 +230,10 @@ procedure TesteaSiguienteYPrevio(carta, cartaSiguiente, cartaPrevia) {
 
 procedure TestMinCartaYMaxCarta() {
   PonerCarta_(minCarta())
-  Assert(minCarta() == dameCarta__(armarValorAs(), bastos()))
+  Assert(minCarta() == dameCarta__(valorDeCartaEspañolaDe40_(1), palo_(Bastos)))
   PasarASiguientePosición()
   PonerCarta_(maxCarta())
-  Assert(maxCarta() == dameCarta__(armarValorRey(), oros()))
+  Assert(maxCarta() == dameCarta__(valorDeCartaEspañolaDe40_(12), palo_(Oros)))
 }
 
 procedure TestIluminarLaCartaActual() {
@@ -260,44 +251,54 @@ procedure PonerTodasLasCartasELiuminarlas() {
 }
 
 procedure TestHayCartaIluminada() {
-  PonerCarta_(dameCarta__(armarValorAs(), espadas()))
+  PonerCarta_(dameCarta__(valorDeCartaEspañolaDe40_(1), palo_(Espadas)))
   IluminarLaCartaActual()
   hayOtra := hayOtraCartaDestapadaSinIluminar()
   Assert(not(hayCartaDestapadaSinIluminar()))
   PasarASiguientePosición()
   Assert(not(hayOtra))
   PasarASiguientePosición()
-  PonerCarta_(dameCarta__(armarValorAs(), espadas()))
+  PonerCarta_(dameCarta__(valorDeCartaEspañolaDe40_(1), palo_(Espadas)))
   Assert(hayCartaDestapadaSinIluminar())
   PasarASiguientePosición()
   SacarTodas()
   Assert(not(hayCartaDestapadaSinIluminar()))
   PasarASiguientePosición()
-  PonerCarta_(dameCarta__(armarValorAs(), espadas()))
+  PonerCarta_(dameCarta__(valorDeCartaEspañolaDe40_(1), palo_(Espadas)))
   DarVueltaLaCartaActual()
   Assert(not(hayCartaDestapadaSinIluminar()))
   PasarASiguientePosición()
-  PonerCarta_(dameCarta__(armarValorAs(), bastos()))
+  PonerCarta_(dameCarta__(valorDeCartaEspañolaDe40_(1), palo_(Bastos)))
   IluminarLaCartaActual()
   hayOtra := hayOtraCartaDestapadaSinIluminar()
   PasarASiguientePosición()
   Assert(hayOtra)
 }
 
-procedure Assert(condiciónAVerificar) {
-  PasarASiguientePosición()
-  if (condiciónAVerificar) {
-    Poner__Veces(Verde, 1)
-  } else {
+
+interactive program {
+  K_ARROW_RIGHT -> {
+    indice := nroBolitas(Rojo) + 1
+    IrAlOrigen()
+    LimpiarTablero()
+    TestsDeCartasEspañolasDe40(indice)
+    IrAlOrigen()
     Poner__Veces(Rojo, 1)
   }
-}
-
-procedure LimpiarTablero() {
-  PasarASiguientePosición()
-  repeat(47) {
-    SacarTodas()
-    PasarASiguientePosición()
+  K_ARROW_LEFT -> {
+    indice := nroBolitas(Rojo) - 1
+    IrAlOrigen()
+    LimpiarTablero()
+    TestsDeCartasEspañolasDe40(indice)
+    IrAlOrigen()
+    Sacar__Veces(Rojo, 1)
   }
-  PasarASiguientePosición()
+  K_CTRL_ARROW_RIGHT -> {
+    indice := nroBolitas(Rojo) + 10
+    IrAlOrigen()
+    LimpiarTablero()
+    TestsDeCartasEspañolasDe40(indice)
+    IrAlOrigen()
+    Poner__Veces(Rojo, 10)
+  }
 }

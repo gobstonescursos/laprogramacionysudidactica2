@@ -102,10 +102,7 @@ Redactar bien el readme...
     </category>
     <category name="Operaciones de Palos">
       <category name="Creación">
-        <block type="bastos"></block>
-        <block type="copas"></block>
-        <block type="espadas"></block>
-        <block type="oros"></block>
+        <block type="palo_"></block>
         <block type="minPalo"></block>
         <block type="maxPalo"></block>
       </category>
@@ -118,11 +115,7 @@ Redactar bien el readme...
     </category>
     <category name="Operaciones de Valores">
       <category name="Creación">
-        <block type="armarValorAs"></block>
-        <block type="armarValor_"></block>
-        <block type="armarValorSota"></block>
-        <block type="armarValorCaballo"></block>
-        <block type="armarValorRey"></block>
+        <block type="valorDeCartaEspañolaDe40_"></block>
         <block type="minValor"></block>
         <block type="maxValor"></block>
       </category>
@@ -267,10 +260,7 @@ Otra caja posible, sin las subcategorías:
         <block type="letraPrevia_"></block>
     </category>
     <category name="Operaciones de Palos">
-        <block type="bastos"></block>
-        <block type="copas"></block>
-        <block type="espadas"></block>
-        <block type="oros"></block>
+        <block type="palo_"></block>
         <block type="minPalo"></block>
         <block type="maxPalo"></block>
         <block type="esMenorPalo__"></block>
@@ -279,11 +269,7 @@ Otra caja posible, sin las subcategorías:
         <block type="paloPrevio_"></block>
     </category>
     <category name="Operaciones de Valores">
-        <block type="armarValorAs"></block>
-        <block type="armarValor_"></block>
-        <block type="armarValorSota"></block>
-        <block type="armarValorCaballo"></block>
-        <block type="armarValorRey"></block>
+        <block type="valorDeCartaEspañolaDe40_"></block>
         <block type="minValor"></block>
         <block type="maxValor"></block>
         <block type="esMenorValor__"></block>
