@@ -9,7 +9,7 @@
 /*------------------------ INTERFAZ de 03-02-ValoresDeCartaEspañolaDe40-Base.gbs -------------------*/
 /*----------------------------------------- (en línea ????) ----------------------------------------*/
 /*--------------------------------- INTERFAZ de 02-Letras-Base.gbs ---------------------------------*/
-/*----------------------------------------- (en línea  648) ----------------------------------------*/
+/*----------------------------------------- (en línea  651) ----------------------------------------*/
 /*------------------------------ INTERFAZ de 01-02-Números-Base.gbs --------------------------------*/
 /*----------------------------------------- (en línea  480) ----------------------------------------*/
 /*------------------------- INTERFAZ de 01-01-NúmerosPorDígitos-Base.gbs ---------------------------*/
@@ -572,12 +572,15 @@ function aux_elNúmeroEstáOcultoConBoom() {
 /*------------------------------- Operaciones de E/S de números -------------------------------------/
 /---------------------------------------------------------------------------------------------------*/
 function aux_númeroActual() {
-  // PRECONDICIÓN: hay un número válido en la celda actual
+  // PRECONDICIÓN: hay un número no oculto en la celda actual
+  if (not aux_hayNúmero())      { BOOM("No hay un número que pueda leer") }
   if (aux_elNúmeroEstáOculto()) { BOOM("No puedo ver el número actual pues está oculto") }
   return(aux_númeroParaElCódigo(aux_leerDato()))
 }
 
 function aux_númeroOculto() {
+  // PRECONDICIÓN: hay un número oculto en la celda actual
+  if (not aux_hayNúmero())          { BOOM("No hay un número que pueda leer") }
   if (not aux_elNúmeroEstáOculto()) { BOOM("Con esta operación solo puedo ver números que están ocultos") }
   return(aux_númeroParaElCódigo(aux_leerDato()))
 }
@@ -766,12 +769,15 @@ function aux_laLetraEstáOcultaConBoom() {
 /*-------------------------------- Operaciones de E/S de letras -------------------------------------/
 /---------------------------------------------------------------------------------------------------*/
 function aux_letraActual() {
-  // PRECONDICIÓN: hay una letra en la celda actual
+  // PRECONDICIÓN: hay una letra no oculta en la celda actual
   if (not (aux_hayLetra()))      { BOOM("No hay una letra que pueda leer") }
+  if (aux_laLetraEstáOculta())   { BOOM("Con esta operación solo puedo ver letras que no están ocultas") }
   return(aux_letraParaElCódigo(aux_leerDato()))
 }         
 
 function aux_letraOculta() {
+  // PRECONDICIÓN: hay una letra oculta en la celda actual
+  if (not (aux_hayLetra()))      { BOOM("No hay una letra que pueda leer") }
   if (not aux_laLetraEstáOculta()) { BOOM("Con esta operación solo puedo ver letras que están ocultas") }
   return(aux_letraParaElCódigo(aux_leerDato()))
 }
