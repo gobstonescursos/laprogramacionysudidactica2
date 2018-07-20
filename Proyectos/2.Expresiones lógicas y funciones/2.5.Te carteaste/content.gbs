@@ -1,7 +1,6 @@
-﻿program {
-  ...
+program {
+  
 }
-
 
 procedure GenerarManoCarteada() {
   PonerCarta_(...)
