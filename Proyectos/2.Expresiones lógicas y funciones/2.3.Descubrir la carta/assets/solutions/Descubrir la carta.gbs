@@ -1,0 +1,5 @@
+program {
+  DecirElValor_(dameElValor_(cartaTapada()))
+  DecirElPalo_(dameElPalo_(cartaTapada()))
+  Arriesgar()
+}
