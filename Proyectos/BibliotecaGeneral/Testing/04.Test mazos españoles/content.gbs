@@ -35,11 +35,15 @@ procedure TestsDeMazosEspañoles(códigoDeTest) {
   } elseif (códigoDeTest == 4) {
     TestDameLaÚltimaCarta_SacarLaÚltimaCartaYQuedanCartas()
   } elseif (códigoDeTest == 5) {
-    TestLeerMazoYMazoVacíoYAgregarAlPrincipio()
+    TestMazoActualYMazoVacíoYAgregarAlPrincipio()
   } elseif (códigoDeTest == 6) {
     TestJuntarMazosYAgregarAlFinal()
   } elseif (códigoDeTest == 7) {
     TestDameLaMásChicaYDameLaMásGrande()
+  } elseif (códigoDeTest == 8) {
+    TestDarVueltaElMazoActual()
+  } elseif (códigoDeTest == 9) {
+    TestMazoTapado()
   } else {
     BOOM("Pasó todos los tests")
   }
@@ -57,24 +61,12 @@ function mazoDeEjemplo1() {
   return (mazoActual)
 }
 
-function mazoDeEjemplo2() {
-  mazoActual := mazoVacío()
-  valorActual := armarValor_(6)
-  cantidad := 8
-  while (not (cantidad == 0)) {
-    mazoActual := agregarAlPrincipioDelMazo__(mazoActual, dameCarta__(valorActual, bastos()))
-    valorActual := valorSiguiente_(valorSiguiente_(valorSiguiente_(valorActual)))
-    cantidad := cantidad - 1
-  }
-  return (mazoActual)
-}
-
 procedure TestMazoEspañolYPonerMazo() {
   PonerMazo_(mazoEspañol())
   Assert(0 == 0)
 }
 
-procedure TestLeerMazoYMazoVacíoYAgregarAlPrincipio() {
+procedure TestMazoActualYMazoVacíoYAgregarAlPrincipio() {
   PonerMazo_(invertir(mazoDeEjemplo1()))
   IrAlOrigen()
   PasarASiguientePosición()
@@ -89,8 +81,20 @@ procedure TestSacarMazo() {
   PonerMazo_(mazoEspañol())
   IrAlOrigen()
   PasarASiguientePosición()
-  SacarMazo()
+  SacarMazoActual()
   Assert(0 == 0)
+}
+
+function mazoDeEjemplo2() {
+  mazoActual := mazoVacío()
+  valorActual := armarValor_(6)
+  cantidad := 8
+  while (not (cantidad == 0)) {
+    mazoActual := agregarAlPrincipioDelMazo__(mazoActual, dameCarta__(valorActual, bastos()))
+    valorActual := valorSiguiente_(valorSiguiente_(valorSiguiente_(valorActual)))
+    cantidad := cantidad - 1
+  }
+  return (mazoActual)
 }
 
 procedure TestDameLaPrimeraCarta_SacarLaPrimeraCartaYQuedanCartas() {
@@ -144,6 +148,28 @@ procedure TestDameLaMásChicaYDameLaMásGrande() {
   PonerMazo_(mazo)
   Assert(dameLaCartaMásChicaDe_(mazo) == dameCarta__(armarValorAs(), bastos()))
   Assert(dameLaCartaMásGrandeDe_(mazo) == dameCarta__(armarValorRey(), espadas()))
+}
+
+procedure TestDarVueltaElMazoActual() {
+  PonerMazo_(mazoEspañol())
+  IrAlOrigen()
+  PasarASiguientePosición()
+  DarVueltaElMazoActual()
+  Assert(0 == 0)
+}
+
+procedure TestMazoTapado() {
+  PonerMazo_(mazoDeEjemplo1())
+  IrAlOrigen()
+  PasarASiguientePosición()
+  DarVueltaElMazoActual()
+  IrAlOrigen()
+  PasarASiguientePosición()
+  mazoActual := mazoTapado()
+  repeat(cantidadDeCartasDelMazo_(mazoActual) - 1) {
+    PasarASiguientePosición()
+  }
+  Assert(mazoDeEjemplo1() == mazoActual)
 }
 
 procedure Assert(condiciónAVerificar) {

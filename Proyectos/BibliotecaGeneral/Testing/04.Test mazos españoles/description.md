@@ -9,9 +9,9 @@ Testea:
   2. Sacar mazo
   3. Dame la primera carta, sacar la primera carta y quedan cartas
   4. Dame la última carta, sacar la última carta y quedan cartas
-  5. Mazo vacío, agregar al principio y leer cartas
-  6. Mazo vacío, agregar al final y juntar mazos
+  5. Mazo actual, mazo vacío y agregar al principio
+  6. Juntar mazos y agregar al final
   7. Dame la carta más chica y dame la carta más grande
-  8. Mazo actual
+  8. Dar vuelta el mazo actual
   9. Mazo tapado
   

@@ -1851,10 +1851,13 @@ function dameLaCartaMásChicaDe_(mazo)  { return(aux_dameLaCartaMásChica(mazo))
 //---------------------------------------------------------------------------------------------------/
 /*------------------ Operaciones de manipulación de un mazo español (interfaz) ----------------------/
 /---------------------------------------------------------------------------------------------------*/
-function  mazoActual()     { return (aux_mazoActual()) }
-function  mazoTapado()     { return (aux_mazoTapado()) }
-procedure PonerMazo_(mazo) { AuxPonerMazo(mazo)        }
-procedure SacarMazo()      { AuxSacarMazo()            }
+function  mazoActual()            { return (aux_mazoActual())  }
+function  mazoTapado()            { return (aux_mazoTapado())  }
+
+procedure PonerMazo_(mazo)        { AuxPonerMazo(mazo)         }
+procedure SacarMazoActual()       { AuxSacarMazoActual()       }
+
+procedure DarVueltaElMazoActual() { AuxDarVueltaElMazoActual() }
 
 /*==================================================================================================*/
 /*--------------------------- FIN INTERFAZ de 04-MazosEspañoles-Base.gbs ---------------------------*/
@@ -2000,9 +2003,9 @@ procedure AuxPonerMazo(mazo) {
   }
 }
 
-procedure AuxSacarMazo() {
-   // PROPÓSITO: saca todas las cartas que están a continuación, a partir de la posición actual
-   //            yendo al Este y luego al Sur
+procedure AuxSacarMazoActual() {
+   // PROPÓSITO: saca todas las cartas que están a continuación, 
+   //            a partir de la posición actual yendo al Este y luego al Sur
    movióDeMás := False
    while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayCartaEspañolaDestapada()) {
     AuxSacarCartaEspañolaActual()
@@ -2010,6 +2013,19 @@ procedure AuxSacarMazo() {
     movióDeMás := True
   }
   if (aux_hayCartaEspañolaDestapada())     { AuxSacarCartaEspañolaActual()         }
+  if (movióDeMás) /* Retrocede un lugar */ { AuxAvanzarRecorridoGral(Oeste, Norte) }
+}
+
+procedure AuxDarVueltaElMazoActual() {
+   // PROPÓSITO: da vuelta todas las cartas destapadas que están a continuación, 
+   //            a partir de la posición actual yendo al Este y luego al Sur
+   movióDeMás := False
+   while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayCartaEspañola()) {
+    AuxDarVueltaLaCartaEspañolaActual()
+    AuxAvanzarRecorridoGral(Este, Sur)
+    movióDeMás := True
+  }
+  if (aux_hayCartaEspañola())              { AuxDarVueltaLaCartaEspañolaActual()   }
   if (movióDeMás) /* Retrocede un lugar */ { AuxAvanzarRecorridoGral(Oeste, Norte) }
 }
 

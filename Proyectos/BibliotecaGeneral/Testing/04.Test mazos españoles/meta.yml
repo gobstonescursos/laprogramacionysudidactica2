@@ -87,7 +87,8 @@ blocks:
         <block type="mazoActual"></block>
         <block type="mazoTapado"></block>
         <block type="PonerMazo_"></block>
-        <block type="SacarMazo"></block>
+        <block type="SacarMazoActual"></block>
+        <block type="DarVueltaElMazoActual"></block>
         <block type="quedanCartas_"></block>
         <block type="cantidadDeCartasDelMazo_"></block>
         <block type="dameLaPrimeraCartaDe_"></block>
