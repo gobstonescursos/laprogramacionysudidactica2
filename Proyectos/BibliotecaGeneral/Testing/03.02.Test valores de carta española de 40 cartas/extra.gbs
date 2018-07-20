@@ -82,9 +82,9 @@ function dameLaCartaMásChicaDe_(mazo)  { return(aux_dameLaCartaMásChica(mazo))
 //---------------------------------------------------------------------------------------------------/
 /*------------------ Operaciones de manipulación de un mazo español (interfaz) ----------------------/
 /---------------------------------------------------------------------------------------------------*/
-function  leerMazo()       { return (aux_leerMazo()) }
-procedure PonerMazo_(mazo) { AuxPonerMazo(mazo)      }
-procedure SacarMazo()      { AuxSacarMazo()          }
+function  mazoActual()     { return (aux_mazoActual()) }
+procedure PonerMazo_(mazo) { AuxPonerMazo(mazo)        }
+procedure SacarMazo()      { AuxSacarMazo()            }
 
 /*==================================================================================================*/
 /*--------------------------- FIN INTERFAZ de 04-MazosEspañoles-Base.gbs ---------------------------*/
@@ -170,18 +170,18 @@ function aux_dameLaCartaMásChica(mazo)  {
 //---------------------------------------------------------------------------------------------------/
 /*--------------------------- Operaciones de E/S de mazos españoles ---------------------------------/
 /---------------------------------------------------------------------------------------------------*/
-function aux_leerMazo() {
+function aux_mazoActual() {
    // PROPÓSITO: lee todas las cartas que están a continuación, a partir de la posición actual
    //            yendo al Este y luego al Sur
    cartasLeídas   := []
    cantidadLeídas := 0
    while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayCartaEspañolaDestapada()) {
-      cartasLeídas   := cartasLeídas ++ [ aux_leerCartaEspañola() ]
+      cartasLeídas   := cartasLeídas ++ [ aux_cartaEspañolaActual() ]
       cantidadLeídas := cantidadLeídas + 1
       AuxAvanzarRecorridoGral(Este, Sur)
    }
    if (aux_hayCartaEspañolaDestapada()) { 
-    cartasLeídas   := cartasLeídas ++ [ aux_leerCartaEspañola() ]
+    cartasLeídas   := cartasLeídas ++ [ aux_cartaEspañolaActual() ]
     cantidadLeídas := cantidadLeídas + 1
   }
 
@@ -370,7 +370,7 @@ function hayCartaTapada()    { return(aux_hayCartaEspañola() && aux_laCartaEspa
 //---------------------------------------------------------------------------------------------------/
 /*------------------------ Operaciones de E/S de cartas españolas (interfaz) ------------------------/
 /---------------------------------------------------------------------------------------------------*/
-function  leerCarta()                 { return(aux_leerCartaEspañola())       }
+function  cartaActual()               { return(aux_cartaEspañolaActual())     }
 procedure PonerCarta_(carta)          { AuxPonerCartaEspañolaDestapada(carta) }
 procedure SacarCartaActual()          { AuxSacarCartaEspañolaActual()         }
 
@@ -588,7 +588,7 @@ function aux_hayCartaEspañolaDestapada() {
 //---------------------------------------------------------------------------------------------------/
 /*-------------------------- Operaciones de E/S de cartas españolas ---------------------------------/
 /---------------------------------------------------------------------------------------------------*/
-function aux_leerCartaEspañola() {
+function aux_cartaEspañolaActual() {
   // PRECONDICIÓN: hay una carta destapada en la celda actual
   if (not aux_hayCartaEspañola())      { BOOM("No hay una carta española que pueda leer") }
   if (aux_laCartaEspañolaEstáTapada()) { BOOM("No puedo leer una carta española tapada")  }

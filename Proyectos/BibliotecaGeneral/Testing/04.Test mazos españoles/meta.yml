@@ -60,7 +60,7 @@ blocks:
         <block type="dameCarta__"></block>
         <block type="minCarta"></block>
         <block type="maxCarta"></block>
-        <block type="leerCarta"></block>
+        <block type="cartaActual"></block>
         <block type="PonerCarta_"></block>
         <block type="SacarCartaActual"></block>
         <block type="DarVueltaLaCartaActual"></block>
@@ -83,7 +83,7 @@ blocks:
         <block type="agregarAlPrincipioDelMazo__"></block>
         <block type="juntarMazos__"></block>
         <block type="mazoEspañol"></block>
-        <block type="leerMazo"></block>
+        <block type="mazoActual"></block>
         <block type="PonerMazo_"></block>
         <block type="SacarMazo"></block>
         <block type="quedanCartas_"></block>

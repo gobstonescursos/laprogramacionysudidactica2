@@ -82,9 +82,9 @@ function dameLaCartaMásChicaDe_(mazo)  { return(aux_dameLaCartaMásChica(mazo))
 //---------------------------------------------------------------------------------------------------/
 /*------------------ Operaciones de manipulación de un mazo español (interfaz) ----------------------/
 /---------------------------------------------------------------------------------------------------*/
-function  leerMazo()       { return (aux_leerMazo()) }
-procedure PonerMazo_(mazo) { AuxPonerMazo(mazo)      }
-procedure SacarMazo()      { AuxSacarMazo()          }
+function  mazoActual()     { return (aux_mazoActual()) }
+procedure PonerMazo_(mazo) { AuxPonerMazo(mazo)        }
+procedure SacarMazo()      { AuxSacarMazo()            }
 
 /*==================================================================================================*/
 /*--------------------------- FIN INTERFAZ de 04-MazosEspañoles-Base.gbs ---------------------------*/
@@ -170,7 +170,7 @@ function aux_dameLaCartaMásChica(mazo)  {
 //---------------------------------------------------------------------------------------------------/
 /*--------------------------- Operaciones de E/S de mazos españoles ---------------------------------/
 /---------------------------------------------------------------------------------------------------*/
-function aux_leerMazo() {
+function aux_mazoActual() {
    // PROPÓSITO: lee todas las cartas que están a continuación, a partir de la posición actual
    //            yendo al Este y luego al Sur
    cartasLeídas   := []

@@ -78,7 +78,7 @@ procedure TestLeerMazoYMazoVacíoYAgregarAlPrincipio() {
   PonerMazo_(invertir(mazoDeEjemplo1()))
   IrAlOrigen()
   PasarASiguientePosición()
-  mazoActual := leerMazo()
+  mazoActual := mazoActual()
   repeat(cantidadDeCartasDelMazo_(mazoActual) - 1) {
     PasarASiguientePosición()
   }
@@ -132,7 +132,7 @@ procedure TestJuntarMazosYAgregarAlFinal() {
   repeat(cantidadDeCartasDelMazo_(mazoDeEjemplo1())) {
     PasarASiguientePosición()
   }
-  mazoActual := leerMazo()
+  mazoActual := mazoActual()
   repeat(cantidadDeCartasDelMazo_(mazoActual) - 1) {
     PasarASiguientePosición()
   }

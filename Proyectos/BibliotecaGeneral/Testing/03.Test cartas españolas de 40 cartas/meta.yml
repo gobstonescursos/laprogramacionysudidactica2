@@ -60,7 +60,7 @@ blocks:
         <block type="dameCarta__"></block>
         <block type="minCarta"></block>
         <block type="maxCarta"></block>
-        <block type="leerCarta"></block>
+        <block type="cartaActual"></block>
         <block type="PonerCarta_"></block>
         <block type="SacarCartaActual"></block>
         <block type="DarVueltaLaCartaActual"></block>

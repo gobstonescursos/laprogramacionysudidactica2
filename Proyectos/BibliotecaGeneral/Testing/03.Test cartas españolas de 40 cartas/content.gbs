@@ -135,7 +135,7 @@ procedure TestHayCartaTapada() {
 
 procedure TestLeerCarta() {
   PonerCarta_(dameCarta__(armarValor_(2), copas()))
-  Assert(copas() == dameElPalo_(leerCarta()) && armarValor_(2) == dameElValor_(leerCarta()))
+  Assert(copas() == dameElPalo_(cartaActual()) && armarValor_(2) == dameElValor_(cartaActual()))
 }
 
 procedure TestEsCartaMenorQue() {
