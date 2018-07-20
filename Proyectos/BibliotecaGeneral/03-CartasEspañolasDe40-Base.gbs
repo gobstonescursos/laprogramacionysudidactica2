@@ -58,7 +58,8 @@ function hayCartaTapada()    { return(aux_hayCartaEspañola() && aux_laCartaEspa
 //---------------------------------------------------------------------------------------------------/
 /*------------------------ Operaciones de E/S de cartas españolas (interfaz) ------------------------/
 /---------------------------------------------------------------------------------------------------*/
-function  leerCarta()                 { return(aux_leerCartaEspañola())       }
+function  cartaActual()               { return(aux_cartaEspañolaActual())     }
+function  cartaTapada()               { return(aux_cartaEspañolaTapada())     }
 procedure PonerCarta_(carta)          { AuxPonerCartaEspañolaDestapada(carta) }
 procedure SacarCartaActual()          { AuxSacarCartaEspañolaActual()         }
 
@@ -268,6 +269,11 @@ function aux_laCartaEspañolaEstáTapadaConBoom() {
   return(aux_laCartaEspañolaEstáTapada())    
 }
 
+function aux_hayCartaEspañolaTapada() { 
+  return (aux_hayCartaEspañola()           
+       && aux_laCartaEspañolaEstáTapada())
+}
+
 function aux_hayCartaEspañolaDestapada() { 
   return (aux_hayCartaEspañola()           
        && not aux_laCartaEspañolaEstáTapada())
@@ -276,10 +282,17 @@ function aux_hayCartaEspañolaDestapada() {
 //---------------------------------------------------------------------------------------------------/
 /*-------------------------- Operaciones de E/S de cartas españolas ---------------------------------/
 /---------------------------------------------------------------------------------------------------*/
-function aux_leerCartaEspañola() {
+function aux_cartaEspañolaActual() {
   // PRECONDICIÓN: hay una carta destapada en la celda actual
   if (not aux_hayCartaEspañola())      { BOOM("No hay una carta española que pueda leer") }
   if (aux_laCartaEspañolaEstáTapada()) { BOOM("No puedo leer una carta española tapada")  }
+  return(aux_cartaEspañolaParaElCódigo(aux_leerDato()))
+}         
+
+function aux_cartaEspañolaTapada() {
+  // PRECONDICIÓN: hay una carta tapada en la celda actual
+  if (not aux_hayCartaEspañola())          { BOOM("No hay una carta española que pueda leer") }
+  if (not aux_laCartaEspañolaEstáTapada()) { BOOM("Con esta operación solo puedo leer cartas tapadas")  }
   return(aux_cartaEspañolaParaElCódigo(aux_leerDato()))
 }         
 
@@ -458,7 +471,6 @@ procedure AuxIluminarLaCartaEspañolaActual() {
   */
    if (aux_hayCartaEspañolaDestapadaSinIluminar()) { AuxPonerAtributoIluminación() } 
  }
- 
 /*==================================================================================================*/
 /*----------------------- FIN AUXILIARES de 03-CartasEspañolasDe40-Base.gbs ------------------------*/
 /*==================================================================================================*/
