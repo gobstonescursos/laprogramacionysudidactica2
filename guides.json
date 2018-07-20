@@ -79,16 +79,12 @@
       }
     ]
   }
-, { "name": "7.Variables y acumuladores", "repo": "gobstones/laprogramacionysudidactica2"
+, { "name": "7-8.Variables y acumuladores", "repo": "gobstones/laprogramacionysudidactica2"
   , "exercises":
     [ { "id": "7.1", "name": "Comunicación en 3 partes"
       , "path": "Proyectos/7.Variables y acumuladores/7.1.Comunicación en 3 partes"
       }
-    ]
-  }
-, { "name": "8.Variables y acumuladores 2", "repo": "gobstones/laprogramacionysudidactica2"
-  , "exercises":
-    [ { "id": "8.1", "name": "El mono cuenta las frutas"
+    , { "id": "8.1", "name": "El mono cuenta las frutas"
       , "path": "Proyectos/8.Variables y acumuladores 2/8.1.El mono cuenta las frutas"
       }
 	, { "id": "8.2", "name": "El mono cuenta de nuevo"
