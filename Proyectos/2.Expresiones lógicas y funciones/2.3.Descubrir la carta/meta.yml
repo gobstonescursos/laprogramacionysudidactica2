@@ -6,14 +6,13 @@ attire:
 blocks:
   defaultToolbox: |
     <category name="Operaciones específicas">
-        <block type="DecirElPalo_"></block>
-        <block type="DecirElValor_"></block>
-        <block type="Arriesgar"></block>
-    </category>
-    <category name="Operaciones de Cartas">
         <block type="cartaTapada"></block>
+        <block type="palo_"></block>
         <block type="dameElPalo_"></block>
+        <block type="DecirPalo_"></block>
+        <block type="valorDeCartaEspañolaDe40_"></block>
         <block type="dameElValor_"></block>
+        <block type="DecirNúmero_"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Definiciones">

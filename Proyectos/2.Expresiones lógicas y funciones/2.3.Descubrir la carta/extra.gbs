@@ -2118,27 +2118,23 @@ function aux_armarRepresentaciónDeCartasDeMazoEspañolCompletoDe(palo) {
 /*==================================================================================================*/
 /*--------------------------- OPERACIONES ESPECÍFICAS DE LA ACTIVIDAD ------------------------------*/
 /*==================================================================================================*/
-procedure DecirElPalo_(palo) {
+procedure DecirPalo_(palo) {
   if (not aux_hayCartaEspañolaTapada()) { BOOM("No hay carta para adivinar") }
   Mover(Sur)
-  if (not aux_hayNúmero()) { BOOM("Primero deberías arriesgar el valor") }
+  if (not aux_hayNúmero()) { BOOM("Primero deberías decir el número del valor de la carta") }
   AuxIrAPosiciónLibre()
   AuxPasarASiguientePosición()
   AuxDecirElPalo(palo)
   Mover(Norte)
   IrAlBorde(Oeste)
+  AuxDarVueltaLaCartaEspañolaActual()
 }
 
-procedure DecirElValor_(valor) {
+procedure DecirNúmero_(valor) {
   if (not aux_hayCartaEspañolaTapada()) { BOOM("No hay carta para adivinar") }
   Mover(Sur)
   AuxDecirElValor(valor)
   Mover(Norte)
-}
-
-procedure Arriesgar() {
-  if (not aux_hayCartaEspañolaTapada()) { BOOM("No hay carta para adivinar") }
-  AuxDarVueltaLaCartaEspañolaActual()
 }
 
 procedure AuxIrAPosiciónLibre() {

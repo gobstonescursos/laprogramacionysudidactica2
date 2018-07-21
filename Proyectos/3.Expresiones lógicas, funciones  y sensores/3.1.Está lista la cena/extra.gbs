@@ -1,22 +1,22 @@
 /*----------------------------------------------------------------------------------------*/
 /*---------------- INTERFAZ --------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------*/
-procedure AvisarQueTodavíaNo()          { AuxAvisarQueTodavíaNo()                   } 
+procedure AvisarQueTodavíaFalta()       { AuxAvisarQueTodavíaFalta()                } 
 procedure AvisarQueVengan()             { AuxAvisarQueVengan()                      }          
 
 function  estáLaHamburguesaEnLaMesa()   { return(aux_estáLaHamburguesaEnLaMesa())   }
 function  estánLasPapasFritasEnLaMesa() { return(aux_estánLasPapasFritasEnLaMesa()) }
 function  estáLaTortaEnLaMesa()         { return(aux_estáLaTortaEnLaMesa())         }
 function  estáElBifeEnLaMesa()          { return(aux_estáElBifeEnLaMesa())          }
-function  estáLaEnsaladaEnLaMesa()      { return(aux_estáElBifeEnLaMesa())          }
+function  estáLaEnsaladaEnLaMesa()      { return(aux_estáLaEnsaladaEnLaMesa())      }
 function  estáLaFrutaEnLaMesa()         { return(aux_estáElDuraznoEnLaMesa())       }
-function  estáElCaféEnLaMesa()          { return(aux_estáElDuraznoEnLaMesa())       }
+function  estáElCaféEnLaMesa()          { return(aux_estáElCaféEnLaMesa())          }
 
 /*----------------------------------------------------------------------------------------*/
 /*---------------- OPERACIONES AUXILIARES ------------------------------------------------*/
 /*----------------------------------------------------------------------------------------*/
-procedure AuxAvisarQueTodavíaNo() { Poner(aux_prohibido()) }
-procedure AuxAvisarQueVengan()    { Poner(aux_permitido()) }
+procedure AuxAvisarQueTodavíaFalta()  { Poner(aux_prohibido()) }
+procedure AuxAvisarQueVengan()        { Poner(aux_permitido()) }
 
 function  aux_prohibido() { return(Rojo)  }
 function  aux_permitido() { return(Verde) }
