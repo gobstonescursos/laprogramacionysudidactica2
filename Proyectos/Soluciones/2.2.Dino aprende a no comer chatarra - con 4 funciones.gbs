@@ -1,0 +1,28 @@
+program { HacerQueDinoSeComaSuCena() }
+
+procedure HacerQueDinoSeComaSuCena() {
+  repeat(5) {
+    ComerComidaDe1FilaYVolver()
+    CambiarADinoDeFila()
+  }
+  ComerComidaDe1FilaYVolver()
+}
+
+function hayComida()         { return (hayComidaChatarra() || hayComidaSana()) }
+function hayComidaChatarra() { return (hayHamburguesa()    || hayTorta())      }
+function hayComidaSana()     { return (hayBife()           || hayDurazno())    }
+
+procedure ComerComidaDe1FilaYVolver() {
+  IrHastaLaComida()
+  ComerLaComidaCorrespondiente()
+  VolverAlInicioDeLaFila()
+}
+
+procedure ComerLaComidaCorrespondiente() {
+  if (hayBife())           { ComerElBife()       }
+  if (hayDurazno())        { ComerElDurazno()    }
+  if (hayComidaChatarra()) { RechazarLaComida()  }
+}
+
+procedure IrHastaLaComida()        { while (not (hayComida()))                  { MoverADinoAl_(Este)  } }
+procedure VolverAlInicioDeLaFila() { while (not (estáDinoEnElInicioDeLaFila())) { MoverADinoAl_(Oeste) } }

@@ -1,0 +1,19 @@
+program { ContestarLaJugada() }
+
+procedure ContestarLaJugada() {
+  if (el3DeOrosPierde()) {
+    Mover__Veces(Sur, 1)
+    PonerCarta_(dameCarta__(valorDeCartaEspañolaDe40_(1), palo_(Bastos)))
+  } else {
+    Mover__Veces(Sur, 1)
+    PonerCarta_(dameCarta__(valorDeCartaEspañolaDe40_(3), palo_(Oros)))
+  }
+}
+
+function el3DeOrosPierde() { return (esUn3() || (esEl7DeEspadas() || esEl7DeOros())) }
+
+function esEl7DeEspadas() { return (cartaActual() == dameCarta__(valorDeCartaEspañolaDe40_(7), palo_(Espadas))) }
+function esEl7DeOros()    { return (cartaActual() == dameCarta__(valorDeCartaEspañolaDe40_(7), palo_(Oros)))    }
+function esUn3()          { return (dameElValor_(cartaActual()) == valorDeCartaEspañolaDe40_(3))                }
+
+
