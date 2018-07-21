@@ -1,5 +1,5 @@
 attire:
-  active: 'Cartas, letras, números'
+  active: Cartas, letras y números
   user_permissions:
     can_toggle_visibility: false
   visible: true
@@ -47,8 +47,6 @@ blocks:
     <category name="Definiciones">
         <block type="procedures_defnoreturn"></block>
         <block type="procedures_defreturnsimplewithparams"></block>
-        <block type="ComandoCompletar"></block>
-        <block type="ExpresionCompletar"></block>
         </category>
 board:
   active: 1
