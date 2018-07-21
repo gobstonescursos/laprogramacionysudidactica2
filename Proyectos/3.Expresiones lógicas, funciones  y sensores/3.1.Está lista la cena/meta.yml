@@ -1,7 +1,7 @@
 attire:
   active: Una cena
   user_permissions:
-    can_toggle_visibility: true
+    can_toggle_visibility: false
   visible: true
 blocks:
   defaultToolbox: | 
@@ -36,8 +36,12 @@ board:
   active: 1
   initial_board_source: random
   user_permissions:
+    can_change_initial_board: true
+    can_change_initial_board_source: true
     can_change_source: false
     can_edit_board: false
+    can_view_size_section: false
+    can_view_attire_section: true
   visible_edition: true
 execution_speed:
   active: high
