@@ -1,0 +1,33 @@
+procedure MoverANanoALaDerecha()
+{ 
+  AuxSacarNano() 
+  Mover(Este) 
+  AuxPonerNano()
+}
+
+procedure MoverANanoHaciaArriba()
+{ 
+  AuxSacarNano()
+  Mover(Norte) 
+  AuxPonerNano()
+}
+
+procedure VolverANanoAlBordeIzquierdo()
+{ 
+  AuxSacarNano()
+  IrAlBorde(Oeste) 
+  AuxPonerNano()
+}
+
+procedure ComerBanana()
+{
+  AuxSacarNano()
+  Sacar(Verde)
+  AuxPonerNano()
+}
+
+procedure AuxSacarNano()
+{ Sacar(Negro) }
+
+procedure AuxPonerNano()
+{ Poner(Negro) }
