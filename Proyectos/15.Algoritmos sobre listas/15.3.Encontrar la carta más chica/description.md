@@ -10,3 +10,4 @@ Escribir una de las piezas de software del sorting anterior
 [Enunciado en PDF][PDF]
 
 [PDF]: 
+https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/

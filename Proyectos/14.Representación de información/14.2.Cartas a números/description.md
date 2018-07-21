@@ -11,3 +11,4 @@ Entender cómo se puede armar una codificación
 [Enunciado en PDF][PDF]
 
 [PDF]: 
+https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/

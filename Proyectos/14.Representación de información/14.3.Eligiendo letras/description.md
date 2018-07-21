@@ -11,3 +11,4 @@ Transformar la información a representación y de vuelta; componer piezas de so
 [Enunciado en PDF][PDF]
 
 [PDF]: 
+https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/

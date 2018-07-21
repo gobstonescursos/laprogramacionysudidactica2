@@ -11,3 +11,4 @@ Escribir una de las piezas de software del punto anterior
 [Enunciado en PDF][PDF]
 
 [PDF]: 
+https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/

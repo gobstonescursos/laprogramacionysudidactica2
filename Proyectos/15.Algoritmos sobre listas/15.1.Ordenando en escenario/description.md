@@ -10,3 +10,4 @@ Ver el algoritmo de ordenamiento en acción sobre el escenario
 [Enunciado en PDF][PDF]
 
 [PDF]: 
+https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/
