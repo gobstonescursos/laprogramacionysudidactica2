@@ -6,7 +6,6 @@ attire:
 blocks:
   defaultToolbox: | 
     <category name="Comandos básicos">
-        <block type="Mover__Veces"></block>
         <block type="AlternativaCompleta"></block>
     </category>
     <category name="Expresiones básicas">
@@ -21,7 +20,7 @@ blocks:
         <block type="valorDeCartaEspañolaDe40_"></block>
         <block type="dameCarta__"></block>
         <block type="PonerCarta_"></block>
-        <block type="cartaActual"></block>
+        <block type="cartaQueJugóLaComputadora"></block>
         <block type="dameElPalo_"></block>
         <block type="dameElValor_"></block>
     </category>
