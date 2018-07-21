@@ -5,10 +5,22 @@ attire:
   visible: true
 blocks:
   defaultToolbox: | 
-    <category name="Operaciones de Palos y valores">
+    <category name="Comandos básicos">
+        <block type="DecirNúmero_"></block>
+        <block type="AlternativaCompleta"></block>
+    </category>
+    <category name="Expresiones básicas">
+        <block type="math_number"></block>
+        <block type="OperadorNumerico"></block>
+        <block type="OperadorDeComparacion"></block>
+        <block type="OperadorLogico"></block>
+        <block type="not"></block>
+    </category>
+    <category name="Expresiones de cartas">
         <block type="cartaIzquierda"></block>
         <block type="cartaDerecha"></block>
-        <block type="DecirNúmero_"></block>
+        <block type="dameElPalo_"></block>
+        <block type="dameElValor_"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">        </category>
