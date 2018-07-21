@@ -6,13 +6,9 @@ attire:
 blocks:
   defaultToolbox: | 
     <category name="Operaciones de Palos y valores">
-        <block type="palo_"></block>
-        <block type="valorDeCartaEspañolaDe40_"></block>
-        <block type="dameCarta__"></block>
-        <block type="PonerCarta_"></block>
-        <block type="cartaActual"></block>
-        <block type="dameElPalo_"></block>
-        <block type="dameElValor_"></block>
+        <block type="cartaIzquierda"></block>
+        <block type="cartaDerecha"></block>
+        <block type="DecirNúmero_"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">        </category>
