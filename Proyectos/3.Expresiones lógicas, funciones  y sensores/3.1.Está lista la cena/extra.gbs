@@ -1,16 +1,16 @@
 /*----------------------------------------------------------------------------------------*/
 /*---------------- INTERFAZ --------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------*/
-procedure AvisarQueTodavíaNo()          { return AuxAvisarQueTodavíaNo()            } 
-procedure AvisarQueVengan()             { return AuxAvisarQueVengan()               }          
+procedure AvisarQueTodavíaNo()          { AuxAvisarQueTodavíaNo()                   } 
+procedure AvisarQueVengan()             { AuxAvisarQueVengan()                      }          
 
-function  estáListaLaHamburguesa()      { return(aux_estáLaHamburguesaEnLaMesa())   }
-function  estánListasLasPapasFritas()   { return(aux_estánLasPapasFritasEnLaMesa()) }
-function  estáListaLaTorta()            { return(aux_estáLaTortaEnLaCeldaMesa())    }
-function  estáListoElBife()             { return(aux_estáElBifeEnLaCeldaMesa())     }
-function  estáListaLaEnsalada()         { return(aux_estáElBifeEnLaCeldaMesa())     }
-function  estáListaLaFruta()            { return(aux_estáElDuraznoEnLaCeldaMesa())  }
-function  estáListoElCafé()             { return(aux_estáElDuraznoEnLaCeldaMesa())  }
+function  estáLaHamburguesaEnLaMesa()   { return(aux_estáLaHamburguesaEnLaMesa())   }
+function  estánLasPapasFritasEnLaMesa() { return(aux_estánLasPapasFritasEnLaMesa()) }
+function  estáLaTortaEnLaMesa()         { return(aux_estáLaTortaEnLaMesa())         }
+function  estáElBifeEnLaMesa()          { return(aux_estáElBifeEnLaMesa())          }
+function  estáLaEnsaladaEnLaMesa()      { return(aux_estáElBifeEnLaMesa())          }
+function  estáLaFrutaEnLaMesa()         { return(aux_estáElDuraznoEnLaMesa())       }
+function  estáElCaféEnLaMesa()          { return(aux_estáElDuraznoEnLaMesa())       }
 
 /*----------------------------------------------------------------------------------------*/
 /*---------------- OPERACIONES AUXILIARES ------------------------------------------------*/
@@ -25,18 +25,18 @@ function  aux_comida()    { return(Azul)  }
 function  aux_hamburguesa() { return(11) }
 function  aux_papas()       { return(21) }
 function  aux_torta()       { return(31) }
+function  aux_café()        { return(41) }
 function  aux_bife()        { return(10) }
 function  aux_ensalada()    { return(20) }
 function  aux_fruta()       { return(30) }
-function  aux_café()        { return(40) }
 
-function  aux_estáListaLaHamburguesa()      { return(aux_estáListaLaComida(aux_hamburguesa()) }
-function  aux_estánListasLasPapasFritas()   { return(aux_estáListaLaComida(aux_papas())       }
-function  aux_estáListaLaTorta()            { return(aux_estáListaLaComida(aux_torta())       }
-function  aux_estáListoElBife()             { return(aux_estáListaLaComida(aux_bife())        }
-function  aux_estáListaLaEnsalada()         { return(aux_estáListaLaComida(aux_ensalada())    }
-function  aux_estáListaLaFruta()            { return(aux_estáListaLaComida(aux_fruta())       }
-function  aux_estáListoElCafé()             { return(aux_estáListaLaComida(aux_café())        }
+function  aux_estáLaHamburguesaEnLaMesa()   { return(aux_estáListaLaComida(aux_hamburguesa())) }
+function  aux_estánLasPapasFritasEnLaMesa() { return(aux_estáListaLaComida(aux_papas()))       }
+function  aux_estáLaTortaEnLaMesa()         { return(aux_estáListaLaComida(aux_torta()))       }
+function  aux_estáElBifeEnLaMesa()          { return(aux_estáListaLaComida(aux_bife()))        }
+function  aux_estáLaEnsaladaEnLaMesa()      { return(aux_estáListaLaComida(aux_ensalada()))    }
+function  aux_estáElDuraznoEnLaMesa()       { return(aux_estáListaLaComida(aux_fruta()))       }
+function  aux_estáElCaféEnLaMesa()          { return(aux_estáListaLaComida(aux_café()))        }
 
 function aux_estáListaLaComida(códigoComida) {
     AuxIniciarRecorrido()

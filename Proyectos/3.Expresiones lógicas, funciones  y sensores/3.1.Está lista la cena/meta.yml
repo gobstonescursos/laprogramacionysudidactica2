@@ -1,20 +1,13 @@
 attire:
-  active: La cena de Dino
+  active: Una cena
   user_permissions:
-    can_toggle_visibility: false
+    can_toggle_visibility: true
   visible: true
 blocks:
   defaultToolbox: | 
     <category name="Comandos básicos">
         <block type="AvisarQueTodavíaNo"></block>
         <block type="AvisarQueVengan"></block>
-        <block type="estáListaLaHamburguesa"></block>
-        <block type="estánListasLasPapasFritas"></block>
-        <block type="estáListaLaTorta"></block>
-        <block type="estáListoElBife"></block>
-        <block type="estáListaLaEnsalada"></block>
-        <block type="estáListaLaFruta"></block>
-        <block type="estáListoElCafé"></block>
         <block type="RepeticionSimple"></block>
         <block type="AlternativaSimple"></block>
         <block type="AlternativaCompleta"></block>
@@ -25,11 +18,13 @@ blocks:
         <block type="DireccionSelector"></block>
         <block type="OperadorLogico"></block>
         <block type="not"></block>
-        <block type="estáDinoEnElInicioDeLaFila"></block>
-        <block type="hayHamburguesa"></block>
-        <block type="hayTorta"></block>
-        <block type="hayBife"></block>
-        <block type="hayDurazno"></block>
+        <block type="estáLaHamburguesaEnLaMesa"></block>
+        <block type="estánLasPapasFritasEnLaMesa"></block>
+        <block type="estáLaTortaEnLaMesa"></block>
+        <block type="estáElBifeEnLaMesa"></block>
+        <block type="estáLaEnsaladaEnLaMesa"></block>
+        <block type="estáLaFrutaEnLaMesa"></block>
+        <block type="estáElCaféEnLaMesa"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">        </category>
@@ -50,4 +45,7 @@ execution_speed:
     can_change_speed: true
 library:
   visible: false
+source:
+  visible: true
+  percentage: 0.85
 name: Está lista la cena
