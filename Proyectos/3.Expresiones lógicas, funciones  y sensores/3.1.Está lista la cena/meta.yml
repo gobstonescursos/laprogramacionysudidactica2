@@ -6,13 +6,15 @@ attire:
 blocks:
   defaultToolbox: | 
     <category name="Comandos básicos">
-        <block type="MoverADinoAl_"></block>
-        <block type="CambiarADinoDeFila"></block>
-        <block type="RechazarLaComida"></block>
-        <block type="ComerLaHamburguesa"></block>
-        <block type="ComerLaTorta"></block>
-        <block type="ComerElBife"></block>
-        <block type="ComerElDurazno"></block>
+        <block type="AvisarQueTodavíaNo"></block>
+        <block type="AvisarQueVengan"></block>
+        <block type="estáListaLaHamburguesa"></block>
+        <block type="estánListasLasPapasFritas"></block>
+        <block type="estáListaLaTorta"></block>
+        <block type="estáListoElBife"></block>
+        <block type="estáListaLaEnsalada"></block>
+        <block type="estáListaLaFruta"></block>
+        <block type="estáListoElCafé"></block>
         <block type="RepeticionSimple"></block>
         <block type="AlternativaSimple"></block>
         <block type="AlternativaCompleta"></block>
