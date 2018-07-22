@@ -1,0 +1,38 @@
+name: El planeta de Nano
+attire:
+  active: El planeta de Nano
+  user_permissions:
+    can_toggle_visibility: false
+  visible: true
+blocks:
+  defaultToolbox: |
+    <category name="Comandos básicos">
+        <block type="MoverANanoALaDerecha"></block>
+        <block type="MoverANanoHaciaArriba"></block>
+        <block type="VolverANanoAlBordeIzquierdo"></block>
+        <block type="ComerBanana"></block>
+        <block type="RepeticionSimple"></block>
+    </category>
+    <category name="Expresiones básicas">
+        <block type="math_number"></block>
+    </category>
+    <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
+    <category name="Definiciones">
+        <block type="procedures_defnoreturn"></block>
+    </category>
+board:
+  active: 1
+  initial_board_source: selected
+  user_permissions:
+    can_change_source: false
+    can_edit_board: false
+  visible_edition: false
+execution_speed:
+  active: high
+  user_permissions:
+    can_change_speed: true
+library:
+  visible: false
+source:
+  visible: true
+  percentage: 0.65  
