@@ -26,7 +26,7 @@ blocks:
 board:
   active: 1
   initial_board_source: random
-  visible_edition: false
+  visible_edition: true
   collapse_toolbox: false
   user_permissions:
     can_view_attire_section: true
