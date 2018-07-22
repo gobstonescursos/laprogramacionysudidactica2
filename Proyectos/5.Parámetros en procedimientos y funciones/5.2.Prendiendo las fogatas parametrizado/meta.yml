@@ -19,7 +19,7 @@ blocks:
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Definiciones">
-        <block type="procedures_defnoreturnnoparams"></block>
+        <block type="procedures_defnoreturn"></block>
     </category>
 board:
   active: 1
