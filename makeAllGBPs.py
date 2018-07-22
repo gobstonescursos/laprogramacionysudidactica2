@@ -26,10 +26,12 @@ class GBPGenerator:
         return os.path.join(self.gbpsPath(),os.path.split(projectPath)[1] + '-' +  strftime("%Y%m%d%H%M%S", localtime()) + '.gbp')
 
     def deleteAll(self):
-        import shutil
         if os.path.exists(self.gbpsPath()):
-            shutil.rmtree(self.gbpsPath())
-        os.makedirs(self.gbpsPath())
+            for item in os.listdir(self.gbpsPath()):
+                if item.endswith(".gbp"):
+                    os.remove(os.path.join(self.gbpsPath(), item))
+        else:
+            os.makedirs(self.gbpsPath())
 
     def gbpsPath(self):
         return os.path.join("Proyectos","ArchivosDeProyectos")
