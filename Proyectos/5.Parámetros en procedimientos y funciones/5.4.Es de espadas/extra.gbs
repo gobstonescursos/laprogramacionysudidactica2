@@ -2121,35 +2121,24 @@ function aux_armarRepresentaciónDeCartasDeMazoEspañolCompletoDe(palo) {
 procedure DecirQueTengoFlor()   { AuxDecirSíONoTengoFlor(True)  }
 procedure DecirQueNoTengoFlor() { AuxDecirSíONoTengoFlor(False) }
 
-function segundaCarta() { return(aux_segundaCarta()) }
-function terceraCarta() { return(aux_terceraCarta()) }
+function segundaCarta() { return(aux_cartaNro(2)) }
+function terceraCarta() { return(aux_cartaNro(3)) }
 
-function aux_segundaCarta() { 
-    IrAlBorde(Norte)
-    IrAlBorde(Oeste)
-    Mover(Este)
+function aux_cartaNro(i) { 
+    IrAlBorde(Norte) IrAlBorde(Oeste)
+    Mover__Veces(Este, i-1)
     return(aux_cartaEspañolaTapada()) 
-}
-
-function aux_terceraCarta() { 
-    IrAlBorde(Norte)
-    IrAlBorde(Oeste)
-    Mover(Este)
-    Mover(Este)
-    return(aux_cartaEspañolaTapada())  
 }
 
 procedure AuxDecirSíONoTengoFlor(sí) {
   IrAlBorde(Norte) IrAlBorde(Oeste)
   if (not aux_hayCartaEspañolaDestapada()) { BOOM("No estoy sobre la mano a verificar") }
   carta1 := aux_cartaEspañolaActual()
-  carta2 := aux_segundaCarta()
-  carta3 := aux_terceraCarta()
   Mover(Sur)
   if (not aux_laCeldaEstáVacía()) { BOOM("No debería haber nada debajo de la mano") }
   if (sí) then {                               AuxDecir([T,E,N,G,O]) AuxEspaciar() AuxDecir([F,L,O,R]) }
           else { AuxDecir([N,O]) AuxEspaciar() AuxDecir([T,E,N,G,O]) AuxEspaciar() AuxDecir([F,L,O,R]) }
-  AuxValidarCartas(carta1,carta2,carta3)
+  AuxValidarCartas(carta1,aux_cartaNro(2),aux_cartaNro(3))
   AuxRevelarLasCartas()
 }
 
