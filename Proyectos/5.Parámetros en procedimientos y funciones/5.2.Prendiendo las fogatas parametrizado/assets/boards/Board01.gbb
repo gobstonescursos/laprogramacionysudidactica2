@@ -1,5 +1,6 @@
 GBB/1.0
 size 10 10
+cell 1 8 Negro 1
 cell 0 0 Rojo 1
 cell 1 0 Rojo 1
 cell 2 0 Rojo 1
@@ -79,7 +80,6 @@ cell 7 7 Rojo 1
 cell 8 7 Azul 1
 cell 9 7 Rojo 1
 cell 0 8 Rojo 1
-cell 1 8 Negro 1
 cell 2 8 Azul 1
 cell 3 8 Azul 1
 cell 4 8 Azul 1
@@ -97,4 +97,4 @@ cell 6 9 Rojo 1
 cell 7 9 Rojo 1
 cell 8 9 Rojo 1
 cell 9 9 Rojo 1
-head 1 7
+head 1 8

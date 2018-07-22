@@ -1,3 +1,4 @@
+name: Prendiendo las fogatas parametrizado
 attire:
   active: Prendiendo las fogatas
   user_permissions:
@@ -6,9 +7,10 @@ attire:
 blocks:
   defaultToolbox: |
     <category name="Comandos básicos">
-        <block type="MoverAExploradorAl_"></block>
+        <block type="MoverAlExploradorAl_"></block>
         <block type="PrenderFogata"></block>
         <block type="RepeticionSimple"></block>
+        <block type="AlternativaSimple"></block>
     </category>
     <category name="Expresiones básicas">
         <block type="math_number"></block>
@@ -21,7 +23,7 @@ blocks:
     </category>
 board:
   active: 1
-  initial_board_source: selected
+  initial_board_source: random
   user_permissions:
     can_change_source: false
     can_edit_board: false
@@ -35,4 +37,3 @@ library:
 source:
   visible: true
   percentage: 0.65  
-name: Prendiendo las fogatas parametrizado
