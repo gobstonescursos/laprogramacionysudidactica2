@@ -1,20 +1,16 @@
 name: Descubrir la carta
 attire:
-  active: Cartas, letras y numeros
+  active: 'Cartas, letras y números'
   user_permissions:
     can_toggle_visibility: true
   visible: true
 blocks:
   defaultToolbox: |
-    <category name="Comandos de palos y valores">
+    <category name="Operaciones de cartas">
         <block type="DecirPalo_"></block>
         <block type="DecirNúmero_"></block>
-    </category>
-    <category name="Expresiones de palos y valores">
         <block type="palo_"></block>
         <block type="valorDeCartaEspañolaDe40_"></block>
-    </category>
-    <category name="Expresiones de cartas">
         <block type="cartaTapada"></block>
         <block type="dameElPalo_"></block>
         <block type="dameElValor_"></block>
