@@ -1,7 +1,8 @@
+name: Descubrir la carta
 attire:
   active: Cartas, letras y numeros
   user_permissions:
-    can_toggle_visibility: false
+    can_toggle_visibility: true
   visible: true
 blocks:
   defaultToolbox: |
@@ -25,10 +26,14 @@ blocks:
 board:
   active: 1
   initial_board_source: random
-  user_permissions:
-    can_change_source: false
-    can_edit_board: false
   visible_edition: false
+  collapse_toolbox: false
+  user_permissions:
+    can_view_attire_section: true
+    can_edit_board: false
+    can_change_initial_board: false
+    can_change_initial_board_source: false
+    can_view_size_section: false
 execution_speed:
   active: high
   user_permissions:
@@ -38,4 +43,3 @@ library:
 source:
   visible: true
   percentage: 0.65  
-name: Descubrir la carta
