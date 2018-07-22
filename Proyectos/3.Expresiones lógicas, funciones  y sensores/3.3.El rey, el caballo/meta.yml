@@ -1,36 +1,36 @@
+name: El rey, el caballo, ...
 attire:
-  active: El rey, el caballo, ...
+  active: 'Cartas, letras y números'
   user_permissions:
     can_toggle_visibility: false
   visible: true
 blocks:
-  disabled:
-  visible:
-    - Procedimientos primitivos
-    - Mis procedimientos
-    - RepeticionSimple
-    - RepeticionCondicional
-    - AlternativaSimple
-    - AlternativaCompleta
-    - Asignacion
-    - Mis funciones
-    - Numero
-    - OperadorDeComparacion
-    - OperadorLogico
-    - DefinicionDeProcedimientoParametrizado
-    - DefinicionDeFuncionSimpleParametrizada
-  primitiveProcedures: |
-    <category name="Operaciones de cartas">
-      <block type="DarVueltaLaCartaActual"></block>
-      <block type="PasarALaSiguientePosición"></block>
+  defaultToolbox: |
+    <category name="Comandos básicos">
+        <block type="PasarASiguientePosición"></block>
+        <block type="RepeticionSimple"></block>
     </category>
-  primitiveFunctions: |
-    <category name="Armado de cartas">
-      <block type="leerCarta" ></block>
+    <category name="Expresiones básicas">
+        <block type="math_number"></block>
+        <block type="OperadorDeComparacion"></block>
+        <block type="OperadorLogico"></block>
+        <block type="not"></block>
     </category>
-    <category name="Mirar las cartas">
-      <block type="dameElPalo_"></block>
-      <block type="dameElValor_"></block>
+    <category name="Expresiones de Palos`y Valores">
+        <block type="palo_"></block>
+        <block type="valorDeCartaEspañolaDe40_"></block>
+    </category>
+    <category name="Operaciones de Cartas">
+        <block type="cartaActual"></block>
+        <block type="DarVueltaLaCartaActual"></block>
+        <block type="dameElPalo_"></block>
+        <block type="dameElValor_"></block>
+    </category>
+    <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
+    <category name="Mis funciones" custom="FUNCTION_CALLS">  </category>
+    <category name="Definiciones">
+        <block type="procedures_defnoreturn"></block>
+        <block type="procedures_defreturn"></block>
     </category>
 board:
   active: 1
@@ -48,4 +48,3 @@ source:
   percentage: 0.85
 library:
   visible: false
-name: El rey, el caballo, ...

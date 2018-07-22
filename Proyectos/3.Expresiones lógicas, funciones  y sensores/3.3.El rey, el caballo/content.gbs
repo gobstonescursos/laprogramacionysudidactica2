@@ -9,15 +9,25 @@ procedure DarVueltaLasFiguras() {
 
 procedure ProcesarUnaCarta() {
   DarVueltaLaCartaActual()
-  if (not(esFigura(leerCarta()))) {
+  if (not(laCartaActualEsUnaFigura())) {
     DarVueltaLaCartaActual()
   }
 }
 
-function esFigura(carta) { return (...) }
+function laCartaActualEsUnaFigura() {
+  return (...)
+}
 
-function esRey(carta)     { return (...) }
-function esCaballo(carta) { return (...) }
-function esSota(carta)    { return (...) }
+function laCartaActualEsUnRey() {
+  return (...)
+}
+
+function laCartaActualEsUnCaballo() {
+  return (...)
+}
+
+function laCartaActualEsUnaSota() {
+  return (...)
+}
 
 
