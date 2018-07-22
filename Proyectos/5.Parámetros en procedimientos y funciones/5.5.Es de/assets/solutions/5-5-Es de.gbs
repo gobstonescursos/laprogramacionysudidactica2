@@ -11,7 +11,7 @@ function tengoFlor() {
 }
 
 function laCartaEsDeEstePalo(cartaAControlar, paloAControlar) {
-  return (...)
+  return (dameElPalo_(cartaAControlar) == paloAControlar)
 }
 
 

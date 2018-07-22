@@ -22,6 +22,7 @@ blocks:
     <category name="Operaciones de cartas">
         <block type="palo_"></block>
         <block type="valorDeCartaEspañolaDe40_"></block>
+        <block type="primeraCarta"></block>
         <block type="segundaCarta"></block>
         <block type="terceraCarta"></block>
         <block type="dameElPalo_"></block>

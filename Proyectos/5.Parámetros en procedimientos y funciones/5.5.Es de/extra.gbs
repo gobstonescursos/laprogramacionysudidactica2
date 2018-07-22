@@ -2118,47 +2118,34 @@ function aux_armarRepresentaciónDeCartasDeMazoEspañolCompletoDe(palo) {
 /*==================================================================================================*/
 /*--------------------------- OPERACIONES ESPECÍFICAS DE LA ACTIVIDAD ------------------------------*/
 /*==================================================================================================*/
-procedure DecirPalo_(palo) {
-  if (not aux_hayCartaEspañolaTapada()) { BOOM("No hay carta para adivinar") }
-  carta := aux_cartaEspañolaTapada()
+procedure DecirQueTengoFlor()   { AuxDecirSíONoTengoFlor(True)  }
+procedure DecirQueNoTengoFlor() { AuxDecirSíONoTengoFlor(False) }
+
+function primeraCarta() { return(aux_cartaNro(1)) }
+function segundaCarta() { return(aux_cartaNro(2)) }
+function terceraCarta() { return(aux_cartaNro(3)) }
+
+function aux_cartaNro(i) { 
+    IrAlBorde(Norte) IrAlBorde(Oeste)
+    Mover__Veces(Este, i-1)
+    return(aux_cartaEspañolaTapada()) 
+}
+
+procedure AuxDecirSíONoTengoFlor(sí) {
+  IrAlBorde(Norte) IrAlBorde(Oeste)
+  if (not aux_hayCartaEspañolaTapada()) { BOOM("No estoy sobre la mano a verificar") }
   Mover(Sur)
-  if (not aux_hayNúmero()) { BOOM("Primero deberías decir el número del valor de la carta") }
-  valor := aux_númeroActual()
-  AuxIrAPosiciónLibre()
-  AuxPasarASiguientePosición()
-  AuxDecirElPalo(palo)
-  Mover(Norte)
-  IrAlBorde(Oeste)
+  if (not aux_laCeldaEstáVacía()) { BOOM("No debería haber nada debajo de la mano") }
+  if (sí) then {                               AuxDecir([T,E,N,G,O]) AuxEspaciar() AuxDecir([F,L,O,R]) }
+          else { AuxDecir([N,O]) AuxEspaciar() AuxDecir([T,E,N,G,O]) AuxEspaciar() AuxDecir([F,L,O,R]) }
+  AuxValidarCartas(aux_cartaNro(1),aux_cartaNro(2),aux_cartaNro(3))
+  AuxRevelarLasCartas()
+}
+
+procedure AuxRevelarLasCartas() {
+  IrAlBorde(Norte) IrAlBorde(Oeste)
   AuxDarVueltaLaCartaEspañolaActual()
-  AuxValidarCartas(carta, aux_armarCartaEspañola(valor, palo))
-}
-
-procedure DecirNúmero_(valor) {
-  if (not aux_hayCartaEspañolaTapada()) { BOOM("No hay carta para adivinar") }
-  Mover(Sur)
-  AuxDecirElValor(valor)
-  Mover(Norte)
-}
-
-procedure AuxIrAPosiciónLibre() {
-  while (not aux_laCeldaEstáVacía()) {
-    AuxPasarASiguientePosición()
-  }
-}
-
-procedure AuxDecirElValor(valor) {
-   AuxPonerNúmero(valor)
-}
-
-procedure AuxDecirElPalo(palo) {
-  AuxDecir([D,E])
-  AuxEspaciar()
-  switch (palo) to {
-    Bastos  -> { AuxDecir([B,A,S,T,O,S])   }
-    Copas   -> { AuxDecir([C,O,P,A,S])     }
-    Espadas -> { AuxDecir([E,S,P,A,D,A,S]) }
-    Oros    -> { AuxDecir([O,R,O,S])       }
-  }
+  repeat (2) { Mover(Este) AuxDarVueltaLaCartaEspañolaActual() }
 }
 
 procedure AuxDecir(msg) {
@@ -2180,9 +2167,19 @@ function aux_laCeldaEstáVacía() {
        && not hayBolitas(Rojo) && not hayBolitas(Verde))
 }
 
-procedure AuxValidarCartas(cartaOriginal, cartaPropuesta) {
-  Mover(Sur) Mover(Sur)
-  if (cartaOriginal==cartaPropuesta) 
+procedure AuxValidarCartas(carta1, carta2, carta3) {
+  IrAlBorde(Oeste) IrAlBorde(Norte)
+  Mover(Sur) 
+  informóQueHay   := aux_letraActual() == T
+  informóQueNoHay := aux_letraActual() == N
+  Mover(Sur)
+  if ((not aux_hayFlorCon(carta1,carta2,carta3) && informóQueNoHay)
+      ||  (aux_hayFlorCon(carta1,carta2,carta3) && informóQueHay))
        { AuxDecir([M,U,Y,Espacio,B,I,E,N]) } 
   else { AuxDecir([F,A,L,L,A,S,T,E]) }  
+}
+
+function aux_hayFlorCon(carta1,carta2,carta3) {
+  return(aux_dameElPalo(carta1) == aux_dameElPalo(carta2) 
+      && aux_dameElPalo(carta2) == aux_dameElPalo(carta3))
 }
