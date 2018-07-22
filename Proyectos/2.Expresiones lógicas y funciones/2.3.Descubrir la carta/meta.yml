@@ -22,10 +22,10 @@ blocks:
 board:
   active: 1
   initial_board_source: random
-  visible_edition: true
+  visible_edition: false
   collapse_toolbox: false
   user_permissions:
-    can_view_attire_section: true
+    can_view_attire_section: false
     can_edit_board: false
     can_change_initial_board: false
     can_change_initial_board_source: false
