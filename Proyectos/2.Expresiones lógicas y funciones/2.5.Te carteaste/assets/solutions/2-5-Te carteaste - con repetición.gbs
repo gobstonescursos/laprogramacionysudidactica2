@@ -1,0 +1,12 @@
+procedure GenerarManoCarteada() {
+  repeat(2) {
+    PonerCarta_(dameCarta__(valorDeCartaEspañolaDe40_(1), palo_(Espadas)))
+    PasarASiguientePosición()
+  }
+  PonerCarta_(dameCarta__(valorDeCartaEspañolaDe40_(1), palo_(Espadas)))
+}
+
+
+program {
+  GenerarManoCarteada()
+}

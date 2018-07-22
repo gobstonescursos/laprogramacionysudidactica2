@@ -1,7 +1,3 @@
-program {
-  GenerarManoCarteada()
-}
-
 procedure GenerarManoCarteada() {
   PonerCarta_(dameCarta__(valorDeCartaEspañolaDe40_(1), palo_(Espadas)))
   PasarASiguientePosición()
@@ -10,3 +6,7 @@ procedure GenerarManoCarteada() {
   PonerCarta_(dameCarta__(valorDeCartaEspañolaDe40_(1), palo_(Espadas)))
 }
 
+
+program {
+  GenerarManoCarteada()
+}
