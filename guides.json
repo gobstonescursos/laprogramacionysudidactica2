@@ -38,8 +38,8 @@
     , { "id": "3.2", "name": "No te gastes el ancho"
       , "path": "Proyectos/3.Expresiones lógicas, funciones  y sensores/3.2.No te gastes el ancho"
       }
-    , { "id": "3.3", "name": "El Rey, el Caballo..."
-      , "path": "Proyectos/3.Expresiones lógicas, funciones  y sensores/3.3.El rey, el caballo"
+    , { "id": "3.3", "name": "El Rey, el Caballo, …"
+      , "path": "Proyectos/3.Expresiones lógicas, funciones  y sensores/3.3.El rey, el caballo, …"
       }
     , { "id": "3.4", "name": "Calcular el envido"
       , "path": "Proyectos/3.Expresiones lógicas, funciones  y sensores/3.4.Calcular el envido"
@@ -54,24 +54,27 @@
     , { "id": "5.2", "name": "Prendiendo las fogatas parametrizado"
       , "path": "Proyectos/5.Parámetros en procedimientos y funciones/5.2.Prendiendo las fogatas parametrizado"
       }
+    , { "id": "5.3", "name": "El planeta de Nano"
+      , "path": "Proyectos/5.Parámetros en procedimientos y funciones/5.2.El planeta de Nano"
+      }
+	, { "id": "5.4", "name": "Es de espadas"
+      , "path": "Proyectos/5.Parámetros en procedimientos y funciones/5.4.Es de espadas"
+      }
+    , { "id": "5.5", "name": "Es de"
+      , "path": "Proyectos/5.Parámetros en procedimientos y funciones/5.5.Es de"
+      }
 	]
   }
 , { "name": "6.Entrada-Salida", "repo": "gobstones/laprogramacionysudidactica2"
   , "exercises":
-    [ { "id": "6.1", "name": "Es de espadas"
-      , "path": "Proyectos/6.Entrada-Salida/6.1.Es de espadas"
+    [ { "id": "6.1", "name": "Envido con parámetros"
+      , "path": "Proyectos/6.Entrada-Salida/6.1.Envido con parámetros"
       }
-    , { "id": "6.2", "name": "Es de"
-      , "path": "Proyectos/6.Entrada-Salida/6.2.Es de"
+	, { "id": "6.2", "name": "Memotest"
+      , "path": "Proyectos/6.Entrada-Salida/6.2.Memotest"
       }
-	, { "id": "6.3", "name": "Envido con parámetros"
-      , "path": "Proyectos/6.Entrada-Salida/6.3.Envido con parámetros"
-      }
-	, { "id": "6.4", "name": "Memotest"
-      , "path": "Proyectos/6.Entrada-Salida/6.4.Memotest"
-      }
-	, { "id": "6.5", "name": " Son buenas"
-      , "path": "Proyectos/6.Entrada-Salida/6.5. Son buenas"
+	, { "id": "6.3", "name": " Son buenas"
+      , "path": "Proyectos/6.Entrada-Salida/6.3. Son buenas"
       }
     ]
   }
