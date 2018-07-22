@@ -1,4 +1,4 @@
-#Actividad 2.3. El rey, el caballo, ...
+#Actividad 2.3. El rey, el caballo, …
 
 En esta actividad hay comenzado un programa que va mirando las cartas de la mesa, y solo debe dejar descubiertas las figuras. 
 Pero falta escribir las funciones que determinan si una carta es efectivamente o no una figura.
