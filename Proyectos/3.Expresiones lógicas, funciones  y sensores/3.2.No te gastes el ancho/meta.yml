@@ -1,3 +1,4 @@
+name: No te gastes el ancho
 attire:
   active: 'Cartas, letras y números'
   user_permissions:
@@ -9,27 +10,29 @@ blocks:
         <block type="AlternativaCompleta"></block>
     </category>
     <category name="Expresiones básicas">
-        <block type="math_number"></block>
-        <block type="DireccionSelector"></block>
         <block type="OperadorDeComparacion"></block>
         <block type="OperadorLogico"></block>
         <block type="not"></block>
     </category>
-    <category name="Operaciones de Palos y valores">
+    <category name="Expresiones de Palos y valores">
         <block type="palo_"></block>
         <block type="valorDeCartaEspañolaDe40_"></block>
-        <block type="dameCarta__"></block>
+    </category>
+    <category name="Comandos de Cartas">
         <block type="PonerCarta_"></block>
+    </category>
+    <category name="Expresiones de Cartas">
         <block type="cartaQueJugóLaComputadora"></block>
+        <block type="dameCarta__"></block>
         <block type="dameElPalo_"></block>
         <block type="dameElValor_"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">        </category>
     <category name="Definiciones">
-        <block type="procedures_defnoreturn"></block>
-        <block type="procedures_defreturnsimplewithparams"></block>
-        </category>
+        <block type="procedures_defnoreturnnoparams"></block>
+        <block type="procedures_defreturnsimple"></block>
+    </category>
 board:
   active: 1
   initial_board_source: random
@@ -43,4 +46,6 @@ execution_speed:
     can_change_speed: true
 library:
   visible: false
-name: No te gastes el ancho
+source:
+  visible: true
+  percentage: 0.85
