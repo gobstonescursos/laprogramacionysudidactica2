@@ -2120,14 +2120,17 @@ function aux_armarRepresentaciónDeCartasDeMazoEspañolCompletoDe(palo) {
 /*==================================================================================================*/
 procedure DecirPalo_(palo) {
   if (not aux_hayCartaEspañolaTapada()) { BOOM("No hay carta para adivinar") }
+  carta := aux_cartaEspañolaTapada()
   Mover(Sur)
   if (not aux_hayNúmero()) { BOOM("Primero deberías decir el número del valor de la carta") }
+  valor := aux_númeroActual()
   AuxIrAPosiciónLibre()
   AuxPasarASiguientePosición()
   AuxDecirElPalo(palo)
   Mover(Norte)
   IrAlBorde(Oeste)
   AuxDarVueltaLaCartaEspañolaActual()
+  AuxValidarCartas(carta, aux_armarCartaEspañola(valor, palo))
 }
 
 procedure DecirNúmero_(valor) {
@@ -2175,4 +2178,11 @@ procedure AuxEspaciar() {
 function aux_laCeldaEstáVacía() {
    return(not hayBolitas(Azul) && not hayBolitas(Negro) 
        && not hayBolitas(Rojo) && not hayBolitas(Verde))
+}
+
+procedure AuxValidarCartas(cartaOriginal, cartaPropuesta) {
+  Mover(Sur) Mover(Sur)
+  if (cartaOriginal==cartaPropuesta) 
+       { AuxDecir([M,U,Y,Espacio,B,I,E,N]) } 
+  else { AuxDecir([F,A,L,L,A,S,T,E]) }  
 }

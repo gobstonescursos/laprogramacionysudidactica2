@@ -5,18 +5,22 @@ attire:
   visible: true
 blocks:
   defaultToolbox: |
-    <category name="Operaciones específicas">
-        <block type="cartaTapada"></block>
-        <block type="palo_"></block>
-        <block type="dameElPalo_"></block>
+    <category name="Comandos de palos y valores">
         <block type="DecirPalo_"></block>
-        <block type="valorDeCartaEspañolaDe40_"></block>
-        <block type="dameElValor_"></block>
         <block type="DecirNúmero_"></block>
+    </category>
+    <category name="Expresiones de palos y valores">
+        <block type="palo_"></block>
+        <block type="valorDeCartaEspañolaDe40_"></block>
+    </category>
+    <category name="Expresiones de cartas">
+        <block type="cartaTapada"></block>
+        <block type="dameElPalo_"></block>
+        <block type="dameElValor_"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Definiciones">
-        <block type="procedures_defnoreturn"></block>
+        <block type="procedures_defnoreturnnoparams"></block>
     </category>
 board:
   active: 1
