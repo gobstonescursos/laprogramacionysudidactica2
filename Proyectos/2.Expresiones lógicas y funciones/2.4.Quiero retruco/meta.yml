@@ -4,44 +4,23 @@ attire:
     can_toggle_visibility: false
   visible: true
 blocks:
-  disabled: ["Poner__Veces", "Sacar__Veces", "Mover__Veces", "SacarTodas", "SacarTodas_", "IrAlBorde", "IrAlOrigen"
-            ,"BOOM", "RepeticionSimple", "AlternativaCompleta", "RepeticionCondicional", "Asignacion", "ColorSelector"
-            ,"DireccionSelector", "puedeMover", "OperadorNumerico", "OperadorDeComparacion", "OperadorLogico", "not"]
   defaultToolbox: | 
     <category name="Comandos básicos">
-        <block type="Poner__Veces"></block>
-        <block type="Sacar__Veces"></block>
-        <block type="Mover__Veces"></block>
-        <block type="SacarTodas"></block>
-        <block type="SacarTodas_"></block>
-        <block type="IrAlBorde"></block>
-        <block type="IrAlOrigen"></block>
         <block type="PasarASiguientePosición"></block>
-        <block type="BOOM"></block>
-        <block type="RepeticionSimple"></block>
-        <block type="AlternativaCompleta"></block>
-        <block type="RepeticionCondicional"></block>
-        <block type="Asignacion"></block>
     </category>
-    <category name="Expresiones básicas">
-        <block type="math_number"></block>
-        <block type="ColorSelector"></block>
-        <block type="DireccionSelector"></block>
-        <block type="puedeMover"></block>
-        <block type="OperadorNumerico"></block>
-        <block type="OperadorDeComparacion"></block>
-        <block type="OperadorLogico"></block>
-        <block type="not"></block>
-    </category>
-    <category name="Operaciones de Cartas">
+    <category name="Expresiones de palos y valores">
         <block type="palo_"></block>
         <block type="valorDeCartaEspañolaDe40_"></block>
-        <block type="dameCarta__"></block>
+    </category>
+    <category name="Comandos de Cartas">
         <block type="PonerCarta_"></block>
+    </category>
+    <category name="Expresiones de Cartas">
+        <block type="dameCarta__"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Definiciones">
-        <block type="procedures_defnoreturn"></block>
+        <block type="procedures_defnoreturnnoparams"></block>
     </category>
 board:
   active: 1
