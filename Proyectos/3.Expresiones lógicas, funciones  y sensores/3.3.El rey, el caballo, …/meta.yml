@@ -16,21 +16,19 @@ blocks:
         <block type="OperadorLogico"></block>
         <block type="not"></block>
     </category>
-    <category name="Expresiones de Palos`y Valores">
+    <category name="Operaciones de Cartas">
+        <block type="DarVueltaLaCartaActual"></block>
         <block type="palo_"></block>
         <block type="valorDeCartaEspañolaDe40_"></block>
-    </category>
-    <category name="Operaciones de Cartas">
         <block type="cartaActual"></block>
-        <block type="DarVueltaLaCartaActual"></block>
         <block type="dameElPalo_"></block>
         <block type="dameElValor_"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">  </category>
     <category name="Definiciones">
-        <block type="procedures_defnoreturn"></block>
-        <block type="procedures_defreturn"></block>
+        <block type="procedures_defnoreturnnoparams"></block>
+        <block type="procedures_defreturnsimple"></block>
     </category>
 board:
   active: 1

@@ -18,10 +18,8 @@ blocks:
         <block type="palo_"></block>
         <block type="valorDeCartaEspañolaDe40_"></block>
     </category>
-    <category name="Comandos de Cartas">
+    <category name="Operaciones de Cartas">
         <block type="PonerCarta_"></block>
-    </category>
-    <category name="Expresiones de Cartas">
         <block type="cartaQueJugóLaComputadora"></block>
         <block type="dameCarta__"></block>
         <block type="dameElPalo_"></block>

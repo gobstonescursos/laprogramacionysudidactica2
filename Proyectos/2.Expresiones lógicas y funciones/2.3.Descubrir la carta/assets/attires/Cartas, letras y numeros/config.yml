@@ -1,4 +1,4 @@
-name: Cartas, letras y números
+name: Cartas, letras y numeros
 rules:
   - { image: FlechaIzquierda.png,       when: { blue:   0, black:    0, red: 10, green: 0 } } 
   - { image: FlechaDerecha.png,         when: { blue:   0, black:    0, red: 20, green: 0 } } 
