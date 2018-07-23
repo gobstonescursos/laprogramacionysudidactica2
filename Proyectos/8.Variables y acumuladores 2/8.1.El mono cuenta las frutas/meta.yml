@@ -10,7 +10,6 @@ blocks:
         <block type="MoverAlMonoAl_"></block>
         <block type="ContarLaManzana"></block>
         <block type="InformarCantidadDeManzanas_"></block>
-        <block type="AlternativaSimple"></block>
         <block type="RepeticionCondicional"></block>
         <block type="Asignacion"></block>
     </category>

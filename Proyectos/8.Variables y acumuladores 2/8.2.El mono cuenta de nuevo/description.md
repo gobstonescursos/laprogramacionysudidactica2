@@ -1,6 +1,6 @@
 #Actividad 8.2  El mono cuenta de nuevo
 
-2 variables
+Ahora puede que algunas celdas no haya manzana...
 
 <center>
 ![El escenario final]
