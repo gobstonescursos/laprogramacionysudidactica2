@@ -1,0 +1,12 @@
+program {
+  primerValor := dameElValor_(cartaActual())
+  PasarASiguientePosición()
+  segundoValor := dameElValor_(cartaActual())
+  PasarASiguientePosición()
+  DecirNúmero_(valorDelEnvidoDeNúmeros(primerValor, segundoValor))
+}
+
+function valorDelEnvidoDeNúmeros(valorDeLaCarta1, valorDeLaCarta2) {
+  return (valorDeLaCarta1 + valorDeLaCarta2 + 20)
+}
+

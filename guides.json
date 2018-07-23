@@ -83,6 +83,9 @@
     [ { "id": "7.1", "name": "Comunicación en 3 partes"
       , "path": "Proyectos/7.Variables y acumuladores/7.1.Comunicación en 3 partes"
       }
+    , { "id": "7.1", "name": "Tengo envido"
+      , "path": "Proyectos/7.Variables y acumuladores/7.2.Tengo envido"
+      }
     , { "id": "8.1", "name": "El mono cuenta las frutas"
       , "path": "Proyectos/8.Variables y acumuladores 2/8.1.El mono cuenta las frutas"
       }
