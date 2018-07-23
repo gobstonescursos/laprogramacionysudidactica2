@@ -7,7 +7,7 @@ interactive program {
 }
 
 function lasCartasSonIguales(primeraCartaAControlar, segundaCartaACotrolar) {
-  return (...)
+  return (primeraCartaAControlar == segundaCartaACotrolar)
 }
 
 function hayDosCartasDestapadas() {

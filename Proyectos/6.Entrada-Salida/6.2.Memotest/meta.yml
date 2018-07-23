@@ -1,6 +1,6 @@
 name: Memotest
 attire:
-  active: Memotest
+  active: 'Cartas, letras y números'
   user_permissions:
     can_toggle_visibility: false
   visible: true
