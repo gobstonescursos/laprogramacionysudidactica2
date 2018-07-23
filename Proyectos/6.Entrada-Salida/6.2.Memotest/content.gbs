@@ -11,9 +11,9 @@ function lasCartasSonIguales(primeraCartaAControlar, segundaCartaACotrolar) {
 }
 
 function lasCartasDestapadasSonIguales() {
-  primeraCarta := leerCarta()
+  primeraCarta := cartaActual()
   IrALaCartaOtraCartaDestapada()
-  segundaCarta := leerCarta()
+  segundaCarta := cartaActual()
   return (lasCartasSonIguales(primeraCarta, segundaCarta))
 }
 
@@ -24,7 +24,7 @@ function hayDosCartasDestapadas() {
 
 procedure MoverseHacia(dir) {
     if (hayDosCartasDestapadas()) { TaparAmbasCartasDestapadas() }
-    PasarASiguientePosiciónHacia_(dir)
+    MoverSiPuede_(dir)
 }
 
 procedure ProcesarLaCartaActual() {
