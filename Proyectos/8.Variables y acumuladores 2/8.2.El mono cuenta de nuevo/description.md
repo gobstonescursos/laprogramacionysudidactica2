@@ -1,6 +1,6 @@
-#Actividad 8.1  El mono cuenta de nuevo
+#Actividad 8.2  El mono cuenta de nuevo
 
-3 variables (una para volver)
+2 variables
 
 <center>
 ![El escenario final]

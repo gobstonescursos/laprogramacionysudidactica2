@@ -18,7 +18,6 @@ blocks:
         <block type="math_number"></block>
         <block type="DireccionSelector"></block>
         <block type="estáElMonoEnElFinDeLaFila"></block>
-        <block type="hayManzana"></block>
         <block type="OperadorNumerico"></block>
         <block type="OperadorLogico"></block>
         <block type="not"></block>
