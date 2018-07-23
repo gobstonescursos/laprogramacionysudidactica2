@@ -34,7 +34,7 @@ class GBPGenerator:
             os.makedirs(self.gbpsPath())
 
     def gbpsPath(self):
-        return os.path.join("Proyectos","ArchivosDeProyectos")
+        return os.path.join("Proyectos","ArchivosDeProyectos-Generado")
 
 if __name__ == '__main__':
     GBPGenerator().deleteAll()
