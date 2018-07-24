@@ -1,0 +1,12 @@
+program {
+   ContarLasCartas()
+}
+
+procedure ContarLasCartas() {
+   IrAlInicioDeLaEntrada()
+   IniciarLaCuenta()
+   while (hayCarta()) {
+       IncrementarLaCuentaEnUno()
+	   PasarASiguientePosición()
+   }
+}
