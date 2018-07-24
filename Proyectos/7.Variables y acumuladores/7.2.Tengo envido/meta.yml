@@ -9,7 +9,6 @@ blocks:
     <category name="Comandos básicos">
         <block type="DecirNúmero_"></block>
         <block type="PasarASiguientePosición"></block>
-        <block type="AlternativaCompleta"></block>
         <block type="Asignacion"></block>
     </category>
     <category name="Expresiones básicas">
