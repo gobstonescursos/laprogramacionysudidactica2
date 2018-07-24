@@ -2210,7 +2210,7 @@ function aux_máximoElemento(lista) {
 }
  
 function aux_mínimoElemento(lista) {
-   mínimoElementoVisto := 0
+   mínimoElementoVisto := primero(lista)
    foreach elemento in lista { 
       if (elemento < mínimoElementoVisto) { mínimoElementoVisto := elemento }
    }
@@ -2218,7 +2218,7 @@ function aux_mínimoElemento(lista) {
 }
 
 function aux_sumaDeLosElementos(lista) {
-   sumaDeElementosVistos := 0
+   sumaDeElementosVistos := primero(lista)
    foreach elemento in lista { sumaDeElementosVistos := sumaDeElementosVistos + elemento }
    return (sumaDeElementosVistos)
 }

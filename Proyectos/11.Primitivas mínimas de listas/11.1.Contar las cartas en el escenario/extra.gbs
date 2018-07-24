@@ -2196,13 +2196,13 @@ function aux_hayNúmeroOculto()   { return(aux_hayNúmero() &&     aux_hayAtribu
 function aux_hayNúmeroNoOculto() { return(aux_hayNúmero() && not aux_hayAtributoReverso()) }
 
 function aux_cantidadDeElementos(lista) {
-   cantidadDeElementosVistos := 0
+   cantidadDeElementosVistos := primero(lista)
    foreach elemento in lista { cantidadDeElementosVistos := cantidadDeElementosVistos + 1 }
    return (cantidadDeElementosVistos)
 }
 
 function aux_máximoElemento(lista) {
-   máximoElementoVisto := 0
+   máximoElementoVisto := primero(lista)
    foreach elemento in lista { 
       if (elemento > máximoElementoVisto) { máximoElementoVisto := elemento }
    }
