@@ -111,8 +111,8 @@
     , { "id": "11.2", "name": "Contar las cartas, transición"
       , "path": "Proyectos/11.Primitivas mínimas de listas/11.2.Contar las cartas, transición"
       }
-    , { "id": "11.3", "name": "Contar las cartas funcional"
-      , "path": "Proyectos/11.Primitivas mínimas de listas/11.3.Contar las cartas funcional"
+    , { "id": "11.3", "name": "Contar las cartas en bambalinas"
+      , "path": "Proyectos/11.Primitivas mínimas de listas/11.3.Contar las cartas en bambalinas"
       }
 	 ] 
   }
