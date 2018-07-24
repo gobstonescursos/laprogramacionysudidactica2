@@ -23,7 +23,7 @@ class GBPGenerator:
 
     def gbpPath(self,projectPath):
         from time import localtime, strftime
-        return os.path.join(self.gbpsPath(),os.path.split(projectPath)[1] + '-' +  strftime("%Y%m%d%H%M%S", localtime()) + '.gbp')
+        return os.path.join(self.gbpsPath(),os.path.split(projectPath)[1] + '-' +  strftime("%Y-%m-%d-%H%M%S", localtime()) + '.gbp')
 
     def deleteAll(self):
         if os.path.exists(self.gbpsPath()):
