@@ -13,7 +13,7 @@ blocks:
     </category>
     <category name="Operaciones de listas">
         <block type="listaDeNúmerosOculta"></block>
-        <block type="tieneElementos_"></block>
+        <block type="estáVacía_"></block>
         <block type="primerElemento_"></block>
         <block type="resto_"></block>
     </category>
