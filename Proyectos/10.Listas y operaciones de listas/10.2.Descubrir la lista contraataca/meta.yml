@@ -10,7 +10,6 @@ blocks:
         <block type="InformarNúmero_"></block>
     </category>
     <category name="Expresiones básicas">
-        <block type="math_number"></block>
         <block type="OperadorNumerico"></block>
     </category>
     <category name="Operaciones de listas">
