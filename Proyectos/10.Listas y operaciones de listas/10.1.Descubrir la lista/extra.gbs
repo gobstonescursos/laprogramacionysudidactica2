@@ -2119,11 +2119,14 @@ function aux_armarRepresentaciónDeCartasDeMazoEspañolCompletoDe(palo) {
 /*--------------------------- OPERACIONES ESPECÍFICAS DE LA ACTIVIDAD ------------------------------*/
 /*==================================================================================================*/
 function listaDeNúmerosOculta()      { return (aux_listaDeNúmerosOculta())     }
-function cantidadDeElementos_(lista) { return (aux_cantidadDeElementos(lista)) }
+/*@ATTRIBUTE@block_name@¿tiene elementos _?@*/
+function tieneElementos_(lista)      { return (lista == [])                    }
 function primerElemento_(lista)      { return (primero(lista))                 }
+function resto_(lista)               { return (resto(lista))                   }
 function últimoElemento_(lista)      { return (último(lista))                  }
 function máximoElemento_(lista)      { return (aux_máximoElemento(lista))      }
 function mínimoElemento_(lista)      { return (aux_mínimoElemento(lista))      }
+function cantidadDeElementos_(lista) { return (aux_cantidadDeElementos(lista)) }
 function sumaDeLosElementos_(lista)  { return (aux_sumaDeLosElementos(lista))  }
 
 procedure InformarNúmero_(número) { AuxInformarNúmero(número) }
