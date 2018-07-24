@@ -1,4 +1,4 @@
-name: Contar las cartas en el escenario
+name: Contar las cartas, transición
 attire:
   active: 'Cartas, letras y números'
   user_permissions:
