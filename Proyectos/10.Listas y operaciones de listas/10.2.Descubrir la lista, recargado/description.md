@@ -1,11 +1,19 @@
-#Actividad 10.1. Descubrir la lista
+#Actividad 10.2. Descubrir la lista, recargado
 
-Presentar varias operaciones de listas, que permitan descubrir y conocer la lista.
+Nuevamente, tenés que descrubrir cuál es la lista. 
+La idea es que uses el procedimiento para informar números para ir informando cada uno de los números de la lista en orden.
+El tema es que ahora las operaciones primitivas disponibles son levemente distintas...
+
+Un escenario final posible podría ser:
 
 <center>
 ![El escenario final]
 </center>
 
+> **¿Cómo obtener los elementos?**
+>
+> La idea es que combines operaciones. Indagá para saber qué hace cada una de ellas, y a partir de eso, pensá
+> cuál es la combinación que te hace falta para cada elemento.
 
 [Enunciado en PDF][PDF]
 
