@@ -14,4 +14,4 @@ Pero esta vez no contamos con las mismas primitivas... ¡A indagar!
 
 [Enunciado en PDF][PDF]
 
-[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/Clase3/3.4.Calcular%20el%20envido/resources/description.pdf "Enunciado de 'Calcular el envido' en PDF"
+[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/Clase7/7.2.Tengo%20envido/resources/description.pdf "Enunciado de 'Tengo envido' en PDF"
