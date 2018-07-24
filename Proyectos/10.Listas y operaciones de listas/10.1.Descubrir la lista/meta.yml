@@ -9,6 +9,9 @@ blocks:
     <category name="Comandos básicos">
         <block type="InformarNúmero_"></block>
     </category>
+    <category name="Expresiones básicas">
+        <block type="OperadorNumerico"></block>
+    </category>
     <category name="Operaciones de listas">
         <block type="listaDeNúmerosOculta"></block>
         <block type="cantidadDeElementos_"></block>
