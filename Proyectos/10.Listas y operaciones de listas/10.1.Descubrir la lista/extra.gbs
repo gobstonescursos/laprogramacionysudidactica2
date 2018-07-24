@@ -2132,27 +2132,69 @@ function sumaDeLosElementos_(lista)  { return (aux_sumaDeLosElementos(lista))  }
 procedure InformarNúmero_(número) { AuxInformarNúmero(número) }
 
 procedure AuxInformarNúmero(número) {
-   IrAlBorde(Sur)
-   while (not aux_laCeldaEstáVacía()) { AuxPasarASiguientePosición() }
+   IrAlBorde(Sur) Mover(Norte)
+   cantidadDeMovimientos := 1
+   while (not aux_laCeldaEstáVacía()) { 
+      cantidadDeMovimientos := cantidadDeMovimientos + 1
+      AuxPasarASiguientePosición() 
+   }
    AuxPonerNúmero(número)
+   if (cantidadDeMovimientos == aux_cantidadDeElementos(aux_listaDeNúmerosOculta())) { 
+       AuxValidarSalida(aux_listaDeNúmerosOculta() == aux_listaDeSalida()) 
+       AuxRevelarListaDeNúmerosDesdeLaCeldaActual()
+     }
    IrAlBorde(Norte)
    IrAlBorde(Oeste)
 }
 
 function aux_listaDeNúmerosOculta() {
-   // PROPÓSITO: lee todos los números ocultos que están a continuación, 
+   IrAlBorde(Oeste) IrAlBorde(Norte)
+   return(aux_listaDeNúmerosOcultosDesdeLaCeldaActual())
+}
+
+function aux_listaDeSalida() {
+   IrAlBorde(Oeste) IrAlBorde(Sur)
+   Mover(Norte)
+   return(aux_listaDeNúmerosNoOcultosDesdeLaCeldaActual())
+}
+
+function aux_listaDeNúmerosNoOcultosDesdeLaCeldaActual() {
+   // PROPÓSITO: lee todos los números no ocultos que están a continuación, 
    //            a partir de la posición actual yendo al Este y luego al Sur
    númerosLeídos   := []
-   while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayNúmeroOculto()) {
-      númerosLeídos   := númerosLeídos ++ [ aux_númeroOculto() ]
+   while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayNúmeroNoOculto()) {
+      númerosLeídos   := númerosLeídos ++ [ aux_númeroParaElCódigo(aux_leerDato()) ]
       AuxAvanzarRecorridoGral(Este, Sur)
    }
-   if (aux_hayNúmeroOculto()) { númerosLeídos   := númerosLeídos ++ [ aux_númeroOculto() ] }
+   if (aux_hayNúmeroOculto()) { númerosLeídos   := númerosLeídos ++ [ aux_númeroParaElCódigo(aux_leerDato()) ] }
 
    return(númerosLeídos)
 }
 
+function aux_listaDeNúmerosOcultosDesdeLaCeldaActual() {
+   // PROPÓSITO: lee todos los números ocultos que están a continuación, 
+   //            a partir de la posición actual yendo al Este y luego al Sur
+   númerosLeídos   := []
+   while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayNúmeroOculto()) {
+      númerosLeídos   := númerosLeídos ++ [ aux_númeroParaElCódigo(aux_leerDato()) ]
+      AuxAvanzarRecorridoGral(Este, Sur)
+   }
+   if (aux_hayNúmeroOculto()) { númerosLeídos   := númerosLeídos ++ [ aux_númeroParaElCódigo(aux_leerDato()) ] }
+
+   return(númerosLeídos)
+}
+
+procedure AuxRevelarListaDeNúmerosDesdeLaCeldaActual() {
+   while (not aux_terminóElRecorridoGral(Este, Sur) && aux_hayNúmeroOculto()) {
+      AuxRevelarNúmeroActual()
+      AuxAvanzarRecorridoGral(Este, Sur)
+   }
+   if (aux_hayNúmeroOculto()) { AuxRevelarNúmeroActual() }
+}
+
+
 function aux_hayNúmeroOculto() { return(aux_hayNúmero() && aux_hayAtributoReverso()) }
+function aux_hayNúmeroNoOculto() { return(aux_hayNúmero() && not aux_hayAtributoReverso()) }
 
 function aux_cantidadDeElementos(lista) {
    cantidadDeElementosVistos := 0
@@ -2184,3 +2226,19 @@ function aux_sumaDeLosElementos(lista) {
 
 function aux_laCeldaEstáVacía() { return(not hayBolitas(Azul) && not hayBolitas(Negro)
                                       && not hayBolitas(Rojo) && not hayBolitas(Verde)) }
+                                      
+procedure AuxValidarSalida(condición) {
+  IrAlBorde(Oeste) IrAlBorde(Sur)
+  if (condición) { AuxDecir([M,U,Y,Espacio,B,I,E,N]) } 
+  else           { AuxDecir([F,A,L,L,A,S,T,E]) }  
+}
+
+procedure AuxDecir(msg) {
+  letrasQueFaltan := msg
+  while (not esVacía(letrasQueFaltan)) {
+     AuxPonerLetra(primero(letrasQueFaltan))
+     AuxPasarASiguientePosición ()
+     letrasQueFaltan := resto(letrasQueFaltan)
+  }
+}
+                                      
