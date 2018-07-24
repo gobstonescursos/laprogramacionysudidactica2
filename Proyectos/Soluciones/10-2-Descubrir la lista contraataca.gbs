@@ -1,0 +1,6 @@
+program {
+  InformarNúmero_(primerElemento_(listaDeNúmerosOculta()))
+  InformarNúmero_(primerElemento_(resto_(listaDeNúmerosOculta())))
+  InformarNúmero_(primerElemento_(resto_(resto_(listaDeNúmerosOculta()))))
+  InformarNúmero_(primerElemento_(resto_(resto_(resto_(listaDeNúmerosOculta())))))
+}
