@@ -1,4 +1,4 @@
-#Actividad 10.2. Descubrir la lista, recargado
+#Actividad 10.2. Descubrir la lista contraataca
 
 Nuevamente, tenés que descrubrir cuál es la lista. 
 La idea es que uses el procedimiento para informar números para ir informando cada uno de los números de la lista en orden.
@@ -18,4 +18,4 @@ Un escenario final posible podría ser:
 [Enunciado en PDF][PDF]
 
 [PDF]: 
-https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/10.Lists%20y%20operaciones%20de%20listas/10.1.Descubrir%20la%20lista/resources/description.pdf "Enunciado de 'Descubrir la lista' en PDF"
+https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/10.Lists%20y%20operaciones%20de%20listas/10.2.Descubrir%20la%20lista%20contraataca/resources/description.pdf "Enunciado de 'Descubrir la lista contraataca' en PDF"

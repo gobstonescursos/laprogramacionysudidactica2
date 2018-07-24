@@ -94,9 +94,18 @@
       }
     ]
   }
-, { "name": "11.Primitivas mínimas de listas", "repo": "gobstones/laprogramacionysudidactica2"
+, { "name": "10-11.Listas", "repo": "gobstones/laprogramacionysudidactica2"
   , "exercises": 
-    [ { "id": "11.1", "name": "Contar las cartas en el escenario"
+    [ { "id": "10.1", "name": "Descubrir la lista"
+      , "path": "Proyectos/10.Listas y operaciones de listas/10.1.Descubrir la lista"
+      }
+    , { "id": "10.2", "name": "Descubrir la lista"
+      , "path": "Proyectos/10.Listas y operaciones de listas/10.2.Descubrir la lista contraataca"
+      }
+    , { "id": "10.3", "name": "Descubrir la lista"
+      , "path": "Proyectos/10.Listas y operaciones de listas/10.3.El regreso de descubrir la lista"
+      }
+    , { "id": "11.1", "name": "Contar las cartas en el escenario"
       , "path": "Proyectos/11.Primitivas mínimas de listas/11.1.Contar las cartas en el escenario"
       }
     , { "id": "11.2", "name": "Contar las cartas, transición"

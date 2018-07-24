@@ -2225,7 +2225,6 @@ function aux_sumaDeLosElementos(lista) {
 
 function aux_laCeldaEstáVacía() { return(not hayBolitas(Azul) && not hayBolitas(Negro)
                                       && not hayBolitas(Rojo) && not hayBolitas(Verde)) }
-                                      
 
 procedure AuxValidarSalida(condición) {
   IrAlBorde(Oeste) IrAlBorde(Sur)
