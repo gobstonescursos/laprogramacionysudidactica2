@@ -7,11 +7,10 @@ attire:
 blocks:
   defaultToolbox: |
     <category name="Comandos básicos">
-        <block type="PasarASiguientePosición"></block>
         <block type="IrAlInicioDeLaEntrada"></block>
+        <block type="PasarASiguientePosición"></block>
         <block type="IniciarLaCuenta"></block>
         <block type="IncrementarLaCuentaEnUno"></block>
-        <block type="PasarASiguientePosición"></block>
         <block type="RepeticionCondicional"></block>
         <block type="Asignacion"></block>
     </category>
