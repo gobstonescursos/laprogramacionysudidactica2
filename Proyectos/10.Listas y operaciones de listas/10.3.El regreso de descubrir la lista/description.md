@@ -17,4 +17,4 @@ interesante ahora es que trates de hacerlo sin repetir tanto código.
 [Enunciado en PDF][PDF]
 
 [PDF]: 
-https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/10.Lists%20y%20operaciones%20de%20listas/10.3.El%20regreso%20de%20descubrir%20la%20lista/resources/description.pdf "Enunciado de 'El regreso de descubrir la lista' en PDF"
+https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/10.Listas%20y%20operaciones%20de%20listas/10.3.El%20regreso%20de%20descubrir%20la%20lista/resources/description.pdf "Enunciado de 'El regreso de descubrir la lista' en PDF"
