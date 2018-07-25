@@ -1,4 +1,4 @@
-#Actividad 11.6 El rey Midas
+#Actividad 11.6. El rey Midas
 
 .
 
