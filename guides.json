@@ -99,11 +99,11 @@
     [ { "id": "10.1", "name": "Descubrir la lista"
       , "path": "Proyectos/10.Listas y operaciones de listas/10.1.Descubrir la lista"
       }
-    , { "id": "10.2", "name": "Descubrir la lista"
-      , "path": "Proyectos/10.Listas y operaciones de listas/10.2.Descubrir la lista contraataca"
+    , { "id": "10.2", "name": "La lista contraataca"
+      , "path": "Proyectos/10.Listas y operaciones de listas/10.2.La lista contraataca"
       }
-    , { "id": "10.3", "name": "Descubrir la lista"
-      , "path": "Proyectos/10.Listas y operaciones de listas/10.3.El regreso de descubrir la lista"
+    , { "id": "10.3", "name": "El regreso de la lista"
+      , "path": "Proyectos/10.Listas y operaciones de listas/10.3.El regreso de la lista"
       }
     , { "id": "11.1", "name": "Contar las cartas en el escenario"
       , "path": "Proyectos/11.Primitivas mínimas de listas/11.1.Contar las cartas en el escenario"
@@ -113,6 +113,15 @@
       }
     , { "id": "11.3", "name": "Contar las cartas en bambalinas"
       , "path": "Proyectos/11.Primitivas mínimas de listas/11.3.Contar las cartas en bambalinas"
+      }
+    , { "id": "11.4", "name": "¿Cuántos puntos tengo?"
+      , "path": "Proyectos/11.Primitivas mínimas de listas/11.4.Cuántos puntos tengo"
+      }
+    , { "id": "11.5", "name": "Armar la lista de valores"
+      , "path": "Proyectos/11.Primitivas mínimas de listas/11.5.Armar la lista de valores"
+      }
+    , { "id": "11.6", "name": "El rey Midas"
+      , "path": "Proyectos/11.Primitivas mínimas de listas/11.6.El rey Midas"
       }
 	 ] 
   }
