@@ -1,4 +1,4 @@
-name: Descubrir la lista contraataca
+name: El regreso de la lista
 attire:
   active: 'Cartas, letras y números'
   user_permissions:
@@ -8,9 +8,12 @@ blocks:
   defaultToolbox: |
     <category name="Comandos básicos">
         <block type="InformarNúmero_"></block>
+        <block type="RepeticionCondicional"></block>
+        <block type="Asignacion"></block>
     </category>
     <category name="Operaciones de listas">
         <block type="listaDeNúmerosOculta"></block>
+        <block type="estáVacía_"></block>
         <block type="primerElemento_"></block>
         <block type="resto_"></block>
     </category>

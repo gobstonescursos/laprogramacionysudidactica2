@@ -1,4 +1,4 @@
-#Actividad 10.3. El regreso de descubrir la lista
+#Actividad 10.3. El regreso de la lista
 
 Una vez más, tenés que descubrir cuál es la lista que aparece en el escenario. 
 Pero si bien las primitivas de listas son las mismas que tuviste en la actividad anterior, lo
@@ -17,4 +17,4 @@ interesante ahora es que trates de hacerlo sin repetir tanto código.
 [Enunciado en PDF][PDF]
 
 [PDF]: 
-https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/10.Listas%20y%20operaciones%20de%20listas/10.3.El%20regreso%20de%20descubrir%20la%20lista/resources/description.pdf "Enunciado de 'El regreso de descubrir la lista' en PDF"
+https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/10.Listas%20y%20operaciones%20de%20listas/10.3.El%20regreso%20de%20la%20lista/resources/description.pdf "Enunciado de 'El regreso de la lista' en PDF"
