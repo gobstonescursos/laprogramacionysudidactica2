@@ -123,6 +123,15 @@
     , { "id": "11.6", "name": "El rey Midas"
       , "path": "Proyectos/11.Primitivas mínimas de listas/11.6.El rey Midas"
       }
+    , { "id": "12.1", "name": "Toto, solo los oros"
+      , "path": "Proyectos/12.Búsquedas y filtros/12.1.Toto, solo los oros"
+      }
+    , { "id": "12.2", "name": "La realeza armada"
+      , "path": "Proyectos/12.Búsquedas y filtros/12.2.La realeza armada"
+      }
+    , { "id": "12.3", "name": "La espada en la piedra"
+      , "path": "Proyectos/12.Búsquedas y filtros/12.3.La espada en la piedra"
+      }
 	 ] 
   }
 , { "name": "14.Representación de información", "repo": "gobstones/laprogramacionysudidactica2"
