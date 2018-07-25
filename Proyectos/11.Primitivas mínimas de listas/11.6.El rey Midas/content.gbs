@@ -1,8 +1,18 @@
-program { InformarNúmero_(cantidadDeCartasDelMazo(mazoActual())) }
+program {
+  IrAlInicioDeLaEntrada()
+  mazoDeEntrada := mazoActual()
+  IrAlInicioDeLaSalida()
+  PonerMazo_(mazoConvertidoAOros(mazoDeEntrada))
+}
 
-function cantidadDeCartasDelMazo(mazo) {
-  ...
-  return (...)
+function mazoConvertidoAOros(mazo) {
+  cartasAúnNoConvertidas := mazo
+  cartasYaConvertidas := mazoVacío()
+  while (not (not(quedanCartas_(cartasAúnNoConvertidas)))) {
+    cartasYaConvertidas := agregarAlFinalDelMazo__(cartasYaConvertidas, dameLaPrimeraCartaDe_(cartasAúnNoConvertidas))
+    cartasAúnNoConvertidas := sacarLaPrimeraCartaDe_(cartasAúnNoConvertidas)
+  }
+  return (cartasYaConvertidas)
 }
 
 
