@@ -2132,6 +2132,17 @@ function  cantidadDeElementos_(lista) { return (aux_cantidadDeElementos(lista)) 
 function  sumaDeLosElementos_(lista)  { return (aux_sumaDeLosElementos(lista))  }
 
 procedure InformarNúmero_(número)     { AuxInformarNúmero(número)               }
+procedure InformarEnEsteLugarElMazo_(mazo) { AuxInformarMazo(mazo) }
+
+procedure AuxInformarMazo(mazoAInformar) { 
+   AuxMarcar()
+   AuxIrAlInicioDeLaEntrada()
+   mazo := aux_mazoActual()
+   AuxVolverALaMarca()
+   AuxDesmarcar()   
+   AuxPonerMazo(mazoAInformar)
+   AuxValidarSalida(cartas(mazoAInformar)== aux_filterOros(cartas(mazo)))
+}
 
 procedure AuxInformarNúmero(número) {
    AuxIrAlInicioDeLaEntrada()
@@ -2215,6 +2226,12 @@ function aux_sumaDeLosElementos(lista) {
    sumaDeElementosVistos := 0
    foreach elemento in lista { sumaDeElementosVistos := sumaDeElementosVistos + elemento }
    return (sumaDeElementosVistos)
+}
+
+function aux_filterOros(cartas) {
+   orosVistos    := []
+   foreach carta in cartas { if (palo(carta) == Oros) { orosVistos := orosVistos ++ [ carta ] } }
+   return (orosVistos)
 }
 
 function aux_laCeldaEstáVacía() { return(not hayBolitas(Azul) && not hayBolitas(Negro)

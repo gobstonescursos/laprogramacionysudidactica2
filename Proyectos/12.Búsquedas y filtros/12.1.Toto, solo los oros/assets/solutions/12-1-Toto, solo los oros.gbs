@@ -2,21 +2,20 @@ program {
   IrAlInicioDeLaEntrada()
   mazoDeEntrada := mazoActual()
   IrAlInicioDeLaSalida()
-  PonerMazo_(mazoConvertidoAOros(mazoDeEntrada))
+  InformarEnEsteLugarElMazo_(soloLosOros(mazoDeEntrada))
 }
 
-function mazoConvertidoAOros(mazo) {
-  cartasAúnNoConvertidas := mazo
-  cartasYaConvertidas := mazoVacío()
-  while (not (not(quedanCartas_(cartasAúnNoConvertidas)))) {
-    cartasYaConvertidas := agregarAlFinalDelMazo__(cartasYaConvertidas, convertidaAOros(dameLaPrimeraCartaDe_(cartasAúnNoConvertidas)))
-    cartasAúnNoConvertidas := sacarLaPrimeraCartaDe_(cartasAúnNoConvertidas)
+function soloLosOros(mazo) {
+  cartasAúnNoAnalizadas := mazo
+  cartasDeOrosVistas := mazoVacío()
+  while (not (not(quedanCartas_(cartasAúnNoAnalizadas)))) {
+    if (esDeOros(dameLaPrimeraCartaDe_(cartasAúnNoAnalizadas))) {
+      cartasDeOrosVistas := agregarAlFinalDelMazo__(cartasDeOrosVistas, dameLaPrimeraCartaDe_(cartasAúnNoAnalizadas))
+    }
+    cartasAúnNoAnalizadas := sacarLaPrimeraCartaDe_(cartasAúnNoAnalizadas)
   }
-  return (cartasYaConvertidas)
+  return (cartasDeOrosVistas)
 }
 
-function convertidaAOros(carta) {
-  return (dameCarta__(dameElValor_(carta), palo_(Oros)))
-}
-
+function esDeOros(carta) { return (dameElPalo_(carta) == palo_(Oros)) }
 
