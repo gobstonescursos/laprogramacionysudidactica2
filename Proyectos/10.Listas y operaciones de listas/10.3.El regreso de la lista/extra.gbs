@@ -2118,18 +2118,18 @@ function aux_armarRepresentaciónDeCartasDeMazoEspañolCompletoDe(palo) {
 /*==================================================================================================*/
 /*--------------------------- OPERACIONES ESPECÍFICAS DE LA ACTIVIDAD ------------------------------*/
 /*==================================================================================================*/
-function listaDeNúmerosOculta()       { return (aux_listaDeNúmerosOculta())     }
+function listaDeNúmerosDelEscenario() { return (aux_listaDeNúmerosDelEscenario()) }
 /*@ATTRIBUTE@block_name@¿está vacía _?@*/
-function  estáVacía_(lista)           { return (esVacía(lista))                 }
-function  primerElemento_(lista)      { return (primero(lista))                 }
-function  resto_(lista)               { return (resto(lista))                   }
-function  últimoElemento_(lista)      { return (último(lista))                  }
-function  máximoElemento_(lista)      { return (aux_máximoElemento(lista))      }
-function  mínimoElemento_(lista)      { return (aux_mínimoElemento(lista))      }
-function  cantidadDeElementos_(lista) { return (aux_cantidadDeElementos(lista)) }
-function  sumaDeLosElementos_(lista)  { return (aux_sumaDeLosElementos(lista))  }
+function  estáVacía_(lista)           { return (esVacía(lista))                   }
+function  primerElemento_(lista)      { return (primero(lista))                   }
+function  resto_(lista)               { return (resto(lista))                     }
+function  últimoElemento_(lista)      { return (último(lista))                    }
+function  máximoElemento_(lista)      { return (aux_máximoElemento(lista))        }
+function  mínimoElemento_(lista)      { return (aux_mínimoElemento(lista))        }
+function  cantidadDeElementos_(lista) { return (aux_cantidadDeElementos(lista))   }
+function  sumaDeLosElementos_(lista)  { return (aux_sumaDeLosElementos(lista))    }
 
-procedure InformarNúmero_(número)     { AuxInformarNúmero(número)               }
+procedure InformarNúmero_(número)     { AuxInformarNúmero(número)                 }
 
 procedure AuxInformarNúmero(número) {
    IrAlBorde(Sur) Mover(Norte)
@@ -2145,6 +2145,14 @@ procedure AuxInformarNúmero(número) {
      }
    IrAlBorde(Norte)
    IrAlBorde(Oeste)
+}
+
+function aux_listaDeNúmerosDelEscenario() {
+   IrAlBorde(Oeste) IrAlBorde(Norte)
+   if (not aux_hayNúmero())     { valorDeRetorno := []                                              }
+   if (aux_hayNúmeroOculto())   { valorDeRetorno := aux_listaDeNúmerosOcultosDesdeLaCeldaActual()   }
+   if (aux_hayNúmeroNoOculto()) { valorDeRetorno := aux_listaDeNúmerosNoOcultosDesdeLaCeldaActual() }
+   return(valorDeRetorno)
 }
 
 function aux_listaDeNúmerosOculta() {
