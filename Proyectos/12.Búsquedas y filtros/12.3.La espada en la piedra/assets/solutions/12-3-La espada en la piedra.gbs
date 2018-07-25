@@ -2,21 +2,20 @@ program {
   IrAlInicioDeLaEntrada()
   mazoDeEntrada := mazoActual()
   IrAlInicioDeLaSalida()
-  PonerMazo_(mazoConvertidoAOros(mazoDeEntrada))
-}
-
-function mazoConvertidoAOros(mazo) {
-  cartasAúnNoConvertidas := mazo
-  cartasYaConvertidas := mazoVacío()
-  while (not (not(quedanCartas_(cartasAúnNoConvertidas)))) {
-    cartasYaConvertidas := agregarAlFinalDelMazo__(cartasYaConvertidas, convertirAOros(dameLaPrimeraCartaDe_(cartasAúnNoConvertidas)))
-    cartasAúnNoConvertidas := sacarLaPrimeraCartaDe_(cartasAúnNoConvertidas)
+  if (estáLaEspadaEnLaPiedra(mazoDeEntrada)) {
+    InformarQueLoEncontré()
+  } else {
+    InformarQueNoLoEncontré()
   }
-  return (cartasYaConvertidas)
 }
 
-function convertirAOros(carta) {
-  return (dameCarta__(dameElValor_(carta), palo_(Oros)))
+function estáLaEspadaEnLaPiedra(mazo) {
+  cartasAúnNoBuscadas := mazo
+  while (not (not(quedanCartas_(cartasAúnNoBuscadas)) || esElAsDeEspadas(dameLaPrimeraCartaDe_(cartasAúnNoBuscadas)))) {
+    cartasAúnNoBuscadas := sacarLaPrimeraCartaDe_(cartasAúnNoBuscadas)
+  }
+  return (quedanCartas_(cartasAúnNoBuscadas))
 }
 
+function esElAsDeEspadas(carta) { return (carta == dameCarta__(valorDeCartaEspañolaDe40_(1), palo_(Espadas))) }
 

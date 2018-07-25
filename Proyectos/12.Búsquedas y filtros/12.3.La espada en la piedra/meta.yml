@@ -9,14 +9,15 @@ blocks:
     <category name="Comandos básicos">
         <block type="IrAlInicioDeLaEntrada"></block>
         <block type="IrAlInicioDeLaSalida"></block>
-        <block type="InformarEnEsteLugarElMazo_"></block>
-        <block type="AlternativaSimple"></block>
+        <block type="InformarQueLoEncontré"></block>
+        <block type="InformarQueNoLoEncontré"></block>
         <block type="AlternativaCompleta"></block>
         <block type="RepeticionCondicional"></block>
         <block type="Asignacion"></block>
     </category>
     <category name="Expresiones básicas">
         <block type="OperadorDeComparacion"></block>
+        <block type="OperadorLogico"></block>
         <block type="not"></block>
     </category>
     <category name="Operaciones de cartas">
@@ -31,8 +32,6 @@ blocks:
         <block type="quedanCartas_"></block>
         <block type="dameLaPrimeraCartaDe_"></block>
         <block type="sacarLaPrimeraCartaDe_"></block>
-        <block type="mazoVacío"></block>
-        <block type="agregarAlFinalDelMazo__"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Definiciones">
