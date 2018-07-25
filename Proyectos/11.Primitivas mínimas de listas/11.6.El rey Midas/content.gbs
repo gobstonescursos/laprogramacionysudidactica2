@@ -2,7 +2,7 @@ program {
   IrAlInicioDeLaEntrada()
   mazoDeEntrada := mazoActual()
   IrAlInicioDeLaSalida()
-  PonerMazo_(mazoConvertidoAOros(mazoDeEntrada))
+  InformarEnEsteLugarElMazo_(mazoConvertidoAOros(mazoDeEntrada))
 }
 
 function mazoConvertidoAOros(mazo) {
