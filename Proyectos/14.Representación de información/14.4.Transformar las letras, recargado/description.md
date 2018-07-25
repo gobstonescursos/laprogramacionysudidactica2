@@ -1,4 +1,4 @@
-#Actividad 14.4  Eligiendo letras, recargado
+#Actividad 14.4  Transformar las letras, recargado
 
 Escribir una de las piezas de software del punto anterior
 
