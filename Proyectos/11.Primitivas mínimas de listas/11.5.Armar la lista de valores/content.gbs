@@ -1,0 +1,12 @@
+program {
+  IrAlInicioDeLaEntrada()
+  mazoDeEntrada := mazoActual()
+  IrAlInicioDeLaSalida()
+  InformarEnEsteLugarLaListaDeValores_(valoresDelMazo(mazoDeEntrada))
+}
+
+function valoresDelMazo(mazo) {
+  ...
+  return (...)
+}
+
