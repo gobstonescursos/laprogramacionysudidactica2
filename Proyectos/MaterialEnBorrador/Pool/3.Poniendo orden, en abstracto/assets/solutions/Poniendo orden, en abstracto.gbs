@@ -1,20 +1,17 @@
 program {
-   OrdenarCartas()
+  mazoAOrdenar := datosDeEntrada()
+  SacarDatosDeEntrada()
+  RetornarComoSalida_(mazoOrdenado(mazoAOrdenar))
 }
 
-procedure OrdenarCartas() {
-   mazoAOrdenar := leerDatosDeEntrada()
-   mazoOrdenado := ordenar(mazoAOrdenar)
-   RetornarComoSalida_(mazoOrdenado)
+function mazoOrdenado(mazo) {
+  faltanOrdenar := mazo
+  cartasVistasOrdenadas := mazoVacío()
+  while (not (not(quedanCartasEn_(faltanOrdenar)))) {
+    cartasVistasOrdenadas := agregarAlMazo__(cartasVistasOrdenadas, laCartaMásChicaDe_(faltanOrdenar))
+    faltanOrdenar := sinLaCartaMásChica_(faltanOrdenar)
+  }
+  return (cartasVistasOrdenadas)
 }
 
-function ordenar(mazo) {
-   mazoAOrdenar := mazo
-   mazoOrdenado := mazoVacío()
-   while (quedanCartasEn_(mazoAOrdenar)) {
-       carta := laCartaMásChicaDe_(mazoAOrdenar)
-	   mazoAOrdenar := sacarLaCartaMásChicaDe_(mazoAOrdenar)
-       mazoOrdenado := agregarAlMazo__(mazoOrdenado, carta)
-   }
-   return(mazoOrdenado)
-}
+
