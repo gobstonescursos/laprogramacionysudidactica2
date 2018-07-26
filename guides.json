@@ -137,7 +137,7 @@
 , { "name": "14.Representación de información", "repo": "gobstones/laprogramacionysudidactica2"
   , "exercises": 
     [ { "id": "14.1", "name": "En los ojos de la compu"
-      , "path": "Proyectos/14.Representación de información/14.1.Números a letras"
+      , "path": "Proyectos/14.Representación de información/14.1.En los ojos de la compu"
       }
     , { "id": "14.2", "name": "Representar el mazo"
       , "path": "Proyectos/14.Representación de información/14.2.Representar el mazo"

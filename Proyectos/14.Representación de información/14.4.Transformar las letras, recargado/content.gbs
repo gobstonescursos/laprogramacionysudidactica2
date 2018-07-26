@@ -1,3 +1,25 @@
 program {
-  
+  ...
 }
+
+function listaDeCódigosDeLetras(letras) {
+  lasLetrasQueFaltanProcesar := letras
+  losCódigosYaVistos := listaVacía()
+  while (not (estáVacía_(lasLetrasQueFaltanProcesar))) {
+    losCódigosYaVistos := agregarAlFinalDeLaLista__(losCódigosYaVistos, códigoDeLaLetra_(primerElemento_(lasLetrasQueFaltanProcesar)))
+    lasLetrasQueFaltanProcesar := resto_(lasLetrasQueFaltanProcesar)
+  }
+  return (losCódigosYaVistos)
+}
+
+function listaDeLetrasDeCódigo(códigos) {
+  losCódigosQueFaltanProcesar := códigos
+  lasLetrasYaVistas := listaVacía()
+  while (not (estáVacía_(losCódigosQueFaltanProcesar))) {
+    lasLetrasYaVistas := agregarAlFinalDeLaLista__(lasLetrasYaVistas, letraDelCódigo_(primerElemento_(losCódigosQueFaltanProcesar)))
+    losCódigosQueFaltanProcesar := resto_(losCódigosQueFaltanProcesar)
+  }
+  return (lasLetrasYaVistas)
+}
+
+
