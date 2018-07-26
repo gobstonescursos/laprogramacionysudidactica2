@@ -44,15 +44,15 @@ type Carta is record  { field palo   field valor  }
 //--------------------------------
 // Operaciones de mostrado de cartas (interfaz)
 //--------------------------------
-function  leerCarta()                        { return(aux_leerCarta())              }
+function  cartaActual()                        { return(aux_leerCarta())              }
 
-// procedure PonerCarta_(carta)                 { AuxPonerCartaDestapada(carta)        }
-procedure SacarCarta()                       { AuxSacarCartaActual()                }
+procedure PonerCarta_(carta)                 { AuxPonerCartaDestapada(carta)        }
+procedure SacarCartaActual()                       { AuxSacarCartaActual()                }
 // procedure DarVueltaLaCartaActual()           { AuxGirarCartaActual()                }
 // procedure IluminarLaCartaActual()            { AuxIluminarCartaActual()             }
 
 // procedure PonerCartaTapada_(carta)           { AuxPonerCartaTapada(carta)           }
-procedure PonerCartaDestapada_(carta)        { AuxPonerCartaDestapada(carta)        }
+//procedure PonerCartaDestapada_(carta)        { AuxPonerCartaDestapada(carta)        }
 
 // procedure PasarASiguientePosiciónHacia_(dir) { AuxPasarASiguientePosiciónHacia(dir) }
 // procedure PasarASiguientePosición()          { AuxPasarASiguientePosición()         }
