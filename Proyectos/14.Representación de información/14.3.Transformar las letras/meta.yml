@@ -43,13 +43,6 @@ blocks:
         <block type="procedures_defreturnsimplewithparams"></block>
         <block type="procedures_defreturn"></block>
     </category>
-    
-    todosMásUno_
-    soloLosPares_
-    listaOrdenada_
-    losPrimeros__
-    losÚltimos__
-    
 board:
   active: 1
   initial_board_source: random
