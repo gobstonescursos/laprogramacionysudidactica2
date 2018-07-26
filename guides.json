@@ -155,8 +155,8 @@
     [ { "id": "15.1", "name": "Ordenamiento en el escenario"
       , "path": "Proyectos/15.Algoritmos sobre listas/15.1.Ordenamiento en el escenario"
       }
-    , { "id": "15.2", "name": "Ordenando listas"
-      , "path": "Proyectos/15.Algoritmos sobre listas/15.2.Ordenando listas"
+    , { "id": "15.2", "name": "Ordenamiento en bambalinas"
+      , "path": "Proyectos/15.Algoritmos sobre listas/15.2.Ordenamiento en bambalinas"
       }
     , { "id": "15.3", "name": "Encontrar la carta más chica"
       , "path": "Proyectos/15.Algoritmos sobre listas/15.3.Encontrar la carta más chica"
