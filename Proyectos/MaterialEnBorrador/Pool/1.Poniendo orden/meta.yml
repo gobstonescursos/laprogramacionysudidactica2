@@ -1,3 +1,4 @@
+name: Poniendo orden
 attire:
   active: Cartas españolas de truco
   user_permissions:
@@ -26,4 +27,3 @@ execution_speed:
     can_change_speed: true
 library:
   visible: false
-name: Poniendo orden
