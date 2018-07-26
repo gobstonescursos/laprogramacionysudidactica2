@@ -1,5 +1,8 @@
 program {
-  ...
+  IrAlInicioDeLaEntrada()
+  miTexto := textoOriginal()
+  IrAlInicioDeLaSalida()
+  InformarEnEsteLugarLaListaDeLetras_(listaDeLetrasDeCódigo(todosMás__(listaDeCódigosDeLetras(miTexto), 1)))
 }
 
 function listaDeCódigosDeLetras(letras) {

@@ -2132,24 +2132,41 @@ function  mínimoElemento_(lista)      { return (aux_mínimoElemento(lista))    
 function  cantidadDeElementos_(lista) { return (aux_cantidadDeElementos(lista)) }
 function  sumaDeLosElementos_(lista)  { return (aux_sumaDeLosElementos(lista))  }
 
-function todosMásUno_(números)    { return(aux_mapSucc(números))     }
+function dadaVuelta_(números)      { return(aux_reverse(números))     }
+/*@ATTRIBUTE@block_name@todos los _ sumándole _@*/
+function todosMás__(números,n)    { return(aux_mapSumaN(números,n))     }
 function soloLosPares_(números)   { return(aux_filterPares(números)) }
 function listaOrdenada_(números)  { return(aux_ordenar(números))     }
-function losPrimeros__(números,n) { return(aux_take(números,n))      }
-function losÚltimos__(números,n)  { return(aux_drop(números,n))      }
+/*@ATTRIBUTE@block_name@los primeros _ de la lista _@*/
+function losPrimeros__(n,números) { return(aux_take(n,números))      }
+/*@ATTRIBUTE@block_name@los últimos _ de la lista _@*/
+function losÚltimos__(n,números)  { return(aux_drop(aux_cantidadDeElementos(números)-n,números))      }
 
 function listaVacía() { return([]) }
 /*@ATTRIBUTE@block_name@agregar a la lista _ el valor _ al final@*/
 function agregarAlFinalDeLaLista__(lista, elemento) { return (lista ++ [elemento]) }
 
+function códigoDeLaLetra_(letra) { return (aux_códigoParaLaLetra(letra)) }
+function letraDelCódigo_(códigoLetra) { return (aux_letraParaElCódigo(códigoLetra)) }
+
 procedure InformarNúmero_(número)     { AuxInformarNúmero(número)               }
-procedure InformarEnEsteLugarLaListaDeValores_(valores) { AuxInformarListaDeValores(valores) }
+procedure InformarEnEsteLugarLaListaDeNúmeros_(valores) { AuxInformarListaDeValores(valores) }
 procedure InformarEnEsteLugarLaListaDeLetras_(valores) { AuxInformarListaDeLetras(valores) }
 
 function aux_ordenar(números) {
    valoresVistos := []
-   foreach número in números { valoresVistos := aux_insertarOrdenado(valoresVistos, números) }
+   foreach número in números { valoresVistos := aux_insertarOrdenado(valoresVistos, número) }
    return (valoresVistos)
+}
+
+function aux_insertarOrdenado(listaOrdenada, número) {
+    listaDeMenoresVistos := []
+    losQueFaltan := listaOrdenada
+    while (losQueFaltan /= [] && primero(losQueFaltan) < número) {
+       listaDeMenoresVistos := listaDeMenoresVistos ++ [ primero(losQueFaltan) ]
+       losQueFaltan := resto(losQueFaltan)
+    }    
+    return (listaDeMenoresVistos ++ [número] ++ losQueFaltan)
 }
 
 function aux_filterPares(números) {
@@ -2160,48 +2177,39 @@ function aux_filterPares(números) {
    return (valoresVistos)
 }
 
-function aux_mapSucc(números) {
+function aux_mapSumaN(números,n) {
    valoresVistos := []
-   foreach número in números { valoresVistos := valoresVistos ++ [ número+1 ] }
+   foreach número in números { valoresVistos := valoresVistos ++ [ número+n ] }
    return (valoresVistos)
 }
 
-function aux_take(números, n) {
+function aux_take(n, números) {
     valoresVistos := []
     i := 0
     foreach número in números { 
-      if (i<n) {
-         valoresVistos := valoresVistos ++ [ número ] 
-         i := i+1
-      }
+      if (i<n) { valoresVistos := valoresVistos ++ [ número ] }
+      i := i+1
     }
     return (valoresVistos)
 }
 
-function aux_drop(números, n) {
+function aux_drop(n, números) {
     valoresVistos := []
     i := 0
     foreach número in números { 
-      if (i>=n) {
-         valoresVistos := valoresVistos ++ [ número ] 
-         i := i+1
-      }
+      if (i>=n) { valoresVistos := valoresVistos ++ [ número ] }
+      i := i+1
     }
+    return (valoresVistos)
+}
+
+function aux_reverse(números) {
+    valoresVistos := []
+    foreach número in números { valoresVistos := [ número ] ++ valoresVistos }
     return (valoresVistos)
 }
 
 function aux_esPar(número) { return (número mod 2 == 0) }
-
-function aux_insertarOrdenado(números, número) {
-    listaOrdenada := []
-    losQueFaltan := números
-    while (losQueFaltan /= [] && primero(losQueFaltan) < número) {
-       listOrdenada := listaOrdenada ++ [ primero(losQueFaltan) ]
-       losQueFaltan := resto(losQueFaltan)
-    }    
-    return (listaOrdenada ++ [número] ++ losQueFaltan)
-}
-
 
 procedure AuxInformarNúmero(número) {
    AuxIrAlInicioDeLaEntrada()
@@ -2212,23 +2220,11 @@ procedure AuxInformarNúmero(número) {
 }
 
 procedure AuxInformarListaDeLetras(valores) { 
-   AuxMarcar()
-   AuxIrAlInicioDeLaEntrada()
-   mazo := aux_mazoActual()
-   AuxVolverALaMarca()
-   AuxDesmarcar()   
-   AuxPonerListaDeNúmerosDesdeLaCeldaActual(valores)
-   AuxValidarSalida(valores == aux_mapCódigos(cartas(mazo)))
+   AuxPonerListaDeLetrasDesdeLaCeldaActual(valores)
 }
 
 procedure AuxInformarListaDeValores(valores) { 
-   AuxMarcar()
-   AuxIrAlInicioDeLaEntrada()
-   mazo := aux_mazoActual()
-   AuxVolverALaMarca()
-   AuxDesmarcar()   
    AuxPonerListaDeNúmerosDesdeLaCeldaActual(valores)
-   AuxValidarSalida(valores == aux_mapCódigos(cartas(mazo)))
 }
 
 function aux_listaDeNúmerosOculta() {
@@ -2296,7 +2292,23 @@ procedure AuxPonerListaDeNúmerosDesdeLaCeldaActual(números) {
       númerosQueFaltaPoner := resto(númerosQueFaltaPoner)
       AuxAvanzarRecorridoGral(Este, Sur)
    }
-   if (númerosQueFaltaPoner/=[]) { BOOM("No hay suficiente lugar para informar toda la lista") }
+   if (númerosQueFaltaPoner/=[]) { 
+     if(aux_laCeldaEstáVacía()) { AuxPonerNúmero(primero(númerosQueFaltaPoner)) }
+     else { BOOM("No hay suficiente lugar para informar toda la lista") }
+   }
+}
+
+procedure AuxPonerListaDeLetrasDesdeLaCeldaActual(números) {
+   númerosQueFaltaPoner := números
+   while (not aux_terminóElRecorridoGral(Este, Sur) && númerosQueFaltaPoner/=[] && aux_laCeldaEstáVacía()) {
+      AuxPonerLetra(primero(númerosQueFaltaPoner))
+      númerosQueFaltaPoner := resto(númerosQueFaltaPoner)
+      AuxAvanzarRecorridoGral(Este, Sur)
+   }
+   if (númerosQueFaltaPoner/=[]) { 
+     if(aux_laCeldaEstáVacía()) { AuxPonerLetra(primero(númerosQueFaltaPoner)) }
+     else { BOOM("No hay suficiente lugar para informar toda la lista") }
+   }
 }
 
 function aux_hayNúmeroOculto()   { return(aux_hayNúmero() &&     aux_hayAtributoReverso()) }
@@ -2372,7 +2384,11 @@ procedure IncrementarLaCuentaEnUno() { AuxIncrementarLaCuentaEnUno() }
 procedure CompletarLaCuenta()        { AuxIrAlInicioDeLaSalida()     }
 
 procedure AuxIrAlInicioDeLaEntrada() { IrAlBorde(Norte) IrAlBorde(Oeste) }
-procedure AuxIrAlInicioDeLaSalida()  { IrAlBorde(Sur)   IrAlBorde(Oeste) Mover(Norte) }
+procedure AuxIrAlInicioDeLaSalida()  { 
+     AuxIniciarRecorrido()
+     while(not aux_terminóElRecorrido() && not (nroBolitas(aux_colorParaElAtributo())==10)) { AuxAvanzarRecorrido() }
+     Mover(Sur) IrAlBorde(Oeste)
+}
 
 procedure AuxIniciarLaCuenta() {
   AuxMarcar()
