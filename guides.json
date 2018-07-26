@@ -152,8 +152,8 @@
   }
 , { "name": "15.Algoritmos sobre listas", "repo": "gobstones/laprogramacionysudidactica2"
   , "exercises": 
-    [ { "id": "15.1", "name": "Ordenando en escenario"
-      , "path": "Proyectos/15.Algoritmos sobre listas/15.1.Ordenando en escenario"
+    [ { "id": "15.1", "name": "Ordenamiento en el escenario"
+      , "path": "Proyectos/15.Algoritmos sobre listas/15.1.Ordenamiento en el escenario"
       }
     , { "id": "15.2", "name": "Ordenando listas"
       , "path": "Proyectos/15.Algoritmos sobre listas/15.2.Ordenando listas"
