@@ -2,7 +2,7 @@ name: Toto, solo los oros
 attire:
   active: 'Cartas, letras y números'
   user_permissions:
-    can_toggle_visibility: false
+    can_toggle_visibility: true
   visible: true
 blocks:
   defaultToolbox: |
@@ -35,18 +35,23 @@ blocks:
         <block type="agregarAlFinalDelMazo__"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
+    <category name="Mis funciones" custom="FUNCTION_CALLS">  </category>   
     <category name="Definiciones">
         <block type="procedures_defnoreturn"></block>
         <block type="procedures_defreturnsimplewithparams"></block>
         <block type="procedures_defreturn"></block>
     </category>
 board:
+  visible_edition: true
+  collapse_toolbox: false
+  user_permissions:
+    can_change_initial_board: false
+    can_change_initial_board_source: false
+    can_edit_board: false
+    can_view_size_section: false
+    can_view_attire_section: false
   active: 1
   initial_board_source: random
-  user_permissions:
-    can_change_source: false
-    can_edit_board: false
-  visible_edition: false
 execution_speed:
   active: high
   user_permissions:
