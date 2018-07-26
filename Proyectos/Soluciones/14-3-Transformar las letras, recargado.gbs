@@ -1,0 +1,17 @@
+program {
+  IrAlInicioDeLaEntrada()
+  texto := textoOriginal()
+  IrAlInicioDeLaSalida()
+  InformarEnEsteLugarLaListaDeLetras_(listaDeLetrasDeCódigo_(listaDeElementosMásUno(listaDeCódigosDeLetras_(texto))))
+}
+
+function listaDeElementosMásUno(lista) {
+  losQueFaltanProcesar := lista
+  elementosYaProcesados := listaVacía()
+  while (not (estáVacía_(losQueFaltanProcesar))) {
+    elementosYaProcesados := agregarAlFinalDeLaLista__(elementosYaProcesados, primerElemento_(losQueFaltanProcesar) + 1)
+    losQueFaltanProcesar := resto_(losQueFaltanProcesar)
+  }
+  return (elementosYaProcesados)
+}
+

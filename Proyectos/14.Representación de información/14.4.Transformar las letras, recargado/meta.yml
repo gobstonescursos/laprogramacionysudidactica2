@@ -21,9 +21,9 @@ blocks:
     </category>
     <category name="Expresiones de codificación">
         <block type="códigoDeLaLetra_"></block>
-        <block type="listaDeCódigosDeLetras"></block>
+        <block type="listaDeCódigosDeLetras_"></block>
         <block type="letraDelCódigo_"></block>
-        <block type="listaDeLetrasDeCódigo"></block>
+        <block type="listaDeLetrasDeCódigo_"></block>
     </category>
     <category name="Expresiones de listas">
         <block type="textoOriginal"></block>

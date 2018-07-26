@@ -11,4 +11,4 @@ Transformar la información a representación y de vuelta; componer piezas de so
 [Enunciado en PDF][PDF]
 
 [PDF]: 
-https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/14.Representaci%C3%B3n%20de%20informaci%C3%B3n/14.4.Transformar%20las%20letras/resources/description.pdf "Enunciado de 'Transformar las letras, recargado' en PDF"
+https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/14.Representaci%C3%B3n%20de%20informaci%C3%B3n/14.4.Transformar%20las%20letras%2C%20recargado/resources/description.pdf "Enunciado de 'Transformar las letras, recargado' en PDF"
