@@ -6,6 +6,7 @@ attire:
 blocks:
   defaultToolbox: |
     <category name="Comandos básicos">
+        <block type="AlternativaSimple"></block>
         <block type="AlternativaCompleta"></block>
         <block type="RepeticionCondicional"></block>
     </category>
