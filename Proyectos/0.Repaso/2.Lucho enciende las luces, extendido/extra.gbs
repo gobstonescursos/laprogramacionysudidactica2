@@ -1,13 +1,23 @@
 /*@ATTRIBUTE@block_name@Encender luz@*/
 procedure EncenderLuz() { 
-  if (not hayBolitas(Negro)) { BOOM("No está lucho en este lugar para prender la luz") }
-  if (nroBolitas(Azul) == 1)         { Poner(Azul) } 
-   else { if (nroBolitas(Azul) == 2) { BOOM("La luz ya está encendida") }
-   else                              { BOOM("No hay luz en esta celda") }}
+  AuxVerificarPresenciaDeLucho()
+  if (nroBolitas(Azul) == 1)      { Poner(Azul) } 
+   elseif (nroBolitas(Azul) == 2) { BOOM("La luz ya está encendida") }
+   else                           { BOOM("No hay luz en esta celda") }
 }
 
 /*@ATTRIBUTE@block_name@Mover a Lucho al _@*/
 procedure MoverALuchoAl_(dir) { 
-   if (not hayBolitas(Negro)) { BOOM("No está lucho en este lugar") }
+   TypeCheck(dir, Norte, "'Mover a Lucho al' espera una dirección como argumento (por ejemplo 'Mover a Lucho al (Norte)'), pero recibió %1")
+   AuxVerificarPresenciaDeLucho()
+   AuxVerificarLímitesDelTableroAl(dir)
    Sacar(Negro) Mover(dir) Poner(Negro) 
+}
+
+procedure AuxVerificarPresenciaDeLucho() {
+   if (not hayBolitas(Negro)) { BOOM("No está Lucho en este lugar") }
+}
+
+procedure AuxVerificarLímitesDelTableroAl(dir) {
+   if (not puedeMover(dir)) { BOOM("No está permitido moverse fuera del escenario") }
 }
