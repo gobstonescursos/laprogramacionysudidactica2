@@ -1,4 +1,4 @@
-##Actividad 1.3. Fútbol de robots 
+##Actividad 3. Fútbol de robots 
 
 En esta actividad tenés que construir un programa para que el robot Beto entrene para jugar al fútbol, pateando cada una 
 de las pelotas hacia los arcos correspondientes. Fijate que el escenario siempre tiene 6 pelotas, pero que las mismas pueden 
@@ -17,4 +17,4 @@ Probá el funcionamiento de los comandos que pueden darse al Beto para organizar
 
 [Enunciado en PDF][PDF]
 
-[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/1.Repaso/1.3.Fútbol%20de%20robots/assets/resources/description.pdf "Enunciado de 'Fútbol de robots' en PDF"
+[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/0.Repaso/3.F%C3%BAtbol%20de%20robots/assets/resources/description.pdf "Enunciado de 'Fútbol de robots' en PDF"
