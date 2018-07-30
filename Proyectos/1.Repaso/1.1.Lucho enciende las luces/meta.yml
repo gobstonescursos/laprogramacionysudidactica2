@@ -6,13 +6,15 @@ attire:
 blocks:
   defaultToolbox: |
     <category name="Comandos básicos">
-        <block type="MoverALuchoAl_"></block>
-        <block type="EncenderLuz"></block>
         <block type="RepeticionSimple"></block>
     </category>
     <category name="Expresiones básicas">
         <block type="math_number"></block>
         <block type="DireccionSelector"></block>
+    </category>
+    <category name="Operaciones de Luces">
+        <block type="MoverALuchoAl_"></block>
+        <block type="EncenderLuz"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Definiciones">

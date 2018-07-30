@@ -6,15 +6,17 @@ attire:
 blocks:
   defaultToolbox: |
     <category name="Comandos básicos">
-        <block type="MoverAlLoroAl_"></block>
-        <block type="TocarElTambor"></block>
-        <block type="TocarLaGuitarra"></block>
         <block type="AlternativaCompleta"></block>
         <block type="RepeticionCondicional"></block>
     </category>
     <category name="Expresiones básicas">
         <block type="math_number"></block>
         <block type="DireccionSelector"></block>
+    </category>
+    <category name="Operaciones de Música">
+        <block type="MoverAlLoroAl_"></block>
+        <block type="TocarElTambor"></block>
+        <block type="TocarLaGuitarra"></block>
         <block type="hayInstrumento"></block>
         <block type="hayTambor"></block>
         <block type="hayGuitarra"></block>
