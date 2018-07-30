@@ -1,17 +1,17 @@
 [
-  { "name": "1.Repaso", "repo": "gobstones/laprogramacionysudidactica2"
+  { "name": "0.Repaso", "repo": "gobstones/laprogramacionysudidactica2"
   , "exercises": 
-    [ { "id": "1.1", "name": "Lucho enciende las luces"
-      , "path": "Proyectos/1.Repaso/1.1.Lucho enciende las luces"
+    [ { "id": "1", "name": "Lucho enciende las luces"
+      , "path": "Proyectos/0.Repaso/1.Lucho enciende las luces"
       }
-    , { "id": "1.2", "name": "Lucho enciende las luces, extendido"
-      , "path": "Proyectos/1.Repaso/1.2.Lucho enciende las luces, extendido"
+    , { "id": "2", "name": "Lucho enciende las luces, extendido"
+      , "path": "Proyectos/0.Repaso/2.Lucho enciende las luces, extendido"
       }
-    , { "id": "1.3", "name": "Fútbol de robots "
-      , "path": "Proyectos/1.Repaso/1.3.Fútbol de robots"
+    , { "id": "3", "name": "Fútbol de robots "
+      , "path": "Proyectos/0.Repaso/3.Fútbol de robots"
       }
-    , { "id": "1.4", "name": "La música del loro"
-      , "path": "Proyectos/1.Repaso/1.4.La música del loro"
+    , { "id": "4", "name": "La música del loro"
+      , "path": "Proyectos/0.Repaso/4.La música del loro"
       }
     ]
   }
