@@ -1,4 +1,4 @@
-#Actividad 2.1 La cena de Dino
+#Actividad 1 La cena de Dino
 
 En esta actividad tenemos que ayudar a Dino a que se coma toda su comida (que, lamentablemente por ahora, está compuesta de 
 hamburguesas y tortas). Fijate que, aunque siempre son 6 porciones, las comidas no aparecen siempre en el mismo lugar, y tampoco 
@@ -21,4 +21,4 @@ instrucciones a Dino.
 [Enunciado en PDF][PDF]
 
 [PDF]: 
-https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/2.Expresiones%20l%C3%B3gicas%20y%20funciones/2.1.La%20cena%20de%20Dino/assets/resources/description.pdf "Enunciado de 'La cena de Dino' en PDF"
+https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/1.Expresiones%20y%20funciones/1.La%20cena%20de%20Dino/assets/resources/description.pdf "Enunciado de 'La cena de Dino' en PDF"
