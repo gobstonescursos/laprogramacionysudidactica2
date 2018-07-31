@@ -12,26 +12,39 @@ function  hayGuitarra()       { return(aux_hayGuitarra())    }
 /*---------------- OPERACIONES AUXILIARES ------------------------------------------------*/
 /*----------------------------------------------------------------------------------------*/
 procedure AuxMoverAlLoroAl(dir){
-    if (not aux_estáElLoroEnLaCeldaActual()) { BOOM("No puedo mover al loro si no está en esta celda")               }
+    TypeCheck(dir,Norte,"'Mover al loro al' espera una dirección como argumento (por ejemplo 'Mover al loro al (Este)'), pero recibió %1")
+    AuxVerificarPresenciaDelLoroParaInstrucción()
     if (dir /= Este)                         { BOOM("El loro solo sabe moverse hacia el Este")                       }
-    if (aux_comenzóElShow())                 { BOOM("No puedo interrumpir el concierto por mal que toque")           }
+    AuxVerificarSiElLoroEstáDisponible()
     AuxSacarAlLoro()
     Mover(dir)
     AuxPonerAlLoro()
 }
 
 procedure AuxTocarElTambor() {
-    if (not aux_estáElLoroEnLaCeldaActual()) { BOOM("No puedo darle instrucciones al loro si no está en esta celda") }
+    AuxVerificarPresenciaDelLoroParaInstrucción()
     if (not aux_hayTambor())                 { BOOM("No puedo tocar el tambor si no está en esta celda")             }
-    if (aux_comenzóElShow())                 { BOOM("No puedo interrumpir el concierto por mal que toque")           }
+    AuxVerificarSiElLoroEstáDisponible()
     AuxComenzarElShow()
 }
 
 procedure AuxTocarLaGuitarra() {
-    if (not aux_estáElLoroEnLaCeldaActual()) { BOOM("No puedo darle instrucciones al loro si no está en esta celda") }
+    AuxVerificarPresenciaDelLoroParaInstrucción()
     if (not aux_hayGuitarra())               { BOOM("No puedo tocar la guitarra si no está en esta celda")           }
-    if (aux_comenzóElShow())                 { BOOM("No puedo interrumpir el concierto por mal que toque")           }
+    AuxVerificarSiElLoroEstáDisponible()
     AuxComenzarElShow()
+}
+
+procedure AuxVerificarPresenciaDelLoroParaInstrucción() {
+    if (not aux_estáElLoroEnLaCeldaActual()) { BOOM("No puedo darle instrucciones al loro si no está en esta celda") }
+}
+
+procedure AuxVerificarPresenciaDelLoroParaPregunta() {
+    if (not aux_estáElLoroEnLaCeldaActual()) { BOOM("No puedo hacerle preguntas al loro si no está en esta celda") }
+}
+
+procedure AuxVerificarSiElLoroEstáDisponible() {
+    if (aux_comenzóElShow())                 { BOOM("No puedo interrumpir el concierto por mal que toque")           }
 }
 
 function aux_elLoro()        { return(Azul)  }
@@ -39,44 +52,33 @@ function aux_tambor()        { return(Negro) }
 function aux_guitarra()      { return(Verde) }
 function aux_showComenzado() { return(Rojo)  }
 
-function aux_estáElLoroEnLaCeldaActual()    { return (nroBolitas(aux_elLoro())   ==1)       }
+
+function aux_hayTambor()                    { 
+    AuxVerificarPresenciaDelLoroParaPregunta()
+    return (nroBolitas(aux_tambor())   ==1)       
+}
+
+function aux_hayGuitarra()                  { 
+    AuxVerificarPresenciaDelLoroParaPregunta()
+    return (nroBolitas(aux_guitarra()) ==1)       
+}
+
 function aux_hayInstrumento()               { return (aux_hayGuitarra() || aux_hayTambor()) }
-function aux_hayTambor()                    { return (nroBolitas(aux_tambor())   ==1)       }
-function aux_hayGuitarra()                  { return (nroBolitas(aux_guitarra()) ==1)       }
+function aux_estáElLoroEnLaCeldaActual()    { return (nroBolitas(aux_elLoro())   ==1)       }
 function aux_hayIndicaciónDeShowComenzado() { return (nroBolitas(aux_showComenzado())==1)   }
+
 function aux_comenzóElShow()                { 
-    AuxMarcar()
+    // PROPÓSITO: Informa si en alguna celda hay una marca de inicio de show. 
+    // OBSERVACIÓN: Como es una función, no mueve el cabezal ni altera el tablero
     AuxIniciarRecorrido()
     while (not aux_terminóElRecorrido() && not aux_hayIndicaciónDeShowComenzado()) { AuxAvanzarRecorrido() }
     valorDeRetorno := aux_hayIndicaciónDeShowComenzado()
-    AuxVolverALaMarca()
-    AuxDesmarcar()
     return (valorDeRetorno) 
 }
 
 procedure AuxPonerAlLoro()    { Poner(aux_elLoro())        }
 procedure AuxSacarAlLoro()    { Sacar(aux_elLoro())        }
 procedure AuxComenzarElShow() { Poner(aux_showComenzado()) }
-
-//---------------------------------------------------------------------------------------------------/
-/*----------------------------------- Operaciones de marcas -----------------------------------------/
-/---------------------------------------------------------------------------------------------------*/
-// La marca son 100 bolitas del aux_colorParaMarca, pero puede haber otras marcas antes
-function aux_colorParaLaMarca()  { return(Verde) }
-function aux_códigoParaLaMarca() { return(100)   }
-
-function  aux_hayMarca() { return (nroBolitas(aux_colorParaLaMarca())>=aux_códigoParaLaMarca()) }
-procedure AuxMarcar()    { AuxPoner__Veces(aux_colorParaLaMarca(),aux_códigoParaLaMarca())      }
-procedure AuxDesmarcar() { 
-  // PRECONDICIÓN: hay una marca en el lugar (o sea, aux_hayMarca() es verdadero)
-  AuxSacar__Veces(aux_colorParaLaMarca(),aux_códigoParaLaMarca()) 
-}
-
-procedure AuxVolverALaMarca() {
-  // PRECONDICIÓN: hay una marca en el tablero
-  AuxIniciarRecorrido()
-  while (not aux_terminóElRecorrido() && not aux_hayMarca()) { AuxAvanzarRecorrido() }
-}
 
 //---------------------------------------------------------------------------------------------------/
 /*---------------------------------- Operaciones de recorrido ---------------------------------------/
