@@ -5,11 +5,11 @@ attire:
   visible: true
 blocks:
   defaultToolbox: |
-    <category name="Comandos básicos">
+    <category name="Comandos comunes">
         <block type="RepeticionSimple"></block>
         <block type="RepeticionCondicional"></block>
     </category>
-    <category name="Expresiones básicas">
+    <category name="Expresiones comunes">
         <block type="math_number"></block>
         <block type="DireccionSelector"></block>
     </category>
