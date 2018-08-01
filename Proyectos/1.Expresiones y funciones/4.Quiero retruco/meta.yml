@@ -11,7 +11,7 @@ blocks:
     </category>
     <category name="Operaciones de Palos y Números">
         <block type="palo_"></block>
-        <block type="valorDeCartaEspañolaDe40_"></block>
+        <block type="númeroDeCartaEspañolaDe40_"></block>
     </category>
     <category name="Operaciones de Cartas">
         <block type="PonerCarta_"></block>
