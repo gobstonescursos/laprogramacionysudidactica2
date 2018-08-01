@@ -26,11 +26,14 @@
     , { "id": "3", "name": "Descubrir la carta"
       , "path": "Proyectos/1.Expresiones y funciones/3.Descubrir la carta"
       }
-    , { "id": "4", "name": "Quiero retruco"
+    , { "id": "4", "name": "¡Quiero retruco!"
       , "path": "Proyectos/1.Expresiones y funciones/4.Quiero retruco"
       }
-	, { "id": "5", "name": "Te carteaste"
+	, { "id": "5", "name": "¡Te carteaste!"
       , "path": "Proyectos/1.Expresiones y funciones/5.Te carteaste"
+      }
+	, { "id": "6", "name": "El alquimista"
+      , "path": "Proyectos/1.Expresiones y funciones/6.El alquimista"
       }
     , { "id": "3.1", "name": "Está lista la cena"
       , "path": "Proyectos/3.Expresiones lógicas, funciones  y sensores/3.1.Está lista la cena"
