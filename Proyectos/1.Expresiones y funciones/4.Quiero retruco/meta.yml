@@ -1,3 +1,4 @@
+name: ¡Quiero retruco!
 attire:
   active: 'Cartas, letras, números'
   user_permissions:
@@ -5,17 +6,15 @@ attire:
   visible: true
 blocks:
   defaultToolbox: | 
-    <category name="Comandos básicos">
+    <category name="Comandos comunes">
         <block type="PasarASiguientePosición"></block>
     </category>
-    <category name="Expresiones de palos y valores">
+    <category name="Operaciones de Palos y Números">
         <block type="palo_"></block>
         <block type="valorDeCartaEspañolaDe40_"></block>
     </category>
-    <category name="Comandos de Cartas">
+    <category name="Operaciones de Cartas">
         <block type="PonerCarta_"></block>
-    </category>
-    <category name="Expresiones de Cartas">
         <block type="dameCarta__"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
@@ -35,4 +34,3 @@ execution_speed:
     can_change_speed: true
 library:
   visible: false
-name: Quiero retruco
