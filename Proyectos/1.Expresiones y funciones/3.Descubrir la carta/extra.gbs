@@ -1589,7 +1589,7 @@ function aux_hayCartaEspañolaDestapada() {
 function aux_cartaEspañolaActual() {
   // PRECONDICIÓN: hay una carta destapada en la celda actual
   if (not aux_hayCartaEspañola())      { BOOM("No hay una carta española que pueda leer") }
-  if (aux_laCartaEspañolaEstáTapada()) { BOOM("No puedo leer una carta española tapada")  }
+  //if (aux_laCartaEspañolaEstáTapada()) { BOOM("No puedo leer una carta española tapada")  }
   return(aux_cartaEspañolaParaElCódigo(aux_leerDato()))
 }         
 

@@ -1,4 +1,4 @@
-#Actividad 2.3. Descubrir la carta
+#Actividad 3. Descubrir la carta
 
 En esta actividad tenés que descubrir cuál es la carta que la computadora eligió, y escribir el número y el palo de la misma.
 Para eso, indagá entre las operaciones primitivas, para ver de qué disponés. Si lográs como resultado la primera de las imágenes
@@ -20,4 +20,4 @@ que ver qué hiciste mal...
 [Enunciado en PDF][PDF]
 
 [PDF]: 
-https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/2.Expresiones%20l%C3%B3gicas%20y%20funciones/2.3.Descubrir%20la%20carta/assets/resources/description.pdf "Enunciado de 'Descubrir la carta' en PDF"
+https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/1.Expresiones%20y%20funciones/3.Descubrir%20la%20carta/assets/resources/description.pdf "Enunciado de 'Descubrir la carta' en PDF"
