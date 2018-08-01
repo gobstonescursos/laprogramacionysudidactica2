@@ -1,4 +1,4 @@
-#Actividad 2.3. Dino aprende a no comer chatarra
+#Actividad 2. Dino aprende a no comer chatarra
 
 Al igual que en la actividad anterior, tenemos que ayudar a Dino a comer su cena. 
 Pero ahora Dino está aprendiendo que es malo comer comida chatarra, y por lo tanto solo come 
@@ -30,4 +30,4 @@ Buscá en la caja de herramientas, que seguro encontrás algo.
 [Enunciado en PDF][PDF]
 
 [PDF]: 
-https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/2.Expresiones%20l%C3%B3gicas%20y%20funciones/2.2.Dino%20aprende%20a%20no%20comer%20chatarra/assets/resources/description.pdf "Enunciado de 'Dino aprende a no comer chatarra' en PDF"
+https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/1.Expresiones%20y%20funciones/2.Dino%20aprende%20a%20no%20comer%20chatarra/assets/resources/description.pdf "Enunciado de 'Dino aprende a no comer chatarra' en PDF"

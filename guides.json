@@ -20,8 +20,8 @@
     [ { "id": "1", "name": "La cena de Dino"
       , "path": "Proyectos/1.Expresiones y funciones/1.La cena de Dino"
       }
-    , { "id": "2.2", "name": "Dino aprende a no comer chatarra"
-      , "path": "Proyectos/2.Expresiones lógicas y funciones/2.2.Dino aprende a no comer chatarra"
+    , { "id": "2", "name": "Dino aprende a no comer chatarra"
+      , "path": "Proyectos/1.Expresiones y funciones/2.Dino aprende a no comer chatarra"
       }
     , { "id": "2.3", "name": "Descubrir la carta"
       , "path": "Proyectos/2.Expresiones lógicas y funciones/2.3.Descubrir la carta"

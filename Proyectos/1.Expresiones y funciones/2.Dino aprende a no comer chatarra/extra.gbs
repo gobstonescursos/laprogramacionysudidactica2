@@ -5,7 +5,7 @@
 procedure MoverADinoAl_(dir)           { AuxMoverADinoAl(dir)                           }
 /*@ATTRIBUTE@block_name@Cambiar a Dino de fila@*/
 procedure CambiarADinoDeFila()         { AuxCambiarADinoDeFila()                        }
-/*@ATTRIBUTE@block_name@está Dino en el inicio de la fila@*/
+/*@ATTRIBUTE@block_name@¿está Dino en el inicio de la fila?@*/
 function  estáDinoEnElInicioDeLaFila() { return(aux_estáDinoEnElInicio())               }
 
 procedure RechazarLaComida()           { AuxRechazarLaComida()                          }
@@ -13,9 +13,13 @@ procedure ComerLaHamburguesa()         { AuxComerLaHamburguesa()                
 procedure ComerLaTorta()               { AuxComerLaTorta()                              }
 procedure ComerElBife()                { AuxComerElBife()                               }
 procedure ComerElDurazno()             { AuxComerElDurazno()                            }
+/*@ATTRIBUTE@block_name@¿hay hamburguesa?@*/
 function  hayHamburguesa()             { return(aux_estáLaHamburguesaEnLaCeldaActual()) }
+/*@ATTRIBUTE@block_name@¿hay torta?@*/
 function  hayTorta()                   { return(aux_estáLaTortaEnLaCeldaActual())       }
+/*@ATTRIBUTE@block_name@¿hay bife?@*/
 function  hayBife()                    { return(aux_estáElBifeEnLaCeldaActual())        }
+/*@ATTRIBUTE@block_name@¿hay hay durazno?@*/
 function  hayDurazno()                 { return(aux_estáElDuraznoEnLaCeldaActual())     }
 
 /*----------------------------------------------------------------------------------------*/
