@@ -17,4 +17,4 @@ solamente poné las 3 cartas para que el escenario final quede como el que se mu
 
 [Enunciado en PDF][PDF]
 
-[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/1.Expresiones%20y%20funciones/4.Quiero%20retruco/resources/description.pdf "Enunciado de '¡Quiero retruco!' en PDF"
+[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/1.Expresiones%20y%20funciones/4.Quiero%20retruco/assets/resources/description.pdf "Enunciado de '¡Quiero retruco!' en PDF"
