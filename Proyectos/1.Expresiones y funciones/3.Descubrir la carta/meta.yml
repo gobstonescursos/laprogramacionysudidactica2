@@ -6,11 +6,13 @@ attire:
   visible: true
 blocks:
   defaultToolbox: |
-    <category name="Operaciones de cartas">
+    <category name="Operaciones de Palos y Números">
         <block type="DecirPalo_"></block>
         <block type="DecirNúmero_"></block>
         <block type="palo_"></block>
         <block type="valorDeCartaEspañolaDe40_"></block>
+    </category>
+    <category name="Operaciones de Cartas">
         <block type="cartaActual"></block>
         <block type="dameElPalo_"></block>
         <block type="dameElValor_"></block>
