@@ -10,12 +10,12 @@ blocks:
         <block type="DecirPalo_"></block>
         <block type="DecirNúmero_"></block>
         <block type="palo_"></block>
-        <block type="valorDeCartaEspañolaDe40_"></block>
+        <block type="númeroDeCartaEspañolaDe40_"></block>
     </category>
     <category name="Operaciones de Cartas">
         <block type="cartaActual"></block>
         <block type="dameElPalo_"></block>
-        <block type="dameElValor_"></block>
+        <block type="dameElNúmero_"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Definiciones">
