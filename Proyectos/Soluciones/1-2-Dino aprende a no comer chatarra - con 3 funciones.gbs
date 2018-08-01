@@ -21,8 +21,11 @@ procedure ComerComidaDe1FilaYVolver() {
 procedure ComerLaComidaCorrespondiente() {
   if (hayBife())           { ComerElBife()       }
   if (hayDurazno())        { ComerElDurazno()    }
-  if (hayComidaChatarra()) { RechazarLaComida()  }
+  if (hayComidaChatarra()) { RechazarLaComida()  }  // SIN REPETIR CÓDIGO
 }
 
-procedure IrHastaLaComida()        { while (not (hayComida()))                  { MoverADinoAl_(Este)  } }
+procedure IrHastaLaComida()        { 
+    while (not (hayComida()))                       // SIMPLE Y EXPRESIVO
+        { MoverADinoAl_(Este)  } 
+}
 procedure VolverAlInicioDeLaFila() { while (not (estáDinoEnElInicioDeLaFila())) { MoverADinoAl_(Oeste) } }
