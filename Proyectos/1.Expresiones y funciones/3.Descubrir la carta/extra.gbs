@@ -2122,7 +2122,7 @@ procedure DecirPalo_(palo) {
   if (not aux_hayCartaEspañolaTapada()) { BOOM("No hay carta para adivinar") }
   carta := aux_cartaEspañolaTapada()
   Mover(Sur)
-  if (not aux_hayNúmero()) { BOOM("Primero deberías decir el número del valor de la carta") }
+  if (not aux_hayNúmero()) { BOOM("Primero deberías decir el número de la carta") }
   valor := aux_númeroActual()
   AuxIrAPosiciónLibre()
   AuxPasarASiguientePosición()
