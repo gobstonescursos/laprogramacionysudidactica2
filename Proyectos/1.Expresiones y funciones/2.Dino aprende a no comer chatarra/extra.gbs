@@ -8,6 +8,29 @@ procedure CambiarADinoDeFila()         { AuxCambiarADinoDeFila()                
 /*@ATTRIBUTE@block_name@¿está Dino en el inicio de la fila?@*/
 function  estáDinoEnElInicioDeLaFila() { return(aux_estáDinoEnElInicio())               }
 
+// /*@ATTRIBUTE@block_name@Comer _@*/
+// /*@ATTRIBUTE@block_dropdown@[("la hamburguesa", 'Hamburguesa'), ("la torta",'Torta'), ("el bife", 'Bife'), ("el durazno", 'Durazno')]@*/
+// procedure Comer_(laComida) {
+   // switch (laComida) to {
+      // Hamburguesa -> { AuxComerLaHamburguesa() }
+      // Torta       -> { AuxComerLaTorta()       }
+      // Bife        -> { AuxComerElBife()        }
+      // Durazno     -> { AuxComerElDurazno()     }
+   // }
+// }
+
+// /*@ATTRIBUTE@block_name@¿hay _ ?@*/
+// /*@ATTRIBUTE@block_dropdown@[("hamburguesa", 'Hamburguesa'), ("torta",'Torta'), ("bife", 'Bife'), ("durazno", 'Durazno')]@*/
+// function hay_(laComida) {
+   // switch (laComida) to {
+      // Hamburguesa -> { valorDeRetorno := aux_estáLaHamburguesaEnLaCeldaActual() }                                         
+      // Torta       -> { valorDeRetorno := aux_estáLaTortaEnLaCeldaActual()       }                                         
+      // Bife        -> { valorDeRetorno := aux_estáElBifeEnLaCeldaActual()        }                                         
+      // Durazno     -> { valorDeRetorno := aux_estáElDuraznoEnLaCeldaActual()     }
+   // }
+  // return (valorDeRetorno)
+// }
+
 procedure RechazarLaComida()           { AuxRechazarLaComida()                          }
 procedure ComerLaHamburguesa()         { AuxComerLaHamburguesa()                        }
 procedure ComerLaTorta()               { AuxComerLaTorta()                              }
@@ -25,6 +48,8 @@ function  hayDurazno()                 { return(aux_estáElDuraznoEnLaCeldaActua
 /*----------------------------------------------------------------------------------------*/
 /*---------------- OPERACIONES AUXILIARES ------------------------------------------------*/
 /*----------------------------------------------------------------------------------------*/
+type Comida is variant { case Hamburguesa {} case Torta {} case Bife {} case Durazno {} }
+
 procedure AuxMoverADinoAl(dir){
     if (not aux_estáDinoEnLaCeldaActual())     { BOOM("No puedo mover a Dino si no está en esta celda")               }
     if (dir == Norte || dir == Sur)            { BOOM("Para mover a Dino de fila, usar 'Cambiar a Dino de fila'")     }
