@@ -13,11 +13,9 @@ blocks:
     <category name="Expresiones comunes">
         <block type="math_number"></block>
     </category>
-    <category name="Operaciones de Palos y Valores">
-        <block type="palo_"></block>
-        <block type="númeroDeCartaEspañolaDe40_"></block>
-    </category>
     <category name="Operaciones de Cartas">
+        <block type="paloDeCartaEspañolaDe40_"></block>
+        <block type="númeroDeCartaEspañolaDe40_"></block>
         <block type="PonerCarta_"></block>
         <block type="dameCarta__"></block>
     </category>

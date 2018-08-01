@@ -951,7 +951,7 @@ type PaloDeCartaEspañola  is variant { case Bastos {} case Copas {} case Espada
 ///*@ATTRIBUTE@tooltip@Denota el palo de una carta de un mazo de cartas españolas*/
 /*@ATTRIBUTE@block_name@_@*/
 /*@ATTRIBUTE@block_dropdown@[("Bastos", 'Bastos'), ("Copas", 'Copas'), ("Espadas", 'Espadas'), ("Oros", 'Oros')]@*/
-function palo_(palo) { return (palo) }
+function paloDeCartaEspañolaDe40_(palo) { return (palo) }
 
 ///*@ATTRIBUTE@tooltip@Denota el palo de espadas de un mazo de cartas españolas*/
 /*@ATTRIBUTE@block_name@Bastos@*/ function bastos()  { return(Bastos)  }
