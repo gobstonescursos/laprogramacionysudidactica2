@@ -10,7 +10,7 @@ procedure LlevarAlLoroHastaElInstrumento() {
 }
 
 procedure ComenzarElConcierto() {
-  if (hayTambor())   { TocarElTambor()   }
-  if (hayGuitarra()) { TocarLaGuitarra() }
+  if (hay_(Tambor))   { Tocar_(Tambor)   }
+  if (hay_(Guitarra)) { Tocar_(Guitarra) }
 }
 
