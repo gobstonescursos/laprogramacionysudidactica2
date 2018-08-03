@@ -15,11 +15,11 @@ procedure ComerComidaDe1FilaYVolver() {
 }
 
 procedure ComerLaComidaCorrespondiente() {
-  if (hayHamburguesa()) { ComerLaHamburguesa() } 
-  else                  { ComerLaTorta()       }
+  if (hay_(Hamburguesa)) { Comer_(Hamburguesa) } 
+  else                   { Comer_(Torta)       }
 }
 
-procedure IrHastaLaComida()        { while (not (hayHamburguesa() || hayTorta())) { MoverADinoAl_(Este)  } }
-procedure VolverAlInicioDeLaFila() { while (not (estáDinoEnElInicioDeLaFila()))   { MoverADinoAl_(Oeste) } }
+procedure IrHastaLaComida()        { while (not (hay_(Hamburguesa) || hay_(Torta))) { MoverADinoAl_(Este)  } }
+procedure VolverAlInicioDeLaFila() { while (not (estáDinoEnElInicioDeLaFila()))     { MoverADinoAl_(Oeste) } }
 
 
