@@ -9,8 +9,8 @@ procedure HacerQueDinoSeComaSuCena() {
 }
 
 function hayComida()         { return (hayComidaChatarra() || hayComidaSana()) }
-function hayComidaChatarra() { return (hayHamburguesa()    || hayTorta())      }
-function hayComidaSana()     { return (hayBife()           || hayDurazno())    }
+function hayComidaChatarra() { return (hay_(Hamburguesa)   || hay_(Torta))     }
+function hayComidaSana()     { return (hay_(Bife)          || hay_(Durazno))   }
 
 procedure ComerComidaDe1FilaYVolver() {
   IrHastaLaComida()
@@ -19,8 +19,8 @@ procedure ComerComidaDe1FilaYVolver() {
 }
 
 procedure ComerLaComidaCorrespondiente() {
-  if (hayBife())           { ComerElBife()       }
-  if (hayDurazno())        { ComerElDurazno()    }
+  if (hay_(Bife))          { Comer_(Bife)        }
+  if (hay_(Durazno))       { Comer_(Durazno)     }
   if (hayComidaChatarra()) { RechazarLaComida()  }  // SIN REPETIR CÓDIGO
 }
 

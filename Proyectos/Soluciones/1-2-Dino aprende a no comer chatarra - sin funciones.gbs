@@ -15,17 +15,17 @@ procedure ComerComidaDe1FilaYVolver() {
 }
 
 procedure IrHastaLaComida() {
-  while (not ((hayHamburguesa() || hayTorta()) 
-           || (hayBife() || hayDurazno())
+  while (not ((hay_(Hamburguesa) || hay_(Torta)) 
+           || (hay_(Bife) || hay_(Durazno))
              )                           // MUY COMPLICADO
         ) 
     { MoverADinoAl_(Este) }
 }
 
 procedure ComerLaComidaCorrespondiente() {
-  if (hayBife())                         { ComerElBife()      }
-  if (hayDurazno())                      { ComerElDurazno()   }
-  if ((hayHamburguesa() || hayTorta()) ) { RechazarLaComida() }
+  if (hay_(Bife))                          { Comer_(Bife)       }
+  if (hay_(Durazno))                       { Comer_(Durazno)    }
+  if ((hay_(Hamburguesa) || hay_(Torta)) ) { RechazarLaComida() }
      // COMPLICADO (Y REPETIDO)
 }
 

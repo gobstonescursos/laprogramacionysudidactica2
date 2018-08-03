@@ -22,15 +22,9 @@ blocks:
         <block type="MoverADinoAl_"></block>
         <block type="CambiarADinoDeFila"></block>
         <block type="RechazarLaComida"></block>
-        <block type="ComerLaHamburguesa"></block>
-        <block type="ComerLaTorta"></block>
-        <block type="ComerElBife"></block>
-        <block type="ComerElDurazno"></block>
+        <block type="Comer_"></block>
         <block type="estáDinoEnElInicioDeLaFila"></block>
-        <block type="hayHamburguesa"></block>
-        <block type="hayTorta"></block>
-        <block type="hayBife"></block>
-        <block type="hayDurazno"></block>
+        <block type="hay_"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">        </category>
