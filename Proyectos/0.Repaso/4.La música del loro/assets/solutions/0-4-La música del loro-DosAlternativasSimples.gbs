@@ -5,9 +5,12 @@ procedure HacerQueElLoroEmpieceElConcierto() {
   ComenzarElConcierto()
 }
 
-procedure LlevarAlLoroHastaElInstrumento() { while (not (hayInstrumento())) { MoverAlLoroAl_(Este) } }
+procedure LlevarAlLoroHastaElInstrumento() {
+  while (not (hayInstrumento())) { MoverAlLoroAl_(Este) }
+}
+
 procedure ComenzarElConcierto() {
-  if (hayTambor()) { TocarElTambor()   } 
-  else             { TocarLaGuitarra() }
+  if (hay_(Tambor))   { Tocar_(Tambor)   }
+  if (hay_(Guitarra)) { Tocar_(Guitarra) }
 }
 

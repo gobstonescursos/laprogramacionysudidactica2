@@ -2,15 +2,20 @@
 /*---------------- INTERFAZ --------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------*/
 procedure MoverAlLoroAl_(dir) { AuxMoverAlLoroAl(dir)        }
-procedure TocarElTambor()     { AuxTocarElTambor()           }
-procedure TocarLaGuitarra()   { AuxTocarLaGuitarra()         }
 function  hayInstrumento()    { return(aux_hayInstrumento()) }
-function  hayTambor()         { return(aux_hayTambor())      }
-function  hayGuitarra()       { return(aux_hayGuitarra())    }
+
+/*@ATTRIBUTE@block_dropdown@[("el_tambor",'Tambor'), ("la_guitarra",'Guitarra')]@*/
+procedure Tocar_(instrumento) { AuxTocar(instrumento) }
+
+/*@ATTRIBUTE@block_name@¿hay _?@*/
+/*@ATTRIBUTE@block_dropdown@[("tambor",'Tambor'), ("guitarra",'Guitarra')]@*/
+function hay_(instrumento) { return (aux_hay(instrumento)) }
 
 /*----------------------------------------------------------------------------------------*/
 /*---------------- OPERACIONES AUXILIARES ------------------------------------------------*/
 /*----------------------------------------------------------------------------------------*/
+type Instrumento is variant { case Tambor {} case Guitarra {} }
+
 procedure AuxMoverAlLoroAl(dir){
     TypeCheck(dir,Norte,"'Mover al loro al' espera una dirección como argumento (por ejemplo 'Mover al loro al (Este)'), pero recibió %1")
     AuxVerificarPresenciaDelLoroParaInstrucción()
@@ -21,16 +26,16 @@ procedure AuxMoverAlLoroAl(dir){
     AuxPonerAlLoro()
 }
 
-procedure AuxTocarElTambor() {
+procedure AuxTocar(instrumento) {
+    TypeCheck(instrumento, Tambor, "'Tocar_' espera un instrumento como argumento (por ejemplo 'Tocar_ (el tambor)'), pero recibió %1")
     AuxVerificarPresenciaDelLoroParaInstrucción()
-    if (not aux_hayTambor())                 { BOOM("No puedo tocar el tambor si no está en esta celda")             }
-    AuxVerificarSiElLoroEstáDisponible()
-    AuxComenzarElShow()
-}
-
-procedure AuxTocarLaGuitarra() {
-    AuxVerificarPresenciaDelLoroParaInstrucción()
-    if (not aux_hayGuitarra())               { BOOM("No puedo tocar la guitarra si no está en esta celda")           }
+    switch (instrumento) to {
+     Tambor   -> { if (not aux_hay(Tambor))
+                    { BOOM("No puedo tocar el tambor si no está en esta celda")   } }
+     Guitarra -> { if (not aux_hay(Guitarra))
+                    { BOOM("No puedo tocar la guitarra si no está en esta celda") } }
+     _        -> { AuxGarantizarEsteError(aux_errorCannotHappen())                  }
+    }           
     AuxVerificarSiElLoroEstáDisponible()
     AuxComenzarElShow()
 }
@@ -48,23 +53,26 @@ procedure AuxVerificarSiElLoroEstáDisponible() {
 }
 
 function aux_elLoro()        { return(Azul)  }
-function aux_tambor()        { return(Negro) }
-function aux_guitarra()      { return(Verde) }
 function aux_showComenzado() { return(Rojo)  }
-
-
-function aux_hayTambor()                    { 
-    AuxVerificarPresenciaDelLoroParaPregunta()
-    return (nroBolitas(aux_tambor())   ==1)       
+function aux_colorPara(instrumento) { 
+   return(choose
+      Negro                   when (instrumento==Tambor)
+      Verde                   when (instrumento==Guitarra)
+      aux_errorCannotHappen() otherwise
+   ) 
 }
 
-function aux_hayGuitarra()                  { 
+procedure AuxGarantizarEsteError(error) { /* Solo por el efecto de evaluar la expresión error, que debería dar boom */ }
+function aux_errorCannotHappen() { return (boom("NO PUEDE SUCEDER. Alguien modificó los instrumentos")) }
+
+function aux_hay(instrumento)               { 
+    TypeCheck(instrumento, Tambor, "'hay_' espera un instrumento como argumento (por ejemplo 'hay_(Tambor)'), pero recibió %1")
     AuxVerificarPresenciaDelLoroParaPregunta()
-    return (nroBolitas(aux_guitarra()) ==1)       
+    return (nroBolitas(aux_colorPara(instrumento))==1)
 }
 
-function aux_hayInstrumento()               { return (aux_hayGuitarra() || aux_hayTambor()) }
-function aux_estáElLoroEnLaCeldaActual()    { return (nroBolitas(aux_elLoro())   ==1)       }
+function aux_hayInstrumento()               { return (aux_hay(Guitarra) || aux_hay(Tambor)) }
+function aux_estáElLoroEnLaCeldaActual()    { return (nroBolitas(aux_elLoro())       ==1)   }
 function aux_hayIndicaciónDeShowComenzado() { return (nroBolitas(aux_showComenzado())==1)   }
 
 function aux_comenzóElShow()                { 

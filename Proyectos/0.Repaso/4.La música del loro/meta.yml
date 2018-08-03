@@ -1,3 +1,4 @@
+name: La música del loro
 attire:
   active: La música del loro
   user_permissions:
@@ -16,11 +17,9 @@ blocks:
     </category>
     <category name="Operaciones de Música">
         <block type="MoverAlLoroAl_"></block>
-        <block type="TocarElTambor"></block>
-        <block type="TocarLaGuitarra"></block>
+        <block type="Tocar_"></block>
         <block type="hayInstrumento"></block>
-        <block type="hayTambor"></block>
-        <block type="hayGuitarra"></block>
+        <block type="hay_"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Definiciones">
@@ -42,4 +41,3 @@ library:
 source:
   visible: true
   percentage: 0.65  
-name: La música del loro
