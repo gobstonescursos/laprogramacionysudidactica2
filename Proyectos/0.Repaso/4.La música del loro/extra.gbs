@@ -4,7 +4,7 @@
 procedure MoverAlLoroAl_(dir) { AuxMoverAlLoroAl(dir)        }
 function  hayInstrumento()    { return(aux_hayInstrumento()) }
 
-/*@ATTRIBUTE@block_dropdown@[("el_tambor",'Tambor'), ("la_guitarra",'Guitarra')]@*/
+/*@ATTRIBUTE@block_dropdown@[("el tambor",'Tambor'), ("la guitarra",'Guitarra')]@*/
 procedure Tocar_(instrumento) { AuxTocar(instrumento) }
 
 /*@ATTRIBUTE@block_name@¿hay _?@*/
