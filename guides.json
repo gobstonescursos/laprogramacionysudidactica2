@@ -35,17 +35,17 @@
 	, { "id": "6", "name": "El alquimista"
       , "path": "Proyectos/1.Expresiones y funciones/6.El alquimista"
       }
-    , { "id": "3.1", "name": "Está lista la cena"
-      , "path": "Proyectos/3.Expresiones lógicas, funciones  y sensores/3.1.Está lista la cena"
+    , { "id": "7", "name": "Está lista la cena"
+      , "path": "Proyectos/1.Expresiones y funciones/7.Está lista la cena"
       }
-    , { "id": "3.2", "name": "No te gastes el ancho"
-      , "path": "Proyectos/3.Expresiones lógicas, funciones  y sensores/3.2.No te gastes el ancho"
+    , { "id": "8", "name": "No te gastes el ancho"
+      , "path": "Proyectos/1.Expresiones y funciones/8.No te gastes el ancho"
       }
-    , { "id": "3.3", "name": "El Rey, el Caballo, …"
-      , "path": "Proyectos/3.Expresiones lógicas, funciones  y sensores/3.3.El rey, el caballo, …"
+    , { "id": "9", "name": "El Rey, el Caballo, …"
+      , "path": "Proyectos/1.Expresiones y funciones/9.El rey, el caballo, …"
       }
-    , { "id": "3.4", "name": "Calcular el envido"
-      , "path": "Proyectos/3.Expresiones lógicas, funciones  y sensores/3.4.Calcular el envido"
+    , { "id": "10", "name": "Calcular el envido"
+      , "path": "Proyectos/1.Expresiones y funciones/10.Calcular el envido"
       }
 	 ]
   }
