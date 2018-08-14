@@ -1,10 +1,11 @@
 program { DarVueltaLasFiguras() }
 
 procedure DarVueltaLasFiguras() {
-  repeat(9) {
+  repeat(8) {
     ProcesarUnaCarta()
     PasarASiguientePosición()
   }
+  ProcesarUnaCarta()
 }
 
 procedure ProcesarUnaCarta() {
