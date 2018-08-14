@@ -10,7 +10,7 @@ function  estáLaTortaEnLaMesa()         { return(aux_estáLaTortaEnLaMesa())   
 function  estáElBifeEnLaMesa()          { return(aux_estáElBifeEnLaMesa())          }
 function  estáLaEnsaladaEnLaMesa()      { return(aux_estáLaEnsaladaEnLaMesa())      }
 function  estáLaFrutaEnLaMesa()         { return(aux_estáElDuraznoEnLaMesa())       }
-function  estáElCaféEnLaMesa()          { return(aux_estáElCaféEnLaMesa())          }
+//function  estáElCaféEnLaMesa()          { return(aux_estáElCaféEnLaMesa())          }
 
 /*----------------------------------------------------------------------------------------*/
 /*---------------- OPERACIONES AUXILIARES ------------------------------------------------*/

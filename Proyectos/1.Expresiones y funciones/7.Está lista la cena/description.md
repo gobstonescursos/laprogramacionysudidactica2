@@ -1,4 +1,4 @@
-#Actividad 3.1. Está lista la cena
+#Actividad 7. Está lista la cena
 
 En esta actividad ya está construido un programa para avisar cuando está lista la cena.
 Pero hay un problema: el programa no está funcionando bien.
@@ -31,4 +31,4 @@ resultado del programa al ejecutarlo en la segunda imagen.
 
 [Enunciado en PDF][PDF]
 
-[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/Clase3/3.1.Est%C3%A1%20lista%20la%20cena/resources/description.pdf "Enunciado de 'Está lista la cena' en PDF"
+[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/1.Expresiones%20y%20funciones/7.Est%C3%A1%20lista%20la%20cena/assets/resources/description.pdf "Enunciado de 'Está lista la cena' en PDF"

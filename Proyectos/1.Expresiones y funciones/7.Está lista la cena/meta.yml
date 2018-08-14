@@ -6,21 +6,22 @@ attire:
   visible: true
 blocks:
   defaultToolbox: | 
-    <category name="Comandos básicos">
-        <block type="AvisarQueTodavíaFalta"></block>
-        <block type="AvisarQueVengan"></block>
+    <category name="Comandos comunes">
         <block type="AlternativaCompleta"></block>
     </category>
-    <category name="Expresiones básicas">
+    <category name="Expresiones comunes">
         <block type="OperadorLogico"></block>
         <block type="not"></block>
+    </category>
+    <category name="Operaciones de la cena">
+        <block type="AvisarQueTodavíaFalta"></block>
+        <block type="AvisarQueVengan"></block>
         <block type="estáLaHamburguesaEnLaMesa"></block>
         <block type="estánLasPapasFritasEnLaMesa"></block>
         <block type="estáLaTortaEnLaMesa"></block>
         <block type="estáElBifeEnLaMesa"></block>
         <block type="estáLaEnsaladaEnLaMesa"></block>
         <block type="estáLaFrutaEnLaMesa"></block>
-        <block type="estáElCaféEnLaMesa"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">        </category>
