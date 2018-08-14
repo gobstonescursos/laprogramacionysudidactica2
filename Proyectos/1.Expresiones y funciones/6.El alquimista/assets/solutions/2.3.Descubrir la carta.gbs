@@ -1,4 +1,0 @@
-program {
-  DecirNúmero_(dameElValor_(cartaTapada()))
-  DecirPalo_(dameElPalo_(cartaTapada()))
-}

@@ -1,0 +1,7 @@
+program { DecirNúmero_(valorDelEnvidoDeNúmeros()) }
+
+function valorDelEnvidoDeNúmeros() {
+  return (dameElValor_(cartaIzquierda()) + (dameElValor_(cartaDerecha()) + 20))
+}
+
+
