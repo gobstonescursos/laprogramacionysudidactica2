@@ -1,4 +1,4 @@
-name: No te gastes el ancho
+name: ¡No te gastes el ancho! - parte 2
 attire:
   active: 'Cartas, letras y números'
   user_permissions:
@@ -16,12 +16,12 @@ blocks:
     </category>
     <category name="Operaciones de Cartas">
         <block type="palo_"></block>
-        <block type="valorDeCartaEspañolaDe40_"></block>
+        <block type="númeroDeCartaEspañolaDe40_"></block>
         <block type="PonerCarta_"></block>
         <block type="cartaQueJugóLaComputadora"></block>
         <block type="dameCarta__"></block>
         <block type="dameElPalo_"></block>
-        <block type="dameElValor_"></block>
+        <block type="dameElNúmero_"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">        </category>
