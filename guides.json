@@ -38,14 +38,14 @@
     , { "id": "7", "name": "Está lista la cena"
       , "path": "Proyectos/1.Expresiones y funciones/7.Está lista la cena"
       }
+    , { "id": "8, "name": "El Rey, el Caballo, …"
+      , "path": "Proyectos/1.Expresiones y funciones/8.El rey, el caballo, …"
+      }
     , { "id": "8", "name": "No te gastes el ancho"
       , "path": "Proyectos/1.Expresiones y funciones/8.No te gastes el ancho"
       }
-    , { "id": "9", "name": "El Rey, el Caballo, …"
-      , "path": "Proyectos/1.Expresiones y funciones/9.El rey, el caballo, …"
-      }
-    , { "id": "10", "name": "Calcular el envido simple"
-      , "path": "Proyectos/1.Expresiones y funciones/10.Calcular el envido simple"
+    , { "id": "11", "name": "Calcular el envido simple"
+      , "path": "Proyectos/1.Expresiones y funciones/11.Calcular el envido simple"
       }
 	 ]
   }
