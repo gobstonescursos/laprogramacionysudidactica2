@@ -1,4 +1,4 @@
-name: Calcular el envido
+name: Calcular el envido simple
 attire:
   active: 'Cartas, letras y números'
   user_permissions:
@@ -21,7 +21,7 @@ blocks:
         <block type="cartaIzquierda"></block>
         <block type="cartaDerecha"></block>
         <block type="dameElPalo_"></block>
-        <block type="dameElValor_"></block>
+        <block type="dameElNúmero_"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">        </category>

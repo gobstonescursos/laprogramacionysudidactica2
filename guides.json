@@ -44,8 +44,8 @@
     , { "id": "9", "name": "El Rey, el Caballo, …"
       , "path": "Proyectos/1.Expresiones y funciones/9.El rey, el caballo, …"
       }
-    , { "id": "10", "name": "Calcular el envido"
-      , "path": "Proyectos/1.Expresiones y funciones/10.Calcular el envido"
+    , { "id": "10", "name": "Calcular el envido simple"
+      , "path": "Proyectos/1.Expresiones y funciones/10.Calcular el envido simple"
       }
 	 ]
   }
