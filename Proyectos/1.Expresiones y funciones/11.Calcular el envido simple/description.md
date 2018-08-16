@@ -1,4 +1,4 @@
-#Actividad 10. Calcular el envido simple
+#Actividad 11. Calcular el envido simple
 
 En esta actividad tenemos 2 cartas en la mano, y tenemos que calcular el valor del envido.
 
@@ -19,4 +19,4 @@ Te mostramos algunos posibles escenarios finales, con el envido calculado correc
 
 [Enunciado en PDF][PDF]
 
-[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/1.Expresiones%20y%20funciones/10.Calcular%20el%20envido%20simple/assets/resources/description.pdf "Enunciado de 'Calcular el envido simple' en PDF"
+[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/1.Expresiones%20y%20funciones/11.Calcular%20el%20envido%20simple/assets/resources/description.pdf "Enunciado de 'Calcular el envido simple' en PDF"

@@ -1,4 +1,4 @@
-#Actividad 9. El rey, el caballo, …
+#Actividad 8. El rey, el caballo, …
 
 En esta actividad hay comenzado un programa que va mirando las cartas de la mesa, y solo debe dejar descubiertas las figuras. 
 Pero falta escribir las funciones que determinan si una carta es efectivamente o no una figura.
@@ -15,4 +15,4 @@ Completá el programa para que al terminar solo las figuras estén descubiertas,
 
 [Enunciado en PDF][PDF]
 
-[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/1.Expresiones%20y%20funciones/9.El%20rey%2C%20el%20caballo%2C%20%E2%80%A6/assets/resources/description.pdf "Enunciado de 'El rey, el caballo, …' en PDF"
+[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/1.Expresiones%20y%20funciones/8.El%20rey%2C%20el%20caballo%2C%20%E2%80%A6/assets/resources/description.pdf "Enunciado de 'El rey, el caballo, …' en PDF"
