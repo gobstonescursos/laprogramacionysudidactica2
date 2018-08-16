@@ -19,8 +19,8 @@ function estaCartaEsUnaFigura() { return (estaCartaEsUnRey()
                                        ||(estaCartaEsUnCaballo() 
                                        || estaCartaEsUnaSota())) 
                                 }
-function estaCartaEsUnRey()     { return (dameElValor_(cartaActual()) == 12) }
-function estaCartaEsUnCaballo() { return (dameElValor_(cartaActual()) == 11) }
-function estaCartaEsUnaSota()   { return (dameElValor_(cartaActual()) == 10) }
+function estaCartaEsUnRey()     { return (dameElNúmero_(cartaActual()) == 12) }
+function estaCartaEsUnCaballo() { return (dameElNúmero_(cartaActual()) == 11) }
+function estaCartaEsUnaSota()   { return (dameElNúmero_(cartaActual()) == 10) }
 
 
