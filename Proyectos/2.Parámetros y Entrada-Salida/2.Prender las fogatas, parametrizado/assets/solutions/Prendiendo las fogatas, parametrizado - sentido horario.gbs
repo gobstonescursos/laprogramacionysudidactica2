@@ -1,15 +1,15 @@
 program { PrenderFogatasDelCampamento() }
 
 procedure PrenderFogatasDelCampamento() {
-  PrenderFogatasDeLaFilaHaciaEl(Este)
-  PrenderFogatasDeLaFilaHaciaEl(Sur)
-  PrenderFogatasDeLaFilaHaciaEl(Oeste)
-  PrenderFogatasDeLaFilaHaciaEl(Norte)
+  PrenderFogatasDeUnLadoHaciaEl(Este)
+  PrenderFogatasDeUnLadoHaciaEl(Sur)
+  PrenderFogatasDeUnLadoHaciaEl(Oeste)
+  PrenderFogatasDeUnLadoHaciaEl(Norte)
 }
 
 procedure PrenderFogataSiCorresponde() { if (hayFogataApagada()) { PrenderFogata() } }
 
-procedure PrenderFogatasDeLaFilaHaciaEl(direcciónAMoverse) {
+procedure PrenderFogatasDeUnLadoHaciaEl(direcciónAMoverse) {
   repeat(6) {
     MoverAlExploradorAl_(direcciónAMoverse)
     PrenderFogataSiCorresponde()

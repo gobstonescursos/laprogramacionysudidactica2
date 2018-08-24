@@ -52,22 +52,26 @@
       }
 	 ]
   }
+, { "name": "2.Parámetros y Entrada-Salida", "repo": "gobstones/laprogramacionysudidactica2"
+  , "exercises":
+    [ { "id": "2", "name": "Prender las fogatas, parametrizado"
+      , "path": "Proyectos/2.Parámetros y Entrada-Salida/2.Prender las fogatas, parametrizado"
+      }
+    , { "id": "3", "name": "El planeta de Nano"
+      , "path": "Proyectos/2.Parámetros y Entrada-Salida/3.El planeta de Nano"
+      }
+	, { "id": "4", "name": "Es de espadas"
+      , "path": "Proyectos/2.Parámetros y Entrada-Salida/4.Es de espadas"
+      }
+    , { "id": "5", "name": "Es de"
+      , "path": "Proyectos/2.Parámetros y Entrada-Salida/5.Es de"
+      }
+	]
+  }
 , { "name": "5.Parámetros", "repo": "gobstones/laprogramacionysudidactica2"
   , "exercises":
     [ { "id": "5.1", "name": "Licuados"
       , "path": "Proyectos/5.Parámetros en procedimientos y funciones/5.1.Licuados"
-      }
-    , { "id": "5.2", "name": "Prendiendo las fogatas parametrizado"
-      , "path": "Proyectos/5.Parámetros en procedimientos y funciones/5.2.Prendiendo las fogatas parametrizado"
-      }
-    , { "id": "5.3", "name": "El planeta de Nano"
-      , "path": "Proyectos/5.Parámetros en procedimientos y funciones/5.2.El planeta de Nano"
-      }
-	, { "id": "5.4", "name": "Es de espadas"
-      , "path": "Proyectos/5.Parámetros en procedimientos y funciones/5.4.Es de espadas"
-      }
-    , { "id": "5.5", "name": "Es de"
-      , "path": "Proyectos/5.Parámetros en procedimientos y funciones/5.5.Es de"
       }
 	]
   }
