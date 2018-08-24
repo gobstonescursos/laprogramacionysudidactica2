@@ -16,7 +16,10 @@ procedure ProcesarUnaCarta() {
 }
 
 function laCartaActualEsUnaFigura() {
-  return (...)
+  return ( ...
+        || ...
+		|| ...
+         )
 }
 
 function laCartaActualEsUnRey() {
