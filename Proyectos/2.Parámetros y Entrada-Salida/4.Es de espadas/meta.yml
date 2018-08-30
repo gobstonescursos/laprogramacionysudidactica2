@@ -7,9 +7,6 @@ attire:
 blocks:
   defaultToolbox: |
     <category name="Comandos básicos">
-        <block type="DecirQueTengoFlor"></block>
-        <block type="DecirQueNoTengoFlor"></block>
-        <block type="PasarASiguientePosición"></block>
         <block type="AlternativaCompleta"></block>
     </category>
     <category name="Expresiones básicas">
@@ -19,13 +16,15 @@ blocks:
         <block type="OperadorLogico"></block>
         <block type="not"></block>
     </category>
-    <category name="Operaciones de cartas">
-        <block type="palo_"></block>
-        <block type="valorDeCartaEspañolaDe40_"></block>
+    <category name="Operaciones de Cartas">
+        <block type="DecirQueTengoFlor"></block>
+        <block type="DecirQueNoTengoFlor"></block>
+        <block type="paloDeCartaEspañolaDe40_"></block>
+        <block type="númeroDeCartaEspañolaDe40_"></block>
         <block type="segundaCarta"></block>
         <block type="terceraCarta"></block>
         <block type="dameElPalo_"></block>
-        <block type="dameElValor_"></block>
+        <block type="dameElNúmero_"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Definiciones">
