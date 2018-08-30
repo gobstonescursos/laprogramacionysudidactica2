@@ -6,11 +6,11 @@ procedure InformarSiTengoFlor() {
 }
 
 function tengoFlor() {
-  return (laCartaEsDeEstePalo(segundaCarta(), dameElPalo_(primeraCarta())) 
-       && laCartaEsDeEstePalo(terceraCarta(), dameElPalo_(primeraCarta())))
+  return (laCartaTieneEstePalo(segundaCarta(), dameElPalo_(primeraCarta())) 
+       && laCartaTieneEstePalo(terceraCarta(), dameElPalo_(primeraCarta())))
 }
 
-function laCartaEsDeEstePalo(cartaAControlar, paloAControlar) {
+function laCartaTieneEstePalo(cartaAControlar, paloAControlar) {
   return (...)
 }
 
