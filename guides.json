@@ -54,19 +54,28 @@
   }
 , { "name": "2.Parámetros y Entrada-Salida", "repo": "gobstones/laprogramacionysudidactica2"
   , "exercises":
-    [ { "id": "1", "name": "La máquina de licuados"
-      , "path": "Proyectos/2.Parámetros y Entrada-Salida/1.La máquina de licuados"
+    [ { "id": "1", "name": "La máquina de licuados v1.0"
+      , "path": "Proyectos/2.Parámetros y Entrada-Salida/1.1.La máquina de licuados v1.0"
       }
-    , { "id": "2", "name": "Prender las fogatas, parametrizado"
+    , { "id": "2", "name": "La máquina de licuados v2.0"
+      , "path": "Proyectos/2.Parámetros y Entrada-Salida/1.2.La máquina de licuados v2.0"
+      }
+    , { "id": "3", "name": "La máquina de licuados v3.0"
+      , "path": "Proyectos/2.Parámetros y Entrada-Salida/1.3.La máquina de licuados v3.0"
+      }
+    , { "id": "4", "name": "La máquina de licuados v4.0"
+      , "path": "Proyectos/2.Parámetros y Entrada-Salida/1.4.La máquina de licuados v4.0"
+      }
+    , { "id": "5", "name": "Prender las fogatas, parametrizado"
       , "path": "Proyectos/2.Parámetros y Entrada-Salida/2.Prender las fogatas, parametrizado"
       }
-    , { "id": "3", "name": "El planeta de Nano"
+    , { "id": "6", "name": "El planeta de Nano"
       , "path": "Proyectos/2.Parámetros y Entrada-Salida/3.El planeta de Nano"
       }
-	, { "id": "4", "name": "Es de espadas"
+	, { "id": "7", "name": "Es de espadas"
       , "path": "Proyectos/2.Parámetros y Entrada-Salida/4.Es de espadas"
       }
-    , { "id": "5", "name": "Es de…"
+    , { "id": "8", "name": "Es de…"
       , "path": "Proyectos/2.Parámetros y Entrada-Salida/5.Es de…"
       }
 	]
