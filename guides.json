@@ -54,7 +54,10 @@
   }
 , { "name": "2.Parámetros y Entrada-Salida", "repo": "gobstones/laprogramacionysudidactica2"
   , "exercises":
-    [ { "id": "2", "name": "Prender las fogatas, parametrizado"
+    [ { "id": "1", "name": "La máquina de licuados"
+      , "path": "Proyectos/2.Parámetros y Entrada-Salida/1.La máquina de licuados"
+      }
+    , { "id": "2", "name": "Prender las fogatas, parametrizado"
       , "path": "Proyectos/2.Parámetros y Entrada-Salida/2.Prender las fogatas, parametrizado"
       }
     , { "id": "3", "name": "El planeta de Nano"
