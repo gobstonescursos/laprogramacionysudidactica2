@@ -1,7 +1,7 @@
 #Actividad 1.1. La máquina de licuados v1.0
 
 La idea de esta actividad es que construyas un procedimiento que haga que la máquina haga un licuado
-de 2 bananas cuando se presiona el botón (con la tecla \<ENTER\>).
+de 2 bananas cuando se presiona el botón (con la tecla <ENTER\>).
 ¡No te olvides utilizar procedimientos para las subtareas!
 
 
