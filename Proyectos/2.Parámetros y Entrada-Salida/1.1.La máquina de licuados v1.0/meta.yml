@@ -1,4 +1,4 @@
-name: La máquina de licuados
+name: La máquina de licuados v1.0
 attire:
   active: La máquina de licuados
   user_permissions:
@@ -21,7 +21,6 @@ blocks:
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Definiciones">
         <block type="procedures_defnoreturn"></block>
-        <block type="ComandoCompletar"></block>
     </category>
 board:
   active: 1
