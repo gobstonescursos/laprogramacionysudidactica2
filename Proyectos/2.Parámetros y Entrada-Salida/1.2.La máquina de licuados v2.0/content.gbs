@@ -1,0 +1,5 @@
+interactive program {
+  K_S -> { ... }   // Para hacer licuados suaves (1 banana)
+  K_N -> { ... }   // Para hacer licuados normales (2 bananas)
+  K_F -> { ... }   // Para hacer licuados fuertes (3 bananas)
+}

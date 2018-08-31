@@ -1,0 +1,20 @@
+#Actividad 1.2. La máquina de licuados v2.0
+
+La idea de esta actividad es que construyas un procedimiento que haga que la máquina haga un licuado
+de 1, 2 o 3 bananas cuando se presiona cada uno de los 3 botones (con las teclas <S\> para Suave, 
+<N\> para Normal y <F\> para Fuerte).
+¡No te olvides utilizar procedimientos para las subtareas!
+
+
+> **¡Gracias!**
+>
+> <fontsize=1>
+> Esta actividad fue diseñada por el equipo de extensión del DC de la UBA: 
+> Turjanski P., Cossio C., Brassesco V.,  Fernandez G., Bonomi C., Lagos F.
+> </fontsize>
+
+
+[Enunciado en PDF][PDF]
+
+[PDF]: 
+https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/2.Par%C3%A1metros%20y%20Entrada-Salida/1.2.La%20m%C3%A1quina%20de%20licuados%20v2.0/assets/resources/description.pdf "Enunciado de 'La máquina de licuados v2.0' en PDF"
