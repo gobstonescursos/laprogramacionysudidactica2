@@ -10,7 +10,7 @@ Fijate que los tres nombres tienen que representar las situaciones.
 > **¡Gracias!**
 >
 > <fontsize=1>
-> Esta actividad fue diseñada por el equipo de extensión del DC de la UBA: 
+> Esta actividad fue imaginada y diseñada por el equipo de extensión del DC de la UBA: 
 > Turjanski P., Cossio C., Brassesco V.,  Fernandez G., Bonomi C., Lagos F.
 > </fontsize>
 
