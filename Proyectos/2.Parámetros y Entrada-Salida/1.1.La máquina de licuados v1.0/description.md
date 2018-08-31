@@ -3,6 +3,9 @@
 La idea de esta actividad es que construyas un procedimiento que haga que la máquina haga un licuado
 de 2 bananas cuando se presiona el botón (con la tecla <ENTER\>).
 
+¿Qué nombre le vas a poner a tu procedimiento?
+Acordate que tiene que ser descriptivo del problema que resuelve.
+
 > **¡Gracias!**
 >
 > <fontsize=1>
