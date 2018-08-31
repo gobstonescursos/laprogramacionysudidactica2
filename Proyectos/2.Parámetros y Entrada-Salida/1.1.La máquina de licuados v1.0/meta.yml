@@ -21,6 +21,7 @@ blocks:
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Definiciones">
         <block type="procedures_defnoreturn"></block>
+        <block type="ComandoCompletar"></block>
     </category>
 board:
   active: 1

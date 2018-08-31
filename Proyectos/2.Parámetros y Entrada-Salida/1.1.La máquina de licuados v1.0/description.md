@@ -1,10 +1,8 @@
-#Actividad 1. La máquina de licuados
+#Actividad 1.1. La máquina de licuados v1.0
 
-Primera actividad de parámetros en el nuevo entorno: descubrir la forma de hacerlo en Gobstones Jr
-
-<center>
-![El escenario final]
-</center>
+La idea de esta actividad es que construyas un procedimiento que haga que la máquina haga un licuado
+de 2 bananas cuando se presiona el botón (con la tecla \<ENTER\>).
+¡No te olvides utilizar procedimientos para las subtareas!
 
 
 > **¡Gracias!**
@@ -18,4 +16,4 @@ Primera actividad de parámetros en el nuevo entorno: descubrir la forma de hace
 [Enunciado en PDF][PDF]
 
 [PDF]: 
-https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/
+https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/2.Par%C3%A1metros%20y%20Entrada-Salida/1.1.La%20m%C3%A1quina%20de%20licuados%20v1.0/assets/resources/description.pdf "Enunciado de 'La máquina de licuados v1.0' en PDF"
