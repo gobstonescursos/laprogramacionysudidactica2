@@ -1,8 +1,11 @@
 #Actividad 1.2. La máquina de licuados v2.0
 
-La idea de esta actividad es que construyas un procedimiento que haga que la máquina haga un licuado
+La idea de esta actividad es que construyas procedimientos que sirvan para que la máquina haga un licuado
 de 1, 2 o 3 bananas cuando se presiona cada uno de los 3 botones (con las teclas <S\> para Suave, 
 <N\> para Normal y <F\> para Fuerte).
+
+Una vez más, tenés que ponerle nombre a tus procedimientos.
+Fijate que los tres nombres tienen que representar las situaciones.
 
 > **¡Gracias!**
 >
