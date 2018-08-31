@@ -3,8 +3,6 @@
 La idea de esta actividad es que construyas un procedimiento que haga que la máquina haga un licuado
 de 1, 2 o 3 bananas cuando se presiona cada uno de los 3 botones (con las teclas <S\> para Suave, 
 <N\> para Normal y <F\> para Fuerte).
-¡No te olvides utilizar procedimientos para las subtareas!
-
 
 > **¡Gracias!**
 >
