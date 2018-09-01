@@ -1,0 +1,11 @@
+interactive program {
+  K_ENTER -> { HacerLicuado(cantidadEnElDisplay(), frutaSeleccionada()) }
+  K_S     -> { DecrementarDisplay() }
+  K_A     -> { IncrementarDisplay() }
+  K_M     -> { SeleccionarManzana() }
+  K_B     -> { SeleccionarBanana()  }
+}
+
+procedure HacerLicuado(cantidadDeFruta, tipoDeFruta) {
+  ...
+}

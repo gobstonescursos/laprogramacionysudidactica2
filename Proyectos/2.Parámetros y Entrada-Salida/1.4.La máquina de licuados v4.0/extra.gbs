@@ -1,0 +1,104 @@
+type Fruta is variant { case Banana {} case Manzana {} }
+
+/*@ATTRIBUTE@block_name@_@*/
+/*@ATTRIBUTE@block_dropdown@[("Banana",'Banana'),("Manzana",'Manzana')]@*/
+function fruta_(fruta) { return(fruta) }
+
+procedure PonerUna_EnLaLicuadora(fruta) { 
+  TypeCheck(fruta, Banana, "Solo puedo poner frutas en la licuadora")
+  AuxIrAlDisplay()
+  // Control de leche y otras
+  AuxIrAlBotón()
+}
+
+procedure PonerLecheEnLaLicuadora() { 
+  AuxIrAlDisplay()
+  // Control de que está vacía
+  Poner(aux_marca())
+  AuxIrAlBotón()
+}
+
+procedure LicuarUnMinuto() { 
+  AuxIrAlDisplay()
+  // Control de orden
+  AuxIrAlBotón()
+}
+
+procedure ServirContenidoEnElVaso() { 
+  AuxIrAlDisplay()
+  // Control de orden
+  AuxIrAlBotón()
+}
+
+procedure SeleccionarBanana() {
+   AuxIrAlBotónBanana()
+   if (aux_nroMarcas() == 0) { Poner(aux_marca()) }
+   AuxIrAlBotónManzana()
+   AuxRemoverMarcas()
+   AuxIrAlBotón()
+}
+
+procedure SeleccionarManzana() {
+   AuxIrAlBotónManzana()
+   if (aux_nroMarcas() == 0) { Poner(aux_marca()) }
+   AuxIrAlBotónBanana()
+   AuxRemoverMarcas()
+   AuxIrAlBotón()
+}
+
+procedure IncrementarDisplay() {
+   AuxIrAlDisplay()
+   if (nroBolitas(aux_contador()) < 4) { Poner(aux_contador()) }
+   AuxIrAlBotón()
+}
+
+procedure DecrementarDisplay() {
+   AuxIrAlDisplay()
+   if (nroBolitas(aux_contador()) > 1) { Sacar(aux_contador()) }
+   AuxIrAlBotón()
+}
+
+function frutaSeleccionada() { 
+  return (aux_frutaSeleccionada()) 
+}
+
+function cantidadEnElDisplay() { 
+  return (aux_cantidadEnElDisplay()) 
+}
+
+procedure AuxIrAlDisplay() {
+}
+
+procedure AuxIrAlBotón() {
+}
+
+procedure AuxIrAlBotónBanana() {
+}
+
+procedure AuxIrAlBotónManzana() {
+}
+
+procedure AuxRemoverMarcas() {
+  repeat (aux_nroMarcas()) { Sacar(aux_marca()) }
+}
+
+function aux_contador()   { return(Rojo) }
+function aux_marca()      { return(Verde) }
+function aux_hayMarcas()  { return(hayBolitas(aux_marca())) }
+function aux_nroMarcas()  { return(nroBolitas(aux_marca())) }
+function aux_cantidadEnElDisplay() { 
+   AuxIrAlDisplay() 
+   if (aux_hayMarcas()) { BOOM("Solo puedo leer el display en la máquina") }
+   return (nroBolitas(aux_contador()))
+}
+
+function aux_frutaSeleccionada() { 
+   AuxIrAlDisplay() 
+   if (aux_hayMarcas()) { BOOM("Solo puedo leer el display en la máquina") }
+   AuxIrAlBotónBanana()
+   if (aux_hayMarcas()) { fruta := Banana }
+   AuxIrAlBotónManzana()
+   if (aux_hayMarcas()) { fruta := Manzana }
+   return (fruta)
+}
+
