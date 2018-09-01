@@ -1,0 +1,10 @@
+interactive program {
+  K_ENTER -> { HacerLicuado(cantidadEnElDisplay())  }
+  K_S     -> { DecrementarDisplay() }
+  K_A     -> { IncrementarDisplay() }
+}
+
+procedure HacerLicuado(cantidadDeBananas) {
+  ...
+}
+
