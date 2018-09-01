@@ -51,7 +51,7 @@ function aux_hayMarcas()  { return(hayBolitas(aux_marca())) }
 function aux_nroMarcas()  { return(nroBolitas(aux_marca())) }
 function aux_cantidadEnElDisplay() { 
    AuxIrAlDisplay() 
-   if (aux_hayMarca()) { BOOM("Solo puedo leer el display en la máquina") }
+   if (aux_hayMarcas()) { BOOM("Solo puedo leer el display en la máquina") }
    return (nroBolitas(aux_contador()))
 }
 
