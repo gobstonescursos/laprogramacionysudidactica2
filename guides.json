@@ -80,13 +80,6 @@
       }
 	]
   }
-, { "name": "5.Parámetros", "repo": "gobstones/laprogramacionysudidactica2"
-  , "exercises":
-    [ { "id": "5.1", "name": "Licuados"
-      , "path": "Proyectos/5.Parámetros en procedimientos y funciones/5.1.Licuados"
-      }
-	]
-  }
 , { "name": "6.Entrada-Salida", "repo": "gobstones/laprogramacionysudidactica2"
   , "exercises":
     [ { "id": "6.1", "name": "Envido con parámetros"
