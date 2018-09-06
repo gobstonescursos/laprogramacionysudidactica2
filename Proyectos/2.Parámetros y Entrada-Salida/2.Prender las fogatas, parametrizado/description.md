@@ -1,4 +1,4 @@
-#Actividad 2. Prender las fogatas, parametrizado
+#Actividad 2.1. Prender las fogatas, parametrizado
 
 El explorador está preparando el campamento para la llegada del grupo. Y para eso tiene que prender todas las fogatas.
 La idea es construir un único procedimiento para encender lados, y que lo uses para cada uno de los 4 lados…

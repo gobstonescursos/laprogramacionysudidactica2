@@ -1,4 +1,4 @@
-#Actividad 4. Es de espadas
+#Actividad 3.1. Es de espadas
 
 En esta actividad ya viene un programa a medio construir. 
 Su propósito es informar si las 3 cartas que tiene la computadora forman lo que en el juego del Truco 
