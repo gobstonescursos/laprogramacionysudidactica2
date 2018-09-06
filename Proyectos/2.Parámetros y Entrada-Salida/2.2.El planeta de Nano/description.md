@@ -22,4 +22,4 @@ para solucionar el problema. ¡Probalos para conocerlos!
 [Enunciado en PDF][PDF]
 
 [PDF]:
-https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/2.Par%C3%A1metros%20y%20Entrada-Salida/3.El%20planeta%20de%20Nano/assets/resources/description.pdf "Enunciado de 'El planeta de Nano' en PDF"
+https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/2.Par%C3%A1metros%20y%20Entrada-Salida/2.2.El%20planeta%20de%20Nano/assets/resources/description.pdf "Enunciado de 'El planeta de Nano' en PDF"

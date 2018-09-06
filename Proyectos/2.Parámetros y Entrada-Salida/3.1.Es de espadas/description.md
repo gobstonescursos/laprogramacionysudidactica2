@@ -26,4 +26,4 @@ Los resultados finales tienen que ser como los siguientes escenarios:
 [Enunciado en PDF][PDF]
 
 [PDF]: 
-https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/2.Par%C3%A1metros%20y%20Entrada-Salida/4.Es%20de%20espadas/assets/resources/description.pdf "Enunciado de 'Es de espadas' en PDF"
+https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/2.Par%C3%A1metros%20y%20Entrada-Salida/3.1.Es%20de%20espadas/assets/resources/description.pdf "Enunciado de 'Es de espadas' en PDF"
