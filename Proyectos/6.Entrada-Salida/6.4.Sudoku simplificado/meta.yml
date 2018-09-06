@@ -35,8 +35,9 @@ blocks:
     <category name="Definiciones">
         <block type="procedures_defnoreturn"></block>
         <block type="procedures_defreturnsimplewithparams"></block>
-        <block type="procedures_defreturn"></block>
-        <block type="InteractiveProgram"></block>
+    </category>
+    <category name="Eventos">
+        <block type="InteractiveLetterBinding"></block>
         <block type="InteractiveNumberBinding"></block>
         <block type="InteractiveKeyBinding"></block>
     </category>

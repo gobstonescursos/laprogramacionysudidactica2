@@ -13,6 +13,26 @@ rules:
   - { image: 7.png,                     when: { blue:   1, black:    7, red:  0, green: 0 } } 
   - { image: 8.png,                     when: { blue:   1, black:    8, red:  0, green: 0 } } 
   - { image: 9.png,                     when: { blue:   1, black:    9, red:  0, green: 0 } } 
+  - { image: 0-Iluminado.png,           when: { blue:   1, black:    0, red:  2, green: 0 } } 
+  - { image: 1-Iluminado.png,           when: { blue:   1, black:    1, red:  2, green: 0 } } 
+  - { image: 2-Iluminado.png,           when: { blue:   1, black:    2, red:  2, green: 0 } } 
+  - { image: 3-Iluminado.png,           when: { blue:   1, black:    3, red:  2, green: 0 } } 
+  - { image: 4-Iluminado.png,           when: { blue:   1, black:    4, red:  2, green: 0 } } 
+  - { image: 5-Iluminado.png,           when: { blue:   1, black:    5, red:  2, green: 0 } } 
+  - { image: 6-Iluminado.png,           when: { blue:   1, black:    6, red:  2, green: 0 } } 
+  - { image: 7-Iluminado.png,           when: { blue:   1, black:    7, red:  2, green: 0 } } 
+  - { image: 8-Iluminado.png,           when: { blue:   1, black:    8, red:  2, green: 0 } } 
+  - { image: 9-Iluminado.png,           when: { blue:   1, black:    9, red:  2, green: 0 } } 
+  - { image: 0-Rechazado.png,           when: { blue:   1, black:    0, red:  8, green: 0 } } 
+  - { image: 1-Rechazado.png,           when: { blue:   1, black:    1, red:  8, green: 0 } } 
+  - { image: 2-Rechazado.png,           when: { blue:   1, black:    2, red:  8, green: 0 } } 
+  - { image: 3-Rechazado.png,           when: { blue:   1, black:    3, red:  8, green: 0 } } 
+  - { image: 4-Rechazado.png,           when: { blue:   1, black:    4, red:  8, green: 0 } } 
+  - { image: 5-Rechazado.png,           when: { blue:   1, black:    5, red:  8, green: 0 } } 
+  - { image: 6-Rechazado.png,           when: { blue:   1, black:    6, red:  8, green: 0 } } 
+  - { image: 7-Rechazado.png,           when: { blue:   1, black:    7, red:  8, green: 0 } } 
+  - { image: 8-Rechazado.png,           when: { blue:   1, black:    8, red:  8, green: 0 } } 
+  - { image: 9-Rechazado.png,           when: { blue:   1, black:    9, red:  8, green: 0 } } 
   - { image: LetraOculta.png,           when: { blue:   2, black:  '*', red:  1, green: 0 } } 
   - { image: Espacio.png,               when: { blue:   2, black:   10, red:  0, green: 0 } } 
   - { image: A.png,                     when: { blue:   2, black:   11, red:  0, green: 0 } } 

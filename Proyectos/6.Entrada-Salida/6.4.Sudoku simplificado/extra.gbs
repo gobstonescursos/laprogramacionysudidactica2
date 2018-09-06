@@ -2114,9 +2114,18 @@ function aux_armarRepresentaciónDeCartasDeMazoEspañolCompletoDe(palo) {
 /*==================================================================================================*/
 
 function hayDígito()    { return (aux_hayDígito())    }
+function aux_elDígitoEstáIluminado() { 
+  // PRECONDICIÓN: hay un dígito
+  return (aux_hayAtributoIluminación())
+}
 function dígitoActual() { return (aux_dígitoActual()) }
 
-procedure PonerDígito_(dígito) { AuxPonerDígito(dígito) }
+procedure PonerDígito_(dígito) { 
+  if (aux_hayDígito()) { BOOM("No se puede poner un dígito donde ya hay uno") }
+  AuxPonerDígito(dígito) 
+  if (aux_ganó()) { AuxIluminarTodo() }
+  else { if (aux_noHayCeros()) { AuxRechazarTodo() } }
+}
 
 function dígitoEnLaPrimeraPosiciónDeLaFila()    { return (aux_dígitoEnLaPosiciónEnDirección(1,Este)) }
 function dígitoEnLaPrimeraPosiciónDeLaColumna() { return (aux_dígitoEnLaPosiciónEnDirección(1,Sur))  }
@@ -2134,3 +2143,68 @@ function aux_dígitoEnLaPosiciónEnDirección(índice,dirección) {
     return (valorDeRetorno) 
 }
 
+function aux_ganó() {
+  IrAlBorde(Norte) IrAlBorde(Oeste)
+  todoOk := aux_hileraAl_OK(Este) && aux_hileraAl_OK(Sur)
+  Mover(Sur) Mover(Este)
+  todoOk := todoOk && aux_hileraAl_OK(Este) && aux_hileraAl_OK(Sur)
+  Mover(Sur) Mover(Este)
+  todoOk := todoOk && aux_hileraAl_OK(Este) && aux_hileraAl_OK(Sur)
+  return(todoOk)
+}
+
+function aux_noHayCeros() {
+  IrAlBorde(Norte) IrAlBorde(Oeste)
+  noHay := aux_hileraAl_SinCeros(Este) && aux_hileraAl_SinCeros(Sur)
+  Mover(Sur) Mover(Este)
+  noHay := noHay && aux_hileraAl_SinCeros(Este) && aux_hileraAl_SinCeros(Sur)
+  Mover(Sur) Mover(Este)
+  noHay := noHay && aux_hileraAl_SinCeros(Este) && aux_hileraAl_SinCeros(Sur)
+  return(noHay)
+}
+
+function aux_hileraAl_OK(dir) {  
+  d1 := aux_dígitoEnLaPosiciónEnDirección(1,dir)
+  d2 := aux_dígitoEnLaPosiciónEnDirección(2,dir)
+  d3 := aux_dígitoEnLaPosiciónEnDirección(3,dir)
+  return (aux_son123(d1,d2,d3))
+}
+
+function aux_hileraAl_SinCeros(dir) {  
+  d1 := aux_dígitoEnLaPosiciónEnDirección(1,dir)
+  d2 := aux_dígitoEnLaPosiciónEnDirección(2,dir)
+  d3 := aux_dígitoEnLaPosiciónEnDirección(3,dir)
+  return (d1/=0 && d2/=0 && d3/=0)
+}
+
+function aux_son123(p1,p2,p3) {
+  d1 := p1; d2 := p2; d3 := p3
+  if (d1>d2) { temp := d2; d2 := d1; d1 := temp }
+  if (d1>d3) { temp := d3; d3 := d1; d1 := temp }
+  if (d2>d3) { temp := d3; d3 := d2; d2 := temp }
+  return (d1==1 && d2==2 && d3==3)
+}
+
+procedure AuxIluminarTodo() {
+  AuxMarcar()
+  AuxIniciarRecorrido()
+  while (not aux_terminóElRecorrido()) {
+    AuxPonerAtributoIluminación()
+    AuxAvanzarRecorrido()
+  }
+  AuxPonerAtributoIluminación()
+  AuxVolverALaMarca()
+  AuxDesmarcar()
+}
+
+procedure AuxRechazarTodo() {
+  AuxMarcar()
+  AuxIniciarRecorrido()
+  while (not aux_terminóElRecorrido()) {
+    AuxPonerAtributoX()
+    AuxAvanzarRecorrido()
+  }
+  AuxPonerAtributoX()
+  AuxVolverALaMarca()
+  AuxDesmarcar()
+}
