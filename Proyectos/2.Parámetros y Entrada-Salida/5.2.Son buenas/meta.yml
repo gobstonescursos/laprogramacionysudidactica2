@@ -21,8 +21,7 @@ blocks:
         <block type="miCartaDerecha"></block>
         <block type="suCartaIzquierda"></block>
         <block type="suCartaDerecha"></block>
-        <block type="DecirMiEnvido_"></block>
-        <block type="DecirSuEnvido_"></block>
+        <block type="DecirSiGanaÉl_"></block>
         <block type="dameElPalo_"></block>
         <block type="dameElNúmero_"></block>
     </category>

@@ -84,14 +84,14 @@
 	, { "id": "5.1", "name": "Envido simple con parámetros"
       , "path": "Proyectos/2.Parámetros y Entrada-Salida/5.1.Envido con parámetros"
       }
+	, { "id": "5.2", "name": "Son buenas"
+      , "path": "Proyectos/2.Parámetros y Entrada-Salida/5.2.Son buenas"
+      }
 	]
   }
 , { "name": "6.Entrada-Salida", "repo": "gobstones/laprogramacionysudidactica2"
   , "exercises":
-    [ { "id": "6.3", "name": "Son buenas"
-      , "path": "Proyectos/6.Entrada-Salida/6.3.Son buenas"
-      }
-	, { "id": "6.4", "name": "Sudoku simplificado"
+    [ { "id": "6.4", "name": "Sudoku simplificado"
       , "path": "Proyectos/6.Entrada-Salida/6.4.Sudoku simplificado"
       }
     ]

@@ -1,0 +1,12 @@
+program { ControlarElGanador() }
+
+procedure ControlarElGanador() {
+  DecirSiGanaÉl_(sonBuenas(miCartaIzquierda(), miCartaDerecha(), suCartaIzquierda(), suCartaDerecha()))
+}
+
+function sonBuenas(cartaIzquierdaDelJugador1, cartaDerechaDelJugador1
+                  ,cartaIzquierdaDelJugador2, cartaDerechaDelJugador2) {
+  return (...)
+}
+
+

@@ -2158,7 +2158,7 @@ procedure AuxIrASusCartas() {
 }
 
 procedure AuxValidarDatos(datoOriginal, datoPropuesto) {
-  Mover(Sur)
+  IrAlBorde(Sur)
   if (datoOriginal==datoPropuesto)
        { AuxDecir([M,U,Y,Espacio,B,I,E,N]) } 
   else { AuxDecir([F,A,L,L,A,S,T,E]) }  
@@ -2173,31 +2173,16 @@ procedure AuxDecir(msg) {
   }
 }
 
-procedure DecirMiEnvido_(miEnvido) {
-  if (not aux_laCeldaEstáVacía()) { BOOM("Parece que ya dijiste tu envido") }
-  AuxPonerNúmero(miEnvido)
-  AuxVerSiValidar()
-}
-
-procedure DecirSuEnvido_(suEnvido) {
-  IrAlBorde(Este)
-  if (not aux_laCeldaEstáVacía()) { BOOM("Parece que ya dijiste mi envido") }
-  AuxPonerNúmero(suEnvido)
-  IrAlBorde(Oeste)
-  AuxVerSiValidar()
-}
-
-procedure AuxVerSiValidar() {
-  dijeMiEnvido := not aux_laCeldaEstáVacía()
-  if (dijeMiEnvido) { miEnvidoDicho := aux_númeroActual() }
-  IrAlBorde(Este)
-  dijeSuEnvido := not aux_laCeldaEstáVacía()
-  if (dijeSuEnvido) { suEnvidoDicho := aux_númeroActual() }
-  IrAlBorde(Oeste)
-  if (dijeMiEnvido && dijeSuEnvido) {
-    AuxDarVueltaLasCartas()
-    AuxValidarDatos((aux_miEnvido(), aux_suEnvido()), (miEnvidoDicho, suEnvidoDicho))
-  }
+/*@ATTRIBUTE@block_name@Decir si gana él _@*/
+procedure DecirSiGanaÉl_(yoPierdo) {
+  if (not aux_laCeldaEstáVacía()) { BOOM("Parece que ya dijiste quién gana") }
+  Mover(Norte) AuxMarcar() Mover(Sur)
+  if (yoPierdo) { AuxDecir([S,O,N,Espacio,B,U,E,N,A,S])       }
+  else          { AuxDecir([L,A,S,Espacio,M,I,A,S,Espacio,Espacio,Espacio,S,O,N,Espacio,M,E,J,O,R,E,S]) }
+  AuxVolverALaMarca()
+  AuxDesmarcar() Mover(Sur)
+  AuxDarVueltaLasCartas()
+  AuxValidarDatos(aux_miEnvido() < aux_suEnvido(), yoPierdo)
 }
 
 procedure AuxDarVueltaLasCartas() {
