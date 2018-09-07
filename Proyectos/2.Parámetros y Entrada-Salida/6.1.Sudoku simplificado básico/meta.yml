@@ -8,27 +8,13 @@ blocks:
   defaultToolbox: |
     <category name="Comandos básicos">
         <block type="MoverSiPuede_"></block>
-        <block type="RepeticionSimple"></block>
-        <block type="AlternativaSimple"></block>
     </category>
     <category name="Expresiones básicas">
         <block type="math_number"></block>
         <block type="DireccionSelector"></block>
-        <block type="OperadorNumerico"></block>
-        <block type="OperadorDeComparacion"></block>
-        <block type="OperadorLogico"></block>
-        <block type="not"></block>
     </category>
     <category name="Operaciones de números">
         <block type="PonerDígito_"></block>
-        <block type="hayDígito"></block>
-        <block type="dígitoActual"></block>
-        <block type="dígitoEnLaPrimeraPosiciónDeLaFila"></block>
-        <block type="dígitoEnLaSegundaPosiciónDeLaFila"></block>
-        <block type="dígitoEnLaTerceraPosiciónDeLaFila"></block>
-        <block type="dígitoEnLaPrimeraPosiciónDeLaColumna"></block>
-        <block type="dígitoEnLaSegundaPosiciónDeLaColumna"></block>
-        <block type="dígitoEnLaTerceraPosiciónDeLaColumna"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">  </category>
