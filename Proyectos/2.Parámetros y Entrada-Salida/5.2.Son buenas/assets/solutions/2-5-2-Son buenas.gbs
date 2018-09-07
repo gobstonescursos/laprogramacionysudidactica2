@@ -1,6 +1,4 @@
-program { ControlarElGanador() }
-
-procedure ControlarElGanador() {
+program { 
   DecirSiGanaÉl_(sonBuenas(miCartaIzquierda(), miCartaDerecha(), suCartaIzquierda(), suCartaDerecha()))
 }
 
