@@ -97,14 +97,17 @@ def bashRun(cmds):
     process = subprocess.Popen(cmds, stdout=subprocess.PIPE)
     output, error = process.communicate()
     
-    print(output)
-    if error is not None:
-        print(error)
+    if output:
+        print(output)
+    if process.returncode != 0:
+        sys.exit()
+    if error:
+        print("Error code: " + str(process.returncode) + ". Error Description: " + error.strip())
         sys.exit()
 
 class GBPUploader():
     def commit(self):
-        bashRun('git checkout -b archivosDeProyecto'.split())
+        bashRun('git checkout archivosDeProyecto'.split())
         bashRun('git merge master'.split())
         bashRun('git add .'.split())
         bashRun(['git', 'commit', '--author="Travis CI <travis@travis-ci.org>"', '--message', '"Generated GBPs. Travis build: ${TRAVIS_BUILD_NUMBER}"'])
