@@ -2,11 +2,13 @@
 import os
 import zipfile
 import hashlib
+import subprocess
+import sys
 
 class GBPGenerator:
     currentTime = None
 
-    def generateAll(self):
+    def updateAll(self):
         import json
         guides = json.load (open('guides.json'))
         for guide in guides:
@@ -62,7 +64,6 @@ class GBPGenerator:
         return os.path.join("Proyectos","ArchivosDeProyectos-Generado")
 
     def findExistingGBP(self,projectPath): # Returns the last generated gbp path (sorts by filename)
-        import os, fnmatch
         result = []
         for root, dirs, files in os.walk(self.gbpsPath()):
             for name in sorted(files):
@@ -91,7 +92,35 @@ class MD5:
     def equals(self, fname1, fname2):
         return self.sum(fname1) == self.sum(fname2)
     
+def bashRun(cmds):
+    print("Running: " + " ".join(cmds))
+    process = subprocess.Popen(cmds, stdout=subprocess.PIPE)
+    output, error = process.communicate()
+    
+    print(output)
+    if error is not None:
+        print(error)
+        sys.exit()
+
+class GBPUploader():
+    def commit(self):
+        bashRun('git checkout -b archivosDeProyecto'.split())
+        bashRun('git merge master'.split())
+        bashRun('git add .'.split())
+        bashRun(['git', 'commit', '--author="Travis CI <travis@travis-ci.org>"', '--message', '"Travis generated GBPs. Build: $TRAVIS_BUILD_NUMBER"'])
+    def push(self):
+        bashRun('git remote add origin-modify https://${GH_TOKEN}@github.com/gobstones/laprogramacionysudidactica2.git > /dev/null 2>&1'.split())
+        bashRun('git push --quiet --set-upstream origin-modify archivosDeProyecto'.split())
 
 if __name__ == '__main__':
-    # GBPGenerator().deleteAll()
-    GBPGenerator().generateAll()
+    if len(sys.argv) == 1:
+        # GBPGenerator().deleteAll()
+        GBPGenerator().updateAll()
+    elif len(sys.argv) == 2 and sys.argv[1] == 'publishGBPs':
+        GBPUploader().commit()
+        # GBPUploader().push()
+    else:
+        print("Incorrect use of script.")
+        print("Usage:")
+        print(" - no arguments: it will update gbps.")
+        print(" - argument 'publishGBPs' will commit and push changes to the repository")
