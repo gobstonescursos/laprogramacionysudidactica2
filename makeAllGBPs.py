@@ -107,7 +107,7 @@ class GBPUploader():
         bashRun('git checkout -b archivosDeProyecto'.split())
         bashRun('git merge master'.split())
         bashRun('git add .'.split())
-        bashRun(['git', 'commit', '--author="Travis CI <travis@travis-ci.org>"', '--message', '"Travis generated GBPs. Build: $TRAVIS_BUILD_NUMBER"'])
+        bashRun(['git', 'commit', '--author="Travis CI <travis@travis-ci.org>"', '--message', '"Travis generated GBPs. Build: ${TRAVIS_BUILD_NUMBER}"'])
     def push(self):
         bashRun('git remote add origin-modify https://${GH_TOKEN}@github.com/gobstones/laprogramacionysudidactica2.git > /dev/null 2>&1'.split())
         bashRun('git push --quiet --set-upstream origin-modify archivosDeProyecto'.split())
