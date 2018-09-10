@@ -107,6 +107,7 @@ def bashRun(cmds):
 
 class GBPUploader():
     def commit(self):
+        bashRun('git fetch'.split())
         bashRun('git checkout archivosDeProyecto'.split())
         bashRun('git merge master'.split())
         bashRun('git add .'.split())
