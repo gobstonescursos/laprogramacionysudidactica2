@@ -11,6 +11,7 @@ class GBPGenerator:
     def updateAll(self):
         import json
         guides = json.load (open('guides.json'))
+        self.createGBPFolder()
         for guide in guides:
             for exercise in guide["exercises"]:
                 self.updateGBP(os.path.normpath(exercise["path"]))
@@ -53,12 +54,10 @@ class GBPGenerator:
         return os.path.join(self.gbpsPath(),os.path.split(projectPath)[1] + '-' + self.currentTime + '.gbp')    
 
     def deleteAll(self):
-        if os.path.exists(self.gbpsPath()):
-            for item in os.listdir(self.gbpsPath()):
-                if item.endswith(".gbp"):
-                    os.remove(os.path.join(self.gbpsPath(), item))
-        else:
-            os.makedirs(self.gbpsPath())
+        self.createGBPFolder()
+        for item in os.listdir(self.gbpsPath()):
+            if item.endswith(".gbp"):
+                os.remove(os.path.join(self.gbpsPath(), item))
 
     def gbpsPath(self):
         return os.path.join("Proyectos","ArchivosDeProyectos-Generado")
@@ -74,6 +73,10 @@ class GBPGenerator:
             raise NotFoundError("Path not found: " + projectPath)
 
         return result[-1]
+    
+    def createGBPFolder(self):
+        if not os.path.exists(self.gbpsPath()):
+            os.makedirs(self.gbpsPath())
 
 class NotFoundError(Exception):
     def __init__(self, value):
