@@ -2,13 +2,17 @@
 
 # Author: github/asanzo
 # Creative Commons - Copy and mention us :)
-# Version: 1.0.0
+# Version: 1.0.1
 
 import os
 import zipfile
 import hashlib
 import subprocess
 import sys
+
+# Complete for each different repository
+thisRepo = 'gobstones/laprogramacionysudidactica2'
+gbpsPath = os.path.join("Proyectos","ArchivosDeProyectos-Generado")
 
 class GBPGenerator:
     currentTime = None
@@ -71,7 +75,7 @@ class GBPGenerator:
                 os.remove(os.path.join(self.gbpsPath(), item))
 
     def gbpsPath(self):
-        return os.path.join("Proyectos","ArchivosDeProyectos-Generado")
+        return gbpsPath
 
     def findExistingGBP(self,projectPath): # Returns the last generated gbp path (sorts by filename)
         result = []
@@ -129,7 +133,7 @@ class GBPUploader():
         bashRun('git add .'.split())
         bashRun(['git', 'commit', '--author="Travis CI <travis@travis-ci.org>"', '--message', '"Generated GBPs. Travis build: ' + os.environ['TRAVIS_BUILD_NUMBER'] +'"'])
     def push(self):
-        bashRun(('git remote add origin-modify https://' + os.environ['GH_TOKEN'] + '@github.com/gobstones/laprogramacionysudidactica2.git').split())
+        bashRun(('git remote add origin-modify https://' + os.environ['GH_TOKEN'] + '@github.com/' + thisRepo + '.git').split())
         bashRun('git push --quiet --set-upstream origin-modify archivosDeProyecto'.split())
 
 if __name__ == '__main__':
