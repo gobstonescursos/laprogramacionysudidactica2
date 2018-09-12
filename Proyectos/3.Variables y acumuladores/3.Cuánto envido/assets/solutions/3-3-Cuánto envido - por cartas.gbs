@@ -1,0 +1,11 @@
+program {
+  cartaDeLaIzquierda := cartaActual()
+  PasarASiguientePosición()
+  cartaDeLaDerecha := cartaActual()
+  DecirElEnvido_(envidoSimple(cartaDeLaIzquierda, cartaDeLaDerecha))
+}
+
+function envidoSimple(cartaIzquierda, cartaDerecha) {
+  return (20 + (dameElNúmero_(cartaIzquierda) + dameElNúmero_(cartaDerecha)))
+}
+

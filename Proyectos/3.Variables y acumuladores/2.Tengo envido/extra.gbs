@@ -2130,9 +2130,9 @@ procedure AuxDecir(msg) {
 
 procedure AuxDecirQueTengoEnvido() {
   IrAlBorde(Oeste) IrAlBorde(Norte)
-  palo1 := palo(cartaActual())
+  palo1 := aux_dameElPalo(cartaActual())
   Mover(Este)
-  palo2 := palo(cartaActual())
+  palo2 := aux_dameElPalo(cartaActual())
   if (palo1/=palo2) { BOOM("¡Fallaste! No tengo envido.") }
   Mover(Oeste) Mover(Sur) Mover(Sur)
   AuxDecir([S,I])
@@ -2140,9 +2140,9 @@ procedure AuxDecirQueTengoEnvido() {
 
 procedure AuxDecirQueNoTengoEnvido() {
   IrAlBorde(Oeste) IrAlBorde(Norte)
-  palo1 := palo(cartaActual())
+  palo1 := aux_dameElPalo(cartaActual())
   Mover(Este)
-  palo2 := palo(cartaActual())
+  palo2 := aux_dameElPalo(cartaActual())
   if (palo1==palo2) { BOOM("¡Fallaste! Tengo envido.") }
   Mover(Oeste) Mover(Sur) Mover(Sur)
   AuxDecir([N,O])

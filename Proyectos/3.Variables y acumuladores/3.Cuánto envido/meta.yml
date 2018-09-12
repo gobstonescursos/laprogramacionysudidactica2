@@ -7,7 +7,6 @@ attire:
 blocks:
   defaultToolbox: | 
     <category name="Comandos básicos">
-        <block type="DecirNúmero_"></block>
         <block type="PasarASiguientePosición"></block>
         <block type="Asignacion"></block>
     </category>
@@ -18,7 +17,8 @@ blocks:
     <category name="Expresiones de cartas">
         <block type="cartaActual"></block>
         <block type="dameElPalo_"></block>
-        <block type="dameElValor_"></block>
+        <block type="dameElNúmero_"></block>
+        <block type="DecirElEnvido_"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">        </category>
