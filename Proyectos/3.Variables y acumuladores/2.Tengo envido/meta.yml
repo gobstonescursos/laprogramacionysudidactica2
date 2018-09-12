@@ -7,24 +7,26 @@ attire:
 blocks:
   defaultToolbox: | 
     <category name="Comandos básicos">
-        <block type="DecirNúmero_"></block>
         <block type="PasarASiguientePosición"></block>
+        <block type="AlternativaCompleta"></block>
         <block type="Asignacion"></block>
     </category>
     <category name="Expresiones básicas">
-        <block type="math_number"></block>
-        <block type="OperadorNumerico"></block>
+        <block type="OperadorDeComparacion"></block>
     </category>
     <category name="Expresiones de cartas">
         <block type="cartaActual"></block>
         <block type="dameElPalo_"></block>
-        <block type="dameElValor_"></block>
+        <block type="dameElNúmero_"></block>
+        <block type="DecirQueTengoEnvido"></block>
+        <block type="DecirQueNoTengoEnvido"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">        </category>
     <category name="Definiciones">
         <block type="procedures_defnoreturn"></block>
         <block type="procedures_defreturnsimplewithparams"></block>
+        <block type="ComandoCompletar"></block>
     </category>
 board:
   active: 1

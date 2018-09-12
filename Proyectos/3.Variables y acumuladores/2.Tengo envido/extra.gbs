@@ -2116,16 +2116,34 @@ function aux_armarRepresentaciónDeCartasDeMazoEspañolCompletoDe(palo) {
 /*==================================================================================================*/
 /*--------------------------- OPERACIONES ESPECÍFICAS DE LA ACTIVIDAD ------------------------------*/
 /*==================================================================================================*/
-function cartaIzquierda() {
-  Mover(Norte)
-  return(aux_cartaEspañolaActual())
+procedure DecirQueTengoEnvido()   { AuxDecirQueTengoEnvido() }
+procedure DecirQueNoTengoEnvido() { AuxDecirQueNoTengoEnvido() }
+
+procedure AuxDecir(msg) {
+  letrasQueFaltan := msg
+  while (not esVacía(letrasQueFaltan)) {
+     AuxPonerLetra(primero(letrasQueFaltan))
+     AuxPasarASiguientePosición ()
+     letrasQueFaltan := resto(letrasQueFaltan)
+  }
 }
 
-function cartaDerecha() {
-  Mover(Norte) Mover(Este)
-  return(aux_cartaEspañolaActual())
+procedure AuxDecirQueTengoEnvido() {
+  IrAlBorde(Oeste) IrAlBorde(Norte)
+  palo1 := palo(cartaActual())
+  Mover(Este)
+  palo2 := palo(cartaActual())
+  if (palo1/=palo2) { BOOM("¡Fallaste! No tengo envido.") }
+  Mover(Oeste) Mover(Sur) Mover(Sur)
+  AuxDecir([S,I])
 }
 
-procedure DecirNúmero_(valor) {
-  AuxPonerNúmero(valor)
+procedure AuxDecirQueNoTengoEnvido() {
+  IrAlBorde(Oeste) IrAlBorde(Norte)
+  palo1 := palo(cartaActual())
+  Mover(Este)
+  palo2 := palo(cartaActual())
+  if (palo1==palo2) { BOOM("¡Fallaste! Tengo envido.") }
+  Mover(Oeste) Mover(Sur) Mover(Sur)
+  AuxDecir([N,O])
 }

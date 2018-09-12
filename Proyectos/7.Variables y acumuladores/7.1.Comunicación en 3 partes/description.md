@@ -6,6 +6,9 @@ Variables en Gobstones Jr
 ![El escenario final]
 </center>
 
+> **¿Cómo recordar los valores mientras me muevo?**
+>
+> Debería haber alguna primitiva nueva y algún dato nuevo…
 
 [Enunciado en PDF][PDF]
 
