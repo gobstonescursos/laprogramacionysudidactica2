@@ -110,6 +110,7 @@ def bashRun(cmds):
 
 class GBPUploader():
     def checkoutBranch(self):
+        bashRun('git remote set-branches --add origin archivosDeProyecto'.split())
         bashRun('git fetch origin'.split())
         bashRun('git checkout archivosDeProyecto'.split())
         bashRun('git merge master'.split())
