@@ -122,7 +122,7 @@ if __name__ == '__main__':
         GBPGenerator().updateAll()
     elif len(sys.argv) == 2 and sys.argv[1] == 'publishGBPs':
         GBPUploader().commit()
-        # GBPUploader().push()
+        GBPUploader().push()
     else:
         print("Incorrect use of script.")
         print("Usage:")
