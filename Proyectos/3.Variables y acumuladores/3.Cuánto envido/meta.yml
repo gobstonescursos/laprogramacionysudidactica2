@@ -14,7 +14,7 @@ blocks:
         <block type="math_number"></block>
         <block type="OperadorNumerico"></block>
     </category>
-    <category name="Operaciones de Cartas">
+    <category name="Operaciones de cartas">
         <block type="cartaActual"></block>
         <block type="dameElPalo_"></block>
         <block type="dameElNúmero_"></block>
