@@ -1,4 +1,9 @@
 #!/usr/bin/env python
+
+# Author: github/asanzo
+# Creative Commons - Copy and mention us :)
+# Version: 1.0.0
+
 import os
 import zipfile
 import hashlib
