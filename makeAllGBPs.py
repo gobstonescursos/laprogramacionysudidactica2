@@ -1,4 +1,9 @@
 #!/usr/bin/env python
+
+# Author: github/asanzo
+# Creative Commons - Copy and mention us :)
+# Version: 1.0.0
+
 import os
 import zipfile
 import hashlib
@@ -7,20 +12,23 @@ import sys
 
 class GBPGenerator:
     currentTime = None
+    gbpsUpdated = 0
 
     def updateAll(self):
         import json
         guides = json.load (open('guides.json'))
+        self.createGBPFolder()
         for guide in guides:
             for exercise in guide["exercises"]:
                 self.updateGBP(os.path.normpath(exercise["path"]))
+        print("Update done. Amount of GBPs updated: " + str(self.gbpsUpdated))
 
     def updateGBP(self, projectPath):
         # If it doesn't exist a GBP for this project, generate it and return.
         try:
             existinggbpPath = self.findExistingGBP(projectPath)
         except NotFoundError:
-            print("Will generate new GBP: " + self.gbpPath(projectPath))
+            self.logNewGBP("Will generate new GBP", projectPath)
             return
         finally:
             self.generateGBP(projectPath)
@@ -31,8 +39,12 @@ class GBPGenerator:
             os.remove(self.gbpPath(projectPath))
         else:
             # In case the new one has changed, then we can remove the previous one.
-            print("Project changed, GBP updated: " + self.gbpPath(projectPath))
+            self.logNewGBP("Project changed, GBP updated", projectPath)
             os.remove(existinggbpPath)
+
+    def logNewGBP(self,description, projectPath):
+        print(description + ": " + self.gbpPath(projectPath))
+        self.gbpsUpdated += 1
 
     def generateGBP(self,projectPath):
         zipf = zipfile.ZipFile(self.gbpPath(projectPath), 'w', zipfile.ZIP_DEFLATED)
@@ -50,15 +62,13 @@ class GBPGenerator:
             from time import localtime, strftime
             self.currentTime = strftime("%Y-%m-%d-%H%M%S", localtime())
         
-        return os.path.join(self.gbpsPath(),os.path.split(projectPath)[1] + '-' + self.currentTime + '.gbp')    
+        return os.path.join(self.gbpsPath(),os.path.split(projectPath)[1] + '-' + self.currentTime + '.gbp').encode('utf-8')  
 
     def deleteAll(self):
-        if os.path.exists(self.gbpsPath()):
-            for item in os.listdir(self.gbpsPath()):
-                if item.endswith(".gbp"):
-                    os.remove(os.path.join(self.gbpsPath(), item))
-        else:
-            os.makedirs(self.gbpsPath())
+        self.createGBPFolder()
+        for item in os.listdir(self.gbpsPath()):
+            if item.endswith(".gbp"):
+                os.remove(os.path.join(self.gbpsPath(), item))
 
     def gbpsPath(self):
         return os.path.join("Proyectos","ArchivosDeProyectos-Generado")
@@ -74,6 +84,10 @@ class GBPGenerator:
             raise NotFoundError("Path not found: " + projectPath)
 
         return result[-1]
+    
+    def createGBPFolder(self):
+        if not os.path.exists(self.gbpsPath()):
+            os.makedirs(self.gbpsPath())
 
 class NotFoundError(Exception):
     def __init__(self, value):
@@ -100,29 +114,32 @@ def bashRun(cmds):
     if output:
         print(output)
     if process.returncode != 0:
-        sys.exit()
+        sys.exit(process.returncode)
     if error:
         print("Error code: " + str(process.returncode) + ". Error Description: " + error.strip())
-        sys.exit()
+        sys.exit(process.returncode)
 
 class GBPUploader():
-    def commit(self):
-        bashRun('git fetch'.split())
+    def checkoutBranch(self):
+        bashRun('git remote set-branches --add origin archivosDeProyecto'.split())
+        bashRun('git fetch origin'.split())
         bashRun('git checkout archivosDeProyecto'.split())
         bashRun('git merge master'.split())
+    def commit(self):
         bashRun('git add .'.split())
         bashRun(['git', 'commit', '--author="Travis CI <travis@travis-ci.org>"', '--message', '"Generated GBPs. Travis build: ' + os.environ['TRAVIS_BUILD_NUMBER'] +'"'])
     def push(self):
-        bashRun('git remote add origin-modify https://' + os.environ['GH_TOKEN'] + '@github.com/gobstones/laprogramacionysudidactica2.git > /dev/null 2>&1'.split())
+        bashRun(('git remote add origin-modify https://' + os.environ['GH_TOKEN'] + '@github.com/gobstones/laprogramacionysudidactica2.git').split())
         bashRun('git push --quiet --set-upstream origin-modify archivosDeProyecto'.split())
 
 if __name__ == '__main__':
     if len(sys.argv) == 1:
         # GBPGenerator().deleteAll()
+        GBPUploader().checkoutBranch()
         GBPGenerator().updateAll()
     elif len(sys.argv) == 2 and sys.argv[1] == 'publishGBPs':
         GBPUploader().commit()
-        # GBPUploader().push()
+        GBPUploader().push()
     else:
         print("Incorrect use of script.")
         print("Usage:")
