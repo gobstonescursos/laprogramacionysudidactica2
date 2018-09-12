@@ -7,6 +7,7 @@ import sys
 
 class GBPGenerator:
     currentTime = None
+    gbpsUpdated = 0
 
     def updateAll(self):
         import json
@@ -15,13 +16,14 @@ class GBPGenerator:
         for guide in guides:
             for exercise in guide["exercises"]:
                 self.updateGBP(os.path.normpath(exercise["path"]))
+        print("Update done. Amount of GBPs updated: " + str(self.gbpsUpdated))
 
     def updateGBP(self, projectPath):
         # If it doesn't exist a GBP for this project, generate it and return.
         try:
             existinggbpPath = self.findExistingGBP(projectPath)
         except NotFoundError:
-            print("Will generate new GBP: " + self.gbpPath(projectPath))
+            self.logNewGBP("Will generate new GBP", projectPath)
             return
         finally:
             self.generateGBP(projectPath)
@@ -32,8 +34,12 @@ class GBPGenerator:
             os.remove(self.gbpPath(projectPath))
         else:
             # In case the new one has changed, then we can remove the previous one.
-            print("Project changed, GBP updated: " + self.gbpPath(projectPath))
+            self.logNewGBP("Project changed, GBP updated", projectPath)
             os.remove(existinggbpPath)
+
+    def logNewGBP(self,description, projectPath):
+        print(description + ": " + self.gbpPath(projectPath))
+        self.gbpsUpdated += 1
 
     def generateGBP(self,projectPath):
         zipf = zipfile.ZipFile(self.gbpPath(projectPath), 'w', zipfile.ZIP_DEFLATED)
