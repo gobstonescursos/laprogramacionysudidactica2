@@ -1,0 +1,66 @@
+interactive program {
+  K_ARROW_LEFT  -> { MoverSiPuede_(Oeste)    }
+  K_ARROW_RIGHT -> { MoverSiPuede_(Este)     }
+  K_ARROW_UP    -> { MoverSiPuede_(Norte)    }
+  K_ARROW_DOWN  -> { MoverSiPuede_(Sur)      }
+  K_A           -> { PonerDígitoSiSePuede(1) }
+  K_S           -> { PonerDígitoSiSePuede(2) }
+  K_D           -> { PonerDígitoSiSePuede(3) }
+}
+
+procedure PonerDígitoSiSePuede(dígitoAPoner) {
+  if (esVálidoPonerlo(dígitoAPoner)) { PonerDígito_(dígitoAPoner) }
+}
+
+function esVálidoPonerlo(dígito) {
+  return (noSeRepiteEnLaFila(dígito) 
+       && noSeRepiteEnLaColumna(dígito))
+}
+
+function noSeRepiteEnLaFila(dígitoAVerEnLaFila) {
+  return (noSeRepiteEntre(dígitoAVerEnLaFila
+                         ,dígitoEnLaPrimeraPosiciónDeLaFila()
+                         ,dígitoEnLaSegundaPosiciónDeLaFila()
+                         ,dígitoEnLaTerceraPosiciónDeLaFila())
+         )
+}
+
+function noSeRepiteEnLaColumna(dígitoAVerEnLaColumna) {
+  return (noSeRepiteEntre(dígitoAVerEnLaColumna
+                         ,dígitoEnLaPrimeraPosiciónDeLaColumna()
+                         ,dígitoEnLaSegundaPosiciónDeLaColumna()
+                         ,dígitoEnLaTerceraPosiciónDeLaColumna())
+         )
+}
+
+function noSeRepiteEntre(dígitoAVer, dígito1Existente, dígito2Existente, dígito3Existente) {
+  return (dígitoAVer /= dígito1Existente 
+       && (dígitoAVer /= dígito2Existente 
+        && dígitoAVer /= dígito3Existente)
+         )
+}
+
+
+interactive program {
+  K_ARROW_LEFT -> {
+    MoverSiPuede_(Oeste)
+  }
+  K_ARROW_RIGHT -> {
+    MoverSiPuede_(Este)
+  }
+  K_ARROW_UP -> {
+    MoverSiPuede_(Norte)
+  }
+  K_ARROW_DOWN -> {
+    MoverSiPuede_(Sur)
+  }
+  K_A -> {
+    PonerDígitoSiSePuede(1)
+  }
+  K_S -> {
+    PonerDígitoSiSePuede(2)
+  }
+  K_D -> {
+    PonerDígitoSiSePuede(3)
+  }
+}
