@@ -51,7 +51,7 @@ class GBPGenerator:
             from time import localtime, strftime
             self.currentTime = strftime("%Y-%m-%d-%H%M%S", localtime())
         
-        return os.path.join(self.gbpsPath(),os.path.split(projectPath)[1] + '-' + self.currentTime + '.gbp')    
+        return os.path.join(self.gbpsPath(),os.path.split(projectPath)[1] + '-' + self.currentTime + '.gbp').encode('utf-8')  
 
     def deleteAll(self):
         self.createGBPFolder()
