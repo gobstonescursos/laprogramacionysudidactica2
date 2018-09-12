@@ -103,16 +103,17 @@ def bashRun(cmds):
     if output:
         print(output)
     if process.returncode != 0:
-        sys.exit()
+        sys.exit(process.returncode)
     if error:
         print("Error code: " + str(process.returncode) + ". Error Description: " + error.strip())
-        sys.exit()
+        sys.exit(process.returncode)
 
 class GBPUploader():
-    def commit(self):
-        bashRun('git fetch'.split())
+    def checkoutBranch(self):
+        bashRun('git fetch origin'.split())
         bashRun('git checkout archivosDeProyecto'.split())
         bashRun('git merge master'.split())
+    def commit(self):
         bashRun('git add .'.split())
         bashRun(['git', 'commit', '--author="Travis CI <travis@travis-ci.org>"', '--message', '"Generated GBPs. Travis build: ' + os.environ['TRAVIS_BUILD_NUMBER'] +'"'])
     def push(self):
@@ -122,6 +123,7 @@ class GBPUploader():
 if __name__ == '__main__':
     if len(sys.argv) == 1:
         # GBPGenerator().deleteAll()
+        GBPUploader().checkoutBranch()
         GBPGenerator().updateAll()
     elif len(sys.argv) == 2 and sys.argv[1] == 'publishGBPs':
         GBPUploader().commit()
