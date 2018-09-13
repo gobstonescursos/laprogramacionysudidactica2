@@ -6,6 +6,7 @@ procedure DecirSiTengoEnvido() {
   paloDeLaCartaIzquierda := dameElPalo_(cartaActual())
   PasarASiguientePosición()
   paloDeLaCartaDerecha := dameElPalo_(cartaActual())
+  IrAlSectorDeInformar()
   if (paloDeLaCartaIzquierda == paloDeLaCartaDerecha) 
        { DecirQueTengoEnvido()   } 
   else { DecirQueNoTengoEnvido() }

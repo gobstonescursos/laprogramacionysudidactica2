@@ -2116,8 +2116,9 @@ function aux_armarRepresentaciónDeCartasDeMazoEspañolCompletoDe(palo) {
 /*==================================================================================================*/
 /*--------------------------- OPERACIONES ESPECÍFICAS DE LA ACTIVIDAD ------------------------------*/
 /*==================================================================================================*/
-procedure DecirQueTengoEnvido()   { AuxDecirQueTengoEnvido() }
+procedure DecirQueTengoEnvido()   { AuxDecirQueTengoEnvido()   }
 procedure DecirQueNoTengoEnvido() { AuxDecirQueNoTengoEnvido() }
+procedure IrAlSectorDeInformar()  { AuxIrASectorDeInformar()   }
 
 procedure AuxDecir(msg) {
   letrasQueFaltan := msg
@@ -2128,22 +2129,28 @@ procedure AuxDecir(msg) {
   }
 }
 
+procedure AuxIrASectorDeInformar() {
+  IrAlBorde(Sur) IrAlBorde(Oeste)
+}
+
 procedure AuxDecirQueTengoEnvido() {
+  if (puedeMover(Sur) || puedeMover(Oeste)) { BOOM("No estoy en el sector de informar") }
   IrAlBorde(Oeste) IrAlBorde(Norte)
   palo1 := aux_dameElPalo(cartaActual())
   Mover(Este)
   palo2 := aux_dameElPalo(cartaActual())
   if (palo1/=palo2) { BOOM("¡Fallaste! No tengo envido.") }
-  Mover(Oeste) Mover(Sur) Mover(Sur)
+  AuxIrASectorDeInformar()
   AuxDecir([S,I])
 }
 
 procedure AuxDecirQueNoTengoEnvido() {
+  if (puedeMover(Sur) || puedeMover(Oeste)) { BOOM("No estoy en el sector de informar") }
   IrAlBorde(Oeste) IrAlBorde(Norte)
   palo1 := aux_dameElPalo(cartaActual())
   Mover(Este)
   palo2 := aux_dameElPalo(cartaActual())
   if (palo1==palo2) { BOOM("¡Fallaste! Tengo envido.") }
-  Mover(Oeste) Mover(Sur) Mover(Sur)
+  AuxIrASectorDeInformar()
   AuxDecir([N,O])
 }
