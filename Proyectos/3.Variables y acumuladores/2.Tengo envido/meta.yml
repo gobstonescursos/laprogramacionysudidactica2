@@ -19,8 +19,8 @@ blocks:
         <block type="dameElPalo_"></block>
         <block type="dameElNúmero_"></block>
         <block type="IrAlSectorDeInformar"></block>
-        <block type="DecirQueTengoEnvido"></block>
-        <block type="DecirQueNoTengoEnvido"></block>
+        <block type="DecirQueSÍTengoEnvido"></block>
+        <block type="DecirQueNOTengoEnvido"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">        </category>
