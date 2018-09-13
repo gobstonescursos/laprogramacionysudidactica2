@@ -1,24 +1,24 @@
-name: ¿Cuánto envido?
+name: Recuerden la contraseña
 attire:
-  active: 'Cartas, letras y números'
+  active: El salón
   user_permissions:
     can_toggle_visibility: false
   visible: true
 blocks:
   defaultToolbox: | 
     <category name="Comandos básicos">
-        <block type="PasarASiguientePosición"></block>
+        <block type="RepeticionSimple"></block>
         <block type="Asignacion"></block>
     </category>
     <category name="Expresiones básicas">
         <block type="math_number"></block>
-        <block type="OperadorNumerico"></block>
+        <block type="DireccionSelector"></block>
     </category>
-    <category name="Operaciones de cartas">
-        <block type="cartaActual"></block>
-        <block type="dameElPalo_"></block>
-        <block type="dameElNúmero_"></block>
-        <block type="DecirElEnvido_"></block>
+    <category name="Operaciones de la docente">
+        <block type="AbrirElCuaderno"></block>
+        <block type="MoverALaDocenteAl_"></block>
+        <block type="EscribirLaContraseña_"></block>
+        <block type="laContraseñaEscritaEnElCuaderno"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">        </category>

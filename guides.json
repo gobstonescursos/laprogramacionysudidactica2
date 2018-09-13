@@ -100,7 +100,10 @@
   }
 , { "name": "3.Variables y acumuladores", "repo": "gobstones/laprogramacionysudidactica2"
   , "exercises":
-    [ { "id": "2", "name": "¿Tengo envido?"
+    [ { "id": "1", "name": "Recuerden la contraseña"
+      , "path": "Proyectos/3.Variables y acumuladores/1.Recuerden la contraseña"
+      }
+    , { "id": "2", "name": "¿Tengo envido?"
       , "path": "Proyectos/3.Variables y acumuladores/2.Tengo envido"
       }
     , { "id": "3", "name": "¿Cuánto envido?"
@@ -110,10 +113,7 @@
   }
 , { "name": "7-8.Variables y acumuladores", "repo": "gobstones/laprogramacionysudidactica2"
   , "exercises":
-    [ { "id": "7.1", "name": "Comunicación en 3 partes"
-      , "path": "Proyectos/7.Variables y acumuladores/7.1.Comunicación en 3 partes"
-      }
-    , { "id": "8.1", "name": "El mono cuenta las frutas"
+    [ { "id": "8.1", "name": "El mono cuenta las frutas"
       , "path": "Proyectos/8.Variables y acumuladores 2/8.1.El mono cuenta las frutas"
       }
 	, { "id": "8.2", "name": "El mono cuenta de nuevo"
