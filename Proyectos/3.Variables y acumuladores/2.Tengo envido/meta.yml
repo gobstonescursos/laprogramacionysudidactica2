@@ -18,6 +18,7 @@ blocks:
         <block type="cartaActual"></block>
         <block type="dameElPalo_"></block>
         <block type="dameElNúmero_"></block>
+        <block type="IrAlSectorDeInformar"></block>
         <block type="DecirQueTengoEnvido"></block>
         <block type="DecirQueNoTengoEnvido"></block>
     </category>
