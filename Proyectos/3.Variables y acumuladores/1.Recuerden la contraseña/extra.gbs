@@ -1,0 +1,8 @@
+procedure EscribirLaContraseña_(passwd) {
+  if (not aux_hayDocente())    { BOOM("No puedo darle órdenes al docente si no está en la celda actual") }
+  if (not aux_hayPizarrón())   { BOOM("No llegué al pizarrón")                                           }
+  if (not aux_pizarrónVacío()) { BOOM("No puedo escribir en el pizarrón porque ya está escrito")         }
+  repeat (passwd) { Poner(aux_colorDeContraseña()) }  
+}
+
+function aux_colorDeContraseña() { return (
