@@ -2116,8 +2116,10 @@ function aux_armarRepresentaciónDeCartasDeMazoEspañolCompletoDe(palo) {
 /*==================================================================================================*/
 /*--------------------------- OPERACIONES ESPECÍFICAS DE LA ACTIVIDAD ------------------------------*/
 /*==================================================================================================*/
-procedure DecirQueTengoEnvido()   { AuxDecirQueTengoEnvido()   }
-procedure DecirQueNoTengoEnvido() { AuxDecirQueNoTengoEnvido() }
+/*@ATTRIBUTE@block_name@Decir que SÍ tengo envido@*/
+procedure DecirQueSÍTengoEnvido() { AuxDecirQueTengoEnvido()   }
+/*@ATTRIBUTE@block_name@Decir que NO tengo envido@*/
+procedure DecirQueNOTengoEnvido() { AuxDecirQueNoTengoEnvido() }
 procedure IrAlSectorDeInformar()  { AuxIrASectorDeInformar()   }
 
 procedure AuxDecir(msg) {

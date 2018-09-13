@@ -8,7 +8,7 @@ procedure DecirSiTengoEnvido() {
   paloDeLaCartaDerecha := dameElPalo_(cartaActual())
   IrAlSectorDeInformar()
   if (paloDeLaCartaIzquierda == paloDeLaCartaDerecha) 
-       { DecirQueTengoEnvido()   } 
-  else { DecirQueNoTengoEnvido() }
+       { DecirQueSÍTengoEnvido() } 
+  else { DecirQueNOTengoEnvido() }
 }
 
