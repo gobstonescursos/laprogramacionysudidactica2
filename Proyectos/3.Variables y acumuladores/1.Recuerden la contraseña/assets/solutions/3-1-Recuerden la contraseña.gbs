@@ -1,0 +1,7 @@
+program {
+  MoverALaDocenteAl_(Este)
+  AbrirElCuaderno()
+  contraseña := laContraseñaEscritaEnElCuaderno()
+  repeat(5) { MoverALaDocenteAl_(Oeste) }
+  EscribirLaContraseña_(contraseña)
+}

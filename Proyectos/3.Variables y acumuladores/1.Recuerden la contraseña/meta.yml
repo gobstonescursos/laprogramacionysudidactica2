@@ -1,19 +1,24 @@
 name: Recuerden la contraseña
 attire:
-  active: 'Cartas, letras y números'
+  active: El salón
   user_permissions:
     can_toggle_visibility: false
   visible: true
 blocks:
   defaultToolbox: | 
     <category name="Comandos básicos">
+        <block type="RepeticionSimple"></block>
         <block type="Asignacion"></block>
     </category>
     <category name="Expresiones básicas">
-        <block type="Direccion"></block>
+        <block type="math_number"></block>
+        <block type="DireccionSelector"></block>
     </category>
-    <category name="Operaciones del docente">
+    <category name="Operaciones de la docente">
+        <block type="AbrirElCuaderno"></block>
+        <block type="MoverALaDocenteAl_"></block>
         <block type="EscribirLaContraseña_"></block>
+        <block type="laContraseñaEscritaEnElCuaderno"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">        </category>

@@ -101,7 +101,7 @@
 , { "name": "3.Variables y acumuladores", "repo": "gobstones/laprogramacionysudidactica2"
   , "exercises":
     [ { "id": "1", "name": "Recuerden la contraseña"
-      , "path": "Proyectos/7.Variables y acumuladores/1.Recuerden la contraseña"
+      , "path": "Proyectos/3.Variables y acumuladores/1.Recuerden la contraseña"
       }
     , { "id": "2", "name": "¿Tengo envido?"
       , "path": "Proyectos/3.Variables y acumuladores/2.Tengo envido"
