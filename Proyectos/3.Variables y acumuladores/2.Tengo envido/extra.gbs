@@ -1342,7 +1342,7 @@ type CartaEspañola is variant {
 /---------------------------------------------------------------------------------------------------*/
 /*@ATTRIBUTE@block_name@es comodín _@*/              function esComodín_(c)          { return(aux_esComodín(c))   }
 /*@ATTRIBUTE@block_name@palo de _@*/                 function dameElPalo_(c)         { return(aux_dameElPalo(c))  }
-/*@ATTRIBUTE@block_name@valor de _@*/                function dameElValor_(c)        { return(aux_dameElValor(c)) }
+/*@ATTRIBUTE@block_name@número de _@*/               function dameElNúmero_(c)       { return(aux_dameElValor(c)) }
 
 /*@ATTRIBUTE@block_name@_ es menor carta que _@*/    function esMenorCarta__(carta1, carta2) { return(aux_esMenorCartaEspañola(carta1, carta2)) }
 /*@ATTRIBUTE@block_name@_ es mayor carta que _@*/    function esMayorCarta__(carta1, carta2) { return(aux_esMayorCartaEspañola(carta1, carta2)) }
