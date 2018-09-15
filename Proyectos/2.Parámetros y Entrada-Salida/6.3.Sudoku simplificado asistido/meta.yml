@@ -20,6 +20,7 @@ blocks:
     </category>
     <category name="Operaciones de números">
         <block type="PonerDígito_"></block>
+        <block type="hayDígito"></block>
         <block type="dígitoEnLaPrimeraPosiciónDeLaFila"></block>
         <block type="dígitoEnLaSegundaPosiciónDeLaFila"></block>
         <block type="dígitoEnLaTerceraPosiciónDeLaFila"></block>
