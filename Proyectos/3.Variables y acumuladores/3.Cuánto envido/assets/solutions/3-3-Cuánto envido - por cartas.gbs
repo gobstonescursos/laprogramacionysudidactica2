@@ -2,6 +2,7 @@ program {
   cartaDeLaIzquierda := cartaActual()
   PasarASiguientePosición()
   cartaDeLaDerecha := cartaActual()
+  IrAlSectorDeInformar()
   DecirElEnvido_(envidoSimple(cartaDeLaIzquierda, cartaDeLaDerecha))
 }
 
