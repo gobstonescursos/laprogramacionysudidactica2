@@ -11,11 +11,13 @@ function  estáElMonoEnElInicioDeLaFila() { return(aux_estáElMonoEnElInicio()) 
 function  estáElMonoEnElFinDeLaFila()    { return(aux_estáElMonoEnElFin())            }
 
 /*@ATTRIBUTE@block_name@Tildar la manzana@*/
-procedure ContarLaManzana()              { AuxContarLaManzana()                       }
-/*@ATTRIBUTE@block_name@Tildar la banana@*/@*/
-procedure ContarLaBanana()               { AuxContarLaBanana()                        }
-function  hayManzana()                   { return(aux_estáLaManzanaEnLaCeldaActual()) }
-function  hayBanana()                    { return(aux_estáLaBananaEnLaCeldaActual())  }
+procedure TildarLaManzana()              { AuxTildarLaManzana()                       }
+/*@ATTRIBUTE@block_name@Tildar las bananas@*/
+procedure TildarLasBananas()             { AuxTildarLaBanana()                        }
+/*@ATTRIBUTE@block_name@número de manzanas@*/
+function  nroManzanas()                   { return(aux_nroManzanasEnLaCeldaActual()) }
+/*@ATTRIBUTE@block_name@número de bananas@*/
+function  nroBananas()                    { return(aux_nroBananasEnLaCeldaActual())  }
 
 procedure InformarCantidadDeManzanas_(cantidadAInformar) { AuxInformarCantidadDeManzanas(cantidadAInformar) }
 procedure InformarCantidadDeBananas_(cantidadAInformar)  { AuxInformarCantidadDeBananas(cantidadAInformar)  }
@@ -49,16 +51,14 @@ procedure AuxCambiarAlMonoDeFila() {
     if (aux_elMonoSeCayó())                     { BOOM("El mono se cayó al vacío") }
 }
 
-procedure AuxContarLaManzana() { 
+procedure AuxTildarLaManzana() { 
     AuxVerificarPersonajeParaComando() 
-    if (not aux_estáLaManzanaEnLaCeldaActual()) { BOOM("No hay ninguna manzana que contar")                         }
-    AuxPonerManzana()
+    AuxPonerIndicador()
 }
 
-procedure AuxContarLaBanana() { 
+procedure AuxTildarLaBanana() { 
     AuxVerificarPersonajeParaComando() 
-    if (not aux_estáLaBananaEnLaCeldaActual())  { BOOM("No hay ninguna banana para contar")                               }
-    AuxPonerBanana()
+    AuxPonerIndicador()
 }
 
 function aux_mono()      { return(Azul)  }
@@ -79,18 +79,22 @@ function aux_estáElMonoEnElFin() {
 function aux_hayVacíoAl(dir) { Mover(dir) return(aux_elMonoSeCayó()) }
 
 function aux_estáElMonoEnLaCeldaActual()      { return (nroBolitas(aux_mono())==1)      }
-function aux_estáElMonoEnLaCeldaDistinguida() { return (nroBolitas(aux_indicador())==2) }
+function aux_estáElMonoEnLaCeldaDistinguida() { return (nroBolitas(aux_indicador())==3) }
 function aux_elMonoSeCayó()                   { return (nroBolitas(aux_indicador())==0) }
+function aux_nroManzanasEnLaCeldaActual()     { return (nroBolitas(aux_manzana()))      }
+function aux_nroBananasEnLaCeldaActual()      { return (nroBolitas(aux_banana()))       }
 function aux_estáLaManzanaEnLaCeldaActual()   { return (nroBolitas(aux_manzana())>=1)   }
 function aux_estáLaBananaEnLaCeldaActual()    { return (nroBolitas(aux_banana())>=1)    }
-function aux_hayManzanaContada()              { return (nroBolitas(aux_manzana())==2)   }
-function aux_hayBananaContada()               { return (nroBolitas(aux_banana())==2)    }
+function aux_hayManzanaContada()              { return ((nroBolitas(aux_manzana())>=1) && (nroBolitas(aux_indicador())==2)) }
+function aux_hayBananaContada()               { return ((nroBolitas(aux_banana())>=1)  && (nroBolitas(aux_indicador())==2)) }
 
 procedure AuxPonerAlMono()  { Poner(aux_mono())    }
 procedure AuxSacarAlMono()  { Sacar(aux_mono())    }
 
 procedure AuxPonerManzana() { Poner(aux_manzana()) }
 procedure AuxPonerBanana()  { Poner(aux_banana())  }
+
+procedure AuxPonerIndicador() { Poner(aux_indicador()) }
 
 procedure AuxInformarCantidadDeManzanas(cantidadAInformar) {
    IrAlBorde(Sur) IrAlBorde(Oeste)
@@ -121,7 +125,7 @@ function aux_cantidadDeBananas() {
   AuxIniciarRecorridoGral(Este, Sur)
   cantidad := 0
   while (not aux_terminóElRecorridoGral(Este, Sur)) {
-     if (aux_hayBananaContada()) { cantidad := cantidad + 1 }
+     if (aux_hayBananaContada()) { cantidad := cantidad + aux_nroBananasEnLaCeldaActual() }
      AuxAvanzarRecorridoGral(Este, Sur)
   }
   return (cantidad)

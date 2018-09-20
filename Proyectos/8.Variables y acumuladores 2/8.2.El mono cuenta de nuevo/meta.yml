@@ -7,9 +7,6 @@ attire:
 blocks:
   defaultToolbox: |
     <category name="Comandos básicos">
-        <block type="MoverAlMonoAl_"></block>
-        <block type="ContarLaManzana"></block>
-        <block type="InformarCantidadDeManzanas_"></block>
         <block type="AlternativaSimple"></block>
         <block type="RepeticionSimple"></block>
         <block type="RepeticionCondicional"></block>
@@ -18,11 +15,16 @@ blocks:
     <category name="Expresiones básicas">
         <block type="math_number"></block>
         <block type="DireccionSelector"></block>
-        <block type="estáElMonoEnElFinDeLaFila"></block>
-        <block type="hayManzana"></block>
         <block type="OperadorNumerico"></block>
         <block type="OperadorLogico"></block>
         <block type="not"></block>
+    </category>
+    <category name="Operaciones del mono">
+        <block type="MoverAlMonoAl_"></block>
+        <block type="estáElMonoEnElFinDeLaFila"></block>
+        <block type="nroBananas"></block>
+        <block type="ContarLasBananas"></block>
+        <block type="InformarCantidadDeBananas_"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Definiciones">
