@@ -1,0 +1,41 @@
+program { ContarLasFrutas() }
+
+procedure ContarLasFrutas() {
+  cantidadDeBananas := 0
+  cantidadDeManzanas := 0
+  repeat(5) {
+    while (not (estáElMonoEnElFinDeLaFila())) {
+      MoverAlMonoAl_(Este)
+      if (hayManzana()) {
+        cantidadDeManzanas := cantidadDeManzanas + 1
+        ContarLaManzana()
+      }
+      if (hayBanana()) {
+        cantidadDeBananas := cantidadDeBananas + 1
+        ContarLaBanana()
+      }
+    }
+    VolverAlInicio()
+    CambiarAlMonoDeFila()
+  }
+  while (not (estáElMonoEnElFinDeLaFila())) {
+    MoverAlMonoAl_(Este)
+    if (hayManzana()) {
+      cantidadDeManzanas := cantidadDeManzanas + 1
+      ContarLaManzana()
+    }
+    if (hayBanana()) {
+      cantidadDeBananas := cantidadDeBananas + 1
+      ContarLaBanana()
+    }
+  }
+  VolverAlInicio()
+  InformarCantidadDeManzanas_(cantidadDeManzanas)
+  InformarCantidadDeBananas_(cantidadDeBananas)
+}
+
+procedure VolverAlInicio() {
+  while (not (estáElMonoEnElInicioDeLaFila())) { MoverAlMonoAl_(Oeste) }
+}
+
+

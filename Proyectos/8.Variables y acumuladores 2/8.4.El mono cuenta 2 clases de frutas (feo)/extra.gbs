@@ -10,7 +10,9 @@ function  estáElMonoEnElInicioDeLaFila() { return(aux_estáElMonoEnElInicio()) 
 /*@ATTRIBUTE@block_name@¿el mono está en el fin de la fila?@*/
 function  estáElMonoEnElFinDeLaFila()    { return(aux_estáElMonoEnElFin())            }
 
+/*@ATTRIBUTE@block_name@Tildar la manzana@*/
 procedure ContarLaManzana()              { AuxContarLaManzana()                       }
+/*@ATTRIBUTE@block_name@Tildar la banana@*/
 procedure ContarLaBanana()               { AuxContarLaBanana()                        }
 function  hayManzana()                   { return(aux_estáLaManzanaEnLaCeldaActual()) }
 function  hayBanana()                    { return(aux_estáLaBananaEnLaCeldaActual())  }
