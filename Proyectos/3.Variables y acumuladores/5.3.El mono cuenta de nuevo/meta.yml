@@ -23,7 +23,7 @@ blocks:
         <block type="MoverAlMonoAl_"></block>
         <block type="estáElMonoEnElFinDeLaFila"></block>
         <block type="nroBananas"></block>
-        <block type="ContarLasBananas"></block>
+        <block type="TildarLasBananas"></block>
         <block type="InformarCantidadDeBananas_"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
