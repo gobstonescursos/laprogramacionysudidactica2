@@ -112,6 +112,9 @@
     , { "id": "5.1", "name": "El mono cuenta las frutas"
       , "path": "Proyectos/3.Variables y acumuladores/5.1.El mono cuenta las frutas"
       }
+    , { "id": "5.2", "name": "El mono va y vuelve"
+      , "path": "Proyectos/3.Variables y acumuladores/5.2.El mono va y vuelve"
+      }
     , { "id": "5.3", "name": "El mono cuenta de nuevo"
       , "path": "Proyectos/3.Variables y acumuladores/5.3.El mono cuenta de nuevo"
       }
