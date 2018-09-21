@@ -98,16 +98,16 @@ procedure AuxPonerIndicador() { Poner(aux_indicador()) }
 
 procedure AuxInformarCantidadDeManzanas(cantidadAInformar) {
    IrAlBorde(Sur) IrAlBorde(Oeste)
-   if (cantidadAInformar/=nroBolitas(Azul)) { BOOM("¡No estás informando el número correcto de manzanas!") }
-   if (aux_cantidadDeManzanas()/=nroBolitas(Azul)) { BOOM("No contaste bien todas las manzanas") }
+   if (cantidadAInformar/=nroBolitas(Azul)) { BOOM("¡Algo no está bien! No contaste bien las manzanas") }
+   if (aux_cantidadDeManzanas()/=nroBolitas(Azul)) { BOOM("¡Algo no está bien! No tildaste todas las manzanas") }
    AuxSacarIncognita()
    AuxVolverAlMono()
 }
 
 procedure AuxInformarCantidadDeBananas(cantidadAInformar) {
    IrAlBorde(Sur) IrAlBorde(Oeste)
-   if (cantidadAInformar/=nroBolitas(Azul)) { BOOM("¡No estás informando el número correcto de bananas!") }
-   if (aux_cantidadDeBananas()/=nroBolitas(Azul)) { BOOM("No contaste bien todas las bananas") }
+   if (cantidadAInformar/=nroBolitas(Azul)) { BOOM("¡Algo no está bien! No contaste bien las bananas") }
+   if (aux_cantidadDeBananas()/=nroBolitas(Azul)) { BOOM("¡Algo no está bien! No tildaste todas las bananas") }
    AuxSacarIncognita()
    AuxVolverAlMono()
 }
