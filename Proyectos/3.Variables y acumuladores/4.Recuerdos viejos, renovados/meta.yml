@@ -14,7 +14,9 @@ blocks:
         <block type="RepeticionCondicional"></block>
         <block type="Asignacion"></block>
     </category>
-    <category name="Expresiones básicas">
+    <category name="Expresiones básicas">    
+        <block type="math_number"></block>
+        <block type="OperadorNumerico"></block>
         <block type="not"></block>
     </category>
     <category name="Operaciones de cartas">
