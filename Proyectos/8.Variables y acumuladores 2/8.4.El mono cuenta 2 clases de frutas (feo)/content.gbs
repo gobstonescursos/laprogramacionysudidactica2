@@ -1,3 +1,39 @@
-program {
-  
+program { 
 }
+
+procedure ContarLasFrutas() {
+  cantidadDeManzanas := cantidadTotalDeManzanas()
+  cantidadDeBananas := cantidadTotalDeBananas()
+  TildarTodasLasFrutas()
+  InformarCantidadDeManzanas_(cantidadDeManzanas)
+  InformarCantidadDeBananas_(cantidadDeBananas)
+}
+
+procedure TildarTodasLasFrutas() {
+  ...
+}
+
+procedure TildarLasFrutasDeUnaFila() {
+  ...
+}
+
+function cantidadTotalDeManzanas() {
+  ...
+  return (...)
+}
+
+function cantidadDeManzanasDeLaFila() {
+  ...
+  return (...)
+}
+
+function cantidadTotalDeBananas() {
+  ...
+  return (...)
+}
+
+function cantidadDeBananasDeLaFila() {
+  ...
+  return (...)
+}
+

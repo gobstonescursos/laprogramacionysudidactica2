@@ -2116,14 +2116,20 @@ function aux_armarRepresentaciónDeCartasDeMazoEspañolCompletoDe(palo) {
 /*==================================================================================================*/
 /*--------------------------- OPERACIONES ESPECÍFICAS DE LA ACTIVIDAD ------------------------------*/
 /*==================================================================================================*/
+procedure IrAlSectorDeInformar()   { AuxIrASectorDeInformar() }
 procedure DecirElEnvido_(envido)   { AuxDecirElEnvido(envido) }
 
+procedure AuxIrASectorDeInformar() {
+  IrAlBorde(Sur) IrAlBorde(Oeste)
+}
+
 procedure AuxDecirElEnvido(envido) {
+  if (puedeMover(Sur) || puedeMover(Oeste)) { BOOM("No estoy en el sector de informar") }
   IrAlBorde(Oeste) IrAlBorde(Norte)
   número1 := aux_dameElValor(cartaActual())
   Mover(Este)
   número2 := aux_dameElValor(cartaActual())
   if (número1+número2+20/=envido) { BOOM("¡Fallaste! No es el envido que tengo.") }
-  Mover(Oeste) Mover(Sur) Mover(Sur)
+  AuxIrASectorDeInformar()
   AuxPonerNúmero(envido)
 }

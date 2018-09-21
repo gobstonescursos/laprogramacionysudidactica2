@@ -13,7 +13,8 @@ procedure PonerDígitoSiSePuede(dígitoAPoner) {
 }
 
 function esVálidoPonerlo(dígito) {
-  return (noSeRepiteEnLaFila(dígito) 
+  return (not hayDígito()
+       && noSeRepiteEnLaFila(dígito) 
        && noSeRepiteEnLaColumna(dígito))
 }
 

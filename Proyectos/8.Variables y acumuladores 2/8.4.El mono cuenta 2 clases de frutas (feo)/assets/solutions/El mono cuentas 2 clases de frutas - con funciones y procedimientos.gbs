@@ -1,0 +1,90 @@
+program { ContarLasFrutas() }
+
+procedure ContarLasFrutas() {
+  cantidadDeManzanas := cantidadTotalDeManzanas()
+  cantidadDeBananas  := cantidadTotalDeBananas()
+  TildarTodasLasFrutas()
+  InformarCantidadDeManzanas_(cantidadDeManzanas)
+  InformarCantidadDeBananas_(cantidadDeBananas)
+}
+
+procedure TildarTodasLasFrutas() {
+  repeat(5) {
+    TildarLasFrutasDeUnaFila()
+    CambiarAlMonoDeFila()
+  }
+  TildarLasFrutasDeUnaFila()
+}
+
+function cantidadTotalDeManzanas() {
+  cantidadDeManzanas := 0
+  repeat(5) {
+    cantidadDeManzanas := cantidadDeManzanas + cantidadDeManzanasDeLaFila()
+    CambiarAlMonoDeFila()
+  }
+  cantidadDeManzanas := cantidadDeManzanas + cantidadDeManzanasDeLaFila()
+  return (cantidadDeManzanas)
+}
+
+function cantidadTotalDeBananas() {
+  cantidadDeBananas := 0
+  repeat(5) {
+    cantidadDeBananas := cantidadDeBananas + cantidadDeBananasDeLaFila()
+    CambiarAlMonoDeFila()
+  }
+  cantidadDeBananas := cantidadDeBananas + cantidadDeBananasDeLaFila()
+  return (cantidadDeBananas)
+}
+
+procedure TildarLasFrutasDeUnaFila() {
+  while (not (estáElMonoEnElFinDeLaFila())) {
+    MoverAlMonoAl_(Este)
+    TildarManzanaSiHay()
+    TildarBananaSiHay()
+  }
+  VolverAlInicioDeLaFila()
+}
+
+function cantidadDeManzanasDeLaFila() {
+  cantidadDeManzanas := 0
+  while (not (estáElMonoEnElFinDeLaFila())) {
+    MoverAlMonoAl_(Este)
+    cantidadDeManzanas := cantidadDeManzanas + cantidadDeManzanasEnLaCelda()
+  }
+  cantidadDeManzanas := cantidadDeManzanas + cantidadDeManzanasEnLaCelda()
+  return (cantidadDeManzanas)
+}
+
+function cantidadDeBananasDeLaFila() {
+  cantidadDeBananas := 0
+  while (not (estáElMonoEnElFinDeLaFila())) {
+    MoverAlMonoAl_(Este)
+    cantidadDeBananas := cantidadDeBananas + cantidadDeBananasEnLaCelda()
+  }
+  cantidadDeBananas := cantidadDeBananas + cantidadDeBananasEnLaCelda()
+  return (cantidadDeBananas)
+}
+
+procedure TildarManzanaSiHay() {
+  if (hayManzana()) { ContarLaManzana() }
+}
+
+function cantidadDeManzanasEnLaCelda() {
+  if (hayManzana()) { cantidadDeManzanas := 1 } 
+   else             { cantidadDeManzanas := 0 }
+  return (cantidadDeManzanas)
+}
+
+function cantidadDeBananasEnLaCelda() {
+  if (hayBanana()) { cantidadDeBananas := 1 } 
+   else            { cantidadDeBananas := 0 }
+  return (cantidadDeBananas)
+}
+
+procedure TildarBananaSiHay() {
+  if (hayBanana()) { ContarLaBanana() }
+}
+
+procedure VolverAlInicioDeLaFila() {
+  while (not (estáElMonoEnElInicioDeLaFila())) { MoverAlMonoAl_(Oeste) }
+}
