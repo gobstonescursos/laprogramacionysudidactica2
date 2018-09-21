@@ -109,15 +109,18 @@
     , { "id": "3", "name": "¿Cuánto envido?"
       , "path": "Proyectos/3.Variables y acumuladores/3.Cuánto envido"
       }
+    , { "id": "5.1", "name": "El mono cuenta las frutas"
+      , "path": "Proyectos/3.Variables y acumuladores/5.1.El mono cuenta las frutas"
+      }
+    , { "id": "5.3", "name": "El mono cuenta de nuevo"
+      , "path": "Proyectos/3.Variables y acumuladores/5.3.El mono cuenta de nuevo"
+      }
     ]
   }
 , { "name": "7-8.Variables y acumuladores", "repo": "gobstones/laprogramacionysudidactica2"
   , "exercises":
-    [ { "id": "8.1", "name": "El mono cuenta las frutas"
-      , "path": "Proyectos/8.Variables y acumuladores 2/8.1.El mono cuenta las frutas"
-      }
-	, { "id": "8.2", "name": "El mono cuenta de nuevo"
-      , "path": "Proyectos/8.Variables y acumuladores 2/8.2.El mono cuenta de nuevo"
+	[ { "id": "8.4", "name": "El mono cuenta 2 clases"
+      , "path": "Proyectos/8.Variables y acumuladores 2/8.4.El mono cuenta 2 clases de frutas (feo)"
       }
     ]
   }
