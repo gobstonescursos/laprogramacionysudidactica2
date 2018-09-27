@@ -5,7 +5,7 @@ Pero si bien las primitivas de listas son las mismas que tuviste en la actividad
 interesante ahora es que trates de hacerlo sin repetir tanto código.
 
 <center>
-![El escenario final]
+![El escenario final](data:image/png;base64,)
 </center>
 
 > **¿Cómo ir recorriendo la lista de a poco?**
@@ -17,4 +17,4 @@ interesante ahora es que trates de hacerlo sin repetir tanto código.
 [Enunciado en PDF][PDF]
 
 [PDF]: 
-https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/10.Listas%20y%20operaciones%20de%20listas/10.3.El%20regreso%20de%20la%20lista/resources/description.pdf "Enunciado de 'El regreso de la lista' en PDF"
+https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/4.Introducci%C3%B3n%20a%20listas/4.El%20regreso%20de%20la%20lista/assets/resources/description.pdf "Enunciado de 'El regreso de la lista' en PDF"

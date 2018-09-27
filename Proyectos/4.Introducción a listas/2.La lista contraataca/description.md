@@ -7,7 +7,7 @@ El tema es que ahora las operaciones primitivas disponibles son levemente distin
 Un escenario final posible podría ser:
 
 <center>
-![El escenario final]
+![El escenario final](data:image/png;base64,)
 </center>
 
 > **¿Cómo obtener los elementos?**
@@ -18,4 +18,4 @@ Un escenario final posible podría ser:
 [Enunciado en PDF][PDF]
 
 [PDF]: 
-https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/10.Lists%20y%20operaciones%20de%20listas/10.2.La%20lista%20contraataca/resources/description.pdf "Enunciado de 'La lista contraataca' en PDF"
+https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/4.Introducci%C3%B3n%20a%20listas/2.La%20lista%20contraataca/assets/resources/description.pdf "Enunciado de 'La lista contraataca' en PDF"
