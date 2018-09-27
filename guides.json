@@ -123,28 +123,25 @@
       }
     ]
   }
-, { "name": "7-8.Variables y acumuladores", "repo": "gobstones/laprogramacionysudidactica2"
+, { "name": "4.Introducción a listas", "repo": "gobstones/laprogramacionysudidactica2"
   , "exercises":
-	[ { "id": "8.4", "name": "El mono cuenta 2 clases"
-      , "path": "Proyectos/8.Variables y acumuladores 2/8.4.El mono cuenta 2 clases de frutas (feo)"
+    [ { "id": "1", "name": "Descubrir la lista"
+      , "path": "Proyectos/4.Introducción a listas/1.Descubrir la lista"
       }
-    ]
+    , { "id": "2", "name": "La lista contraataca"
+      , "path": "Proyectos/4.Introducción a listas/2.La lista contraataca"
+      }
+    , { "id": "3", "name": "Contar las cartas, transición"
+      , "path": "Proyectos/4.Introducción a listas/3.Contar las cartas, transición"
+      }
+    , { "id": "4", "name": "El regreso de la lista"
+      , "path": "Proyectos/4.Introducción a listas/4.El regreso de la lista"
+      }
+	 ] 
   }
 , { "name": "10-11.Listas", "repo": "gobstones/laprogramacionysudidactica2"
   , "exercises": 
-    [ { "id": "10.1", "name": "Descubrir la lista"
-      , "path": "Proyectos/10.Listas y operaciones de listas/10.1.Descubrir la lista"
-      }
-    , { "id": "10.2", "name": "La lista contraataca"
-      , "path": "Proyectos/10.Listas y operaciones de listas/10.2.La lista contraataca"
-      }
-    , { "id": "10.3", "name": "El regreso de la lista"
-      , "path": "Proyectos/10.Listas y operaciones de listas/10.3.El regreso de la lista"
-      }
-    , { "id": "11.2", "name": "Contar las cartas, transición"
-      , "path": "Proyectos/11.Primitivas mínimas de listas/11.2.Contar las cartas, transición"
-      }
-    , { "id": "11.3", "name": "Contar las cartas en bambalinas"
+    [ { "id": "11.3", "name": "Contar las cartas en bambalinas"
       , "path": "Proyectos/11.Primitivas mínimas de listas/11.3.Contar las cartas en bambalinas"
       }
     , { "id": "11.4", "name": "¿Cuántos puntos tengo?"
@@ -195,6 +192,13 @@
       , "path": "Proyectos/15.Algoritmos sobre listas/15.3.Encontrar la carta más chica"
       }
     ] 
+  }
+, { "name": "Actividades no usadas", "repo": "gobstones/laprogramacionysudidactica2"
+  , "exercises":
+	[ { "id": "8.4", "name": "El mono cuenta 2 clases"
+      , "path": "Proyectos/99. OLD Variables y acumuladores 2/8.4.El mono cuenta 2 clases de frutas (feo)"
+      }
+    ]
   }
 ]
 
