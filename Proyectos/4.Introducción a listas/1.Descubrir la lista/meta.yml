@@ -29,14 +29,14 @@ blocks:
     </category>
 board:
   active: 1
-  initial_board_source: random
+  initial_board_source: selected
   visible_edition: false
   collapse_toolbox: false
   user_permissions:
     can_view_attire_section: false
     can_edit_board: false
     can_change_initial_board: false
-    can_change_initial_board_source: false
+    can_change_initial_board_source: true
     can_view_size_section: false
 execution_speed:
   active: high
