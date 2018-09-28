@@ -1,4 +1,4 @@
-name: El despertar de las cartas
+name: El repartir de las cartas
 attire:
   active: 'Cartas, letras y números'
   user_permissions:
@@ -16,7 +16,7 @@ blocks:
         <block type="not"></block>
     </category>
     <category name="Operaciones de cartas">
-        <block type="InformarCarta_"></block>
+        <block type="RepartirCarta_"></block>
         <block type="mazoDesdeEstaPosición"></block>
         <block type="quedanCartas_"></block>
         <block type="dameLaPrimeraCartaDe_"></block>

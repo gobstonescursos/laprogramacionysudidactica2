@@ -2134,27 +2134,110 @@ function  mínimoElemento_(lista)      { return (aux_mínimoElemento(lista))    
 function  cantidadDeElementos_(lista) { return (aux_cantidadDeElementos(lista)) }
 function  sumaDeLosElementos_(lista)  { return (aux_sumaDeLosElementos(lista))  }
 
-procedure InformarCarta_(carta)       { AuxInformarCarta(carta)                 }
+procedure RepartirCarta_(carta)       { AuxRepartirCarta(carta)                 }
 
-procedure AuxInformarCarta(carta) {
+function aux_mazoDeEntrada() {
    AuxIrAlInicioDeLaEntrada()
-   cartasAAdivinar := aux_mazoDesdeEstaPosición()
+   return (aux_mazoDesdeEstaPosición())
+}
+
+function aux_mazoDelJugadorA() {
    AuxIrAlInicioDeLaSalida()
-   AuxAvanzarHastaCeldaLibre()
-   AuxPonerCartaEspañolaDestapada(carta)
+   return (aux_mazoDesdeEstaPosición())
+}
+
+function aux_mazoDelJugadorB() {
+   AuxIrAlInicioDeLaSalidaDeB()
+   return (aux_mazoDesdeEstaPosición())
+}
+
+procedure AuxRepartirAlJugadorA(carta) {
    AuxIrAlInicioDeLaSalida()
-   cartasPropuestas := aux_mazoDesdeEstaPosición()
-   if (aux_cantidadDeCartasDelMazo(cartasPropuestas) == aux_cantidadDeCartasDelMazo(cartasAAdivinar))
-     { AuxValidarSalida(cartasPropuestas == cartasAAdivinar)
+   AuxAvanzarHastaCeldaLibreHacia(Este)
+   AuxPonerCartaEspañolaTapada(carta)
+}
+
+procedure AuxRepartirAlJugadorB(carta) {
+   AuxIrAlInicioDeLaSalidaDeB()
+   if (aux_hayCartaEspañola()) { Mover(Oeste) }
+   AuxPonerCartaEspañolaTapada(carta)
+}
+
+procedure AuxIrAlInicioDeLaSalidaDeB() {
+   AuxIrAlInicioDeLaSalida()
+   IrAlBorde(Este)
+   AuxAvanzarHastaCeldaLibreHacia(Oeste)
+   if (puedeMover(Este)) { Mover(Este) }
+}
+
+procedure AuxIrALaFlecha() {
+  AuxIrAlInicioDeLaEntrada()
+  Mover(Sur)
+  while (not (nroBolitas(Rojo) == 10)) { Mover(Este) }
+}
+
+procedure AuxRepartirCarta(carta) {
+   AuxIrALaFlecha()
+   cantidadQueFaltan := nroBolitas(Negro)
+   if (cantidadQueFaltan > 0) { Sacar(Negro) }
+   Mover(Este)
+   cantidadPuestas := nroBolitas(Negro)
+   Poner(Negro)
+   if (cantidadPuestas mod 2 == 0)
+    then { AuxRepartirAlJugadorA(carta) }
+    else { AuxRepartirAlJugadorB(carta) }
+    
+   if (cantidadQueFaltan == 1)
+     { 
+       cartasARepartir   := aux_mazoDeEntrada()
+       cartasDelJugadorA := aux_mazoDelJugadorA()
+       cartasDelJugadorB := aux_mazoDelJugadorB()
+       AuxValidarSalida(aux_intercalar(cartas(cartasDelJugadorA), aux_reverse(cartas(cartasDelJugadorB)))
+                        == cartas(cartasARepartir))
        AuxIrAlInicioDeLaEntrada()
+       AuxDarVueltaElMazoActual()
+       AuxIrAlInicioDeLaSalida()
+       AuxDarVueltaElMazoActual()
+       AuxIrAlInicioDeLaSalidaDeB()
        AuxDarVueltaElMazoActual()
      }
 }
 
-procedure AuxAvanzarHastaCeldaLibre() {
-  while (aux_hayCartaEspañolaDestapada()) {
-    AuxPasarASiguientePosición()
+function aux_intercalar(as, bs) {
+  zs := []
+  xs := as
+  ys := bs
+  turnoXs := True
+  while (xs/=[] && ys/=[]) {
+    if (turnoXs) 
+      then { zs := zs ++ [primero(xs)] 
+             xs := resto(xs)
+           }
+      else { zs := zs ++ [primero(ys)]
+             ys := resto(ys)
+           }
+    turnoXs := not turnoXs
   }
+  zs := zs ++ xs ++ ys  // ¡Una de las dos entre xs e ys está vacía!
+  return (zs)
+}
+
+function aux_reverse(as) {
+  zs := []
+  xs := as
+  while (xs/=[]) {
+     zs := [primero(xs)] ++ zs
+     xs := resto(xs)
+  }
+  return (zs)
+}
+
+procedure AuxAvanzarHastaCeldaLibre() {
+  while (aux_hayCartaEspañola()) { AuxPasarASiguientePosición() }
+}
+
+procedure AuxAvanzarHastaCeldaLibreHacia(dir) {
+  while (aux_hayCartaEspañola()) { Mover(dir) }
 }
 
 

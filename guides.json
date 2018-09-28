@@ -134,8 +134,8 @@
     , { "id": "3", "name": "El regreso de la lista"
       , "path": "Proyectos/4.Introducción a listas/3.El regreso de la lista"
       }
-    , { "id": "4", "name": "El despertar de las cartas"
-      , "path": "Proyectos/4.Introducción a listas/4.El despertar de las cartas"
+    , { "id": "4", "name": "El repartir de las cartas"
+      , "path": "Proyectos/4.Introducción a listas/4.El repartir de las cartas"
       }
 	 ] 
   }

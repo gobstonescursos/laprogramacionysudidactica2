@@ -3,7 +3,7 @@ program { DescubrirElMazo(mazoDesdeEstaPosición()) }
 procedure DescubrirElMazo(mazo) {
   cartasSinProcesar := mazo
   while (not (not(quedanCartas_(cartasSinProcesar)))) {
-    InformarCarta_(dameLaPrimeraCartaDe_(cartasSinProcesar))
+    RepartirCarta_(dameLaPrimeraCartaDe_(cartasSinProcesar))
     cartasSinProcesar := sacarLaPrimeraCartaDe_(cartasSinProcesar)
   }
 }
