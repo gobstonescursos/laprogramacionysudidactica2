@@ -1827,13 +1827,15 @@ function mazoEspañol()                    { return(aux_mazoEspañolCompleto()) 
 //---------------------------------------------------------------------------------------------------/
 /*----------------------- Operaciones de acceso a un mazo español (interfaz) ------------------------/
 /---------------------------------------------------------------------------------------------------*/
-/*@ATTRIBUTE@block_name@quedan cartas en _?@*/ 
+/*@ATTRIBUTE@block_name@¿quedan cartas en _?@*/ 
 function quedanCartas_(m)              { return(aux_quedanCartas(m))            }
 
 /*@ATTRIBUTE@block_name@cantidad de cartas del mazo _@*/ 
 function cantidadDeCartasDelMazo_(m)   { return(aux_cantidadDeCartasDelMazo(m)) }
 
+/*@ATTRIBUTE@block_name@primera carta de _@*/ 
 function dameLaPrimeraCartaDe_(mazo)   { return(aux_dameLaPrimeraCarta(mazo))   }
+/*@ATTRIBUTE@block_name@sin la primera _@*/ 
 function sacarLaPrimeraCartaDe_(mazo)  { return(aux_sacarLaPrimeraCarta(mazo))  }
 
 function dameLaÚltimaCartaDe_(mazo)    { return(aux_dameLaÚltimaCarta(mazo))    }
@@ -2118,10 +2120,13 @@ function aux_armarRepresentaciónDeCartasDeMazoEspañolCompletoDe(palo) {
 /*==================================================================================================*/
 /*--------------------------- OPERACIONES ESPECÍFICAS DE LA ACTIVIDAD ------------------------------*/
 /*==================================================================================================*/
+/*@ATTRIBUTE@block_name@mazo actual@*/
+function mazoDesdeEstaPosición()      { return (aux_mazoDesdeEstaPosición())    }
 function listaDeNúmerosOculta()       { return (aux_listaDeNúmerosOculta())     }
 /*@ATTRIBUTE@block_name@¿está vacía _?@*/
 function  estáVacía_(lista)           { return (esVacía(lista))                 }
 function  primerElemento_(lista)      { return (primero(lista))                 }
+/*@ATTRIBUTE@block_name@sin el primero _@*/
 function  resto_(lista)               { return (resto(lista))                   }
 function  últimoElemento_(lista)      { return (último(lista))                  }
 function  máximoElemento_(lista)      { return (aux_máximoElemento(lista))      }
@@ -2129,15 +2134,29 @@ function  mínimoElemento_(lista)      { return (aux_mínimoElemento(lista))    
 function  cantidadDeElementos_(lista) { return (aux_cantidadDeElementos(lista)) }
 function  sumaDeLosElementos_(lista)  { return (aux_sumaDeLosElementos(lista))  }
 
-procedure InformarNúmero_(número)     { AuxInformarNúmero(número)               }
+procedure InformarCarta_(carta)       { AuxInformarCarta(carta)                 }
 
-procedure AuxInformarNúmero(número) {
+procedure AuxInformarCarta(carta) {
    AuxIrAlInicioDeLaEntrada()
-   cartas := aux_mazoActual()
+   cartasAAdivinar := aux_mazoDesdeEstaPosición()
    AuxIrAlInicioDeLaSalida()
-   AuxPonerNúmero(número)
-   AuxValidarSalida(número == aux_cantidadDeCartasDelMazo(cartas))
+   AuxAvanzarHastaCeldaLibre()
+   AuxPonerCartaEspañolaDestapada(carta)
+   AuxIrAlInicioDeLaSalida()
+   cartasPropuestas := aux_mazoDesdeEstaPosición()
+   if (aux_cantidadDeCartasDelMazo(cartasPropuestas) == aux_cantidadDeCartasDelMazo(cartasAAdivinar))
+     { AuxValidarSalida(cartasPropuestas == cartasAAdivinar)
+       AuxIrAlInicioDeLaEntrada()
+       AuxDarVueltaElMazoActual()
+     }
 }
+
+procedure AuxAvanzarHastaCeldaLibre() {
+  while (aux_hayCartaEspañolaDestapada()) {
+    AuxPasarASiguientePosición()
+  }
+}
+
 
 function aux_listaDeNúmerosOculta() {
    IrAlBorde(Oeste) IrAlBorde(Norte)
@@ -2188,7 +2207,7 @@ function aux_hayNúmeroOculto()   { return(aux_hayNúmero() &&     aux_hayAtribu
 function aux_hayNúmeroNoOculto() { return(aux_hayNúmero() && not aux_hayAtributoReverso()) }
 
 function aux_cantidadDeElementos(lista) {
-   cantidadDeElementosVistos := primero(lista)
+   cantidadDeElementosVistos := 0
    foreach elemento in lista { cantidadDeElementosVistos := cantidadDeElementosVistos + 1 }
    return (cantidadDeElementosVistos)
 }
@@ -2202,7 +2221,7 @@ function aux_máximoElemento(lista) {
 }
  
 function aux_mínimoElemento(lista) {
-   mínimoElementoVisto := 0
+   mínimoElementoVisto := primero(lista)
    foreach elemento in lista { 
       if (elemento < mínimoElementoVisto) { mínimoElementoVisto := elemento }
    }
@@ -2262,4 +2281,10 @@ procedure AuxIncrementarLaCuentaEnUno() {
   AuxVolverALaMarca()
   AuxDesmarcar()
 }
-                                      
+
+function aux_mazoDesdeEstaPosición() { 
+   return (choose
+             aux_mazoActual() when (aux_hayCartaEspañolaDestapada())
+             aux_mazoTapado() otherwise)
+}
+                                     

@@ -1,4 +1,4 @@
-name: Contar las cartas, transición
+name: El despertar de las cartas
 attire:
   active: 'Cartas, letras y números'
   user_permissions:
@@ -7,9 +7,6 @@ attire:
 blocks:
   defaultToolbox: |
     <category name="Comandos básicos">
-        <block type="IrAlInicioDeLaEntrada"></block>
-        <block type="PasarASiguientePosición"></block>
-        <block type="InformarNúmero_"></block>
         <block type="RepeticionCondicional"></block>
         <block type="Asignacion"></block>
     </category>
@@ -19,13 +16,17 @@ blocks:
         <block type="not"></block>
     </category>
     <category name="Operaciones de cartas">
-        <block type="SacarCartaActual"></block>
-        <block type="hayCarta"></block>
+        <block type="InformarCarta_"></block>
+        <block type="mazoDesdeEstaPosición"></block>
+        <block type="quedanCartas_"></block>
+        <block type="dameLaPrimeraCartaDe_"></block>
+        <block type="sacarLaPrimeraCartaDe_"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Definiciones">
         <block type="procedures_defnoreturn"></block>
         <block type="procedures_defreturnsimplewithparams"></block>
+        <block type="procedures_defreturn"></block>
     </category>
 board:
   active: 1
