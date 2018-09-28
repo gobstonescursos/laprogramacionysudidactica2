@@ -16,6 +16,7 @@ Un escenario final posible podría ser:
 > La idea es que combines operaciones. 
 > Indagá para saber qué hace cada una de ellas, y a partir de eso, pensá
 > cuál es la combinación que te hace falta para cada elemento.
+> Te damos un par de funciones empezadas, para guiarte.
 
 [Enunciado en PDF][PDF]
 
