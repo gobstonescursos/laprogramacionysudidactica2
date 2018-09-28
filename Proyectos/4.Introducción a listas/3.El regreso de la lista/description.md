@@ -12,7 +12,7 @@ Algunos escenarios iniciales posibles:
 
 > **¿Cómo ir recorriendo la lista de a poco?**
 >
-> Una pista: para recorrer una lista, debés **recordar** los elementos que aún no procesaste.
+> Una pista: para recorrer una lista, debés **recordar** los _elementos que aún no procesaste_.
 > Y por supuesto, **repetir** el procesamiento para cada uno de los elementos.
 > ¿Cuándo habría que terminar?
 

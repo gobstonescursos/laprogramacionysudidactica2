@@ -2122,6 +2122,7 @@ function listaDeNúmerosDelEscenario() { return (aux_listaDeNúmerosDelEscenario
 /*@ATTRIBUTE@block_name@¿está vacía _?@*/
 function  estáVacía_(lista)           { return (esVacía(lista))                   }
 function  primerElemento_(lista)      { return (primero(lista))                   }
+/*@ATTRIBUTE@block_name@sin el primero _@*/
 function  resto_(lista)               { return (resto(lista))                     }
 function  últimoElemento_(lista)      { return (último(lista))                    }
 function  máximoElemento_(lista)      { return (aux_máximoElemento(lista))        }

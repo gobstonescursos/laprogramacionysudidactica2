@@ -1,4 +1,4 @@
-#Actividad 11.2 Contar las cartas, transición
+#Actividad 4. El despertar de las cartas
 
 .
 
@@ -12,4 +12,4 @@
 
 [Enunciado en PDF][PDF]
 
-[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/4.Introducci%C3%B3n%20a%20listas/3.Contar%20las%20cartas%2C%20transci%C3%B3n/assets/resources/description.pdf "Enunciado de 'Contar las cartas, transición' en PDF"
+[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/4.Introducci%C3%B3n%20a%20listas/4.El%20despertar%20de%20las%20cartas/assets/resources/description.pdf "Enunciado de 'El despertar de las cartas' en PDF"
