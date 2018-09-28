@@ -200,7 +200,7 @@ procedure AuxAvanzarRecorridoGral(dirPpal, dirSecundaria) {
 
 //-------------------------------
 // PARA CORRECCIÓN DE GOBSTONES, HASTA QUE LO ARREGLEMOS
-function último(xs)  { return (ultimo(xs)) }
+//function último(xs)  { return (ultimo(xs)) }
 function esVacía(xs) { return (xs==[])     }
 //-------------------------------
 
