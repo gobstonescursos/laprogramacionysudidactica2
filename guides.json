@@ -137,23 +137,23 @@
     , { "id": "4", "name": "El repartir de las cartas"
       , "path": "Proyectos/4.Introducción a listas/4.El repartir de las cartas"
       }
-	 ] 
+    , { "id": "5", "name": "Contar las cartas en bambalinas"
+      , "path": "Proyectos/4.Introducción a listas/5.Contar las cartas en bambalinas"
+      }
+    , { "id": "6", "name": "¿Cuántos puntos tengo?"
+      , "path": "Proyectos/4.Introducción a listas/6.Cuántos puntos tengo"
+      }
+    , { "id": "7", "name": "Armar la lista de valores"
+      , "path": "Proyectos/4.Introducción a listas/7.Armar la lista de valores"
+      }
+    , { "id": "8", "name": "El rey Midas"
+      , "path": "Proyectos/4.Introducción a listas/8.El rey Midas"
+      }
+	] 
   }
 , { "name": "10-11.Listas", "repo": "gobstones/laprogramacionysudidactica2"
   , "exercises": 
-    [ { "id": "11.3", "name": "Contar las cartas en bambalinas"
-      , "path": "Proyectos/11.Primitivas mínimas de listas/11.3.Contar las cartas en bambalinas"
-      }
-    , { "id": "11.4", "name": "¿Cuántos puntos tengo?"
-      , "path": "Proyectos/11.Primitivas mínimas de listas/11.4.Cuántos puntos tengo"
-      }
-    , { "id": "11.5", "name": "Armar la lista de valores"
-      , "path": "Proyectos/11.Primitivas mínimas de listas/11.5.Armar la lista de valores"
-      }
-    , { "id": "11.6", "name": "El rey Midas"
-      , "path": "Proyectos/11.Primitivas mínimas de listas/11.6.El rey Midas"
-      }
-    , { "id": "12.1", "name": "Toto, solo los oros"
+    [ { "id": "12.1", "name": "Toto, solo los oros"
       , "path": "Proyectos/12.Búsquedas y filtros/12.1.Toto, solo los oros"
       }
     , { "id": "12.2", "name": "La realeza armada"
