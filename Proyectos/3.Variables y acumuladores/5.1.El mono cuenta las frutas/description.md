@@ -2,7 +2,7 @@
 
 Nuestro amigo el mono tiene que contar las manzanas de la fila.
 Pero como le cuesta un poco recordar, quiere que lo ayudemos, construyendo un programa que
-lo guíe en lo que tiene que hacer. 
+lo guíe en lo que tiene que hacer: contar cada manzana y tildarla como que fue contada. 
 Todas las celdas de la fila tienen una manzana.
 No sabemos el largo de la fila, pero sí que el final está indicado con una celda verde.
 
