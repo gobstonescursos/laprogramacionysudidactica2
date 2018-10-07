@@ -2,6 +2,7 @@ program { InformarNúmero_(puntajeDeEsteMazo(mazoActual())) }
 
 function puntajeDeEsteMazo(mazoDeEntrada) {
   cartasAúnNoConsideradas := mazoDeEntrada
+  puntajeCalculadoHastaElMomento := 0
   while (not (not(quedanCartas_(cartasAúnNoConsideradas)))) {
     puntajeCalculadoHastaElMomento := puntajeCalculadoHastaElMomento 
                                     + dameElValor_(dameLaPrimeraCartaDe_(cartasAúnNoConsideradas))
@@ -9,6 +10,7 @@ function puntajeDeEsteMazo(mazoDeEntrada) {
   }
   return (puntajeCalculadoHastaElMomento)
 }
+
 
 
 
