@@ -1827,7 +1827,7 @@ function mazoEspañol()                    { return(aux_mazoEspañolCompleto()) 
 //---------------------------------------------------------------------------------------------------/
 /*----------------------- Operaciones de acceso a un mazo español (interfaz) ------------------------/
 /---------------------------------------------------------------------------------------------------*/
-/*@ATTRIBUTE@block_name@quedan cartas en _?@*/ 
+/*@ATTRIBUTE@block_name@¿quedan cartas en _?@*/ 
 function quedanCartas_(m)              { return(aux_quedanCartas(m))            }
 
 /*@ATTRIBUTE@block_name@cantidad de cartas del mazo _@*/ 
@@ -1835,7 +1835,7 @@ function cantidadDeCartasDelMazo_(m)   { return(aux_cantidadDeCartasDelMazo(m)) 
 
 /*@ATTRIBUTE@block_name@primera carta de _@*/ 
 function dameLaPrimeraCartaDe_(mazo)   { return(aux_dameLaPrimeraCarta(mazo))   }
-/*@ATTRIBUTE@block_name@resto de _@*/ 
+/*@ATTRIBUTE@block_name@sin la primera carta _@*/ 
 function sacarLaPrimeraCartaDe_(mazo)  { return(aux_sacarLaPrimeraCarta(mazo))  }
 
 function dameLaÚltimaCartaDe_(mazo)    { return(aux_dameLaÚltimaCarta(mazo))    }

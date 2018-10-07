@@ -1,4 +1,4 @@
-#Actividad 11.5. Armar la lista de valores
+#Actividad 7. Armar la lista de valores
 
 .
 
@@ -12,4 +12,4 @@
 
 [Enunciado en PDF][PDF]
 
-[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/11.Primitivas%20m%C3%ADnimas%20de%20listas/11.5.Armar%20la%20lista%20de%20valores/resources/description.pdf "Enunciado de 'Armar la lista de valores' en PDF"
+[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/4.Introducci%C3%B3n%20a%20listas/7.Armar%20la%20lista%20de%20valores/assets/resources/description.pdf "Enunciado de 'Armar la lista de valores' en PDF"

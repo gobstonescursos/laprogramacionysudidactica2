@@ -137,8 +137,8 @@
     , { "id": "4", "name": "El repartir de las cartas"
       , "path": "Proyectos/4.Introducción a listas/4.El repartir de las cartas"
       }
-    , { "id": "5", "name": "Contar las cartas en bambalinas"
-      , "path": "Proyectos/4.Introducción a listas/5.Contar las cartas en bambalinas"
+    , { "id": "5", "name": "Contar las cartas entre bambalinas"
+      , "path": "Proyectos/4.Introducción a listas/5.Contar las cartas entre bambalinas"
       }
     , { "id": "6", "name": "¿Cuántos puntos tengo?"
       , "path": "Proyectos/4.Introducción a listas/6.Cuántos puntos tengo"
