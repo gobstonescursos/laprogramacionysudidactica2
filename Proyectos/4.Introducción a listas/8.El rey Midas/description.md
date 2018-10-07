@@ -1,4 +1,4 @@
-#Actividad 11.6. El rey Midas
+#Actividad 8. El rey Midas
 
 .
 
@@ -12,4 +12,4 @@
 
 [Enunciado en PDF][PDF]
 
-[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/11.Primitivas%20m%C3%ADnimas%20de%20listas/11.6.El%20rey%20Midas/resources/description.pdf "Enunciado de 'El rey Midas' en PDF"
+[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/4.Introducci%C3%B3n%20a%20listas/8.El%20rey%20Midas/assets/resources/description.pdf "Enunciado de 'El rey Midas' en PDF"
