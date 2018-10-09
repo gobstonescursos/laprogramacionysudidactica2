@@ -6,7 +6,5 @@ program {
 }
 
 function cartaConvertidaAOros(carta) {
-  return (...)
+  return (dameCarta__(dameElValor_(carta), palo_(Oros)))
 }
-
-

@@ -1,4 +1,4 @@
-/*==================================================================================================*/
+
 /*---- PROVEE --------------------------------------------------------------------------------------*/
 /*------------------------------ INTERFAZ de 04-MazosEspañoles-Base.gbs ----------------------------*/
 /*----------------------------------------- (en línea 1784) ----------------------------------------*/
@@ -2282,4 +2282,15 @@ procedure AuxIncrementarLaCuentaEnUno() {
   AuxVolverALaMarca()
   AuxDesmarcar()
 }
-                                      
+
+function aux_cartaDeEntrada() {
+  AuxIrAlInicioDeLaEntrada()
+  if (not aux_hayCartaEspañolaDestapada()) { BOOM("No hay carta para adivinar") }
+  return (aux_cartaEspañolaActual())
+}
+
+procedure InformarCarta_(cartaADecir) {
+  if (not aux_laCeldaEstáVacía()) { BOOM("No hay lugar para decir la carta") }
+  AuxPonerCartaEspañolaDestapada(cartaADecir)
+  AuxValidarSalida(aux_armarCartaEspañola(valor(aux_cartaDeEntrada()), Oros) == cartaADecir)
+}
