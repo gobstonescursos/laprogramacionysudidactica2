@@ -1,4 +1,4 @@
-#Actividad 7. Armar la lista de valores
+#Actividad 7.2 Los números de las cartas
 
 En esta ocasión el trabajo es obtener una lista de los números de cada una de las cartas del mazo.
 O sea, la lista de salida debe tener la misma cantidad de elementos que la lista de entrada, pero 
@@ -22,4 +22,4 @@ La dificultad está en como _recordar_ los resultados que calculamos hasta ahora
 
 [Enunciado en PDF][PDF]
 
-[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/4.Introducci%C3%B3n%20a%20listas/7.Armar%20la%20lista%20de%20valores/assets/resources/description.pdf "Enunciado de 'Armar la lista de valores' en PDF"
+[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/4.Introducci%C3%B3n%20a%20listas/7.2.Los%20n%C3%BAmeros%20de%20las%20cartas/assets/resources/description.pdf "Enunciado de 'Los números de las cartas' en PDF"

@@ -143,8 +143,8 @@
     , { "id": "6", "name": "¿Cuántos puntos tengo?"
       , "path": "Proyectos/4.Introducción a listas/6.Cuántos puntos tengo"
       }
-    , { "id": "7", "name": "Armar la lista de valores"
-      , "path": "Proyectos/4.Introducción a listas/7.Armar la lista de valores"
+    , { "id": "7.2", "name": "Los números de las cartas"
+      , "path": "Proyectos/4.Introducción a listas/7.2.Los números de las cartas"
       }
     , { "id": "8", "name": "El rey Midas"
       , "path": "Proyectos/4.Introducción a listas/8.El rey Midas"
