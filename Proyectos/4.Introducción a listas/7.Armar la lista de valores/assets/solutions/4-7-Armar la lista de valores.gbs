@@ -2,17 +2,17 @@ program {
   IrAlInicioDeLaEntrada()
   mazoDeEntrada := mazoActual()
   IrAlInicioDeLaSalida()
-  InformarEnEsteLugarLaListaDeValores_(valoresDelMazo(mazoDeEntrada))
+  InformarEnEsteLugarLaListaDeNúmeros_(númerosDelMazo(mazoDeEntrada))
 }
 
-function valoresDelMazo(mazo) {
+function númerosDelMazo(mazo) {
   cartasAúnNoAnalizadas := mazo
-  valoresVistos := listaVacía()
+  númerosVistos := listaVacía()
   while (not (not(quedanCartas_(cartasAúnNoAnalizadas)))) {
-    valoresVistos := agregarAlFinalDeLaLista__(valoresVistos, dameElValor_(dameLaPrimeraCartaDe_(cartasAúnNoAnalizadas)))
+    númerosVistos := agregarAlFinalDeLaLista__(númerosVistos, dameElValor_(dameLaPrimeraCartaDe_(cartasAúnNoAnalizadas)))
     cartasAúnNoAnalizadas := sacarLaPrimeraCartaDe_(cartasAúnNoAnalizadas)
   }
-  return (valoresVistos)
+  return (númerosVistos)
 }
 
 

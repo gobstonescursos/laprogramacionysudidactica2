@@ -1108,7 +1108,7 @@ function aux_códigoParaElPaloDeCartaEspañolaPrevio(palo) {
 //---------------------------------------------------------------------------------------------------/
 /*----------------------------- Operaciones de creación de valores (interfaz) -----------------------/
 /---------------------------------------------------------------------------------------------------*/
-///*@ATTRIBUTE@tooltip@Denota el valor de una carta de un mazo de cartas españolas de 40 cartas*/
+///*@ATTRIBUTE@tooltip@Denota el número de una carta de un mazo de cartas españolas de 40 cartas*/
 /*@ATTRIBUTE@block_name@_@*/
 /*@ATTRIBUTE@block_dropdown@[("As", '1'), ("2", '2'), ("3", '3'), ("4", '4'), ("5", '5'), ("6", '6'), ("7", '7'), ("Sota", '10'), ("Caballo", '11'), ("Rey", '12')]@*/
 function valorDeCartaEspañolaDe40_(valor) { return (valor) }
@@ -1254,7 +1254,7 @@ function aux_códigoParaElValorDeCartaEspañola(valor)  {
 }
 
 function aux_valorDeCartaEspañolaParaElCódigo(códigoValor) { 
-  if (not aux_esCódigoParaElValorDeCartaEspañola(códigoValor)) { BOOM("No es un código válido para el valor de una carta española") }
+  if (not aux_esCódigoParaElValorDeCartaEspañola(códigoValor)) { BOOM("No es un código válido para el número de una carta española") }
   return (códigoValor) 
 }
 
@@ -1342,7 +1342,7 @@ type CartaEspañola is variant {
 /---------------------------------------------------------------------------------------------------*/
 /*@ATTRIBUTE@block_name@es comodín _@*/              function esComodín_(c)          { return(aux_esComodín(c))   }
 /*@ATTRIBUTE@block_name@palo de _@*/                 function dameElPalo_(c)         { return(aux_dameElPalo(c))  }
-/*@ATTRIBUTE@block_name@valor de _@*/                function dameElValor_(c)        { return(aux_dameElValor(c)) }
+/*@ATTRIBUTE@block_name@número de _@*/               function dameElValor_(c)        { return(aux_dameElValor(c)) }
 
 /*@ATTRIBUTE@block_name@_ es menor carta que _@*/    function esMenorCarta__(carta1, carta2) { return(aux_esMenorCartaEspañola(carta1, carta2)) }
 /*@ATTRIBUTE@block_name@_ es mayor carta que _@*/    function esMayorCarta__(carta1, carta2) { return(aux_esMayorCartaEspañola(carta1, carta2)) }
@@ -1835,7 +1835,7 @@ function cantidadDeCartasDelMazo_(m)   { return(aux_cantidadDeCartasDelMazo(m)) 
 
 /*@ATTRIBUTE@block_name@primera carta de _@*/ 
 function dameLaPrimeraCartaDe_(mazo)   { return(aux_dameLaPrimeraCarta(mazo))   }
-/*@ATTRIBUTE@block_name@resto de _@*/ 
+/*@ATTRIBUTE@block_name@sin la primera carta _@*/ 
 function sacarLaPrimeraCartaDe_(mazo)  { return(aux_sacarLaPrimeraCarta(mazo))  }
 
 function dameLaÚltimaCartaDe_(mazo)    { return(aux_dameLaÚltimaCarta(mazo))    }
@@ -2132,11 +2132,11 @@ function  cantidadDeElementos_(lista) { return (aux_cantidadDeElementos(lista)) 
 function  sumaDeLosElementos_(lista)  { return (aux_sumaDeLosElementos(lista))  }
 
 function listaVacía() { return([]) }
-/*@ATTRIBUTE@block_name@agregar a la lista _ el valor _ al final@*/
+/*@ATTRIBUTE@block_name@agregar a la lista _ el número _ al final@*/
 function agregarAlFinalDeLaLista__(lista, elemento) { return (lista ++ [elemento]) }
 
 procedure InformarNúmero_(número)     { AuxInformarNúmero(número)               }
-procedure InformarEnEsteLugarLaListaDeValores_(valores) { AuxInformarListaDeValores(valores) }
+procedure InformarEnEsteLugarLaListaDeNúmeros_(valores) { AuxInformarListaDeValores(valores) }
 
 procedure AuxInformarNúmero(número) {
    AuxIrAlInicioDeLaEntrada()
