@@ -10,7 +10,7 @@ blocks:
         <block type="RepeticionSimple"></block>
         <block type="Asignacion"></block>
     </category>
-    <category name="Operaciones de Entrada/Salida">
+    <category name="Operaciones de E/S">
         <block type="IrAlInicioDeLaEntrada"></block>
         <block type="PasarASiguientePosición"></block>
         <block type="IrAlInicioDeLaSalida"></block>
