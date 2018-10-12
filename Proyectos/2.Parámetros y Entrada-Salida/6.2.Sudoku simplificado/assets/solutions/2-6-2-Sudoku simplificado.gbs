@@ -1,11 +1,11 @@
 interactive program {
-  K_ARROW_LEFT  -> { MoverSiPuede_(Oeste)    }
-  K_ARROW_RIGHT -> { MoverSiPuede_(Este)     }
-  K_ARROW_UP    -> { MoverSiPuede_(Norte)    }
-  K_ARROW_DOWN  -> { MoverSiPuede_(Sur)      }
-  K_A           -> { PonerDígitoSiSePuede(1) }
-  K_S           -> { PonerDígitoSiSePuede(2) }
-  K_D           -> { PonerDígitoSiSePuede(3) }
+  K_LEFT  -> { MoverSiPuede_(Oeste)    }
+  K_RIGHT -> { MoverSiPuede_(Este)     }
+  K_UP    -> { MoverSiPuede_(Norte)    }
+  K_DOWN  -> { MoverSiPuede_(Sur)      }
+  K_1     -> { PonerDígitoSiSePuede(1) }
+  K_2     -> { PonerDígitoSiSePuede(2) }
+  K_3     -> { PonerDígitoSiSePuede(3) }
 }
 
 procedure PonerDígitoSiSePuede(dígitoAPoner) {
