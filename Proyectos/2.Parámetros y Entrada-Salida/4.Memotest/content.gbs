@@ -1,9 +1,9 @@
 interactive program {
-  K_ARROW_LEFT  -> { Moverse(Oeste)          }
-  K_ARROW_RIGHT -> { Moverse(Este)           }
-  K_ARROW_UP    -> { Moverse(Norte)          }
-  K_ARROW_DOWN  -> { Moverse(Sur)            }
-  K_ENTER       -> { ProcesarLaCartaActual() }
+  K_LEFT   -> { Moverse(Oeste)          }
+  K_RIGHT  -> { Moverse(Este)           }
+  K_UP     -> { Moverse(Norte)          }
+  K_DOWN   -> { Moverse(Sur)            }
+  K_RETURN -> { ProcesarLaCartaActual() }
 }
 
 function lasCartasSonIguales(primeraCartaAControlar, segundaCartaACotrolar) {
