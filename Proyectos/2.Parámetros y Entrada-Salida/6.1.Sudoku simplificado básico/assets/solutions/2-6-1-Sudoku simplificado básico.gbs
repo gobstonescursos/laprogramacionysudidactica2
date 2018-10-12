@@ -1,9 +1,9 @@
 interactive program {
-  K_ARROW_LEFT  -> { MoverSiPuede_(Oeste) }
-  K_ARROW_RIGHT -> { MoverSiPuede_(Este)  }
-  K_ARROW_UP    -> { MoverSiPuede_(Norte) }
-  K_ARROW_DOWN  -> { MoverSiPuede_(Sur)   }
-  K_A           -> { PonerDígito_(1)      }
-  K_S           -> { PonerDígito_(2)      }
-  K_D           -> { PonerDígito_(3)      }
+  K_LEFT  -> { MoverSiPuede_(Oeste) }
+  K_RIGHT -> { MoverSiPuede_(Este)  }
+  K_UP    -> { MoverSiPuede_(Norte) }
+  K_DOWN  -> { MoverSiPuede_(Sur)   }
+  K_1     -> { PonerDígito_(1)      }
+  K_2     -> { PonerDígito_(2)      }
+  K_3     -> { PonerDígito_(3)      }
 }
