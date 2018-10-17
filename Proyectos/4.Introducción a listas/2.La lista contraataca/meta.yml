@@ -7,8 +7,6 @@ attire:
 blocks:
   defaultToolbox: |
     <category name="Comandos básicos">
-        <block type="ComandoCompletar"></block>
-        <block type="ExpresionCompletar"></block>
         <block type="InformarNúmero_"></block>
     </category>
     <category name="Operaciones de listas">
