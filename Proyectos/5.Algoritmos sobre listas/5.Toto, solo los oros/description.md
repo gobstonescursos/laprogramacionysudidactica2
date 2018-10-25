@@ -19,7 +19,7 @@ No tenés que agregar todas las cartas… ¿Cómo elegir cuáles van y cuáles n
 
 > **Un recorrido con alternativas**
 >
-> ¿Te acordás de las actividades de "Dino aprende a no comer chatarra" o de "El rey, el caballo, …"?
+> ¿Te acordás de las actividades de _"Dino aprende a no comer chatarra"_ o de _"El rey, el caballo, …"_?
 > La estrategia para esta actividad es similar a esas.
 
 [Enunciado en PDF][PDF]
