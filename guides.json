@@ -159,18 +159,14 @@
     , { "id": "4.2", "name": "La perdición de Midas"
       , "path": "Proyectos/5.Algoritmos sobre listas/4.2.La perdición de Midas"
       }
-	] 
-  }
-, { "name": "10-11.Listas", "repo": "gobstones/laprogramacionysudidactica2"
-  , "exercises": 
-    [ { "id": "12.1", "name": "Toto, solo los oros"
-      , "path": "Proyectos/12.Búsquedas y filtros/12.1.Toto, solo los oros"
+	, { "id": "5", "name": "Toto, solo los oros"
+      , "path": "Proyectos/5.Algoritmos sobre listas/5.Toto, solo los oros"
       }
-    , { "id": "12.2", "name": "La realeza armada"
-      , "path": "Proyectos/12.Búsquedas y filtros/12.2.La realeza armada"
+    , { "id": "6", "name": "La realeza armada"
+      , "path": "Proyectos/5.Algoritmos sobre listas/6.La realeza armada"
       }
-    , { "id": "12.3", "name": "La espada en la piedra"
-      , "path": "Proyectos/12.Búsquedas y filtros/12.3.La espada en la piedra"
+    , { "id": "7", "name": "La espada en la piedra"
+      , "path": "Proyectos/5.Algoritmos sobre listas/7.La espada en la piedra"
       }
 	 ] 
   }
