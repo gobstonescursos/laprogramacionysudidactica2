@@ -17,5 +17,5 @@ function estáLaEspadaEnLaPiedra(mazo) {
   return (quedanCartas_(cartasAúnNoBuscadas))
 }
 
-function esElAsDeEspadas(carta) { return (carta == dameCarta__(valorDeCartaEspañolaDe40_(1), palo_(Espadas))) }
+function esElAsDeEspadas(carta) { return (carta == dameCarta__(númeroDeCartaEspañolaDe40_(1), palo_(Espadas))) }
 

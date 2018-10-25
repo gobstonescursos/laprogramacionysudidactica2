@@ -11,11 +11,11 @@ program {
 
 function estáLaEspadaEnLaPiedra(mazo) {
   cartasAúnNoBuscadas := mazo
-  while (not (not(quedanCartas_(cartasAúnNoBuscadas)) || esElAsDeEspadas(dameLaPrimeraCartaDe_(cartasAúnNoBuscadas)))) {
+  while (not (not(quedanCartas_(cartasAúnNoBuscadas)) || ...))) {
     cartasAúnNoBuscadas := sacarLaPrimeraCartaDe_(cartasAúnNoBuscadas)
   }
   return (quedanCartas_(cartasAúnNoBuscadas))
 }
 
-function esElAsDeEspadas(carta) { return (carta == dameCarta__(valorDeCartaEspañolaDe40_(1), palo_(Espadas))) }
+function esElAsDeEspadas(carta) { return (carta == dameCarta__(númeroDeCartaEspañolaDe40_(1), palo_(Espadas))) }
 
