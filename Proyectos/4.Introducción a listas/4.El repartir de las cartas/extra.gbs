@@ -201,7 +201,7 @@ procedure AuxAvanzarRecorridoGral(dirPpal, dirSecundaria) {
 //-------------------------------
 // PARA CORRECCIÓN DE GOBSTONES, HASTA QUE LO ARREGLEMOS
 //function último(xs)  { return (ultimo(xs)) }
-function esVacía(xs) { return (xs==[])     }
+//function esVacía(xs) { return (xs==[])     }
 //-------------------------------
 
 function calcularLongitud_(lista) { return(aux_calcularLongitud(lista)) }
