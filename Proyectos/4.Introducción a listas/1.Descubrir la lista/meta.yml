@@ -17,8 +17,6 @@ blocks:
         <block type="cantidadDeElementos_"></block>
         <block type="primerElemento_"></block>
         <block type="últimoElemento_"></block>
-        <block type="máximoElemento_"></block>
-        <block type="mínimoElemento_"></block>
         <block type="sumaDeLosElementos_"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
