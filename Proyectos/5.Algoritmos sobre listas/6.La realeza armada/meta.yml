@@ -9,6 +9,7 @@ blocks:
     <category name="Comandos básicos">
         <block type="IrAlInicioDeLaEntrada"></block>
         <block type="IrAlInicioDeLaSalida"></block>
+        <block type="AlternativaSimple"></block>
         <block type="RepeticionCondicional"></block>
         <block type="Asignacion"></block>
     </category>
