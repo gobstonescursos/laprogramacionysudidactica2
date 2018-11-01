@@ -2136,7 +2136,7 @@ function listaVacía() { return([]) }
 function agregarAlFinalDeLaLista__(lista, elemento) { return (lista ++ [elemento]) }
 
 procedure InformarNúmero_(número)     { AuxInformarNúmero(número)               }
-procedure InformarEnEsteLugarLaListaDeValores_(valores) { AuxInformarListaDeValores(valores) }
+procedure InformarEnEsteLugarLaListaDeNúmeros_(valores) { AuxInformarListaDeValores(valores) }
 
 procedure AuxInformarNúmero(número) {
    AuxIrAlInicioDeLaEntrada()
