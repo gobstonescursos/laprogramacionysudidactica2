@@ -21,7 +21,7 @@ blocks:
     <category name="Operaciones de cartas">
         <block type="dameCarta__"></block>
         <block type="palo_"></block>
-        <block type="valorDeCartaEspañolaDe40_"></block>
+        <block type="númeroDeCartaEspañolaDe40_"></block>
         <block type="dameElPalo_"></block>
         <block type="dameElValor_"></block>
         <block type="códigoDelPalo_"></block>
