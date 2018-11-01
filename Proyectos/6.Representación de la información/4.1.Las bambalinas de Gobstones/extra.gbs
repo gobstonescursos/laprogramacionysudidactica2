@@ -5,18 +5,21 @@ procedure IrALaPróximaCelda()
    AuxPonerCursor()
  }
 
-procedure PonerBolitaDeColorVerde() {
+/*@ATTRIBUTE@block_name@Poner un elemento A@*/
+procedure PonerUnElementoA() {
    if (nroBolitas(Negro) == 2) 
           { Poner(Verde) } 
-     else { BOOM("No es lugar para poner una verde") } 
+     else { BOOM("¡Se corrió el foco del autómata que pone elementos!") } 
 }
 
-procedure SacarBolitaDeColorRojo() {
+/*@ATTRIBUTE@block_name@Cambiar un elemento B por un elemento C@*/
+procedure CambiarUnElementoBPorUnElementoC() {
     if (hayBolitas(Rojo)) 
           { Sacar(Rojo) } 
-     else { BOOM("No hay bolita roja para sacar") } }
+     else { BOOM("No hay un elemento B tipo para cambiar") } }
 
-procedure CambiarVerdesPorAzulesYRojas() {
+/*@ATTRIBUTE@block_name@Cambiar todos los elementos A por elementos B@*/
+procedure CambiarTodosLosElementosAPorElementosB() {
     while (auxHaySiguienteCelda()) {
         AuxPasarASiguienteCelda()
         AuxCambiarVerdePorAzulYRoja() 
@@ -24,7 +27,7 @@ procedure CambiarVerdesPorAzulesYRojas() {
     IrAlBorde(Oeste); IrAlBorde(Sur)
 }
 
-procedure IrAlOrigen() 
+procedure VolverALaCeldaInicial() 
   { 
     AuxSacarCursor()   
     IrAlBorde(Oeste); IrAlBorde(Sur) 
@@ -32,19 +35,19 @@ procedure IrAlOrigen()
   }
 
 procedure AuxSacarCursor() { 
-  if (nroBolitas(Negro) < 2) { BOOM("No hay suficientes bolitas negras") }
+  if (nroBolitas(Negro) < 2) { BOOM("No está el autómata que pone elementos en esta celda") }
   repeat(2) { Sacar(Negro) } 
 }
 
 procedure AuxPonerCursor() { 
-  if (nroBolitas(Negro) >= 2) { BOOM("Ya hay suficientes bolitas negras") }
+  if (nroBolitas(Negro) >= 2) { BOOM("Ya está el autómata que pone elementos en esta celda") }
   repeat(2) { Poner(Negro) } 
 }
 
 procedure AuxCambiarVerdePorAzulYRoja() { 
     if (hayBolitas(Verde)) 
             { Sacar(Verde); Poner(Azul); Poner(Rojo) } 
-       else { BOOM("No se pueden cambiar las bolitas verdes por rojas si no están todas") } 
+       else { BOOM("No se pueden cambiar los elementos A por B si no están todos los A ubicados") } 
 }       
 
 function auxHaySiguienteCelda() 
