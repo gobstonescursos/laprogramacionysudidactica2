@@ -170,28 +170,28 @@
       }
 	 ] 
   }
-, { "name": "6.Representación de información", "repo": "gobstones/laprogramacionysudidactica2"
+, { "name": "6.Representación de la información", "repo": "gobstones/laprogramacionysudidactica2"
   , "exercises": 
     [ { "id": "1", "name": "En los ojos de la compu"
-      , "path": "Proyectos/6.Representación de información/1.1.En los ojos de la compu"
+      , "path": "Proyectos/6.Representación de la información/1.En los ojos de la compu"
       }
     , { "id": "2.1", "name": "Código de la carta actual"
-      , "path": "Proyectos/6.Representación de información/2.1.Código de la carta actual"
+      , "path": "Proyectos/6.Representación de la información/2.1.Código de la carta actual"
       }
     , { "id": "2.2", "name": "Representar el mazo"
-      , "path": "Proyectos/6.Representación de información/2.2.Representar el mazo"
+      , "path": "Proyectos/6.Representación de la información/2.2.Representar el mazo"
       }
     , { "id": "3.1", "name": "Transformar las letras"
-      , "path": "Proyectos/6.Representación de información/3.1.Transformar las letras"
+      , "path": "Proyectos/6.Representación de la información/3.1.Transformar las letras"
       }
 	, { "id": "3.2", "name": "Transformar las letras, recargado"
-      , "path": "Proyectos/6.Representación de información/3.2.Transformar las letras, recargado"
+      , "path": "Proyectos/6.Representación de la información/3.2.Transformar las letras, recargado"
       }
 	, { "id": "4.1", "name": "Las bambalinas de Gobstones"
-      , "path": "Proyectos/6.Representación de información/4.1.Las bambalinas de Gobstones"
+      , "path": "Proyectos/6.Representación de la información/4.1.Las bambalinas de Gobstones"
       }
 	, { "id": "4.2", "name": "Vayamos a bambalinas"
-      , "path": "Proyectos/6.Representación de información/4.2.Vayamos a bambalinas"
+      , "path": "Proyectos/6.Representación de la información/4.2.Vayamos a bambalinas"
       }
 	 ] 
   }
