@@ -13,9 +13,6 @@ blocks:
         <block type="RepeticionCondicional"></block>
         <block type="Asignacion"></block>
     </category>
-    <category name="Expresiones básicas">
-        <block type="not"></block>
-    </category>
     <category name="Expresiones de letras">
         <block type="letraDelCódigo_"></block>
     </category>
@@ -34,13 +31,6 @@ blocks:
         <block type="procedures_defreturnsimplewithparams"></block>
         <block type="procedures_defreturn"></block>
     </category>
-    
-    todosMásUno_
-    soloLosPares_
-    listaOrdenada_
-    losPrimeros__
-    losÚltimos__
-    
 board:
   active: 1
   initial_board_source: random
