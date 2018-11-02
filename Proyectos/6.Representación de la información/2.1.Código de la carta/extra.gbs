@@ -2136,14 +2136,14 @@ function listaVacía() { return([]) }
 function agregarAlFinalDeLaLista__(lista, elemento) { return (lista ++ [elemento]) }
 
 procedure InformarNúmero_(número)     { AuxInformarNúmero(número)               }
-procedure InformarEnEsteLugarLaListaDeNúmeros_(valores) { AuxInformarListaDeValores(valores) }
+procedure InformarEnEsteLugarElNúmero_(código) { AuxInformarNúmero(código) }
 
 procedure AuxInformarNúmero(número) {
    AuxIrAlInicioDeLaEntrada()
-   cartas := aux_mazoActual()
+   carta := aux_cartaEspañolaActual()
    AuxIrAlInicioDeLaSalida()
    AuxPonerNúmero(número)
-   AuxValidarSalida(número == aux_cantidadDeCartasDelMazo(cartas))
+   AuxValidarSalida(número == aux_códigoParaElDatoCartaEspañola(carta))
 }
 
 procedure AuxInformarListaDeValores(valores) { 

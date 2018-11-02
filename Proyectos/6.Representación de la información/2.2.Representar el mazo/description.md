@@ -12,8 +12,8 @@ Un escenario final posible sería el siguiente:
 
 > **¡Todos los elementos se pueden codificar con números!**
 >
-> Ya vimos que desde el punto de vista de las computadoras, las letras son números.
-> Y esto también es cierto para las cartas, y de hecho, para todos los elementos que
+> Ya vimos que desde el punto de vista de las computadoras, todos los elementos son números.
+> Y esto también es cierto para los mazos y las listas, y de hecho, para toda la información que
 > querramos representar en ellas: textos, imágenes, videos, canciones, nuestros datos
 > personales, y toda, toda la información que hay en las compus está representada con
 > números y listas de números.
