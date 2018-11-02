@@ -1,8 +1,8 @@
 program {
   IrAlInicioDeLaEntrada()
-  miTexto := textoOriginal()
+  textoOriginal := textoDeEntrada()
   IrAlInicioDeLaSalida()
-  InformarEnEsteLugarLaListaDeLetras_(listaDeLetrasDeCódigo(todosMás__(listaDeCódigosDeLetras(miTexto), 1)))
+  InformarEnEsteLugarLaListaDeLetras_(listaDeLetrasDeLosCódigos(convertirSegúnCésarMenos2(listaDeCódigosDeLetras(textoOriginal))))
 }
 
 function listaDeCódigosDeLetras(letras) {
@@ -15,7 +15,17 @@ function listaDeCódigosDeLetras(letras) {
   return (losCódigosYaVistos)
 }
 
-function listaDeLetrasDeCódigo(códigos) {
+function convertirSegúnCésarMenos2(códigosDeLetras) {
+  losCódigosQueFaltanProcesar := códigosDeLetras
+  losCódigosYaProcesados := listaVacía()
+  while (not (estáVacía_(losCódigosQueFaltanProcesar))) {
+    losCódigosYaProcesados := agregarAlFinalDeLaLista__(losCódigosYaProcesados, primerElemento_(losCódigosQueFaltanProcesar) - 2)
+    losCódigosQueFaltanProcesar := resto_(losCódigosQueFaltanProcesar)
+  }
+  return (losCódigosYaProcesados)
+}
+
+function listaDeLetrasDeLosCódigos(códigos) {
   losCódigosQueFaltanProcesar := códigos
   lasLetrasYaVistas := listaVacía()
   while (not (estáVacía_(losCódigosQueFaltanProcesar))) {
@@ -24,5 +34,4 @@ function listaDeLetrasDeCódigo(códigos) {
   }
   return (lasLetrasYaVistas)
 }
-
 
