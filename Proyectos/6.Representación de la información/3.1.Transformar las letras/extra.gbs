@@ -1108,10 +1108,10 @@ function aux_códigoParaElPaloDeCartaEspañolaPrevio(palo) {
 //---------------------------------------------------------------------------------------------------/
 /*----------------------------- Operaciones de creación de valores (interfaz) -----------------------/
 /---------------------------------------------------------------------------------------------------*/
-///*@ATTRIBUTE@tooltip@Denota el valor de una carta de un mazo de cartas españolas de 40 cartas*/
+///*@ATTRIBUTE@tooltip@Denota el número de una carta de un mazo de cartas españolas de 40 cartas*/
 /*@ATTRIBUTE@block_name@_@*/
 /*@ATTRIBUTE@block_dropdown@[("As", '1'), ("2", '2'), ("3", '3'), ("4", '4'), ("5", '5'), ("6", '6'), ("7", '7'), ("Sota", '10'), ("Caballo", '11'), ("Rey", '12')]@*/
-function valorDeCartaEspañolaDe40_(valor) { return (valor) }
+function númeroDeCartaEspañolaDe40_(valor) { return (valor) }
 
 /*@ATTRIBUTE@block_name@As@*/       function armarValorAs()      { return(1) }
 /*@ATTRIBUTE@block_name@valor _@*/  function armarValor_(valor)  { return (aux_armarValorDeCartaEspañolaDe40(valor)) }
@@ -1342,7 +1342,7 @@ type CartaEspañola is variant {
 /---------------------------------------------------------------------------------------------------*/
 /*@ATTRIBUTE@block_name@es comodín _@*/              function esComodín_(c)          { return(aux_esComodín(c))   }
 /*@ATTRIBUTE@block_name@palo de _@*/                 function dameElPalo_(c)         { return(aux_dameElPalo(c))  }
-/*@ATTRIBUTE@block_name@valor de _@*/                function dameElValor_(c)        { return(aux_dameElValor(c)) }
+/*@ATTRIBUTE@block_name@número de _@*/               function dameElValor_(c)        { return(aux_dameElValor(c)) }
 
 /*@ATTRIBUTE@block_name@_ es menor carta que _@*/    function esMenorCarta__(carta1, carta2) { return(aux_esMenorCartaEspañola(carta1, carta2)) }
 /*@ATTRIBUTE@block_name@_ es mayor carta que _@*/    function esMayorCarta__(carta1, carta2) { return(aux_esMayorCartaEspañola(carta1, carta2)) }
@@ -1827,7 +1827,7 @@ function mazoEspañol()                    { return(aux_mazoEspañolCompleto()) 
 //---------------------------------------------------------------------------------------------------/
 /*----------------------- Operaciones de acceso a un mazo español (interfaz) ------------------------/
 /---------------------------------------------------------------------------------------------------*/
-/*@ATTRIBUTE@block_name@quedan cartas en _?@*/ 
+/*@ATTRIBUTE@block_name@¿quedan cartas en _?@*/ 
 function quedanCartas_(m)              { return(aux_quedanCartas(m))            }
 
 /*@ATTRIBUTE@block_name@cantidad de cartas del mazo _@*/ 
@@ -1835,7 +1835,7 @@ function cantidadDeCartasDelMazo_(m)   { return(aux_cantidadDeCartasDelMazo(m)) 
 
 /*@ATTRIBUTE@block_name@primera carta de _@*/ 
 function dameLaPrimeraCartaDe_(mazo)   { return(aux_dameLaPrimeraCarta(mazo))   }
-/*@ATTRIBUTE@block_name@resto de _@*/ 
+/*@ATTRIBUTE@block_name@sin la primera carta de _@*/ 
 function sacarLaPrimeraCartaDe_(mazo)  { return(aux_sacarLaPrimeraCarta(mazo))  }
 
 function dameLaÚltimaCartaDe_(mazo)    { return(aux_dameLaÚltimaCarta(mazo))    }
@@ -2120,11 +2120,12 @@ function aux_armarRepresentaciónDeCartasDeMazoEspañolCompletoDe(palo) {
 /*==================================================================================================*/
 /*--------------------------- OPERACIONES ESPECÍFICAS DE LA ACTIVIDAD ------------------------------*/
 /*==================================================================================================*/
-function textoOriginal()       { return (aux_textoOriginal())     }
+function textoDeEntrada()             { return (aux_textoOriginal())            }
 function listaDeNúmerosOculta()       { return (aux_listaDeNúmerosOculta())     }
 /*@ATTRIBUTE@block_name@¿está vacía _?@*/
-function  estáVacía_(lista)      { return (esVacía(lista))                 }
+function  estáVacía_(lista)           { return (esVacía(lista))                 }
 function  primerElemento_(lista)      { return (primero(lista))                 }
+/*@ATTRIBUTE@block_name@sin el primero _@*/
 function  resto_(lista)               { return (resto(lista))                   }
 function  últimoElemento_(lista)      { return (último(lista))                  }
 function  máximoElemento_(lista)      { return (aux_máximoElemento(lista))      }
@@ -2132,9 +2133,11 @@ function  mínimoElemento_(lista)      { return (aux_mínimoElemento(lista))    
 function  cantidadDeElementos_(lista) { return (aux_cantidadDeElementos(lista)) }
 function  sumaDeLosElementos_(lista)  { return (aux_sumaDeLosElementos(lista))  }
 
-function dadaVuelta_(números)      { return(aux_reverse(números))     }
-/*@ATTRIBUTE@block_name@todos los _ sumándole _@*/
-function todosMás__(números,n)    { return(aux_mapSumaN(números,n))     }
+function dadaVuelta_(números)     { return(aux_reverse(números))     }
+/*@ATTRIBUTE@block_name@todos los números de _ restándole _@*/
+function todosMenos__(números,n)  { return(aux_mapSumaN(números,-n)) }
+/*@ATTRIBUTE@block_name@todos los números de _ sumándole _@*/
+function todosMás__(números,n)    { return(aux_mapSumaN(números,n))  }
 function soloLosPares_(números)   { return(aux_filterPares(números)) }
 function listaOrdenada_(números)  { return(aux_ordenar(números))     }
 /*@ATTRIBUTE@block_name@los primeros _ de la lista _@*/
