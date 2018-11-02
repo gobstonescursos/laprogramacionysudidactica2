@@ -175,8 +175,8 @@
     [ { "id": "1", "name": "En los ojos de la compu"
       , "path": "Proyectos/6.Representación de la información/1.En los ojos de la compu"
       }
-    , { "id": "2.1", "name": "Código de la carta actual"
-      , "path": "Proyectos/6.Representación de la información/2.1.Código de la carta actual"
+    , { "id": "2.1", "name": "Código de la carta"
+      , "path": "Proyectos/6.Representación de la información/2.1.Código de la carta"
       }
     , { "id": "2.2", "name": "Representar el mazo"
       , "path": "Proyectos/6.Representación de la información/2.2.Representar el mazo"
