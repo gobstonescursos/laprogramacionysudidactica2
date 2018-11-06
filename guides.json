@@ -192,16 +192,16 @@
       }
 	 ] 
   }
-, { "name": "15.Algoritmos sobre listas", "repo": "gobstones/laprogramacionysudidactica2"
+, { "name": "7.Algoritmos más complejos", "repo": "gobstones/laprogramacionysudidactica2"
   , "exercises": 
-    [ { "id": "15.1", "name": "Ordenamiento en el escenario"
-      , "path": "Proyectos/15.Algoritmos sobre listas/15.1.Ordenamiento en el escenario"
+    [ { "id": "1", "name": "Ordenamiento en el escenario"
+      , "path": "Proyectos/7.Algoritmos más complejos/1.Ordenamiento en el escenario"
       }
-    , { "id": "15.2", "name": "Ordenamiento en bambalinas"
-      , "path": "Proyectos/15.Algoritmos sobre listas/15.2.Ordenamiento en bambalinas"
+    , { "id": "2", "name": "Ordenamiento en bambalinas"
+      , "path": "Proyectos/7.Algoritmos más complejos/2.Ordenamiento en bambalinas"
       }
-    , { "id": "15.3", "name": "Encontrar la carta más chica"
-      , "path": "Proyectos/15.Algoritmos sobre listas/15.3.Encontrar la carta más chica"
+    , { "id": "3", "name": "Encontrar la carta más chica"
+      , "path": "Proyectos/7.Algoritmos más complejos/3.Encontrar la carta más chica"
       }
     ] 
   }
