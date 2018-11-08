@@ -14,12 +14,12 @@ blocks:
         <block type="not"></block>
     </category>
     <category name="Operaciones de cartas">
-        <block type="IrALaCartaMásChicaSinOrdenar"></block>
-        <block type="SacarCartaActual"></block>
-        <block type="IrALaPróximaPosiciónParaBajarCarta"></block>
-        <block type="PonerCarta_"></block>
-        <block type="quedanCartasSinOrdenar"></block>
-        <block type="cartaActual"></block>
+        <block type="mazoActual"></block>
+        <block type="quedanCartas_"></block>
+        <block type="laCartaMásChicaDe_"></block>
+        <block type="sinLaCartaMásChica_"></block>
+        <block type="mazoVacío"></block>
+        <block type="agregarAlFinalDelMazo__"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">  </category>

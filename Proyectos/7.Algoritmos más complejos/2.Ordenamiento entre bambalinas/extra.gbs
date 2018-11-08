@@ -1827,7 +1827,7 @@ function mazoEspañol()                    { return(aux_mazoEspañolCompleto()) 
 //---------------------------------------------------------------------------------------------------/
 /*----------------------- Operaciones de acceso a un mazo español (interfaz) ------------------------/
 /---------------------------------------------------------------------------------------------------*/
-/*@ATTRIBUTE@block_name@quedan cartas en _?@*/ 
+/*@ATTRIBUTE@block_name@¿quedan cartas en _?@*/ 
 function quedanCartas_(m)              { return(aux_quedanCartas(m))            }
 
 /*@ATTRIBUTE@block_name@cantidad de cartas del mazo _@*/ 
@@ -2143,6 +2143,9 @@ function losPrimeros__(n,números) { return(aux_take(n,números))      }
 /*@ATTRIBUTE@block_name@los últimos _ de la lista _@*/
 function losÚltimos__(n,números)  { return(aux_drop(aux_cantidadDeElementos(números)-n,números))      }
 
+function laCartaMásChicaDe_(mazo) { return(aux_laCartaMásChicaDe_(mazo)) }
+procedure sinLaCartaMásChica_(mazo) { return(aux_sinLaCartaMásChica_(mazo)) }
+
 function listaVacía() { return([]) }
 /*@ATTRIBUTE@block_name@agregar a la lista _ el valor _ al final@*/
 function agregarAlFinalDeLaLista__(lista, elemento) { return (lista ++ [elemento]) }
@@ -2153,6 +2156,28 @@ function letraDelCódigo_(códigoLetra) { return (aux_letraParaElCódigo(código
 procedure InformarNúmero_(número)     { AuxInformarNúmero(número)               }
 procedure InformarEnEsteLugarLaListaDeNúmeros_(valores) { AuxInformarListaDeValores(valores) }
 procedure InformarEnEsteLugarLaListaDeLetras_(valores) { AuxInformarListaDeLetras(valores) }
+
+function aux_laCartaMásChicaDe_(mazo) {
+   // PRECONDICIÓN: el mazo no es vacío
+   mínimaCartaVista := primero(cartas(mazo))
+   foreach carta in cartas(mazo) { 
+      if (esMenorCarta__(carta, mínimaCartaVista)) { mínimaCartaVista := carta }
+   }
+   return (mínimaCartaVista)
+}
+
+function aux_sinLaCartaMásChica_(mazo) {
+   // PRECONDICIÓN: el mazo no es vacío
+   mínimaCarta := aux_laCartaMásChicaDe_(cartas(mazo))
+   cartasAntesHastaAhora := []
+   cartasDesdeHastaAhora := cartas(mazo)
+   while (not esVacía(cartasDesdeHastaAhora)
+       && primero(cartasDesdeHastaAhora) != mínimaCarta)   { 
+      cartasAntesHastaAhora := cartasAntesHastaAhora ++ [ primero(cartasDesdeHastaAhora) ]
+      cartasDesdeHastaAhora := resto(cartasDesdeHastaAhora)
+   }
+   return (Mazo(mazo|cartas <- cartasAntesHastaAhora++resto(cartasDesdeHastaAhora)))
+}
 
 function aux_ordenar(números) {
    valoresVistos := []
