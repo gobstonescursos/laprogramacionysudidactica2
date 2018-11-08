@@ -1,6 +1,6 @@
 name: Ordenamiento en el escenario
 attire:
-  active: Cartas españolas de truco
+  active: Cartas, letras y números
   user_permissions:
     can_toggle_visibility: false
   visible: true
@@ -13,7 +13,7 @@ blocks:
     <category name="Expresiones básicas">
         <block type="not"></block>
     </category>
-    <category name="Operaciones de cartas en escenario">
+    <category name="Operaciones de cartas">
         <block type="IrALaCartaMásChicaSinOrdenar"></block>
         <block type="PonerCarta_"></block>
         <block type="SacarCartaActual"></block>
