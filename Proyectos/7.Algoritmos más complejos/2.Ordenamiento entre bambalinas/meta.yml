@@ -33,7 +33,7 @@ blocks:
     </category>
 board:
   active: 1
-  initial_board_source: selected
+  initial_board_source: random
   visible_edition: true
   collapse_toolbox: false
   user_permissions:
