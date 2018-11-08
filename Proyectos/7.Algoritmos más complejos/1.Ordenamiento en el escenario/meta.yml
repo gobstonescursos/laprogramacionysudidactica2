@@ -1,6 +1,6 @@
 name: Ordenamiento en el escenario
 attire:
-  active: Cartas, letras y números
+  active: 'Cartas, letras y números'
   user_permissions:
     can_toggle_visibility: false
   visible: true
