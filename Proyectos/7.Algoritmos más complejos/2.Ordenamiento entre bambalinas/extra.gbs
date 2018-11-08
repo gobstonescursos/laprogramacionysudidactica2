@@ -2153,9 +2153,20 @@ function agregarAlFinalDeLaLista__(lista, elemento) { return (lista ++ [elemento
 function códigoDeLaLetra_(letra) { return (aux_códigoParaLaLetra(letra)) }
 function letraDelCódigo_(códigoLetra) { return (aux_letraParaElCódigo(códigoLetra)) }
 
+procedure InformarEnEsteLugarElMazo_(mazo) { AuxInformarMazo(mazo) }
 procedure InformarNúmero_(número)     { AuxInformarNúmero(número)               }
 procedure InformarEnEsteLugarLaListaDeNúmeros_(valores) { AuxInformarListaDeValores(valores) }
 procedure InformarEnEsteLugarLaListaDeLetras_(valores) { AuxInformarListaDeLetras(valores) }
+
+procedure AuxInformarMazo(mazoAInformar) { 
+   AuxMarcar()
+   AuxIrAlInicioDeLaEntrada()
+   mazo := aux_mazoActual()
+   AuxVolverALaMarca()
+   AuxDesmarcar()   
+   AuxPonerMazo(mazoAInformar)
+   AuxValidarSalida(cartas(mazoAInformar)== aux_ordenarCartas(cartas(mazo)))
+}
 
 function aux_laCartaMásChicaDe_(mazo) {
    // PRECONDICIÓN: el mazo no es vacío
@@ -2177,6 +2188,22 @@ function aux_sinLaCartaMásChica_(mazo) {
       cartasDesdeHastaAhora := resto(cartasDesdeHastaAhora)
    }
    return (Mazo(mazo|cartas <- cartasAntesHastaAhora++resto(cartasDesdeHastaAhora)))
+}
+
+function aux_ordenarLasCartas(cartas) {
+   cartasYaOrdenadas := []
+   foreach carta in cartas { cartasYaOrdenadas := aux_insertarCartaOrdenada(cartasYaOrdenadas, carta) }
+   return (cartasYaOrdenadas)
+}
+
+function aux_insertarCartaOrdenada(cartasOrdenadas, carta) {
+    cartasMenoresVistas := []
+    lasQueFaltan := cartasOrdenadas
+    while (not esVacía(lasQueFaltan) && aux_esMenorCartaEspañola(primero(losQueFaltan), carta)) {
+       cartasMenoresVistas := cartasMenoresVistas ++ [ primero(losQueFaltan) ]
+       losQueFaltan := resto(losQueFaltan)
+    }    
+    return (cartasMenoresVistas ++ [carta] ++ losQueFaltan)
 }
 
 function aux_ordenar(números) {
@@ -2384,9 +2411,7 @@ function aux_laCeldaEstáVacía() { return(not hayBolitas(Azul) && not hayBolita
                                       && not hayBolitas(Rojo) && not hayBolitas(Verde)) }
 
 procedure AuxValidarSalida(condición) {
-  IrAlBorde(Oeste) IrAlBorde(Sur)
-  if (condición) { AuxDecir([M,U,Y,Espacio,B,I,E,N]) } 
-  else           { AuxDecir([F,A,L,L,A,S,T,E]) }  
+  if (not condición) { BOOM("No informaste el mazo correcto") }
 }
 
 procedure AuxDecir(msg) {
