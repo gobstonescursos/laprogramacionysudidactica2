@@ -2165,7 +2165,7 @@ procedure AuxInformarMazo(mazoAInformar) {
    AuxVolverALaMarca()
    AuxDesmarcar()   
    AuxPonerMazo(mazoAInformar)
-   AuxValidarSalida(cartas(mazoAInformar)== aux_ordenarCartas(cartas(mazo)))
+   AuxValidarSalida(cartas(mazoAInformar)== aux_ordenarLasCartas(cartas(mazo)))
 }
 
 function aux_laCartaMásChicaDe_(mazo) {
