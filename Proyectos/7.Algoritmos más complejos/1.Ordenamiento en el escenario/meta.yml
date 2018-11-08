@@ -15,11 +15,11 @@ blocks:
     </category>
     <category name="Operaciones de cartas">
         <block type="IrALaCartaMásChicaSinOrdenar"></block>
-        <block type="PonerCarta_"></block>
         <block type="SacarCartaActual"></block>
         <block type="IrALaPróximaPosiciónParaBajarCarta"></block>
-        <block type="cartaActual"></block>
+        <block type="PonerCarta_"></block>
         <block type="quedanCartasSinOrdenar"></block>
+        <block type="cartaActual"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">  </category>
@@ -39,5 +39,8 @@ execution_speed:
   active: high
   user_permissions:
     can_change_speed: true
+source:
+  visible: true
+  percentage: 0.7
 library:
   visible: false
