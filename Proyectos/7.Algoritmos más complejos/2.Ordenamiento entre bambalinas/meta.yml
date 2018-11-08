@@ -40,7 +40,7 @@ board:
     can_view_attire_section: false
     can_edit_board: false
     can_change_initial_board: true
-    can_change_initial_board_source: false
+    can_change_initial_board_source: true
     can_view_size_section: false
 execution_speed:
   active: high
