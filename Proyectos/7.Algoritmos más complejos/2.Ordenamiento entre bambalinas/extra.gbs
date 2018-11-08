@@ -2179,7 +2179,7 @@ function aux_laCartaMásChicaDe_(mazo) {
 
 function aux_sinLaCartaMásChica_(mazo) {
    // PRECONDICIÓN: el mazo no es vacío
-   mínimaCarta := aux_laCartaMásChicaDe_(cartas(mazo))
+   mínimaCarta := aux_laCartaMásChicaDe_(mazo)
    cartasAntesHastaAhora := []
    cartasDesdeHastaAhora := cartas(mazo)
    while (not esVacía(cartasDesdeHastaAhora)
@@ -2187,7 +2187,8 @@ function aux_sinLaCartaMásChica_(mazo) {
       cartasAntesHastaAhora := cartasAntesHastaAhora ++ [ primero(cartasDesdeHastaAhora) ]
       cartasDesdeHastaAhora := resto(cartasDesdeHastaAhora)
    }
-   return (Mazo(mazo|cartas <- cartasAntesHastaAhora++resto(cartasDesdeHastaAhora)))
+   return (Mazo(cartas <- cartasAntesHastaAhora++resto(cartasDesdeHastaAhora)
+               ,tamaño <- tamaño(mazo)-1))
 }
 
 function aux_ordenarLasCartas(cartas) {
@@ -2199,11 +2200,11 @@ function aux_ordenarLasCartas(cartas) {
 function aux_insertarCartaOrdenada(cartasOrdenadas, carta) {
     cartasMenoresVistas := []
     lasQueFaltan := cartasOrdenadas
-    while (not esVacía(lasQueFaltan) && aux_esMenorCartaEspañola(primero(losQueFaltan), carta)) {
-       cartasMenoresVistas := cartasMenoresVistas ++ [ primero(losQueFaltan) ]
-       losQueFaltan := resto(losQueFaltan)
+    while (not esVacía(lasQueFaltan) && aux_esMenorCartaEspañola(primero(lasQueFaltan), carta)) {
+       cartasMenoresVistas := cartasMenoresVistas ++ [ primero(lasQueFaltan) ]
+       lasQueFaltan := resto(lasQueFaltan)
     }    
-    return (cartasMenoresVistas ++ [carta] ++ losQueFaltan)
+    return (cartasMenoresVistas ++ [carta] ++ lasQueFaltan)
 }
 
 function aux_ordenar(números) {
