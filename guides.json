@@ -197,8 +197,8 @@
     [ { "id": "1", "name": "Ordenamiento en el escenario"
       , "path": "Proyectos/7.Algoritmos más complejos/1.Ordenamiento en el escenario"
       }
-    , { "id": "2", "name": "Ordenamiento en bambalinas"
-      , "path": "Proyectos/7.Algoritmos más complejos/2.Ordenamiento en bambalinas"
+    , { "id": "2", "name": "Ordenamiento entre bambalinas"
+      , "path": "Proyectos/7.Algoritmos más complejos/2.Ordenamiento entre bambalinas"
       }
     , { "id": "3", "name": "Encontrar la carta más chica"
       , "path": "Proyectos/7.Algoritmos más complejos/3.Encontrar la carta más chica"
