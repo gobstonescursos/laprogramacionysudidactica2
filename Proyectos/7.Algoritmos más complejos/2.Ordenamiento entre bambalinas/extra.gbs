@@ -2179,7 +2179,7 @@ function aux_laCartaMásChicaDe_(mazo) {
 
 function aux_sinLaCartaMásChica_(mazo) {
    // PRECONDICIÓN: el mazo no es vacío
-   mínimaCarta := aux_laCartaMásChicaDe_(cartas(mazo))
+   mínimaCarta := aux_laCartaMásChicaDe_(mazo)
    cartasAntesHastaAhora := []
    cartasDesdeHastaAhora := cartas(mazo)
    while (not esVacía(cartasDesdeHastaAhora)
