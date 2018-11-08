@@ -8,8 +8,13 @@ program {
 function laCartaMásChicaDe(mazo) {
   cartaMásChicaVistaHastaAhora := dameLaPrimeraCartaDe_(mazo)
   cartasQueFaltaMirar := sacarLaPrimeraCartaDe_(mazo)
-  ...
-  return (...)
+  while (not (not(quedanCartas_(cartasQueFaltaMirar)))) {
+    if (esMenorCarta__(dameLaPrimeraCartaDe_(cartasQueFaltaMirar), cartaMásChicaVistaHastaAhora)) {
+      cartaMásChicaVistaHastaAhora := dameLaPrimeraCartaDe_(cartasQueFaltaMirar)
+    }
+    cartasQueFaltaMirar := sinLaCartaMásChica_(cartasQueFaltaMirar)
+  }
+  return (cartaMásChicaVistaHastaAhora)
 }
 
 function ordenado(mazo) {
@@ -21,3 +26,4 @@ function ordenado(mazo) {
   }
   return (cartasYaOrdenadas)
 }
+
