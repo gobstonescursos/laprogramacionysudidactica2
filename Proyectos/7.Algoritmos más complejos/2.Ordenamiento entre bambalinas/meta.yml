@@ -7,6 +7,8 @@ attire:
 blocks:
   defaultToolbox: |
     <category name="Comandos básicos">
+        <block type="IrAlInicioDeLaEntrada"></block>
+        <block type="IrAlInicioDeLaSalida"></block>
         <block type="RepeticionCondicional"></block>
         <block type="Asignacion"></block>
     </category>
@@ -15,6 +17,7 @@ blocks:
     </category>
     <category name="Operaciones de cartas">
         <block type="mazoActual"></block>
+        <block type="InformarEnEsteLugarElMazo_"></block>
         <block type="quedanCartas_"></block>
         <block type="laCartaMásChicaDe_"></block>
         <block type="sinLaCartaMásChica_"></block>
