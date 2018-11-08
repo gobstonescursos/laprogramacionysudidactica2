@@ -201,7 +201,7 @@ procedure AuxAvanzarRecorridoGral(dirPpal, dirSecundaria) {
 //-------------------------------
 // PARA CORRECCIÓN DE GOBSTONES, HASTA QUE LO ARREGLEMOS
 //function último(xs)  { return (ultimo(xs)) }
-function esVacía(xs) { return (xs==[])     }
+//function esVacía(xs) { return (xs==[])     }
 //-------------------------------
 
 function calcularLongitud_(lista) { return(aux_calcularLongitud(lista)) }
@@ -1108,10 +1108,10 @@ function aux_códigoParaElPaloDeCartaEspañolaPrevio(palo) {
 //---------------------------------------------------------------------------------------------------/
 /*----------------------------- Operaciones de creación de valores (interfaz) -----------------------/
 /---------------------------------------------------------------------------------------------------*/
-///*@ATTRIBUTE@tooltip@Denota el valor de una carta de un mazo de cartas españolas de 40 cartas*/
+///*@ATTRIBUTE@tooltip@Denota el número de una carta de un mazo de cartas españolas de 40 cartas*/
 /*@ATTRIBUTE@block_name@_@*/
 /*@ATTRIBUTE@block_dropdown@[("As", '1'), ("2", '2'), ("3", '3'), ("4", '4'), ("5", '5'), ("6", '6'), ("7", '7'), ("Sota", '10'), ("Caballo", '11'), ("Rey", '12')]@*/
-function valorDeCartaEspañolaDe40_(valor) { return (valor) }
+function númeroDeCartaEspañolaDe40_(valor) { return (valor) }
 
 /*@ATTRIBUTE@block_name@As@*/       function armarValorAs()      { return(1) }
 /*@ATTRIBUTE@block_name@valor _@*/  function armarValor_(valor)  { return (aux_armarValorDeCartaEspañolaDe40(valor)) }
@@ -1254,7 +1254,7 @@ function aux_códigoParaElValorDeCartaEspañola(valor)  {
 }
 
 function aux_valorDeCartaEspañolaParaElCódigo(códigoValor) { 
-  if (not aux_esCódigoParaElValorDeCartaEspañola(códigoValor)) { BOOM("No es un código válido para el valor de una carta española") }
+  if (not aux_esCódigoParaElValorDeCartaEspañola(códigoValor)) { BOOM("No es un código válido para el número de una carta española") }
   return (códigoValor) 
 }
 
@@ -1342,7 +1342,7 @@ type CartaEspañola is variant {
 /---------------------------------------------------------------------------------------------------*/
 /*@ATTRIBUTE@block_name@es comodín _@*/              function esComodín_(c)          { return(aux_esComodín(c))   }
 /*@ATTRIBUTE@block_name@palo de _@*/                 function dameElPalo_(c)         { return(aux_dameElPalo(c))  }
-/*@ATTRIBUTE@block_name@valor de _@*/                function dameElValor_(c)        { return(aux_dameElValor(c)) }
+/*@ATTRIBUTE@block_name@número de _@*/               function dameElValor_(c)        { return(aux_dameElValor(c)) }
 
 /*@ATTRIBUTE@block_name@_ es menor carta que _@*/    function esMenorCarta__(carta1, carta2) { return(aux_esMenorCartaEspañola(carta1, carta2)) }
 /*@ATTRIBUTE@block_name@_ es mayor carta que _@*/    function esMayorCarta__(carta1, carta2) { return(aux_esMayorCartaEspañola(carta1, carta2)) }
@@ -1835,7 +1835,7 @@ function cantidadDeCartasDelMazo_(m)   { return(aux_cantidadDeCartasDelMazo(m)) 
 
 /*@ATTRIBUTE@block_name@primera carta de _@*/ 
 function dameLaPrimeraCartaDe_(mazo)   { return(aux_dameLaPrimeraCarta(mazo))   }
-/*@ATTRIBUTE@block_name@resto de _@*/ 
+/*@ATTRIBUTE@block_name@sin la primera carta _@*/ 
 function sacarLaPrimeraCartaDe_(mazo)  { return(aux_sacarLaPrimeraCarta(mazo))  }
 
 function dameLaÚltimaCartaDe_(mazo)    { return(aux_dameLaÚltimaCarta(mazo))    }
@@ -2125,6 +2125,7 @@ function listaDeNúmerosOculta()       { return (aux_listaDeNúmerosOculta())   
 /*@ATTRIBUTE@block_name@¿está vacía _?@*/
 function  estáVacía_(lista)      { return (esVacía(lista))                 }
 function  primerElemento_(lista)      { return (primero(lista))                 }
+/*@ATTRIBUTE@block_name@sin el primero _@*/
 function  resto_(lista)               { return (resto(lista))                   }
 function  últimoElemento_(lista)      { return (último(lista))                  }
 function  máximoElemento_(lista)      { return (aux_máximoElemento(lista))      }
@@ -2379,35 +2380,10 @@ procedure AuxDecir(msg) {
 //--------------------------------
 procedure IrAlInicioDeLaEntrada()    { AuxIrAlInicioDeLaEntrada()    }
 procedure IrAlInicioDeLaSalida()     { AuxIrAlInicioDeLaSalida()     }
-procedure IniciarLaCuenta()          { AuxIniciarLaCuenta()          }
-procedure IncrementarLaCuentaEnUno() { AuxIncrementarLaCuentaEnUno() }
-procedure CompletarLaCuenta()        { AuxIrAlInicioDeLaSalida()     }
+function códigoDelPalo_(palo) { return (aux_códigoParaElPaloDeCartaEspañola(palo)) }
 
 procedure AuxIrAlInicioDeLaEntrada() { IrAlBorde(Norte) IrAlBorde(Oeste) }
-procedure AuxIrAlInicioDeLaSalida()  { 
-     AuxIniciarRecorrido()
-     while(not aux_terminóElRecorrido() && not (nroBolitas(aux_colorParaElAtributo())==10)) { AuxAvanzarRecorrido() }
-     Mover(Sur) IrAlBorde(Oeste)
-}
-
-procedure AuxIniciarLaCuenta() {
-  AuxMarcar()
-  AuxIrAlInicioDeLaSalida()
-  AuxSacarTodas()
-  AuxPonerNúmero(0)
-  AuxVolverALaMarca()
-  AuxDesmarcar()
-}
-
-procedure AuxIncrementarLaCuentaEnUno() {
-  AuxMarcar()
-  AuxIrAlInicioDeLaSalida()
-  AuxPonerNúmero(aux_númeroActual()+1)
-  AuxVolverALaMarca()
-  AuxDesmarcar()
-}
-
-function códigoDelPalo_(palo) { return (aux_códigoParaElPaloDeCartaEspañola(palo)) }
+procedure AuxIrAlInicioDeLaSalida()  { IrAlBorde(Sur)   IrAlBorde(Oeste) }
 
 //--------------------------------
 // Operaciones para selectionSort en datos (interfaz)
@@ -2424,32 +2400,29 @@ function aux_quedanCartasSinOrdenar() {
 
 procedure AuxIrALaPrimeraCartaNoLeídaSiExiste() {
     AuxIrAlInicioDeLaEntrada()
-    while (not aux_terminóElRecorridoDeLaEntrada() && not aux_hayCartaEspañolaDestapada()) { AuxAvanzarRecorrido() }
-}
-
-function aux_terminóElRecorridoDeLaEntrada() {
-    return (nroBolitas(aux_colorParaElAtributo()) == 10)
+    while (puedeMover(Este) && not aux_hayCartaEspañolaDestapada()) { Mover(Este) }
 }
 
 procedure AuxIrALaCartaMásChicaSinOrdenar() {
     // PRECONDICIÓN: hay al menos una carta en la fila superior
     cartaMásChica := aux_laCartaMásChicaSinOrdenar()
     AuxIrALaPrimeraCartaNoLeídaSiExiste()
-    while (not aux_terminóElRecorridoDeLaEntrada() 
+    while (puedeMover(Este)
         && not aux_laCartaActualEsIgualA(cartaMásChica)) 
-      { AuxAvanzarRecorrido() }
+      { Mover(Este) }
 }
 
 function aux_laCartaMásChicaSinOrdenar() {
+    // PRECONDICIÓN: hay al menos una carta en la fila superior
     AuxIrALaPrimeraCartaNoLeídaSiExiste()
     cartaMínimaVista := aux_cartaEspañolaActual()
     // Si no puede mover al Este, la carta es la única y por tanto la menor
-    if (not aux_terminóElRecorridoDeLaEntrada()) { 
-        AuxAvanzarRecorrido()
+    if (puedeMover(Este)) { 
+        Mover(Este)
         // Recorre desde la segunda carta, hasta el final
-        while (not aux_terminóElRecorridoDeLaEntrada()) {
+        while (puedeMover(Este)) {
             if (aux_laCartaActualEsMásChicaQue(cartaMínimaVista)) { cartaMínimaVista := aux_cartaEspañolaActual() }
-            AuxAvanzarRecorrido()
+            Mover(Este)
         }
         // La última carta debe tratarse por separado, por la condición de borde
         if (aux_laCartaActualEsMásChicaQue(cartaMínimaVista)) { cartaMínimaVista := aux_cartaEspañolaActual() }
@@ -2467,7 +2440,7 @@ function aux_laCartaActualEsMásChicaQue(carta) {
 
 procedure AuxIrAPróximaPosiciónParaBajarCarta() {
    AuxIrAlInicioDeLaSalida()
-   while (not aux_terminóElRecorrido() && aux_hayCartaEspañolaDestapada()) { AuxAvanzarRecorrido() }
+   while (puedeMover(Este) && aux_hayCartaEspañolaDestapada()) { Mover(Este) }
 }
 
 
