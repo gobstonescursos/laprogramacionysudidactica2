@@ -2144,7 +2144,7 @@ function losPrimeros__(n,números) { return(aux_take(n,números))      }
 function losÚltimos__(n,números)  { return(aux_drop(aux_cantidadDeElementos(números)-n,números))      }
 
 function laCartaMásChicaDe_(mazo) { return(aux_laCartaMásChicaDe_(mazo)) }
-procedure sinLaCartaMásChica_(mazo) { return(aux_sinLaCartaMásChica_(mazo)) }
+function sinLaCartaMásChica_(mazo) { return(aux_sinLaCartaMásChica_(mazo)) }
 
 function listaVacía() { return([]) }
 /*@ATTRIBUTE@block_name@agregar a la lista _ el valor _ al final@*/
