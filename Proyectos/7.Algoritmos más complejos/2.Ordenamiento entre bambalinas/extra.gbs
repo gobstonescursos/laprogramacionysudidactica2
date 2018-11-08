@@ -2172,7 +2172,7 @@ function aux_sinLaCartaMásChica_(mazo) {
    cartasAntesHastaAhora := []
    cartasDesdeHastaAhora := cartas(mazo)
    while (not esVacía(cartasDesdeHastaAhora)
-       && primero(cartasDesdeHastaAhora) != mínimaCarta)   { 
+       && primero(cartasDesdeHastaAhora) /= mínimaCarta)   { 
       cartasAntesHastaAhora := cartasAntesHastaAhora ++ [ primero(cartasDesdeHastaAhora) ]
       cartasDesdeHastaAhora := resto(cartasDesdeHastaAhora)
    }
