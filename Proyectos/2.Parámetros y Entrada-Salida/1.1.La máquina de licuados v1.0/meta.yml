@@ -1,9 +1,9 @@
 name: La máquina de licuados v1.0
 attire:
-  active: La máquina de licuados
+  active: "La máquina de licuados"
   user_permissions:
-    can_toggle_visibility: true
-  visible: false
+    can_toggle_visibility: false
+  visible: true
 blocks:
   defaultToolbox: |
     <category name="Comandos básicos">
@@ -17,6 +17,8 @@ blocks:
         <block type="PonerLecheEnLaLicuadora"></block>
         <block type="LicuarUnMinuto"></block>
         <block type="ServirContenidoEnElVaso"></block>
+        <block type="EntregarElVaso"></block>
+        <block type="RetirarElVaso"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Definiciones">
