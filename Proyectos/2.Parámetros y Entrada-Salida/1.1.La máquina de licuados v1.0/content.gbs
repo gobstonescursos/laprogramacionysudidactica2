@@ -1,3 +1,4 @@
 interactive program {
-    K_ENTER -> { ... }
+  K_RETURN -> { ...             }
+  K_SPACE  -> { RetirarElVaso() }
 }

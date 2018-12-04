@@ -1,11 +1,87 @@
-procedure PonerUnaBananaEnLaLicuadora() { 
+procedure RetirarElVaso() { 
+   AuxMarcar()
+   AuxIrAPosiciónDeServir()
+   if (auxVaPorElPaso(1)) { AuxResetearLaMáquina()        }
+   AuxVolverALaMarca()
+   AuxDesmarcar()
 }
 
 procedure PonerLecheEnLaLicuadora() { 
+   AuxMarcar()
+   AuxIrAPosiciónDeServir()
+   if (auxNoComenzó()) { AuxComenzarLicuadoDe_Pasos(5) }
+   else                { AuxIndicarMalFuncionamiento() }
+   AuxVolverALaMarca()
+   AuxDesmarcar()
+}
+
+procedure PonerUnaBananaEnLaLicuadora() { 
+   AuxMarcar()
+   AuxIrAPosiciónDeServir()
+   if (auxVaPorElPaso(5) || auxVaPorElPaso(4)) { AuxHacerUnPasoDelLicuado()    }
+   else                                        { AuxIndicarMalFuncionamiento() }
+   AuxVolverALaMarca()
+   AuxDesmarcar()
 }
 
 procedure LicuarUnMinuto() { 
+   AuxMarcar()
+   AuxIrAPosiciónDeServir()
+   if (auxVaPorElPaso(3)) { AuxHacerUnPasoDelLicuado()    }
+   else                   { AuxIndicarMalFuncionamiento() }
+   AuxVolverALaMarca()
+   AuxDesmarcar()
 }
 
 procedure ServirContenidoEnElVaso() { 
+   AuxMarcar()
+   AuxIrAPosiciónDeServir()
+   if (auxVaPorElPaso(2)) { AuxHacerUnPasoDelLicuado()    }
+   else                   { AuxIndicarMalFuncionamiento() }
+   AuxVolverALaMarca()
+   AuxDesmarcar()
 }
+
+procedure EntregarElVaso() { 
+   AuxMarcar()
+   AuxIrAPosiciónDeServir()
+   if (not auxVaPorElPaso(1)) { AuxIndicarMalFuncionamiento() }
+   AuxVolverALaMarca()
+   AuxDesmarcar()
+}
+
+procedure AuxComenzarLicuadoDe_Pasos(pasos) { 
+   repeat (5) { Poner(Negro) }
+   repeat (pasos) { Poner(Azul)  }
+}   
+
+procedure AuxResetearLaMáquina() { 
+   repeat (5) { Sacar(Negro) }
+   Sacar(Azul)
+}   
+
+function auxNoComenzó()    { return (nroBolitas(Azul) == 0 && nroBolitas(Negro) == 0) }
+function auxVaPorElPaso(i) { return (nroBolitas(Azul) == i && nroBolitas(Negro) == 5) }
+
+procedure AuxHacerUnPasoDelLicuado()    { Sacar(Azul) }   
+procedure AuxIndicarMalFuncionamiento() { Poner(Rojo) }
+
+procedure AuxIrAPosiciónDeServir() {
+  IrAlBorde(Sur) IrAlBorde(Oeste)
+  Mover(Norte)
+  Mover(Este) Mover(Este)
+}
+
+procedure AuxVolverALaMarca() {
+  IrAlBorde(Sur) IrAlBorde(Oeste)                      // Iniciar recorrido
+  while (not hayMarca()                                // No encontré lo buscado
+     && (puedeMover(Este) || puedeMover(Norte))) {     // y no se terminó el tablero
+    if (puedeMover(Este)) { Mover(Este) }              // Avanzar por la fila
+    else { IrAlBorde(Oeste) Mover(Norte) }             // o pasar a la siguiente fila
+  }
+  // Al terminar, si hay una marca, está parado sobre ella
+}
+
+procedure AuxMarcar()    { Poner(Verde) }
+procedure AuxDesmarcar() { Sacar(Verde) }
+function  hayMarca()     { return (hayBolitas(Verde)) }

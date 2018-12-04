@@ -1,0 +1,14 @@
+interactive program {
+  K_RETURN -> { HacerLicuadoDeBanana() }
+  K_SPACE  -> { RetirarElVaso()        }
+}
+
+procedure HacerLicuadoDeBanana() {
+  PonerLecheEnLaLicuadora()
+  repeat(2) { PonerUnaBananaEnLaLicuadora() }
+  LicuarUnMinuto()
+  ServirContenidoEnElVaso()
+  EntregarElVaso()
+}
+
+
