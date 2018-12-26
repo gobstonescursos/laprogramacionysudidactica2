@@ -24,6 +24,8 @@ blocks:
     <category name="Definiciones">
         <block type="procedures_defnoreturn"></block>
     </category>
+  visible: []
+  disable: []
 board:
   active: 1
   initial_board_source: selected
