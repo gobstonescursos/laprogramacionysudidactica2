@@ -2,26 +2,36 @@ name: La máquina de licuados v2.0
 attire:
   active: La máquina de licuados
   user_permissions:
-    can_toggle_visibility: true
-  visible: false
+    can_toggle_visibility: false
+  visible: true
 blocks:
   defaultToolbox: |
     <category name="Comandos básicos">
         <block type="RepeticionSimple"></block>
+        <block type="ComandoCompletar"></block>
     </category>
     <category name="Expresiones básicas">
         <block type="math_number"></block>
     </category>
     <category name="Operaciones de la Licuadora">
+        <block type="IrAlBotónDeLicuadoSuave"></block>
+        <block type="IrAlBotónDeLicuadoNormal"></block>
+        <block type="IrAlBotónDeLicuadoFuerte"></block>
         <block type="PonerUnaBananaEnLaLicuadora"></block>
         <block type="PonerLecheEnLaLicuadora"></block>
         <block type="LicuarUnMinuto"></block>
         <block type="ServirContenidoEnElVaso"></block>
+        <block type="EntregarElVaso"></block>
+        <block type="RetirarElVaso"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Definiciones">
         <block type="procedures_defnoreturn"></block>
+        <block type="InteractiveKeyBinding"></block>
+        <block type="InteractiveLetterBinding"></block>
     </category>
+  visible: []
+  disable: []
 board:
   active: 1
   initial_board_source: selected
