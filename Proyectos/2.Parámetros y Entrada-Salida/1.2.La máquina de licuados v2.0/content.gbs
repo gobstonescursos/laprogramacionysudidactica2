@@ -1,5 +1,15 @@
 interactive program {
-  K_S -> { ... }   // Para hacer licuados suaves (1 banana)
-  K_N -> { ... }   // Para hacer licuados normales (2 bananas)
-  K_F -> { ... }   // Para hacer licuados fuertes (3 bananas)
+  K_S ->     { // Para hacer licuados Suaves (1 banana)
+               IrAlBotónDeLicuadoSuave()
+               ...
+             }
+  K_N ->     { // Para hacer licuados Normales (2 bananas)
+               IrAlBotónDeLicuadoNormal()
+               ...
+             }
+  K_F ->     { // Para hacer licuados Fuertes (3 bananas)
+               IrAlBotónDeLicuadoFuerte()
+               ...
+             }
+  K_SPACE -> { RetirarElVaso() }
 }

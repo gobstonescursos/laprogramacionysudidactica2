@@ -4,6 +4,10 @@ La idea de esta actividad es que construyas procedimientos que sirvan para que l
 de 1, 2 o 3 bananas cuando se presiona cada uno de los 3 botones (con las teclas <S\> para Suave, 
 <N\> para Normal y <F\> para Fuerte).
 
+En esta máquina primero debe ponerse la leche, luego la cantidad de bananas necesaria, luego licuar, servir y entregar el licuado.
+Para volver a comenzar, el usuario debe retirar el licuado.
+Cualquier alteración de este orden produce un mal funcionamiento de la máquina.
+
 Una vez más, tenés que ponerle nombre a tus procedimientos.
 Fijate que los tres nombres tienen que representar las situaciones.
 
