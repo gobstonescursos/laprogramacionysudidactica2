@@ -3,7 +3,7 @@ attire:
   active: La máquina de licuados
   user_permissions:
     can_toggle_visibility: true
-  visible: false
+  visible: true
 blocks:
   defaultToolbox: |
     <category name="Comandos básicos">
