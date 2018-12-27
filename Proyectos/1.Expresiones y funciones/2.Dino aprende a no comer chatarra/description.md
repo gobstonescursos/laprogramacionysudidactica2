@@ -26,6 +26,8 @@ Buscá en la caja de herramientas, que seguro encontrás algo.
 >
 > Las funciones permiten nombrar expresiones complejas para expresar una idea (pregunta, dato, etc.), exactamente 
 > igual que los procedimientos simples permiten nombrar grupos complejos de comandos para expresar una subtarea.
+> No deben confundirse con las funciones vistas en clase de matemáticas, ya que la forma de acercarse a ambos conceptos 
+> es completamente diferente.
 
 [Enunciado en PDF][PDF]
 
