@@ -5,7 +5,7 @@ botones para seleccionar entre licuados de banana o licuados de frutilla.
 
 Al igual que antes, cuando se presiona el botón de **"Hacer licuado"** (con la tecla <ENTER\>), se hace el licuado.
 También al igual que antes, se usa la cantidad de fruta indicada en el display, 
-que se modifica apretando las teclas <S\> y <A\> para incrementar o decrementar la cantidad, respectivamente.
+que se modifica apretando las teclas <FLECHA_IZQ\> y <FLECHA_DER\> para decrementar o incrementar la cantidad, respectivamente.
 Pero a diferencia que antes, ahora podemos usar las letras <B\> o <F\> para indicar si el licuado debe ser
 de bananas o de frutillas, respectivamente.
 Una vez listo, el licuado se puede retirar de la máquina utilizando la tecla <ESPACIO\>.
