@@ -10,20 +10,24 @@ blocks:
         <block type="RepeticionSimple"></block>
         <block type="IncrementarDisplay"></block>
         <block type="DecrementarDisplay"></block>
+        <block type="RetirarElVaso"></block>
     </category>
     <category name="Expresiones básicas">
         <block type="math_number"></block>
         <block type="cantidadEnElDisplay"></block>
     </category>
     <category name="Operaciones de la Licuadora">
-        <block type="PonerUnaBananaEnLaLicuadora"></block>
         <block type="PonerLecheEnLaLicuadora"></block>
+        <block type="PonerUnaBananaEnLaLicuadora"></block>
         <block type="LicuarUnMinuto"></block>
         <block type="ServirContenidoEnElVaso"></block>
+        <block type="EntregarElVaso"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Definiciones">
         <block type="procedures_defnoreturn"></block>
+          <block type="InteractiveLetterBinding"></block>
+          <block type="InteractiveKeyBinding"></block>
     </category>
 board:
   active: 1

@@ -19,9 +19,9 @@
       4. para hacer el licuado, el botón seleccionado debe ser el correcto
 */
 
-// -----------------------------------------------
-// -- OPERACIONES DE LA MÁQUNA DE LICUADOS -------
-// -----------------------------------------------
+// --------------------------------------------------------
+// -- OPERACIONES INTERNAS DE LA MÁQUNA DE LICUADOS -------
+// --------------------------------------------------------
 procedure PonerLecheEnLaLicuadora() { 
    /*
       PROPÓSITO: inicia un licuado según el botón marcado. Si hay un licuado iniciado, falla
@@ -75,6 +75,9 @@ procedure EntregarElVaso() {
    AuxHacerElPasoDelLicuadoParaQueFalten_Pasos(0)
 }
 
+// --------------------------------------------------------
+// -- OPERACIONES EXTERNAS DE LA MÁQUNA DE LICUADOS -------
+// --------------------------------------------------------
 procedure RetirarElVaso() { 
    /*
       PROPÓSITO: resetea la máquina, si hay un licuado listo
@@ -91,13 +94,9 @@ procedure IrAlBotónDeLicuadoSuave()  { AuxIrALaBotonera(1) }
 procedure IrAlBotónDeLicuadoNormal() { AuxIrALaBotonera(2) }
 procedure IrAlBotónDeLicuadoFuerte() { AuxIrALaBotonera(3) }
 
-procedure AuxIrALaBotonera(botón) {
-   IrAlBorde(Sur)
-   Mover__Veces(Norte, 4)
-   IrAlBorde(Oeste) 
-   Mover__Veces(Este, botón) 
-}
-
+// --------------------------------------------------------
+// -- OPERACIONES AUXILIARES ------------------------------
+// --------------------------------------------------------
 procedure AuxHacerElPasoDelLicuadoParaQueFalten_Pasos(nroPaso) { 
    /*
       PROPÓSITO: avanza en la confección del licuado, si va por el paso indicado para que falte la cantidad pedida
@@ -148,6 +147,13 @@ function aux_paso()   { return(Verde) }
 // -----------------------------------------------
 // -- OPERACIONES DE MOVIMIENTO ------------------
 // -----------------------------------------------
+procedure AuxIrALaBotonera(botón) {
+   IrAlBorde(Sur)
+   Mover__Veces(Norte, 4)
+   IrAlBorde(Oeste) 
+   Mover__Veces(Este, botón) 
+}
+
 procedure AuxIrAPosiciónDeServir() {
   IrAlBorde(Sur) IrAlBorde(Oeste)
   Mover(Norte)

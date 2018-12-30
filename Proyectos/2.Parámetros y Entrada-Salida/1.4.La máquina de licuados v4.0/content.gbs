@@ -1,9 +1,10 @@
 interactive program {
-  K_ENTER -> { HacerLicuado(cantidadEnElDisplay(), frutaSeleccionada()) }
-  K_S     -> { DecrementarDisplay() }
-  K_A     -> { IncrementarDisplay() }
-  K_M     -> { SeleccionarManzana() }
-  K_B     -> { SeleccionarBanana()  }
+  K_RETURN -> { HacerLicuado(cantidadEnElDisplay(), frutaSeleccionada()) }
+  K_SPACE  -> { RetirarElVaso()                                          }
+  K_LEFT   -> { DecrementarDisplay()                                     }
+  K_RIGHT  -> { IncrementarDisplay()                                     }
+  K_B      -> { SeleccionarBanana()                                      }
+  K_F      -> { SeleccionarFrutilla()                                    }
 }
 
 procedure HacerLicuado(cantidadDeFruta, tipoDeFruta) {
