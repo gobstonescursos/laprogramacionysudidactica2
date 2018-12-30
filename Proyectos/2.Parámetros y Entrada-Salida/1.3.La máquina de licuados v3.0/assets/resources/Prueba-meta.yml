@@ -10,18 +10,17 @@ blocks:
         <block type="RepeticionSimple"></block>
         <block type="IncrementarDisplay"></block>
         <block type="DecrementarDisplay"></block>
-        <block type="RetirarElVaso"></block>
+        <block type="HacerElLicuadoCorrespondiente"></block>
     </category>
     <category name="Expresiones básicas">
         <block type="math_number"></block>
         <block type="cantidadEnElDisplay"></block>
     </category>
     <category name="Operaciones de la Licuadora">
-        <block type="PonerLecheEnLaLicuadora"></block>
         <block type="PonerUnaBananaEnLaLicuadora"></block>
+        <block type="PonerLecheEnLaLicuadora"></block>
         <block type="LicuarUnMinuto"></block>
         <block type="ServirContenidoEnElVaso"></block>
-        <block type="EntregarElVaso"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Definiciones">
