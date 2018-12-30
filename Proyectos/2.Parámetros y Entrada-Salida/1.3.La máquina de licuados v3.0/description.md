@@ -1,9 +1,9 @@
 #Actividad 1.3. La máquina de licuados v3.0
 
 La idea de esta actividad es que construyas un procedimiento que haga que la máquina haga un licuado
-de entre 1 a 6 bananas, pero ahora para seleccionar eso, primero se aprietan las teclas <S\> y <A\> para
-incrementar o decrementar la cantidad, respectivamente, y cuando se presiona el botón de **"Hacer licuado"**
-(con la tecla <ENTER\>), se hace el licuado. 
+de entre 1 a 6 bananas, pero ahora para seleccionar eso, primero se aprietan las teclas <FLECHA-IZQ\> y 
+<FLECHA-DER\> para decrementar o incrementar la cantidad, respectivamente, y cuando se presiona el 
+botón de **"Hacer licuado"** (con la tecla <ENTER\>), se hace el licuado. 
 Una vez listo, el licuado se puede retirar de la máquina utilizando la tecla <ESPACIO\>.
 
 Para hacer el licuado en esta máquina, primero debe ponerse la leche, luego la cantidad de bananas necesaria, luego licuar, servir y entregar el licuado.

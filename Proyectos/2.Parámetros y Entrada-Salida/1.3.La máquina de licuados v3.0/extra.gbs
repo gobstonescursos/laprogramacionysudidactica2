@@ -165,14 +165,17 @@ procedure AuxComenzarLicuadoDe_Bananas(bananas) {
    AuxIndicar_Pasos(bananas+3)
 }   
 
-procedure AuxIndicar_Pasos(pasos) { Poner__Veces(Verde, pasos) }
+procedure AuxIndicar_Pasos(pasos) { Poner__Veces(aux_paso(), pasos) }
 procedure AuxResetearLaMáquina() { 
+   // Resetar posición de servir
    SacarTodas_(Negro)
-   SacarTodas_(Verde)
+   SacarTodas_(aux_paso())
    SacarTodas_(aux_banana())
+   // Resetear display
    AuxIrAlDisplay()
    SacarTodas_(aux_banana())
    Poner(aux_banana())
+   // Volver a la posición de servir
    AuxIrAPosiciónDeServir()
 }   
 
@@ -184,9 +187,8 @@ procedure AuxPonerBanana()              { Poner(aux_banana())  }
 procedure AuxHacerUnPasoDelLicuado()    { Sacar(aux_paso())    }   
 procedure AuxIndicarMalFuncionamiento() { Poner(Rojo)  SacarTodas_(aux_paso()) }
 
-function aux_banana() { return(Azul) }
+function aux_banana() { return(Azul)  }
 function aux_paso()   { return(Verde) }
-
 
 // -----------------------------------------------
 // -- OPERACIONES DE MOVIMIENTO ------------------
