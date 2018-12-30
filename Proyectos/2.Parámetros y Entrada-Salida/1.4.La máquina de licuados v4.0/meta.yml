@@ -8,10 +8,11 @@ blocks:
   defaultToolbox: |
     <category name="Comandos básicos">
         <block type="RepeticionSimple"></block>
+        <block type="RetirarElVaso"></block>
         <block type="IncrementarDisplay"></block>
         <block type="DecrementarDisplay"></block>
         <block type="SeleccionarBanana"></block>
-        <block type="SeleccionarManzana"></block>
+        <block type="SeleccionarFrutilla"></block>
     </category>
     <category name="Expresiones básicas">
         <block type="math_number"></block>
@@ -19,18 +20,17 @@ blocks:
         <block type="frutaSeleccionada"></block>
     </category>
     <category name="Operaciones de la Licuadora">
-        <block type="PonerUna_EnLaLicuadora"></block>
         <block type="PonerLecheEnLaLicuadora"></block>
+        <block type="PonerUna_EnLaLicuadora"></block>
         <block type="LicuarUnMinuto"></block>
         <block type="ServirContenidoEnElVaso"></block>
+        <block type="EntregarElVaso"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Definiciones">
         <block type="procedures_defnoreturn"></block>
           <block type="InteractiveLetterBinding"></block>
-          <block type="InteractiveNumberBinding"></block>
           <block type="InteractiveKeyBinding"></block>
-          <block type="ComandoCompletar"></block>
     </category>
 board:
   active: 1

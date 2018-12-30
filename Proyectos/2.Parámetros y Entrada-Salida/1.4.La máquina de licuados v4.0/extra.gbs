@@ -1,7 +1,7 @@
-type Fruta is variant { case Banana {} case Manzana {} }
+type Fruta is variant { case Banana {} case Frutilla {} }
 
 /*@ATTRIBUTE@block_name@_@*/
-/*@ATTRIBUTE@block_dropdown@[("Banana",'Banana'),("Manzana",'Manzana')]@*/
+/*@ATTRIBUTE@block_dropdown@[("Banana",'Banana'),("Frutilla",'Frutilla')]@*/
 function fruta_(fruta) { return(fruta) }
 
 procedure PonerUna_EnLaLicuadora(fruta) { 
@@ -33,17 +33,41 @@ procedure ServirContenidoEnElVaso() {
 procedure SeleccionarBanana() {
    AuxIrAlBotónBanana()
    if (aux_nroMarcas() == 0) { Poner(aux_marca()) }
-   AuxIrAlBotónManzana()
+   AuxIrAlBotónFrutilla()
    AuxRemoverMarcas()
    AuxIrAlBotón()
 }
 
-procedure SeleccionarManzana() {
-   AuxIrAlBotónManzana()
+procedure SeleccionarFrutilla() {
+   AuxIrAlBotónFrutilla()
    if (aux_nroMarcas() == 0) { Poner(aux_marca()) }
    AuxIrAlBotónBanana()
    AuxRemoverMarcas()
    AuxIrAlBotón()
+}
+
+procedure EntregarElVaso() { 
+   /*
+      PROPÓSITO: avanza en la confección del licuado, si ya se sirvió el contenido o falla si no
+      PRECONDICIÓN: no hay marcas en el tablero
+      OBSERVACIÓN: entregar es el último paso, por lo que debe no deben quedar pasos
+   */
+   // AuxHacerElPasoDelLicuadoParaQueFalten_Pasos(0)
+}
+
+// --------------------------------------------------------
+// -- OPERACIONES EXTERNAS DE LA MÁQUNA DE LICUADOS -------
+// --------------------------------------------------------
+procedure RetirarElVaso() { 
+   /*
+      PROPÓSITO: resetea la máquina, si hay un licuado listo
+      PRECONDICIÓN: no hay marcas en el tablero
+   */
+   // AuxMarcar()
+   // AuxIrAPosiciónDeServir()
+   // if (auxFaltan_Pasos(0)) { AuxResetearLaMáquina() }
+   // AuxVolverALaMarca()
+   // AuxDesmarcar()
 }
 
 procedure IncrementarDisplay() {
@@ -75,7 +99,7 @@ procedure AuxIrAlBotón() {
 procedure AuxIrAlBotónBanana() {
 }
 
-procedure AuxIrAlBotónManzana() {
+procedure AuxIrAlBotónFrutilla() {
 }
 
 procedure AuxRemoverMarcas() {
@@ -97,8 +121,8 @@ function aux_frutaSeleccionada() {
    if (aux_hayMarcas()) { BOOM("Solo puedo leer el display en la máquina") }
    AuxIrAlBotónBanana()
    if (aux_hayMarcas()) { fruta := Banana }
-   AuxIrAlBotónManzana()
-   if (aux_hayMarcas()) { fruta := Manzana }
+   AuxIrAlBotónFrutilla()
+   if (aux_hayMarcas()) { fruta := Frutilla }
    return (fruta)
 }
 
