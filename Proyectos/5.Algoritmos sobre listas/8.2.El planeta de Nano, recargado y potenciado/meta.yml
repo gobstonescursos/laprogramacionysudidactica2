@@ -1,4 +1,4 @@
-name: El planeta de Nano, recargado
+name: El planeta de Nano, recargado y potenciado
 attire:
   active: El planeta de Nano
   user_permissions:
@@ -8,8 +8,7 @@ blocks:
   defaultToolbox: |
     <category name="Comandos básicos">
         <block type="RepeticionSimple"></block>
-        <block type="RepeticionCondicional"></block>
-        <block type="Asignacion"></block>
+        <block type="ForEach"></block>
     </category>
     <category name="Expresiones básicas">
         <block type="math_number"></block>
