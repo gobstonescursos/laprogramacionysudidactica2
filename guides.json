@@ -168,6 +168,12 @@
     , { "id": "7", "name": "La espada en la piedra"
       , "path": "Proyectos/5.Algoritmos sobre listas/7.La espada en la piedra"
       }
+    , { "id": "8.1", "name": "El planeta de Nano, recargado"
+      , "path": "Proyectos/5.Algoritmos sobre listas/8.1.El planeta de Nano, recargado"
+      }
+    , { "id": "8.2", "name": "El planeta de Nano, recargado y potenciado"
+      , "path": "Proyectos/5.Algoritmos sobre listas/8.2.El planeta de Nano, recargado y potenciado"
+      }
 	 ] 
   }
 , { "name": "6.Representación de la información", "repo": "gobstones/laprogramacionysudidactica2"
