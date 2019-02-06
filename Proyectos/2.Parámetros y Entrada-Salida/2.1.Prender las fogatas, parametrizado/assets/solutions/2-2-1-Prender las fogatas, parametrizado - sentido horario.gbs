@@ -7,7 +7,7 @@ procedure PrenderFogatasDelCampamento() {
   PrenderFogatasDeUnLadoHaciaEl(Norte)
 }
 
-procedure PrenderFogataSiCorresponde() { if (hayFogataApagada()) { PrenderFogata() } }
+procedure PrenderFogataSiCorresponde() { if (hayFogataApagada()) { PrenderEstaFogata() } }
 
 procedure PrenderFogatasDeUnLadoHaciaEl(direcciónAMoverse) {
   repeat(6) {

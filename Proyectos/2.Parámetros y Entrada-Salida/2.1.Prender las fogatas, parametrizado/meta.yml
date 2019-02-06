@@ -16,7 +16,7 @@ blocks:
     </category>
     <category name="Operaciones del Explorador">
         <block type="MoverAlExploradorAl_"></block>
-        <block type="PrenderFogata"></block>
+        <block type="PrenderEstaFogata"></block>
         <block type="hayFogataApagada"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>

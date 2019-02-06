@@ -1,7 +1,7 @@
 //--------------------------
 // Operaciones de interfaz
 //--------------------------
-/*@ATTRIBUTE@block_name@Prender la fogata@*/        procedure PrenderFogata()           { AuxPrenderFogata()          }
+/*@ATTRIBUTE@block_name@Prender la fogata@*/        procedure PrenderEstaFogata()       { AuxPrenderFogata()          }
 /*@ATTRIBUTE@block_name@Mover al explorador al _@*/ procedure MoverAlExploradorAl_(dir) { AuxMoverAlExploradorAl(dir) } 
 
 /*@ATTRIBUTE@block_name@¿hay fogata apagada en este lugar?@*/ 
