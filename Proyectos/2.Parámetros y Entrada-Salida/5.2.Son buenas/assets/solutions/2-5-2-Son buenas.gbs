@@ -8,7 +8,7 @@ function sonBuenas(cartaIzquierdaDelJugador1, cartaDerechaDelJugador1
         < envido(cartaIzquierdaDelJugador2, cartaDerechaDelJugador2))
 }
 
-function envido(cartaIzquierda, cartaDerecha) {
-  return (20 + (dameElNúmero_(cartaIzquierda) + dameElNúmero_(cartaDerecha)))
+function envido(primeraCarta, segundaCarta) {
+  return (20 + (dameElNúmero_(primeraCarta) + dameElNúmero_(segundaCarta)))
 }
 

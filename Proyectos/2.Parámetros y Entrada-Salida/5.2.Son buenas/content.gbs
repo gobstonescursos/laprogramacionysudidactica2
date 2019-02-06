@@ -7,4 +7,6 @@ function sonBuenas(cartaIzquierdaDelJugador1, cartaDerechaDelJugador1
   return (...)
 }
 
-
+function envido(primeraCarta, segundaCarta) {
+  return (20 + (dameElNúmero_(primeraCarta) + dameElNúmero_(segundaCarta)))
+}
