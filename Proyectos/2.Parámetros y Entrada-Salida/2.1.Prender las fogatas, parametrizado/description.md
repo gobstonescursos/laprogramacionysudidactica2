@@ -21,3 +21,4 @@ También acordate de usar procedimientos para las subtareas.
 
 [PDF]: 
 https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/2.Par%C3%A1metros%20y%20Entrada-Salida/2.1.Prender%20las%20fogatas%2C%20parametrizado/assets/resources/description.pdf "Enunciado de 'Prender las fogatas parametrizado' en PDF"
+                                                                                        
