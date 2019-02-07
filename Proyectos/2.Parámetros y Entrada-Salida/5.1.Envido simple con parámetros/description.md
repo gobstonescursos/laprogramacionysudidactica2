@@ -30,4 +30,4 @@ El escenario final debería ser el siguiente:
 [Enunciado en PDF][PDF]
 
 [PDF]: 
-https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos//master/Proyectos/2.Par%C3%A1metros%20y%20Entrada-Salida/5.1.Envido%20simple%20con%20par%C3%A1metros/assets/resources/description.pdf "Enunciado de 'Envido simple con parámetros' en PDF"
+https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/2.Par%C3%A1metros%20y%20Entrada-Salida/5.1.Envido%20simple%20con%20par%C3%A1metros/assets/resources/description.pdf "Enunciado de 'Envido simple con parámetros' en PDF"
