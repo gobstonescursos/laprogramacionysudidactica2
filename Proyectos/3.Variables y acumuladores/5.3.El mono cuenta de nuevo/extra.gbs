@@ -12,7 +12,7 @@ function  estáElMonoEnElFinDeLaFila()    { return(aux_estáElMonoEnElFin())    
 
 /*@ATTRIBUTE@block_name@Tildar la manzana@*/
 procedure TildarLaManzana()              { AuxTildarLaManzana()                       }
-/*@ATTRIBUTE@block_name@Tildar las bananas@*/
+/*@ATTRIBUTE@block_name@Tildar las bananas si hay@*/
 procedure TildarLasBananas()             { AuxTildarLaBanana()                        }
 /*@ATTRIBUTE@block_name@número de manzanas@*/
 function  nroManzanas()                   { return(aux_nroManzanasEnLaCeldaActual()) }

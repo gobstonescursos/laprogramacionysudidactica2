@@ -7,8 +7,6 @@ attire:
 blocks:
   defaultToolbox: |
     <category name="Comandos básicos">
-        <block type="AlternativaSimple"></block>
-        <block type="RepeticionSimple"></block>
         <block type="RepeticionCondicional"></block>
         <block type="Asignacion"></block>
     </category>
