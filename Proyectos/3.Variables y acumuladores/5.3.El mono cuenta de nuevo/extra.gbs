@@ -29,6 +29,10 @@ procedure AuxVerificarPersonajeParaComando() {
     if (not aux_estáElMonoEnLaCeldaActual())    { BOOM("No puedo darle instrucciones al mono si no está en esta celda") }
 }
 
+procedure AuxVerificarQueNoEsElFin() {
+    if (not aux_estáElMonoEnElFin())            { BOOM("No puedo tildar la celda de fin de fila") }
+}
+
 procedure AuxVerificarPersonajeParaFunción() {
     if (not aux_estáElMonoEnLaCeldaActual())    { BOOM("No puedo hacerle preguntas al mono si no está en esta celda") }
 }
@@ -53,6 +57,7 @@ procedure AuxCambiarAlMonoDeFila() {
 
 procedure AuxTildarLaManzana() { 
     AuxVerificarPersonajeParaComando() 
+    AuxVerificarQueNoEsElFin()
     AuxPonerIndicador()
 }
 
