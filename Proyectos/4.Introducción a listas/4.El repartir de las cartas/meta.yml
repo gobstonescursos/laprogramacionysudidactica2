@@ -11,8 +11,6 @@ blocks:
         <block type="Asignacion"></block>
     </category>
     <category name="Expresiones básicas">
-        <block type="math_number"></block>
-        <block type="OperadorNumerico"></block>
         <block type="not"></block>
     </category>
     <category name="Operaciones de cartas">
@@ -27,7 +25,6 @@ blocks:
     <category name="Definiciones">
         <block type="procedures_defnoreturn"></block>
         <block type="procedures_defreturnsimplewithparams"></block>
-        <block type="procedures_defreturn"></block>
     </category>
 board:
   active: 1
