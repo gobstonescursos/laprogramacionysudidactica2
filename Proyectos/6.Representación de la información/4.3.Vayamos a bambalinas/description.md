@@ -1,4 +1,4 @@
-# Proyecto 4.2. Vayamos a bambalinas: _"El alien toca botón"_
+# Proyecto 4.3. Vayamos a bambalinas: _"El alien toca botón"_
 
 La actividad _"El alien toca botón"_ es una actividad diseñada para empezar a descubrir la idea de procedimientos primitivos,
 y para empezar a explorar lo que se puede conseguir a través de la codificación con bolitas en un curso inicial.
@@ -41,7 +41,7 @@ en lugar de **GobstonesJr**, e indagar al respecto de las cosas nuevas que vas a
 
 [Enunciado en PDF][PDF]
 
-[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/6.Representaci%C3%B3n%20de%20la%20informaci%C3%B3n/4.2.Vayamos%20a%20bambalinas/assets/resources/description.pdf "Enunciado de 'Vayamos a bambalinas: El alien toca botón' en PDF"
+[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/6.Representaci%C3%B3n%20de%20la%20informaci%C3%B3n/4.3.Vayamos%20a%20bambalinas/assets/resources/description.pdf "Enunciado de 'Vayamos a bambalinas: El alien toca botón' en PDF"
 
 [1]: En el link vas a ver la versión _online_ de **GobstonesTeacher**; desde ahí también podés bajarte la versión para 
 trabajar _offline_ en tu computadora.
