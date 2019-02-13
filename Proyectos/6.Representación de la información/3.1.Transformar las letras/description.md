@@ -25,4 +25,4 @@ Tu trabajo es entender cómo están hechas, y utilizarlas para completar la deco
 [Enunciado en PDF][PDF]
 
 [PDF]: 
-https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/6.Representaci%C3%B3n%20de%20la%20informaci%C3%B3n/3.1.Transformar%20las%20letras/resources/description.pdf "Enunciado de 'Transformar las letras' en PDF"
+https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/6.Representaci%C3%B3n%20de%20la%20informaci%C3%B3n/3.1.Transformar%20las%20letras/assets/resources/description.pdf "Enunciado de 'Transformar las letras' en PDF"
