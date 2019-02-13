@@ -36,4 +36,4 @@ Así se vería un posible escenario final exitoso:
 [Enunciado en PDF][PDF]
 
 [PDF]: 
-https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/6.Representaci%C3%B3n%20de%20la%20informaci%C3%B3n/1.En%20los%20ojos%20de%20la%20compu/resources/description.pdf "Enunciado de 'En los ojos de la compu' en PDF"
+https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/6.Representaci%C3%B3n%20de%20la%20informaci%C3%B3n/1.En%20los%20ojos%20de%20la%20compu/assets/resources/description.pdf "Enunciado de 'En los ojos de la compu' en PDF"
