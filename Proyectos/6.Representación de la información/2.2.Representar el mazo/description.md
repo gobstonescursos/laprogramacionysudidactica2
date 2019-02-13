@@ -23,4 +23,4 @@ Un escenario final posible sería el siguiente:
 
 [Enunciado en PDF][PDF]
 
-[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/6.Representaci%C3%B3n%20de%20la%20informaci%C3%B3n/2.2.Representar%20el%20mazo/resources/description.pdf "Enunciado de 'Representar el mazo' en PDF"
+[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/6.Representaci%C3%B3n%20de%20la%20informaci%C3%B3n/2.2.Representar%20el%20mazo/assets/resources/description.pdf "Enunciado de 'Representar el mazo' en PDF"
