@@ -31,7 +31,7 @@ El enunciado de la actividad dice:
 Pero en este curso, la idea no es que realices el objetivo de _"El alien toca botón"_ (aunque claramente podés hacerlo, pues
 la actividad funciona en **GobstonesJr**), sino que investigues _cómo está hecho por dentro_. 
 Para eso tenés que abrir el proyecto utilizando 
-[**GobstonesTeacher**](https://gobstones.github.io/gobstones-teacher/?course=gobstones/laprogramacionysudidactica2&github=gobstones/laprogramacionysudidactica2&path=Proyectos/6.Representaci%C3%B3n%20de%20la%20informaci%C3%B3n/4.2.Vayamos%20a%20bambalinas)<sup>[1]</sup> 
+[**GobstonesTeacher**](https://gobstones.github.io/gobstones-teacher/?course=gobstones/laprogramacionysudidactica2&github=gobstones/laprogramacionysudidactica2&path=Proyectos/6.Representaci%C3%B3n%20de%20la%20informaci%C3%B3n/4.3.Vayamos%20a%20bambalinas)<sup>[1]</sup> 
 en lugar de **GobstonesJr**, e indagar al respecto de las cosas nuevas que vas a ir encontrando.
 
 > **Inspiración**

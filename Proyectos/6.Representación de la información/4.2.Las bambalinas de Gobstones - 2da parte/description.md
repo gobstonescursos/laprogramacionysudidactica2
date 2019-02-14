@@ -23,4 +23,4 @@ Las bolitas negras representan el código de cada elemento (los '*' representan 
 
 [Enunciado en PDF][PDF]
 
-[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/6.Representaci%C3%B3n%20de%20la%20informaci%C3%B3n/4.2.Las%20bambalinas%20de%20Gobstones%20-%202da%20parte/resources/description.pdf "Enunciado de 'Las bambalinas de Gobstones (2): Representar el mazo' en PDF"
+[PDF]: https://raw.githubusercontent.com/gobstones/laprogramacionysudidactica2/master/Proyectos/6.Representaci%C3%B3n%20de%20la%20informaci%C3%B3n/4.2.Las%20bambalinas%20de%20Gobstones%20-%202da%20parte/assets/resources/description.pdf "Enunciado de 'Las bambalinas de Gobstones (2): Representar el mazo' en PDF"
