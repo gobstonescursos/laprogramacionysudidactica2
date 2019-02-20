@@ -179,9 +179,9 @@ procedure AuxResetearLaMáquina() {
    AuxIrAPosiciónDeServir()
 }   
 
-function auxNoComenzó()                 { return (nroBolitas(aux_paso()) == 0 && nroBolitas(Negro) == 0) }
-function auxVaPorElPasoDePonerBananas() { return (nroBolitas(aux_paso()) > 3  && nroBolitas(Negro) == 5) }
-function auxFaltan_Pasos(i)             { return (nroBolitas(aux_paso()) == i && nroBolitas(Negro) == 5) }
+function auxNoComenzó()                 { return (nroBolitas(aux_paso()) == 0 && nroBolitas(Negro) == 0 && nroBolitas(Rojo) == 0) }
+function auxVaPorElPasoDePonerBananas() { return (nroBolitas(aux_paso()) > 3  && nroBolitas(Negro) == 5 && nroBolitas(Rojo) == 0) }
+function auxFaltan_Pasos(i)             { return (nroBolitas(aux_paso()) == i && nroBolitas(Negro) == 5 && nroBolitas(Rojo) == 0) }
 
 procedure AuxPonerBanana()              { Poner(aux_banana())  }
 procedure AuxHacerUnPasoDelLicuado()    { Sacar(aux_paso())    }   

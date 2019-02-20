@@ -231,13 +231,16 @@ procedure AuxResetearLaMáquina() {
    AuxIrAPosiciónDeServir()
 }   
 
-function auxNoComenzó()     { return (nroBolitas(aux_paso()) == 0 && nroBolitas(aux_elemento()) == 0) }
+function auxNoComenzó()     { return (nroBolitas(aux_paso()) == 0 && nroBolitas(aux_elemento()) == 0 && nroBolitas(Rojo) == 0) }
 function auxFaltan_Pasos(i) { 
   return (nroBolitas(aux_paso()) == i 
-       && nroBolitas(aux_elemento()) == 5+aux_offsetDeRepresentación(aux_frutaSeleccionada())) 
+       && nroBolitas(aux_elemento()) == 5+aux_offsetDeRepresentación(aux_frutaSeleccionada())
+       && nroBolitas(Rojo) == 0) 
 }
 function auxVaPorElPasoDePonerFrutas(fruta) { 
-  return (nroBolitas(aux_paso()) > 3  && nroBolitas(aux_elemento()) == 5+aux_offsetDeRepresentación(fruta)) 
+  return (nroBolitas(aux_paso()) > 3  
+       && nroBolitas(aux_elemento()) == 5+aux_offsetDeRepresentación(fruta) 
+       && nroBolitas(Rojo) == 0) 
 }
 
 function aux_hayMarcasSelección() { return(hayBolitas(aux_marcaSelección())) }
