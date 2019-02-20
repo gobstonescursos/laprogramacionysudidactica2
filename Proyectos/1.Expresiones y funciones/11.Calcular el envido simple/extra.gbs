@@ -2128,4 +2128,11 @@ function cartaDerecha() {
 
 procedure DecirNúmero_(valor) {
   AuxPonerNúmero(valor)
+  AuxValidarSalida(valor == aux_envido(cartaDerecha(), cartaIzquierda()))
+}
+
+function aux_envido(carta1, carta2) { return(dameElNúmero_(carta1)+dameElNúmero_(carta2)+20) }
+
+procedure AuxValidarSalida(condición) {
+  if (not condición) then { BOOM("¡No informaste el número correcto!") }
 }
