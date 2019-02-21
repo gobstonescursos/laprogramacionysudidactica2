@@ -14,9 +14,9 @@ nada durante el trabajo…
 >
 > Como vimos, esta estrategia (este _algoritmo_) se conoce como _"selection sort"_, porque en cada
 > paso selecciona el mínimo. Sin embargo hay muchas formas diferentes de solucionar el problema de ordenar
-> una lista, y cada una tiene sus propias características, que dependen de muchos factores del conexto. 
+> una lista, y cada una tiene sus propias características, que dependen de muchos factores del contexto. 
 > La programación se encarga, entre muchas otras cosas, de estudiar estas características para estar en 
-> condiciones de elegir una buena solución para un   conexto dado.
+> condiciones de elegir una buena solución para un contexto dado.
 
 [Enunciado en PDF][PDF]
 
