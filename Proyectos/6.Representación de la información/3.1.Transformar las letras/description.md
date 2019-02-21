@@ -15,6 +15,14 @@ una lista de códigos (`listaDeCódigosDeLasLetras_`), para restarle 2 a cada n�
 y para convertir una lista de códigos en la lista de letras correspondiente (`listaDeLetrasDeLosCódigos_`).
 Tu trabajo es entender cómo están hechas, y utilizarlas para completar la decodificación.
 
+Para referencia, te contamos de qué tipo son los datos de entrada y salida de cada una de las funciones:
+
+| Función                            |&nbsp; Tipo de los datos de entrada &nbsp;|&nbsp; Tipo de los datos de salida &nbsp;| Propósito                                                               | 
+|------------------------------------|------------------------------------------|-----------------------------------------|-------------------------------------------------------------------------|
+| `listaDeCódigosDeLasLetras_` &nbsp;| Lista de letras                          | Lista de números                        | Transformar la lista de letras en la lista de sus códigos               |
+| `convertirSegúnCésarMenos2_` &nbsp;| Lista de números                         | Lista de números                        | Transformar una lista de códigos en otra (según el código del César -2) | 
+| `listaDeLetrasDeLosCódigos_` &nbsp;| Lista de números                         | Lista de letras                         | Transformar una lista de códigos en la lista de sus letras              |
+
 > **Usando los procedimientos y funciones**
 >
 > En muchos casos, al construir un programa, ya hay muchos procedimientos y funciones hechos (de otros programas anteriores y/o 
