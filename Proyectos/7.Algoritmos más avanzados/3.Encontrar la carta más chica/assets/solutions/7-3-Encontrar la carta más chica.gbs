@@ -12,7 +12,7 @@ function laCartaMásChicaDe(mazo) {
     if (esMenorCarta__(dameLaPrimeraCartaDe_(cartasQueFaltaMirar), cartaMásChicaVistaHastaAhora)) {
       cartaMásChicaVistaHastaAhora := dameLaPrimeraCartaDe_(cartasQueFaltaMirar)
     }
-    cartasQueFaltaMirar := sinLaCartaMásChica_(cartasQueFaltaMirar)
+    cartasQueFaltaMirar := sacarLaPrimeraCartaDe_(cartasQueFaltaMirar)
   }
   return (cartaMásChicaVistaHastaAhora)
 }
