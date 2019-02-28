@@ -1,37 +1,35 @@
-program {
-  IrAlInicioDeLaEntrada()
-  textoOriginal := textoDeEntrada()
-  IrAlInicioDeLaSalida()
-  InformarEnEsteLugarLaListaDeLetras_(listaDeLetrasDeLosCódigos(convertirSegúnCésarMenos2(listaDeCódigosDeLetras(textoOriginal))))
+function decodificadas(letras) {
+  return (listaDeLetrasDeLosCódigos(convertirSegúnCésarMenos2(listaDeCódigosDeLetras(letras))))
 }
 
 function listaDeCódigosDeLetras(letras) {
-  lasLetrasQueFaltanProcesar := letras
   losCódigosYaVistos := listaVacía()
-  while (not (estáVacía_(lasLetrasQueFaltanProcesar))) {
-    losCódigosYaVistos := agregarAlFinalDeLaLista__(losCódigosYaVistos, códigoDeLaLetra_(primerElemento_(lasLetrasQueFaltanProcesar)))
-    lasLetrasQueFaltanProcesar := resto_(lasLetrasQueFaltanProcesar)
+  foreach letra in letras {
+    losCódigosYaVistos := agregarAlFinalDeLaLista__(losCódigosYaVistos, códigoDeLaLetra_(letra))
   }
   return (losCódigosYaVistos)
 }
 
 function convertirSegúnCésarMenos2(códigosDeLetras) {
-  losCódigosQueFaltanProcesar := códigosDeLetras
   losCódigosYaProcesados := listaVacía()
-  while (not (estáVacía_(losCódigosQueFaltanProcesar))) {
-    losCódigosYaProcesados := agregarAlFinalDeLaLista__(losCódigosYaProcesados, primerElemento_(losCódigosQueFaltanProcesar) - 2)
-    losCódigosQueFaltanProcesar := resto_(losCódigosQueFaltanProcesar)
+  foreach código in códigosDeLetras {
+    losCódigosYaProcesados := agregarAlFinalDeLaLista__(losCódigosYaProcesados, código - 2)
   }
   return (losCódigosYaProcesados)
 }
 
 function listaDeLetrasDeLosCódigos(códigos) {
-  losCódigosQueFaltanProcesar := códigos
   lasLetrasYaVistas := listaVacía()
-  while (not (estáVacía_(losCódigosQueFaltanProcesar))) {
-    lasLetrasYaVistas := agregarAlFinalDeLaLista__(lasLetrasYaVistas, letraDelCódigo_(primerElemento_(losCódigosQueFaltanProcesar)))
-    losCódigosQueFaltanProcesar := resto_(losCódigosQueFaltanProcesar)
+  foreach código in códigos {
+    lasLetrasYaVistas := agregarAlFinalDeLaLista__(lasLetrasYaVistas, letraDelCódigo_(código))
   }
   return (lasLetrasYaVistas)
 }
 
+
+program {
+  IrAlInicioDeLaEntrada()
+  textoOriginal := textoDeEntrada()
+  IrAlInicioDeLaSalida()
+  InformarEnEsteLugarLaListaDeLetras_(decodificadas(textoOriginal))
+}
