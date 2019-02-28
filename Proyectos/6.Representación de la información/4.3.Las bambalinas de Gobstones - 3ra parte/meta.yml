@@ -13,8 +13,8 @@ blocks:
     </category>
     <category name="Expresiones básicas">
         <block type="math_number"></block>
-        <block type="Color"></block>
-        <block type="Direccion"></block>
+        <block type="ColorSelector"></block>
+        <block type="DireccionSelector"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">  </category>
