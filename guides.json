@@ -196,8 +196,11 @@
 	, { "id": "4.2", "name": "Las bambalinas de Gobstones (2)"
       , "path": "Proyectos/6.Representación de la información/4.2.Las bambalinas de Gobstones - 2da parte"
       }
-	, { "id": "4.3", "name": "Vayamos a bambalinas"
-      , "path": "Proyectos/6.Representación de la información/4.3.Vayamos a bambalinas"
+	, { "id": "4.3", "name": "Las bambalinas de Gobstones (3)"
+      , "path": "Proyectos/6.Representación de la información/4.3.Las bambalinas de Gobstones - 3ra parte"
+      }
+	, { "id": "5", "name": "Vayamos a bambalinas"
+      , "path": "Proyectos/6.Representación de la información/5.Vayamos a bambalinas"
       }
 	 ] 
   }
