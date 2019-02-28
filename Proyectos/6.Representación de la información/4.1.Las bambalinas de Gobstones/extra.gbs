@@ -18,7 +18,7 @@ procedure CambiarUnElementoBPorUnElementoC() {
           { Sacar(Rojo) } 
      else { BOOM("No hay un elemento B tipo para cambiar") } }
 
-/*@ATTRIBUTE@block_name@Transformar todos los elementos A por elementos B@*/
+/*@ATTRIBUTE@block_name@Esperar a que todos los elementos A se vuelvan elementos B@*/
 procedure CambiarTodosLosElementosAPorElementosB() {
     while (auxHaySiguienteCelda()) {
         AuxPasarASiguienteCelda()
