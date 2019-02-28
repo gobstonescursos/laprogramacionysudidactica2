@@ -11,17 +11,17 @@ Observá que el código de la letra 'H' es 18 y el código de la 'J' es 20 (o se
 y el código de la 'A' es 11 y el de la 'C' es 13 (o sea 11+2), etc.
 
 En el programa que viene comenzado ya están hechas las funciones que sirven para convertir una lista de letras en
-una lista de códigos (`listaDeCódigosDeLasLetras_`), para restarle 2 a cada número de una lista (`convertirSegúnCésarMenos2_`) 
+una lista de códigos (`listaDeCódigosDeLasLetras_`), para restarle 2 a cada número de una lista (`convertidasSegúnCésarMenos2_`) 
 y para convertir una lista de códigos en la lista de letras correspondiente (`listaDeLetrasDeLosCódigos_`).
 Tu trabajo es entender cómo están hechas, y utilizarlas para completar la decodificación.
 
 Para referencia, te contamos de qué tipo son los datos de entrada y salida de cada una de las funciones:
 
-| Función                            |&nbsp; Tipo de los datos de entrada &nbsp;|&nbsp; Tipo de los datos de salida &nbsp;| Propósito                                                               | 
-|------------------------------------|------------------------------------------|-----------------------------------------|-------------------------------------------------------------------------|
-| `listaDeCódigosDeLasLetras_` &nbsp;| Lista de letras                          | Lista de números                        | Transformar la lista de letras en la lista de sus códigos               |
-| `convertirSegúnCésarMenos2_` &nbsp;| Lista de números                         | Lista de números                        | Transformar una lista de códigos en otra (según el código del César -2) | 
-| `listaDeLetrasDeLosCódigos_` &nbsp;| Lista de números                         | Lista de letras                         | Transformar una lista de códigos en la lista de sus letras              |
+| Función                              |&nbsp; Tipo de los datos de entrada &nbsp;|&nbsp; Tipo de los datos de salida &nbsp;| Propósito                                                               | 
+|--------------------------------------|------------------------------------------|-----------------------------------------|-------------------------------------------------------------------------|
+| `listaDeCódigosDeLasLetras_`   &nbsp;| Lista de letras                          | Lista de números                        | Transformar la lista de letras en la lista de sus códigos               |
+| `convertidasSegúnCésarMenos2_` &nbsp;| Lista de números                         | Lista de números                        | Transformar una lista de códigos en otra (según el código del César -2) | 
+| `listaDeLetrasDeLosCódigos_`   &nbsp;| Lista de números                         | Lista de letras                         | Transformar una lista de códigos en la lista de sus letras              |
 
 > **Usando los procedimientos y funciones**
 >

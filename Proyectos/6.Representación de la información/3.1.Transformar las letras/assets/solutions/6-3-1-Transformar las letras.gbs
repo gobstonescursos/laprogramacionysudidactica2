@@ -1,5 +1,5 @@
 function decodificadas(letras) {
-  return (listaDeLetrasDeLosCódigos(convertirSegúnCésarMenos2(listaDeCódigosDeLetras(letras))))
+  return (listaDeLetrasDeLosCódigos(convertidasSegúnCésarMenos2(listaDeCódigosDeLetras(letras))))
 }
 
 function listaDeCódigosDeLetras(letras) {
@@ -10,7 +10,7 @@ function listaDeCódigosDeLetras(letras) {
   return (losCódigosYaVistos)
 }
 
-function convertirSegúnCésarMenos2(códigosDeLetras) {
+function convertidasSegúnCésarMenos2(códigosDeLetras) {
   losCódigosYaProcesados := listaVacía()
   foreach código in códigosDeLetras {
     losCódigosYaProcesados := agregarAlFinalDeLaLista__(losCódigosYaProcesados, código - 2)
