@@ -3,7 +3,7 @@
 Por tercera vez, debemos ayudar a Nano a comer todas las bananas.
 Y al igual que en la actividad anterior, debemos hacerlo con un único procedimiento para comer una fila,
 y un único procedimiento para comer todas las filas. Podemos usar una lista literal, como hicimos en la
-actividad anterior, pero, ¿cómo hacemos para recorrer la lista si no tenemos repetición condicional?
+actividad anterior, pero, ¿cómo hacemos para recorrer la lista si no tenemos variables?
 
 ¡A indagar!
 

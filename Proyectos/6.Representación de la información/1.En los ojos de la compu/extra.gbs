@@ -1815,9 +1815,9 @@ type Mazo is record {
 /---------------------------------------------------------------------------------------------------*/
 function mazoVacío()                      { return(aux_armarMazoVacío())               }
 
-/*@ATTRIBUTE@block_name@agregar al mazo _ la carta _ al final@*/ 
+/*@ATTRIBUTE@block_name@mazo _ con la carta _ al final@*/ 
 function agregarAlFinalDelMazo__(m,c)     { return(aux_agregarAlFinalDelMazo(m,c))     }
-/*@ATTRIBUTE@block_name@agregar al mazo _ la carta _ al principio@*/ 
+/*@ATTRIBUTE@block_name@mazo _ con la carta _ al principio@*/ 
 function agregarAlPrincipioDelMazo__(m,c) { return(aux_agregarAlPrincipioDelMazo(m,c)) }
 
 function juntarMazos__(m1,m2)             { return(aux_juntarMazos(m1,m2))             }
@@ -1827,7 +1827,7 @@ function mazoEspañol()                    { return(aux_mazoEspañolCompleto()) 
 //---------------------------------------------------------------------------------------------------/
 /*----------------------- Operaciones de acceso a un mazo español (interfaz) ------------------------/
 /---------------------------------------------------------------------------------------------------*/
-/*@ATTRIBUTE@block_name@quedan cartas en _?@*/ 
+/*@ATTRIBUTE@block_name@¿quedan cartas en _?@*/ 
 function quedanCartas_(m)              { return(aux_quedanCartas(m))            }
 
 /*@ATTRIBUTE@block_name@cantidad de cartas del mazo _@*/ 
@@ -2145,7 +2145,7 @@ function losPrimeros__(n,números) { return(aux_take(n,números))      }
 function losÚltimos__(n,números)  { return(aux_drop(aux_cantidadDeElementos(números)-n,números))      }
 
 function listaVacía() { return([]) }
-/*@ATTRIBUTE@block_name@agregar a la lista _ el valor _ al final@*/
+/*@ATTRIBUTE@block_name@la lista _ con el valor _ al final@*/
 function agregarAlFinalDeLaLista__(lista, elemento) { return (lista ++ [elemento]) }
 
 function códigoDeLaLetra_(letra) { return (aux_códigoParaLaLetra(letra)) }

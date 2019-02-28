@@ -2132,7 +2132,7 @@ function  cantidadDeElementos_(lista) { return (aux_cantidadDeElementos(lista)) 
 function  sumaDeLosElementos_(lista)  { return (aux_sumaDeLosElementos(lista))  }
 
 function listaVacía() { return([]) }
-/*@ATTRIBUTE@block_name@agregar a la lista _ el número _ al final@*/
+/*@ATTRIBUTE@block_name@lista _ con el número _ al final@*/
 function agregarAlFinalDeLaLista__(lista, elemento) { return (lista ++ [elemento]) }
 
 procedure InformarNúmero_(número)     { AuxInformarNúmero(número)               }
