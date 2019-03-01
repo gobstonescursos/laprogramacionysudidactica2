@@ -15,7 +15,7 @@ blocks:
     <category name="Expresiones básicas">
         <block type="not"></block>
     </category>
-    <category name="Operaciones de cartas">
+    <category name="Operaciones de mazos">
         <block type="mazoActual"></block>
         <block type="InformarEnEsteLugarElMazo_"></block>
         <block type="quedanCartas_"></block>
