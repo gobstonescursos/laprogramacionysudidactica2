@@ -17,6 +17,9 @@ blocks:
         <block type="not"></block>
     </category>
     <category name="Operaciones de cartas">
+        <block type="esMenorCarta__"></block>
+    </category>
+    <category name="Operaciones de mazos">
         <block type="mazoActual"></block>
         <block type="InformarEnEsteLugarElMazo_"></block>
         <block type="quedanCartas_"></block>
@@ -25,7 +28,6 @@ blocks:
         <block type="sinLaCartaMásChica_"></block>
         <block type="mazoVacío"></block>
         <block type="agregarAlFinalDelMazo__"></block>
-        <block type="esMenorCarta__"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">  </category>
