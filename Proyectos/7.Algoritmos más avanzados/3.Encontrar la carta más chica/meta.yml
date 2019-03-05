@@ -11,6 +11,7 @@ blocks:
         <block type="IrAlInicioDeLaSalida"></block>
         <block type="AlternativaSimple"></block>
         <block type="RepeticionCondicional"></block>
+        <block type="ForEach"></block>
         <block type="Asignacion"></block>
     </category>
     <category name="Expresiones básicas">
@@ -28,6 +29,7 @@ blocks:
         <block type="sinLaCartaMásChica_"></block>
         <block type="mazoVacío"></block>
         <block type="agregarAlFinalDelMazo__"></block>
+        <block type="cartasDe_"></block>
     </category>
     <category name="Mis procedimientos" custom="PROCEDURE_CALLS">  </category>
     <category name="Mis funciones" custom="FUNCTION_CALLS">  </category>
