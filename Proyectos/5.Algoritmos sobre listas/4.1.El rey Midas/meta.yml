@@ -7,8 +7,6 @@ attire:
 blocks:
   defaultToolbox: |
     <category name="Comandos básicos">
-        <block type="ExpresionCompletar"></block>
-        <block type="ComandoCompletar"></block>
         <block type="IrAlInicioDeLaEntrada"></block>
         <block type="IrAlInicioDeLaSalida"></block>
         <block type="InformarCarta_"></block>
