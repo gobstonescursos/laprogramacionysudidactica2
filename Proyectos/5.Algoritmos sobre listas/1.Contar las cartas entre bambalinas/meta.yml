@@ -16,7 +16,7 @@ blocks:
         <block type="OperadorNumerico"></block>
         <block type="not"></block>
     </category>
-    <category name="Operaciones de cartas">
+    <category name="Operaciones de mazos">
         <block type="mazoActual"></block>
         <block type="quedanCartas_"></block>
         <block type="dameLaPrimeraCartaDe_"></block>
