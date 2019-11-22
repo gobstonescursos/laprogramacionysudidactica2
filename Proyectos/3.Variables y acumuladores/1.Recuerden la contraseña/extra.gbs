@@ -15,6 +15,7 @@ procedure AbrirElCuaderno() {
   Poner(aux_colorDelEscritorio())
 }
 
+/*@ATTRIBUTE@block_name@Escribir en el pizarrón _@*/
 procedure EscribirLaContraseña_(passwd) {
   if (not aux_hayDocente())      { BOOM("No puedo darle órdenes a la docente si no está en la celda actual") }
   if (not aux_hayPizarrón())     { BOOM("La docente no llegó al pizarrón")                                   }
