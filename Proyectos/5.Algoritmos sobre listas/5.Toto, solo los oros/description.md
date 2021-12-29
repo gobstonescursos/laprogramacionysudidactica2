@@ -19,8 +19,9 @@ No tenés que agregar todas las cartas… ¿Cómo elegir cuáles van y cuáles n
 
 > **Un recorrido con alternativas**
 >
-> ¿Te acordás de las actividades de _"Dino aprende a no comer chatarra"_ o de _"El rey, el caballo, …"_?
-> La estrategia para esta actividad es similar a esas.
+> ¿Te acordás de las actividades de _"El rey, el caballo, …"_ de este curso, o _"Laberinto con queso"_ del curso LPySD1 y PilasBloques? 
+> ¿Y de la actividad _"Dino aprende a no comer chatarra"_?
+> La estrategia para esta actividad usa elementos trabajados en esas actividades.
 
 [Enunciado en PDF][PDF]
 

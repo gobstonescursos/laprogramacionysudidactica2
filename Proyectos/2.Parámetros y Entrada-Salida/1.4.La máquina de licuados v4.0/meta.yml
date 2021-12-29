@@ -16,6 +16,7 @@ blocks:
     </category>
     <category name="Expresiones básicas">
         <block type="math_number"></block>
+        <block type="fruta_"></block>
         <block type="cantidadEnElDisplay"></block>
         <block type="frutaSeleccionada"></block>
     </category>
